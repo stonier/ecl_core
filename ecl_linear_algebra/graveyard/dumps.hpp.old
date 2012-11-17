@@ -1,0 +1,140 @@
+/**
+ * @file /ecl_linear_algebra/include/ecl/linear_algebra/dumps.hpp
+ *
+ * @brief Formatters for eigen types.
+ *
+ * @date September 2010
+ **/
+/*****************************************************************************
+** Ifdefs
+*****************************************************************************/
+
+#ifndef ECL_LINEAR_ALGEBRA_DUMPS_HPP_
+#define ECL_LINEAR_ALGEBRA_DUMPS_HPP_
+
+/*****************************************************************************
+** Includes
+*****************************************************************************/
+
+#include <iostream>
+#include <fstream>
+#include <ecl/errors/standard_exception.hpp>
+#include <ecl/mpl/enable_if.hpp>
+#include <ecl/mpl/type_traits.hpp>
+
+#include <boost/archive/binary_iarchive.hpp>
+#include <boost/archive/binary_oarchive.hpp>
+
+#include "../Eigen2/Core"
+
+/*****************************************************************************
+** Namespaces
+*****************************************************************************/
+namespace Eigen {
+
+
+
+/*****************************************************************************
+** Interface [EigenDump]
+*****************************************************************************/
+
+/**
+ * @brief write/read data through iostream
+ *
+  *
+ * @tparam Derived : MatrixBase's type which specify the matrix as vector, matrix with any storage type
+ *
+ * @todo
+ * specialise the sparse matrix
+ */
+template<typename Derived>
+class EigenDump
+{
+public:
+	/******************************************
+	** C&D's
+	*******************************************/
+	/**
+	 * @brief Default constructor.
+	 *
+	 **/
+	EigenDump()
+	{}
+
+	virtual ~EigenDump()
+	{}
+
+	/**
+	 *  serialization of matrix onto image
+	 *
+	 *  This function just write the size of matrix and data inside storages.
+	 *
+	 * @param ofs : output file stream
+	 * @param matrix : matrix storage will be serialised.
+	 */
+	void save( std::ofstream & ofs, const Derived & matrix )
+	{
+		boost::archive::binary_oarchive oa(ofs);
+
+		// write size of matrix
+		int rs = matrix.rows();
+		int cs = matrix.cols();
+		oa << rs;
+		oa << cs;
+
+		// write element
+		for( int i=0; i<matrix.rows(); i++ )
+		{
+			for( int j=0; j<matrix.cols(); j++ )
+			{
+				oa << matrix.coeff(i,j);
+			}
+		}
+	}
+
+	/**
+	 * getting serialised data
+	 * 	 *
+	 * @param ifs : input file stream
+	 * @param matrix : target matrix
+	 *
+	 * @note
+	 * At this moment, type and size of matrix are important. So that i have looked inside
+	 * Eigen::Matrix and Eigen::MatrixBase. They have already some assertion during the resize.
+	 * So i do not put size checking
+	 * Suppose if matrix is MatrixXd(3,4) and ifs has 4,3 data set, this funtion will return MatrixXd(4,3)
+	 */
+	void load( std::ifstream & ifs, Derived & matrix )
+	{
+		boost::archive::binary_iarchive ia(ifs);
+
+		// read the size of matrix
+		int rs, cs;
+		ia >> rs;
+		ia >> cs;
+
+		Derived m(rs,cs);
+		/*
+		 * @todo
+		 * At this moment, i want to resize the matrix, however it does not work now.
+		 * probably i need to study about MatrixBase...
+		 */
+
+		for( int i=0; i<rs; i++ )
+		{
+			for( int j=0; j<cs; j++ )
+			{
+				ia >> m.coeffRef(i,j);
+			}
+		}
+
+		matrix = m;
+	}
+
+};
+
+
+} // namespace Eigen
+
+
+#endif /* ECL_LINEAR_ALGEBRA_DUMPS_HPP_ */

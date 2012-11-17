@@ -1,0 +1,11 @@
+prefix=@CMAKE_INSTALL_PREFIX@
+exec_prefix=${prefix}
+
+Name: ecl_utilities
+Description: ECL utilities.
+Version: @PROJECT_VERSION@
+URL: http://code.google.com/p/embedded-control-library/
+
+Requires: ecl_errors, ecl_mpl, ecl_concepts
+includedir=${prefix}/include
+Cflags: -I${includedir}

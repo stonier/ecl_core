@@ -1,0 +1,3 @@
+ - builder: doxygen
+   excludes: '/mnt/zaphod/code/ros/ecl/ecl_core/ecl_time/include/ecl/time/timestamp_w32.hpp /mnt/zaphod/code/ros/ecl/ecl_core/ecl_time/src/lib/timestamp_w32.cpp'
+

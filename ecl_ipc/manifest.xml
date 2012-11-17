@@ -1,0 +1,27 @@
+<package>
+  <description brief="Cross platform framework for inter-process mechanisms">
+
+  Interprocess mechanisms vary greatly across platforms - sysv, posix, win32, there
+  are more than a few. This package provides an infrastructure to allow for developing 
+  cross platform c++ wrappers around the lower level c api's that handle these 
+  mechanisms. These make it not only easier to utilise such mechanisms, but allow it 
+  to be done consistently across platforms.
+
+  </description>
+  <author>Daniel Stonier (d.stonier@gmail.com)</author>
+  <license>BSD</license>
+  <review status="experimental" notes=""/>
+  <url>http://snorriheim.dnsdojo.com/redmine/wiki/ecl</url>
+  
+  <depend package="ecl_config"/>
+  <depend package="ecl_errors"/>
+  <depend package="ecl_exceptions"/>
+  <depend package="ecl_time_lite"/>
+  <depend package="ecl_time"/>
+  <depend package="ecl_license"/>
+  <depend package="ecl_build"/>
+  
+  <export>
+    <cpp cflags="-I${prefix}/include" lflags="-Wl,-rpath,${prefix}/lib -L${prefix}/lib -lecl_ipc"/>
+  </export>
+</package>

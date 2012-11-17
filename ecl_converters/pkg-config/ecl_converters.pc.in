@@ -1,0 +1,10 @@
+prefix=@CMAKE_INSTALL_PREFIX@
+exec_prefix=${prefix}
+
+Name: ecl_converters
+Description: Cross platform converter classes.
+Version: @PROJECT_VERSION@
+URL: http://code.google.com/p/embedded-control-library/
+Requires: ecl_license, ecl_build, ecl_config, ecl_errors, ecl_exceptions, ecl_mpl, ecl_concepts, ecl_type_traits
+includedir=${prefix}/include
+Cflags: -I${includedir}

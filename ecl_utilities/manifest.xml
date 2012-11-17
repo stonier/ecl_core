@@ -1,0 +1,27 @@
+<package>
+  <description brief="Tools and utilities useful for c++ programming">
+
+     Includes various supporting tools and utilities for c++ programming.
+
+  </description>
+  <author>Daniel Stonier (d.stonier@gmail.com)</author>
+  <license>BSD</license>
+  <review status="doc reviewed" notes=""/>
+  <url>http://snorriheim.dnsdojo.com/redmine/wiki/ecl</url>
+  <export>
+    <cpp cflags="-I${prefix}/include"/>
+  </export>
+  <depend package="ecl_concepts"/>
+  <depend package="ecl_mpl"/>
+  <depend package="ecl_license"/>
+  <depend package="ecl_build"/>
+  <rosbuild2>
+    <export>
+      <include_dir>${ecl_utilities_SOURCE_DIR}/include</include_dir>
+    </export>
+    <depend package="ecl_concepts"/>
+    <depend package="ecl_mpl"/>
+    <depend package="ecl_license"/>
+    <depend package="ecl_build"/>
+  </rosbuild2>
+</package>

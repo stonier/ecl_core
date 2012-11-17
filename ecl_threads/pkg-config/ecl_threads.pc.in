@@ -1,0 +1,13 @@
+prefix=@CMAKE_INSTALL_PREFIX@
+exec_prefix=${prefix}
+
+Name: ecl_threads
+Description: ECL threads/mutex library.
+Version: @PROJECT_VERSION@
+URL: http://code.google.com/p/embedded-control-library/
+
+Requires: ecl_concepts, ecl_config, ecl_errors, ecl_time, ecl_utilities
+includedir=${prefix}/include
+libdir=${exec_prefix}/lib
+Libs: -L${libdir} -lecl_threads
+Cflags: -I${includedir}

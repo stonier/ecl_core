@@ -1,0 +1,17 @@
+<stack>
+  <description brief="Embedded control libraries wrapping core platform functionality">
+  <p>A set of tools and interfaces extending the capabilities of 
+  c++ to provide a lightweight, consistent interface with a focus for
+  control programming.
+  </p>
+  </description>
+  <author>Maintained by Daniel Stonier</author>
+  <license>BSD</license>  
+  <review status="proposal cleared" notes=""/>
+  <url>http://ros.org/wiki/ecl_core</url>
+  <depend stack="ecl_lite" /> <!-- ecl_errors, ecl_time_lite, ecl_config -->
+  <depend stack="ecl_tools" /> <!-- ecl_build, ecl_license -->
+  <depend stack="ros" />
+  <depend stack="common_rosdeps" />
+
+</stack>

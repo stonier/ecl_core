@@ -1,0 +1,21 @@
+<package>
+  <description brief="Many to many sigslot comms with thread safety and posix style naming">
+
+     Provides a signal/slot mechanism (in the same vein as qt sigslots, boost::signals etc.
+     for intra-process communication. These include some improvements - they do not need 
+     a preprocessor, are fully type safe,
+     allow for simple connections via a posix style string identifier and are multithread-safe.
+
+  </description>
+  <author>Daniel Stonier</author>
+  <license>BSD</license>
+  <review status="doc reviewed" notes=""/>
+  <url>http://snorriheim.dnsdojo.com/redmine/wiki/ecl</url>
+  <depend package="ecl_license"/>
+  <depend package="ecl_build"/>
+  <depend package="ecl_config"/>
+  <depend package="ecl_threads"/>
+  <export>
+    <cpp cflags="-I${prefix}/include/" lflags="-Wl,-rpath,${prefix}/lib -L${prefix}/lib -lecl_sigslots"/>
+  </export>
+</package>

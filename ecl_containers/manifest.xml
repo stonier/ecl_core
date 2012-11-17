@@ -1,0 +1,46 @@
+<package>
+  <description brief="Stl/Eigen style containers with a few memory debugging techniques.">
+    <p>
+	The containers included here are intended to extend the stl containers.
+	In all cases, these implementations are designed to implement
+	c++ conveniences and safety where speed is not sacrificed. 
+   </p>
+   <p>	
+	Also includes techniques for memory debugging of common problems such
+	as buffer overruns.
+   </p>
+
+  </description>
+  <author>Daniel Stonier (d.stonier@gmail.com)</author>
+  <license>BSD</license>
+  <review status="doc reviewed" notes=""/>
+  <url>http://snorriheim.dnsdojo.com/redmine/wiki/ecl</url>
+  <export>
+    <cpp cflags="-I${prefix}/include"/>
+  </export>
+  <depend package="ecl_license"/>
+  <depend package="ecl_build"/>
+  <depend package="ecl_config"/>
+  <depend package="ecl_errors"/>
+  <depend package="ecl_exceptions"/>
+  <depend package="ecl_formatters"/>
+  <depend package="ecl_converters"/>
+  <depend package="ecl_mpl"/>
+  <depend package="ecl_type_traits"/>
+  <depend package="ecl_utilities"/>
+  <rosbuild2>
+    <export>
+      <include_dir>${ecl_containers_SOURCE_DIR}/include</include_dir>
+    </export>
+    <depend package="ecl_license"/>
+    <depend package="ecl_build"/>
+    <depend package="ecl_config"/>
+    <depend package="ecl_errors"/>
+    <depend package="ecl_exceptions"/>
+    <depend package="ecl_formatters"/>
+    <depend package="ecl_converters"/>
+    <depend package="ecl_mpl"/>
+    <depend package="ecl_type_traits"/>
+    <depend package="ecl_utilities"/>
+  </rosbuild2>
+</package>

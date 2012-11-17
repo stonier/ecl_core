@@ -1,0 +1,30 @@
+<package>
+  <description brief="Simple templated exceptions.">
+
+     Template based exceptions - these are simple and practical
+     and avoid the proliferation of exception types. Although not
+     syntatactically ideal, it is convenient and eminently practical.
+
+  </description>
+  <author>Daniel Stonier (d.stonier@gmail.com)</author>
+  <license>BSD</license>
+  <review status="doc reviewed" notes=""/>
+  <url>http://snorriheim.dnsdojo.com/redmine/wiki/ecl</url>
+
+  <depend package="ecl_license"/>
+  <depend package="ecl_build"/>
+  <depend package="ecl_config"/>
+  <depend package="ecl_errors"/>
+  <export>
+    <cpp cflags="-I${prefix}/include" lflags="-Wl,-rpath,${prefix}/lib -L${prefix}/lib -lecl_exceptions"/>
+  </export>
+  <rosbuild2>
+    <export>
+      <include_dir>${ecl_exceptions_SOURCE_DIR}/include</include_dir>
+    </export>
+    <depend package="ecl_license"/>
+    <depend package="ecl_build"/>
+    <depend package="ecl_config"/>
+    <depend package="ecl_errors"/>
+  </rosbuild2>
+</package>

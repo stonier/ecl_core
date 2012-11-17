@@ -1,0 +1,18 @@
+/**
+\mainpage
+\htmlinclude manifest.html
+
+\section packageSummary Package Summary
+
+This is a package that stores the eigen header files. You can either
+use it directly, or better still, interface it through ecl_linear_algebra
+which provides a few extra features.
+
+\section Eigen3
+
+Currently using version 3.01 and also includes the unsupported modules.
+
+I had to edit the Eigen3/src/StlSupport headers to dereference correctly (they're hardcoded
+to Eigen paths).
+
+*/

@@ -1,0 +1,13 @@
+prefix=@CMAKE_INSTALL_PREFIX@
+exec_prefix=${prefix}
+
+Name: ecl_sigslots
+Description: ECL sigslots implementation.
+Version: @PROJECT_VERSION@
+URL: http://code.google.com/p/embedded-control-library/
+
+Requires: ecl_license, ecl_build, ecl_config, ecl_threads
+includedir=${prefix}/include
+libdir=${exec_prefix}/lib
+Libs: -L${libdir} -lecl_sigslots
+Cflags: -I${includedir}

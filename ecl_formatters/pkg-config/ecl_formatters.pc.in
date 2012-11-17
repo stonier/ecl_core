@@ -1,0 +1,13 @@
+prefix=@CMAKE_INSTALL_PREFIX@
+exec_prefix=${prefix}
+
+Name: ecl_formatters
+Description: ECL stream formatting library.
+Version: @PROJECT_VERSION@
+URL: http://code.google.com/p/embedded-control-library/
+
+Requires: ecl_containers, ecl_config, ecl_errors, ecl_utilities
+includedir=${prefix}/include
+libdir=${exec_prefix}/lib
+Libs: -L${libdir} -lecl_formatters
+Cflags: -I${includedir}
