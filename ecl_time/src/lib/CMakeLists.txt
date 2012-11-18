@@ -17,9 +17,9 @@ SET(SOURCES
 # External Library Dependencies
 ###############################################################################
 
-#IF ( PLATFORM_HAS_POSIX_THREADS ) 
+#IF ( ECL_PLATFORM_HAS_POSIX_THREADS ) 
 #  SET (LIBRARIES "-pthread ${LIBRARIES}")
-#ENDIF ( PLATFORM_HAS_POSIX_THREADS )
+#ENDIF ()
 
 #IF(ECL_PLATFORM_HAS_RT_TIMERS)
 #  SET (LIBRARIES "-lrt ${LIBRARIES}")

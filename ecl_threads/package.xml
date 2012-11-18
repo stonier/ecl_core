@@ -17,6 +17,7 @@
 
   <build_depend>catkin</build_depend>
   <build_depend>ecl_license</build_depend>
+  <build_depend>ecl_build</build_depend>
   <build_depend>ecl_config</build_depend>
   <build_depend>ecl_errors</build_depend>
   <build_depend>ecl_concepts</build_depend>
