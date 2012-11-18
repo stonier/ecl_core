@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<package>
+  <name>ecl_exceptions</name>
+  <version>0.5.0</version>
+  <description>
+     Template based exceptions - these are simple and practical
+     and avoid the proliferation of exception types. Although not
+     syntatactically ideal, it is convenient and eminently practical.
+  </description>
+  <maintainer email="d.stonier@gmail.com">Daniel Stonier</maintainer>
+  <license>BSD</license>
+  <url type="website">http://wiki.ros.org/ecl_exceptions</url>
+  <url type="repository">https://github.com/stonier/ecl_core</url>
+  <url type="bugtracker">https://github.com/stonier/ecl_core/issues</url>
+  <author email="d.stonier@gmail.com">Daniel Stonier</author> -->
+
+  <build_depend>catkin</build_depend>
+  <build_depend>ecl_license</build_depend>
+  <build_depend>ecl_config</build_depend>
+  <build_depend>ecl_errors</build_depend>
+  
+  <run_depend>ecl_config</run_depend>
+  <run_depend>ecl_errors</run_depend>
+</package>
+
+
