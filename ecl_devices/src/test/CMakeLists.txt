@@ -2,9 +2,12 @@
 # GTEST SETUP
 ###############################################################################
 
-rosbuild_add_gtest(test_files files.cpp)
-target_link_libraries(test_files -lecl_devices)
+macro(ecl_devices_add_gtest test_name)
+  catkin_add_gtest(ecl_test_${test_name} ${test_name}.cpp)
+  target_link_libraries(ecl_test_${test_name} ${PROJECT_NAME} ${catkin_LIBRARIES})
+endmacro()
 
-rosbuild_add_gtest(test_shared_files shared_files.cpp)
-target_link_libraries(test_shared_files -lecl_devices)
+ecl_devices_add_gtest(shared_files)
+ecl_devices_add_gtest(files)
+
 
