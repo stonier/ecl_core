@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<package>
+  <name>ecl_converters</name>
+  <version>0.5.0</version>
+  <description>
+     Some fast/convenient type converters, mostly for char strings or strings.
+     These are not really fully fleshed out, alot of them could use the addition for
+     the whole range of fundamental types (e.g. all integers, not just int, unsigned int).
+     
+     They will come as the need arises.
+  </description>
+  <maintainer email="d.stonier@gmail.com">Daniel Stonier</maintainer>
+  <license>BSD</license>
+  <url type="website">http://wiki.ros.org/ecl_converters</url>
+  <url type="repository">https://github.com/stonier/ecl_core</url>
+  <url type="bugtracker">https://github.com/stonier/ecl_core/issues</url>
+  <author email="d.stonier@gmail.com">Daniel Stonier</author> -->
+
+  <build_depend>catkin</build_depend>
+  <build_depend>ecl_license</build_depend>
+  <build_depend>ecl_config</build_depend>
+  <build_depend>ecl_errors</build_depend>
+  <build_depend>ecl_exceptions</build_depend>
+  <build_depend>ecl_mpl</build_depend>
+  <build_depend>ecl_type_traits</build_depend>
+  <build_depend>ecl_concepts</build_depend>
+  
+  <run_depend>ecl_config</run_depend>
+  <run_depend>ecl_errors</run_depend>
+  <run_depend>ecl_exceptions</run_depend>
+  <run_depend>ecl_mpl</run_depend>
+  <run_depend>ecl_type_traits</run_depend>
+  <run_depend>ecl_concepts</run_depend>
+</package>
+
+
