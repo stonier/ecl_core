@@ -18,7 +18,6 @@ find_package(catkin REQUIRED COMPONENTS
     ecl_concepts)
 catkin_package(
         INCLUDE_DIRS include
-        LIBRARIES ${PROJECT_NAME}
 	CATKIN_DEPENDS ecl_config ecl_mpl ecl_errors ecl_exceptions ecl_type_traits ecl_concepts
         )
 include_directories(SYSTEM include ${catkin_INCLUDE_DIRS})

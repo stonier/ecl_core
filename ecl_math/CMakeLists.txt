@@ -12,7 +12,6 @@ project(ecl_math)
 find_package(catkin REQUIRED COMPONENTS ecl_type_traits)
 catkin_package(
         INCLUDE_DIRS include
-        LIBRARIES ${PROJECT_NAME}
 	CATKIN_DEPENDS ecl_type_traits
         )
 include_directories(SYSTEM include ${catkin_INCLUDE_DIRS})
