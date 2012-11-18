@@ -2,25 +2,47 @@
 # Cmake
 ##############################################################################
 
-cmake_minimum_required(VERSION 2.4.6)
-
-# Verbosity is useful - helps eclipse find paths also!
- set(CMAKE_VERBOSE_MAKEFILE true)
+cmake_minimum_required(VERSION 2.8.3)
+project(ecl_ipc)
 
 ##############################################################################
-# Ros
+# Catkin
 ##############################################################################
 
-include($ENV{ROS_ROOT}/core/rosbuild/rosbuild.cmake)
-rosbuild_init()
-rosbuild_include(ecl_build ecl_package)
+find_package(catkin REQUIRED COMPONENTS 
+    ecl_config
+    ecl_errors
+    ecl_time_lite
+    ecl_exceptions
+    ecl_time
+    )
+catkin_package(
+        INCLUDE_DIRS include
+        LIBRARIES ${PROJECT_NAME}
+	CATKIN_DEPENDS 
+            ecl_config
+            ecl_errors
+            ecl_time_lite
+            ecl_exceptions
+            ecl_time
+        )
+include_directories(SYSTEM include ${catkin_INCLUDE_DIRS})
+
+##############################################################################
+# Platform Detection
+##############################################################################
+
+# Don't think we need this any longer, dependencies handle the specifics.
+#set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${ecl_build_DIR}/modules)
+#include(ecl_platform_detection)
+#ecl_detect_platform()
 
 ##############################################################################
 # Actual project configuration
 ##############################################################################
 
-ecl_package_init()
 add_subdirectory(include)
 add_subdirectory(src)
-add_subdirectory(pkg-config)
-ecl_package_finalise()
+
+
+
