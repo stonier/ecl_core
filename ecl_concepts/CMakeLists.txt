@@ -12,6 +12,7 @@ project(ecl_concepts)
 find_package(catkin REQUIRED COMPONENTS ecl_config ecl_type_traits)
 catkin_package(
         INCLUDE_DIRS include
+	CATKIN_DEPENDS ecl_config ecl_type_traits
         )
 include_directories(SYSTEM include ${catkin_INCLUDE_DIRS})
 
