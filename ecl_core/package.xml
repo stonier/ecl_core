@@ -1,6 +1,6 @@
 <package>
   <name>ecl_core</name>
-  <version>0.5.0</version>
+  <version>0.50.0</version>
   <description>
     A set of tools and interfaces extending the capabilities of c++ to 
     provide a lightweight, consistent interface with a focus for control
@@ -15,15 +15,17 @@
 
   <run_depend>ecl_tools</run_depend>
   <run_depend>ecl_lite</run_depend>
+
   <run_depend>ecl_command_line</run_depend>
-  <run_depend>ecl_mpl</run_depend>
-  <run_depend>ecl_type_traits</run_depend>
   <run_depend>ecl_concepts</run_depend>
-  <run_depend>ecl_exceptions</run_depend>
   <run_depend>ecl_converters</run_depend>
+  <run_depend>ecl_exceptions</run_depend>
+  <run_depend>ecl_math</run_depend>
+  <run_depend>ecl_mpl</run_depend>
   <run_depend>ecl_sigslots</run_depend>
   <run_depend>ecl_threads</run_depend>
   <run_depend>ecl_time</run_depend>
+  <run_depend>ecl_type_traits</run_depend>
   <run_depend>ecl_utilities</run_depend> 
 
   <!-- add all the ecl_core packages here
@@ -35,7 +37,6 @@
   <run_depend>ecl_geometry</run_depend>
   <run_depend>ecl_ipc</run_depend>
   <run_depend>ecl_linear_algebra</run_depend>
-  <run_depend>ecl_math</run_depend>
   <run_depend>ecl_statistics</run_depend>
   <run_depend>ecl_streams</run_depend>
   -->
