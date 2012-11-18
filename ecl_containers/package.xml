@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<package>
+  <name>ecl_containers</name>
+  <version>0.50.0</version>
+  <description>
+    The containers included here are intended to extend the stl containers.
+    In all cases, these implementations are designed to implement
+    c++ conveniences and safety where speed is not sacrificed. 
+
+    Also includes techniques for memory debugging of common problems such
+    as buffer overruns.
+  </description>
+  <maintainer email="d.stonier@gmail.com">Daniel Stonier</maintainer>
+  <license>BSD</license>
+  <url type="website">http://wiki.ros.org/ecl_containers</url>
+  <url type="repository">https://github.com/stonier/ecl_core</url>
+  <url type="bugtracker">https://github.com/stonier/ecl_core/issues</url>
+  <author email="d.stonier@gmail.com">Daniel Stonier</author> -->
+
+  <build_depend>catkin</build_depend>
+  <build_depend>ecl_license</build_depend>
+  <build_depend>ecl_config</build_depend>
+  <build_depend>ecl_errors</build_depend>
+  <build_depend>ecl_exceptions</build_depend>
+  <build_depend>ecl_formatters</build_depend>
+  <build_depend>ecl_converters</build_depend>
+  <build_depend>ecl_mpl</build_depend>
+  <build_depend>ecl_type_traits</build_depend>
+  <build_depend>ecl_utilities</build_depend>
+  
+  <run_depend>ecl_config</run_depend>
+  <run_depend>ecl_errors</run_depend>
+  <run_depend>ecl_exceptions</run_depend>
+  <run_depend>ecl_formatters</run_depend>
+  <run_depend>ecl_converters</run_depend>
+  <run_depend>ecl_mpl</run_depend>
+  <run_depend>ecl_type_traits</run_depend>
+  <run_depend>ecl_utilities</run_depend>
+</package>
+
+

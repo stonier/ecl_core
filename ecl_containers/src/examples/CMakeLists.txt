@@ -2,4 +2,6 @@
 # Examples
 ###############################################################################
 
-ecl_add_example(demo_formatters formatters.cpp)
+add_executable(demo_container_formatters formatters.cpp)
+target_link_libraries(demo_container_formatters ${catkin_LIBRARIES})
+install(TARGETS demo_container_formatters RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})

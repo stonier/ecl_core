@@ -18,6 +18,7 @@
 
   <run_depend>ecl_command_line</run_depend>
   <run_depend>ecl_concepts</run_depend>
+  <run_depend>ecl_containers</run_depend>
   <run_depend>ecl_converters</run_depend>
   <run_depend>ecl_exceptions</run_depend>
   <run_depend>ecl_formatters</run_depend>
@@ -31,7 +32,6 @@
   <run_depend>ecl_utilities</run_depend> 
 
   <!-- add all the ecl_core packages here
-  <run_depend>ecl_containers</run_depend>
   <run_depend>ecl_core_apps</run_depend>
   <run_depend>ecl_devices</run_depend>
   <run_depend>ecl_eigen</run_depend>
