@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<package>
+  <name>ecl_sigslots</name>
+  <version>0.5.0</version>
+  <description>
+     Extends c++ type traits and implements a few more to boot.
+  </description>
+  <maintainer email="d.stonier@gmail.com">Daniel Stonier</maintainer>
+  <license>BSD</license>
+  <url type="website">http://wiki.ros.org/ecl_sigslots</url>
+  <url type="repository">https://github.com/stonier/ecl_core</url>
+  <url type="bugtracker">https://github.com/stonier/ecl_core/issues</url>
+  <author email="d.stonier@gmail.com">Daniel Stonier</author> -->
+
+  <build_depend>catkin</build_depend>
+  <build_depend>ecl_license</build_depend>
+  <build_depend>ecl_config</build_depend>
+  <build_depend>ecl_threads</build_depend>
+  
+  <run_depend>ecl_config</run_depend>
+  <run_depend>ecl_threads</run_depend>
+</package>
+
+
