@@ -1,0 +1,23 @@
+<package>
+  <name>ecl_core</name>
+  <version>0.5.0</version>
+  <description>
+    A set of tools and interfaces extending the capabilities of c++ to 
+    provide a lightweight, consistent interface with a focus for control
+    programming.
+  </description>
+  <maintainer email="d.stonier@gmail.com">Daniel Stonier</maintainer>
+  <license>BSD</license>
+  <url type="website">http://www.ros.org/wiki/ecl_core</url>
+  <url type="repository">https://github.com/stonier/ecl_core</url>
+  <url type="bugtracker">https://github.com/stonier/ecl_core/issues</url>
+  <author email="d.stonier@gmail.com">Daniel Stonier</author>
+
+  <build_depend>ecl_tools</build_depend>
+  <build_depend>ecl_lite</build_depend>
+  <build_depend>ecl_command_line</build_depend>
+  <!-- add all the ecl_core packages here -->
+  <export>
+    <metapackage/>
+  </export>
+</package>

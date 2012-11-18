@@ -3,4 +3,4 @@
 ###############################################################################
 
 # Currently broken.
-#rosbuild_add_gtest(test_command_line command_line.cpp)
+#catkin_add_gtest(test_command_line command_line.cpp)
