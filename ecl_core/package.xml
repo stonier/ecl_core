@@ -17,6 +17,7 @@
   <build_depend>ecl_lite</build_depend>
   <build_depend>ecl_command_line</build_depend>
   <build_depend>ecl_mpl</build_depend>
+  <build_depend>ecl_type_traits</build_depend>
   <!-- add all the ecl_core packages here -->
   <export>
     <metapackage/>
