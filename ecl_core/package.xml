@@ -21,6 +21,7 @@
   <run_depend>ecl_concepts</run_depend>
   <run_depend>ecl_exceptions</run_depend>
   <run_depend>ecl_converters</run_depend>
+  <run_depend>ecl_threads</run_depend>
   <run_depend>ecl_time</run_depend>
   <run_depend>ecl_utilities</run_depend> 
 
@@ -37,7 +38,6 @@
   <run_depend>ecl_sigslots</run_depend>
   <run_depend>ecl_statistics</run_depend>
   <run_depend>ecl_streams</run_depend>
-  <run_depend>ecl_threads</run_depend>
   -->
   <export>
     <metapackage/>
