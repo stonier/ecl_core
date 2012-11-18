@@ -13,12 +13,32 @@
   <url type="bugtracker">https://github.com/stonier/ecl_core/issues</url>
   <author email="d.stonier@gmail.com">Daniel Stonier</author>
 
-  <build_depend>ecl_tools</build_depend>
-  <build_depend>ecl_lite</build_depend>
-  <build_depend>ecl_command_line</build_depend>
-  <build_depend>ecl_mpl</build_depend>
-  <build_depend>ecl_type_traits</build_depend>
-  <!-- add all the ecl_core packages here -->
+  <run_depend>ecl_tools</run_depend>
+  <run_depend>ecl_lite</run_depend>
+  <run_depend>ecl_command_line</run_depend>
+  <run_depend>ecl_mpl</run_depend>
+  <run_depend>ecl_type_traits</run_depend>
+  <run_depend>ecl_concepts</run_depend>
+  <run_depend>ecl_exceptions</run_depend>
+
+  <!-- add all the ecl_core packages here
+  <run_depend>ecl_containers</run_depend>
+  <run_depend>ecl_converters</run_depend>
+  <run_depend>ecl_core_apps</run_depend>
+  <run_depend>ecl_devices</run_depend>
+  <run_depend>ecl_eigen</run_depend>
+  <run_depend>ecl_formatters</run_depend>
+  <run_depend>ecl_geometry</run_depend>
+  <run_depend>ecl_ipc</run_depend>
+  <run_depend>ecl_linear_algebra</run_depend>
+  <run_depend>ecl_math</run_depend>
+  <run_depend>ecl_sigslots</run_depend>
+  <run_depend>ecl_statistics</run_depend>
+  <run_depend>ecl_streams</run_depend>
+  <run_depend>ecl_threads</run_depend>
+  <run_depend>ecl_time</run_depend>
+  <run_depend>ecl_utilities</run_depend> 
+  -->
   <export>
     <metapackage/>
   </export>
