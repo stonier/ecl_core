@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<package>
+  <name>ecl_eigen</name>
+  <version>0.50.0</version>
+  <description>
+     This provides an Eigen implementation for ecl's linear algebra.
+  </description>
+  <maintainer email="d.stonier@gmail.com">Daniel Stonier</maintainer>
+  <license>BSD</license>
+  <url type="website">http://wiki.ros.org/ecl_eigen</url>
+  <url type="repository">https://github.com/stonier/ecl_core</url>
+  <url type="bugtracker">https://github.com/stonier/ecl_core/issues</url>
+  <author email="d.stonier@gmail.com">Daniel Stonier</author> -->
+
+  <build_depend>catkin</build_depend>
+  <build_depend>ecl_license</build_depend>
+  <build_depend>eigen</build_depend>
+  
+  <run_depend>eigen</run_depend>
+</package>
+
+

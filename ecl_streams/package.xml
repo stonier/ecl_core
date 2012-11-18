@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<package>
+  <name>ecl_streams</name>
+  <version>0.50.0</version>
+  <description>
+     These are lightweight text streaming classes that connect to standardised
+     ecl type devices.
+  </description>
+  <maintainer email="d.stonier@gmail.com">Daniel Stonier</maintainer>
+  <license>BSD</license>
+  <url type="website">http://wiki.ros.org/ecl_streams</url>
+  <url type="repository">https://github.com/stonier/ecl_core</url>
+  <url type="bugtracker">https://github.com/stonier/ecl_core/issues</url>
+  <author email="d.stonier@gmail.com">Daniel Stonier</author> -->
+
+  <build_depend>catkin</build_depend>
+  <build_depend>ecl_license</build_depend>
+  <build_depend>ecl_errors</build_depend>
+  <build_depend>ecl_concepts</build_depend>
+  <build_depend>ecl_devices</build_depend>
+  <build_depend>ecl_time</build_depend>
+  <build_depend>ecl_converters</build_depend>
+  <build_depend>ecl_type_traits</build_depend>
+  
+  <run_depend>ecl_errors</run_depend>
+  <run_depend>ecl_concepts</run_depend>
+  <run_depend>ecl_devices</run_depend>
+  <run_depend>ecl_time</run_depend>
+  <run_depend>ecl_converters</run_depend>
+  <run_depend>ecl_type_traits</run_depend>
+</package>
+
+

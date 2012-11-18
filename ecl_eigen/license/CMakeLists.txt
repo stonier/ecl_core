@@ -2,7 +2,7 @@
 # FILES
 ###############################################################################
 
-set(COPYING.LESSER)
+set(LICENSES COPYING.LESSER)
   
-install(FILES ${LICENSES} DESTINATION share/ecl/licenses/eigen)
+install(FILES ${LICENSES} DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/licenses/eigen)
 

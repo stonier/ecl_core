@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<package>
+  <name>ecl_devices</name>
+  <version>0.50.0</version>
+  <description>
+     Provides an extensible and standardised framework for input-output devices.
+  </description>
+  <maintainer email="d.stonier@gmail.com">Daniel Stonier</maintainer>
+  <license>BSD</license>
+  <url type="website">http://wiki.ros.org/ecl_devices</url>
+  <url type="repository">https://github.com/stonier/ecl_core</url>
+  <url type="bugtracker">https://github.com/stonier/ecl_core/issues</url>
+  <author email="d.stonier@gmail.com">Daniel Stonier</author> -->
+
+  <build_depend>catkin</build_depend>
+  <build_depend>ecl_license</build_depend>
+  <build_depend>ecl_config</build_depend>
+  <build_depend>ecl_errors</build_depend>
+  <build_depend>ecl_mpl</build_depend>
+  <build_depend>ecl_type_traits</build_depend>
+  <build_depend>ecl_utilities</build_depend>
+  <build_depend>ecl_containers</build_depend>
+  <build_depend>ecl_threads</build_depend>
+  
+  <run_depend>ecl_config</run_depend>
+  <run_depend>ecl_errors</run_depend>
+  <run_depend>ecl_mpl</run_depend>
+  <run_depend>ecl_type_traits</run_depend>
+  <run_depend>ecl_utilities</run_depend>
+  <run_depend>ecl_containers</run_depend>
+  <run_depend>ecl_threads</run_depend>
+</package>
+
+
