@@ -2,13 +2,10 @@
 # GTest setup
 ###############################################################################
 
-# Gtest is not picking up -pthreads when --as-needed is on, so force it.
-ecl_link_no_as_needed(ECL_LINK_NO_AS_NEEDED_FLAG)
-
-MACRO(ecl_add_gtest TESTNAME)
-  rosbuild_add_gtest(test_${TESTNAME} ${TESTNAME}.cpp)
-  target_link_libraries(test_${TESTNAME} -lecl_geometry ${ECL_LINK_NO_AS_NEEDED_FLAG} -lpthread)
-ENDMACRO(ecl_add_gtest)
+macro(ecl_add_gtest TESTNAME)
+  catkin_add_gtest(test_${TESTNAME} ${TESTNAME}.cpp)
+  target_link_libraries(test_${TESTNAME} ${PROJECT_NAME} ${catkin_LIBRARIES})
+endmacro(ecl_add_gtest)
 
 ###############################################################################
 # GTests

@@ -25,13 +25,13 @@ find_package(catkin REQUIRED COMPONENTS
     ecl_eigen
     )
 catkin_package(
-        INCLUDE_DIRS include
+        INCLUDE_DIRS include ${EIGEN3_INCLUDE_DIR}
 	CATKIN_DEPENDS 
             ecl_exceptions 
             ecl_formatters
             ecl_eigen
         )
-include_directories(SYSTEM include ${catkin_INCLUDE_DIRS})
+include_directories(SYSTEM include ${catkin_INCLUDE_DIRS} ${EIGEN3_INCLUDE_DIR})
 
 ##############################################################################
 # Actual project configuration

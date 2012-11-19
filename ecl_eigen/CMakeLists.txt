@@ -10,8 +10,9 @@ project(ecl_eigen)
 ##############################################################################
 
 find_package(catkin)
+# This folder structure probably wont work
 catkin_package(
-        INCLUDE_DIRS include
+        INCLUDE_DIRS include/ecl/Eigen3
         )
 include_directories(SYSTEM include ${catkin_INCLUDE_DIRS})
 

@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<package>
+  <name>ecl_geometry</name>
+  <version>0.50.0</version>
+  <description>
+     Any tools relating to mathematical geometry. 
+     Primarily featuring polynomials and interpolations.
+  </description>
+  <maintainer email="d.stonier@gmail.com">Daniel Stonier</maintainer>
+  <license>BSD</license>
+  <url type="website">http://wiki.ros.org/ecl_geometry</url>
+  <url type="repository">https://github.com/stonier/ecl_core</url>
+  <url type="bugtracker">https://github.com/stonier/ecl_core/issues</url>
+  <author email="d.stonier@gmail.com">Daniel Stonier</author> -->
+
+  <build_depend>catkin</build_depend>
+  <build_depend>ecl_license</build_depend>
+  <build_depend>ecl_config</build_depend>
+  <build_depend>ecl_type_traits</build_depend>
+  <build_depend>ecl_containers</build_depend>
+  <build_depend>ecl_formatters</build_depend>
+  <build_depend>ecl_linear_algebra</build_depend>
+  <build_depend>ecl_exceptions</build_depend>
+  <build_depend>ecl_math</build_depend>
+  <build_depend>ecl_mpl</build_depend>
+  
+  <run_depend>ecl_config</run_depend>
+  <run_depend>ecl_type_traits</run_depend>
+  <run_depend>ecl_containers</run_depend>
+  <run_depend>ecl_formatters</run_depend>
+  <run_depend>ecl_linear_algebra</run_depend>
+  <run_depend>ecl_exceptions</run_depend>
+  <run_depend>ecl_math</run_depend>
+  <run_depend>ecl_mpl</run_depend>
+</package>
+
+
