@@ -3,8 +3,9 @@
 ###############################################################################
 
 macro(ecl_add_benchmark name)
-  rosbuild_add_executable(bench_${name} ${name}.cpp)
-  install(TARGETS bench_${name} RUNTIME DESTINATION bin) 
+  add_executable(bench_${name} ${name}.cpp)
+  target_link_libraries(bench_${name} ${catkin_LIBRARIES})
+  install(TARGETS bench_${name} RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
 endmacro()
 
 ###############################################################################

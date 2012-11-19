@@ -1,18 +1,20 @@
 ###############################################################################
-# SETUP
+# Macro
 ###############################################################################
 
-rosbuild_add_executable(ecl_process process.cpp)
-install(TARGETS ecl_process RUNTIME DESTINATION bin) 
+macro(ecl_add_utility name)
+  add_executable(ecl_${name} ${name}.cpp)
+  target_link_libraries(ecl_${name} ${catkin_LIBRARIES})
+  install(TARGETS ecl_${name} RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
+endmacro()
 
-rosbuild_add_executable(ecl_hex hex.cpp)
-install(TARGETS ecl_hex RUNTIME DESTINATION bin) 
+###############################################################################
+# Setup
+###############################################################################
 
-rosbuild_add_executable(ecl_serial serial.cpp)
-install(TARGETS ecl_serial RUNTIME DESTINATION bin) 
+ecl_add_utility(process)
+ecl_add_utility(hex)
+ecl_add_utility(serial)
+ecl_add_utility(socket_client)
+ecl_add_utility(socket_server)
 
-rosbuild_add_executable(ecl_socket_client socket_client.cpp)
-install(TARGETS ecl_socket_client RUNTIME DESTINATION bin) 
-
-rosbuild_add_executable(ecl_socket_server socket_server.cpp)
-install(TARGETS ecl_socket_server RUNTIME DESTINATION bin) 
