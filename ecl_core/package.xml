@@ -24,11 +24,13 @@
   <run_depend>ecl_eigen</run_depend>
   <run_depend>ecl_exceptions</run_depend>
   <run_depend>ecl_formatters</run_depend>
+  <run_depend>ecl_geometry</run_depend>
   <run_depend>ecl_ipc</run_depend>
   <run_depend>ecl_linear_algebra</run_depend>
   <run_depend>ecl_math</run_depend>
   <run_depend>ecl_mpl</run_depend>
   <run_depend>ecl_sigslots</run_depend>
+  <run_depend>ecl_statistics</run_depend>
   <run_depend>ecl_streams</run_depend>
   <run_depend>ecl_threads</run_depend>
   <run_depend>ecl_time</run_depend>
@@ -37,8 +39,6 @@
 
   <!-- add all the ecl_core packages here
   <run_depend>ecl_core_apps</run_depend>
-  <run_depend>ecl_geometry</run_depend>
-  <run_depend>ecl_statistics</run_depend>
   -->
   <export>
     <metapackage/>

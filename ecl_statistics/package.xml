@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<package>
+  <name>ecl_statistics</name>
+  <version>0.50.0</version>
+  <description>
+     Common statistical structures and algorithms for control systems.
+  </description>
+  <maintainer email="d.stonier@gmail.com">Daniel Stonier</maintainer>
+  <license>BSD</license>
+  <url type="website">http://wiki.ros.org/ecl_statistics</url>
+  <url type="repository">https://github.com/stonier/ecl_core</url>
+  <url type="bugtracker">https://github.com/stonier/ecl_core/issues</url>
+  <author email="d.stonier@gmail.com">Daniel Stonier</author> -->
+
+  <build_depend>catkin</build_depend>
+  <build_depend>ecl_license</build_depend>
+  <build_depend>ecl_config</build_depend>
+  <build_depend>ecl_linear_algebra</build_depend>
+  
+  <run_depend>ecl_config</run_depend>
+  <run_depend>ecl_linear_algebra</run_depend>
+</package>
+
+
