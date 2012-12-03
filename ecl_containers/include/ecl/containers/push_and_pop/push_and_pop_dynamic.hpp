@@ -44,9 +44,16 @@ template <typename Type, size_t N> class PushAndPopFormatter;
  *****************************************************************************/
 /**
  * @brief
- * Surpport fixed array and push and pack operation
- * HOWEVER this is now experimental version.
- * Please do not use this container until we complete review
+ * Surpport push and pack operation
+ *
+ * ACHTUNG! ACHTUNG! ACHTUNG! ACHTUNG! ACHTUNG! ACHTUNG! ACHTUNG!
+ *
+ * This is very experimental and has a few unfinished, surprising.
+ * automatic behaviours.
+ *
+ * - begin() and end() do not point to the beginning/end of the pushpop,
+ *   rather they point to the beginning and ending of the underlying array
+ * - if full and pushing back, it makes room by popping off the front
  *
  * <b>Usage</b>:
  *
@@ -104,6 +111,11 @@ public:
   /*********************
   ** Iterators
   **********************/
+  /* ACHTUNG! ACHTUNG! ACHTUNG! ACHTUNG! ACHTUNG! ACHTUNG! ACHTUNG! ACHTUNG! ACHTUNG! ACHTUNG! */
+  /*
+   * These have not been updated to take care with the push/pop, they just point to the
+   * start and end of the underlying array!
+   */
   /**
    * Generates a pointer (iterator) pointing to the start of the array.
    * @return iterator : points to the beginning of the array.
@@ -181,22 +193,7 @@ public:
   /*********************
   ** Accessors
   **********************/
-  /**
-   * @brief Open a window (stencil) onto a subset of the container.
-   *
-   * Opens a window onto the container, providing a similar container-like class to manipulate.
-   *
-   * @param start_index : start of the stencil window.
-   * @param n : number of elements to include in the window.
-   * @return Stencil<Array> : the generated stencil.
-   *
-   * @exception : StandardException : throws if the indices provided are out of range [debug mode only].
-   */
-  Stencil< PushAndPop<Type,DynamicStorage> > stencil(const unsigned int& start_index, const unsigned int& n) ecl_assert_throw_decl(StandardException) {
-          ecl_assert_throw(start_index < size(), StandardException(LOC, OutOfRangeError, "Start index provided is larger than the underlying array size."));
-          ecl_assert_throw(start_index+n <= size(), StandardException(LOC, OutOfRangeError, "Finish index provided is larger than the underlying array size."));
-          return Stencil< PushAndPop<Type,DynamicStorage> >(*this, begin()+start_index, begin()+start_index+n);
-  }
+  // Cannot do stencils easily as push and pop roll over - not guaranteed of being contiguous
 
   Type & operator[] (int idx)
   {
@@ -218,6 +215,12 @@ public:
     }
   }
 
+  /**
+   * @brief Pushes an element onto the back of the container.
+   *
+   * If there is no empty room, it simply makes room by
+   * popping an element of the front.
+   */
   void push_back( const Type & datum )
   {
     data[ leader++ ] = datum;
@@ -245,7 +248,7 @@ public:
 
   void resize( unsigned int length )
   {
-    size_fifo = length;
+    size_fifo = length+1;
     ecl_assert_throw( (size_fifo>0), StandardException(LOC, OutOfRangeError, "SimpleFIFO start with zero size buffer"));
     data.resize( size_fifo );
   }

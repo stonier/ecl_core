@@ -112,12 +112,72 @@ int main(int argc, char **argv) {
     std::cout << format_ubytes(uchar_array) << std::endl;
     std::cout << format_ubytes(uchar_array.stencil(0,2)) << std::endl;
 
-    ecl::PushAndPop<unsigned char> push_and_pop;
-    push_and_pop.resize(4);
-    push_and_pop.push_back(0xaa);
-    push_and_pop.push_back(0x55);
-    ecl::PushAndPop<unsigned char>::Formatter format;
-    std::cout << format(push_and_pop) << std::endl;
+    std::cout << std::endl;
+    std::cout << "***********************************************************" << std::endl;
+    std::cout << "                 Push and Pop Byte Arrays" << std::endl;
+    std::cout << "***********************************************************" << std::endl;
+    std::cout << std::endl;
+
+    std::cout << "Dynamic" << std::endl;
+    std::cout << std::endl;
+
+    ecl::PushAndPop<unsigned char> push_and_pop(4);
+    ecl::PushAndPop<unsigned char>::Formatter format_push_pop;
+    //push_and_pop.resize(4);
+    push_and_pop.push_back(0x01);
+    std::cout << "Push 0x01: " << format_push_pop(push_and_pop) << std::endl;
+    push_and_pop.push_back(0x02);
+    std::cout << "Push 0x02: " << format_push_pop(push_and_pop) << std::endl;
+    push_and_pop.push_back(0x03);
+    std::cout << "Push 0x03: " << format_push_pop(push_and_pop) << std::endl;
+    push_and_pop.push_back(0x04);
+    std::cout << "Push 0x04: " << format_push_pop(push_and_pop) << std::endl;
+    push_and_pop.pop_front();
+    std::cout << "Pop front: " << format_push_pop(push_and_pop) << std::endl;
+    push_and_pop.pop_front();
+    std::cout << "Pop front: " << format_push_pop(push_and_pop) << std::endl;
+    push_and_pop.push_back(0x05);
+    std::cout << "Push 0x05: " << format_push_pop(push_and_pop) << std::endl;
+    push_and_pop.push_back(0x06);
+    std::cout << "Push 0x06: " << format_push_pop(push_and_pop) << std::endl;
+    push_and_pop.push_back(0x07);
+    std::cout << "Push 0x07: " << format_push_pop(push_and_pop) << std::endl;
+    push_and_pop.push_back(0x08);
+    std::cout << "Push 0x08: " << format_push_pop(push_and_pop) << std::endl;
+
+    std::cout << "Size: " << push_and_pop.size() << std::endl;
+    std::cout << "[ ";
+    for ( unsigned int i = 0; i < push_and_pop.size(); ++i) {
+      std::cout << static_cast<int>(push_and_pop[i]) << " ";
+    }
+    std::cout << "]" << std::endl;
+
+    std::cout << std::endl;
+    std::cout << "Fixed" << std::endl;
+    std::cout << std::endl;
+
+    ecl::PushAndPop<unsigned char,4> push_and_pop_fixed;
+    ecl::PushAndPop<unsigned char,4>::Formatter format_push_pop_fixed;
+    push_and_pop_fixed.push_back(0x01);
+    std::cout << "Push 0x01: " << format_push_pop_fixed(push_and_pop_fixed) << std::endl;
+    push_and_pop_fixed.push_back(0x02);
+    std::cout << "Push 0x02: " << format_push_pop_fixed(push_and_pop_fixed) << std::endl;
+    push_and_pop_fixed.push_back(0x03);
+    std::cout << "Push 0x03: " << format_push_pop_fixed(push_and_pop_fixed) << std::endl;
+    push_and_pop_fixed.push_back(0x04);
+    std::cout << "Push 0x04: " << format_push_pop_fixed(push_and_pop_fixed) << std::endl;
+    push_and_pop_fixed.pop_front();
+    std::cout << "Pop front: " << format_push_pop_fixed(push_and_pop_fixed) << std::endl;
+    push_and_pop_fixed.pop_front();
+    std::cout << "Pop front: " << format_push_pop_fixed(push_and_pop_fixed) << std::endl;
+    push_and_pop_fixed.push_back(0x05);
+    std::cout << "Push 0x05: " << format_push_pop_fixed(push_and_pop_fixed) << std::endl;
+    push_and_pop_fixed.push_back(0x06);
+    std::cout << "Push 0x06: " << format_push_pop_fixed(push_and_pop_fixed) << std::endl;
+    push_and_pop_fixed.push_back(0x07);
+    std::cout << "Push 0x07: " << format_push_pop_fixed(push_and_pop_fixed) << std::endl;
+    push_and_pop_fixed.push_back(0x08);
+    std::cout << "Push 0x08: " << format_push_pop_fixed(push_and_pop_fixed) << std::endl;
 
     std::cout << std::endl;
     std::cout << "***********************************************************" << std::endl;
