@@ -13,7 +13,6 @@
 *****************************************************************************/
 
 #include <iostream>
-#include <gtest/gtest.h>
 #include <ecl/formatters.hpp>
 #include "../../include/ecl/containers/array.hpp"
 #include "../../include/ecl/containers/push_and_pop.hpp"
