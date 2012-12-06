@@ -25,7 +25,7 @@
 #include "socket_connection_status.hpp"
 
 #if defined(ECL_IS_POSIX)
-  #ifndef ECL_IS_MAC
+  #ifndef ECL_IS_APPLE
     #include "socket_client_pos.hpp"
     #include "socket_server_pos.hpp"
   #endif

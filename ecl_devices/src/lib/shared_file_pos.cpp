@@ -198,7 +198,7 @@ bool SharedFile::flush() ecl_debug_throw_decl(StandardException) {
 		written = shared_instance->file.write(buffer.c_ptr(), buffer.size() );
 	} ecl_debug_catch(const StandardException &e) {
 		shared_instance->error_handler = shared_instance->file.error();
-		ecl_throw(StandardException(LOC,e));
+		ecl_debug_throw(StandardException(LOC,e));
 	}
 	buffer.clear();
 	// fallback for no exceptions

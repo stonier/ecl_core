@@ -11,7 +11,7 @@
 *****************************************************************************/
 
 #include <ecl/config/ecl.hpp>
-#ifndef ECL_IS_MAC
+#ifndef ECL_IS_APPLE
 #ifdef ECL_IS_POSIX
 
 /*****************************************************************************
@@ -208,5 +208,5 @@ StandardException connection_exception(const char* loc) {
 } // namespace ecl
 
 #endif  /* ECL_IS_POSIX */
-#endif  /* !ECL_IS_MAC */
+#endif  /* !ECL_IS_APPLE */
 

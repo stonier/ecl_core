@@ -11,7 +11,7 @@
 *****************************************************************************/
 
 #include <ecl/config/ecl.hpp>
-#ifndef ECL_IS_MAC
+#ifndef ECL_IS_APPLE
 #ifdef ECL_IS_POSIX
 
 /*****************************************************************************
@@ -188,4 +188,4 @@ long SocketServer::write(const char *s, unsigned long n) ecl_debug_throw_decl(St
 } // namespace ecl
 
 #endif /* ECL_IS_POSIX */
-#endif  /* !ECL_IS_MAC */
+#endif  /* !ECL_IS_APPLE */

@@ -19,7 +19,7 @@
 *****************************************************************************/
 
 #include <ecl/config/ecl.hpp>
-#ifndef ECL_IS_MAC
+#ifndef ECL_IS_APPLE
 #ifdef ECL_IS_POSIX
 
 /*****************************************************************************
@@ -250,6 +250,6 @@ class is_sourcesink<SocketServer> : public True {};
 } // namespace ecl
 
 #endif  /* ECL_IS_POSIX */
-#endif  /* !ECL_IS_MAC */
+#endif  /* !ECL_IS_APPLE */
 
 #endif /* ECL_DEVICES_SOCKET_SERVER_POS_HPP_ */

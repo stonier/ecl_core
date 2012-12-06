@@ -263,7 +263,7 @@ int main(int argc, char **argv) {
 		ecl_debug_throw(StandardException(LOC,e_original));
 	} ecl_debug_catch( StandardException &e ) {
 		std::cout << "Catch" << std::endl;
-		std::cout << e.what() << std::endl;
+		// std::cout << e.what() << std::endl; // This fails in release
 	}
 
 

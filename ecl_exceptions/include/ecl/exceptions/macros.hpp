@@ -72,14 +72,14 @@
 /*****************************************************************************
 ** Macros [ecl_assert_throw, ecl_debug_throw]
 *****************************************************************************/
-
+/* Some bad logic here - release can still mean we use some exceptions */
 #if defined(NDEBUG) || defined(ECL_NDEBUG) || defined(ECL_DISABLE_EXCEPTIONS)
   #define ecl_assert_throw_decl(exception)
   #define ecl_assert_throw(expression,exception) ((void)0)
   #define ecl_debug_throw_decl(exception)
   #define ecl_debug_throw(exception) ((void)0)
   #define ecl_debug_try if(true)
-  #define ecl_debug_catch(exception) else
+  #define ecl_debug_catch(exception) else // TODO - this is useles, you can't do ecl_debug_catch(Exception &e) { std::cout << e.what() << std::endl; } in release mode
 #else
   #define ECL_HAS_EXCEPTIONS
 /**

@@ -60,8 +60,7 @@ namespace ecl {
 
 namespace ipc {
 
-#ifdef ECL_HAS_EXCEPTIONS
-
+#ifndef ECL_DISABLE_EXCEPTIONS
 /**
  * @brief Posix exception handler for opening shared memory.
  *
@@ -81,9 +80,7 @@ ECL_PUBLIC ecl::StandardException openSharedSectionException(const char* loc);
  * @param loc : use with the LOC macro, identifies the line and file of the code.
  */
 ECL_PUBLIC ecl::StandardException memoryMapException(const char* loc);
-
-
-#endif /* ECL_HAS_EXCEPTIONS */
+#endif
 
 /**
  * @brief Common shared memory functions wrapping the underlying rt calls.

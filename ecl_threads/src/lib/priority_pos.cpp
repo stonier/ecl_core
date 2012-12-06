@@ -37,7 +37,7 @@ using std::ostringstream;
 ** Implementation [Process]
 *****************************************************************************/
 
-bool set_priority(Priority priority_level) ecl_throw_decl(StandardException)
+bool set_priority(Priority priority_level) ecl_debug_throw_decl(StandardException)
 {
     /*************************************************************************
      * Real time priority exception. Run this with absolute priority rather
@@ -112,13 +112,13 @@ bool set_priority(Priority priority_level) ecl_throw_decl(StandardException)
         }
     }
     if ( return_value == -1 ) {
-        ecl_throw(threads::throwPriorityException(LOC));
+        ecl_debug_throw(threads::throwPriorityException(LOC));
         return false;
     }
     return true;
 }
 
-Priority get_priority() ecl_throw_decl(StandardException)
+Priority get_priority() ecl_debug_throw_decl(StandardException)
 {
     /******************************************
     ** Check for Scheduling Policy (Trad/RT)
@@ -127,7 +127,7 @@ Priority get_priority() ecl_throw_decl(StandardException)
         int scheduler = sched_getscheduler(0);
         switch ( scheduler ) {
             case ( -1 ) : {
-                ecl_throw(threads::throwPriorityException(LOC));
+                ecl_debug_throw(threads::throwPriorityException(LOC));
                 return UnknownPriority;
                 break;
             }
@@ -141,7 +141,7 @@ Priority get_priority() ecl_throw_decl(StandardException)
                 *******************************************/
                 sched_param param;
                 if ( sched_getparam(0,&param) != 0 ) {
-                    ecl_throw(threads::throwPriorityException(LOC));
+                    ecl_debug_throw(threads::throwPriorityException(LOC));
                     return UnknownPriority;
                 }
                 int rr_min = sched_get_priority_min(SCHED_RR);
@@ -185,7 +185,7 @@ Priority get_priority() ecl_throw_decl(StandardException)
 ** Implementation [Debugging]
 *****************************************************************************/
 
-std::string print_priority_diagnostics() ecl_throw_decl(StandardException) {
+std::string print_priority_diagnostics() ecl_debug_throw_decl(StandardException) {
 
     ostringstream ostream;
 
@@ -214,7 +214,7 @@ std::string print_priority_diagnostics() ecl_throw_decl(StandardException) {
 		int scheduler = sched_getscheduler(0);
 		switch ( scheduler ) {
 			case ( -1 ) : {
-				ecl_throw(threads::throwPriorityException(LOC));
+				ecl_debug_throw(threads::throwPriorityException(LOC));
 				return std::string("Call to sched_getscheduler failed.");
 			}
 			case ( SCHED_OTHER ) : {
@@ -297,7 +297,7 @@ std::string print_priority_diagnostics() ecl_throw_decl(StandardException) {
 
 namespace threads {
 
-bool set_real_time_priority(int policy,int priority_level) ecl_throw_decl(StandardException) {
+bool set_real_time_priority(int policy,int priority_level) ecl_debug_throw_decl(StandardException) {
 
 	#if _POSIX_PRIORITY_SCHEDULING > 0
 		ostringstream ostream;
@@ -323,7 +323,7 @@ bool set_real_time_priority(int policy,int priority_level) ecl_throw_decl(Standa
 		sched_param schedule_parameters;
 		schedule_parameters.sched_priority = priority_level;
 		if ( sched_setscheduler(0, policy, &schedule_parameters) == -1 ) {
-			ecl_throw(throwPriorityException(LOC));
+			ecl_debug_throw(throwPriorityException(LOC));
 		}
 		return true;
 	#else
