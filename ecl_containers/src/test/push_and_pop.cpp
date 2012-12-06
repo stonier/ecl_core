@@ -22,9 +22,12 @@ using ecl::Array;
 using ecl::StandardException;
 using ecl::ContainerConcept;
 using ecl::PushAndPop;
+
 /*****************************************************************************
  ** Tests
- *****************************************************************************/TEST(PushAndPopTests,constructors)
+ *****************************************************************************/
+
+TEST(PushAndPopTests,constructors)
 {
   PushAndPop<int> pp_dynamic(4, 2);
   EXPECT_EQ(2, pp_dynamic[0]);
@@ -149,14 +152,13 @@ TEST(PushAndPopTests,concepts)
   // ecl_compile_time_concept_check(ContainerConcept<Array<char,6>>); // The macro won't let you do this (macro function syntax problem, not a c++ problem)
 }
 
+
 /*****************************************************************************
  ** Main program
  *****************************************************************************/
 
 int main(int argc, char **argv)
 {
-
   testing::InitGoogleTest(&argc, argv);
-  std::cout << "dude" << std::endl;
   return RUN_ALL_TESTS();
 }
