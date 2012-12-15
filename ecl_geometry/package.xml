@@ -13,7 +13,7 @@
   <url type="bugtracker">https://github.com/stonier/ecl_core/issues</url>
   <author email="d.stonier@gmail.com">Daniel Stonier</author> -->
 
-  <build_depend>catkin</build_depend>
+  <buildtool_depend>catkin</buildtool_depend>
   <build_depend>ecl_license</build_depend>
   <build_depend>ecl_config</build_depend>
   <build_depend>ecl_type_traits</build_depend>
