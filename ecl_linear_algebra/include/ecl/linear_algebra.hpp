@@ -16,7 +16,7 @@
 #ifndef ECL_LINEAR_ALGEBRA_HPP_
 #define ECL_LINEAR_ALGEBRA_HPP_
 
-#include "linear_algebra/macros.hpp"
+#include <ecl/linear_algebra/macros.hpp>
 
 /*****************************************************************************
 ** Plugins

@@ -32,7 +32,9 @@ include_directories(SYSTEM include ${catkin_INCLUDE_DIRS} ${EIGEN_INCLUDE_DIR})
 #if(NOT EIGEN_INCLUDE_DIR)
 #  set(ECL_EIGEN_IS_INTERNAL 1)
 #endif()
-configure_file(${CMAKE_CURRENT_SOURCE_DIR}/include/ecl/linear_algebra/macros.hpp.in ${CMAKE_CURRENT_SOURCE_DIR}/include/ecl/linear_algebra/macros.hpp)
+configure_file(${CMAKE_CURRENT_SOURCE_DIR}/include/ecl/linear_algebra/macros.hpp.in ${CATKIN_DEVEL_PREFIX}/include/ecl/linear_algebra/macros.hpp) 
+install(FILES ${CATKIN_DEVEL_PREFIX}/include/ecl/linear_algebra/macros.hpp DESTINATION ${CATKIN_GLOBAL_INCLUDE_DESTINATION}/ecl/linear_algebra)
+
 
 
 ##############################################################################
