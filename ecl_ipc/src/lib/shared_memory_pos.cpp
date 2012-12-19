@@ -104,7 +104,7 @@ int SharedMemoryBase::open() {
 ** Exception Handlers
 *****************************************************************************/
 
-#ifdef ECL_HAS_EXCEPTIONS
+#ifndef ECL_DISABLE_EXCEPTIONS
 
 ecl::StandardException openSharedSectionException(const char* loc) {
 	int error_result = errno;
@@ -177,7 +177,7 @@ ecl::StandardException memoryMapException(const char* loc) {
 		}
 	}
 }
-#endif /* ECL_HAS_EXCEPTIONS */
+#endif /* ECL_DISABLE_EXCEPTIONS */
 
 } // namespace ipc
 } // namespace ecl
