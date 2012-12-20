@@ -4,7 +4,7 @@
 
 # problems running as the jenkins user
 set(ECL_JENKINS $ENV{ECL_JENKINS})
-if( NOT "${ECL_JENKINS}" STREQUAL "")
+if("${ECL_JENKINS}" STREQUAL "")
   catkin_add_gtest(test_mutex mutex.cpp)
   target_link_libraries(test_mutex ${PROJECT_NAME})
 endif()
