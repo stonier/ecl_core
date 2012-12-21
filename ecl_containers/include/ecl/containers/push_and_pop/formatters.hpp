@@ -164,7 +164,6 @@ ecl_assert_throw_decl(StandardException)
           "in the same stream sequence, so this is not permitted here.") );
 
   ecl::Format<CharType> format(-1, ecl::NoAlign, ecl::Hex);
-  typename ecl::Array<CharType, M>::const_iterator iter;
   ostream  << "[ ";
   for ( unsigned int i = 0; i < formatter.push_and_pop_container->size(); ++i ) {
     ostream << format((*(formatter.push_and_pop_container))[i]) << " ";
