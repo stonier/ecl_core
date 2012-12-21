@@ -14,7 +14,7 @@
 ** Includes
 *****************************************************************************/
 
-#include "macros.hpp"
+#include <ecl/linear_algebra/macros.hpp>
 #include "formatters.hpp"
 
 #ifndef EIGEN_MATRIXBASE_PLUGIN

@@ -14,14 +14,15 @@ find_package(catkin REQUIRED COMPONENTS
     ecl_formatters
     ecl_eigen
     )
+file(MAKE_DIRECTORY ${CATKIN_DEVEL_PREFIX}/include)
 catkin_package(
-        INCLUDE_DIRS include # Note that this only helps with the devel space, not the install space
+        INCLUDE_DIRS include ${CATKIN_DEVEL_PREFIX}/include
 	CATKIN_DEPENDS 
             ecl_exceptions 
             ecl_formatters
             ecl_eigen
         )
-include_directories(SYSTEM include ${catkin_INCLUDE_DIRS} ${EIGEN_INCLUDE_DIR})
+include_directories(SYSTEM include ${catkin_INCLUDE_DIRS} ${EIGEN_INCLUDE_DIR} ${CATKIN_DEVEL_PREFIX}/include)
 
 ##############################################################################
 # External Eigen

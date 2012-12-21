@@ -16,7 +16,7 @@
 ** Includes
 *****************************************************************************/
 
-#include "macros.hpp"
+#include <ecl/linear_algebra/macros.hpp>
 
 #include <ecl/exceptions/standard_exception.hpp>
 #include <ecl/formatters.hpp>
