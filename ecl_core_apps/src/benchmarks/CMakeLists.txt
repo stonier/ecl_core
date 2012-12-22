@@ -20,7 +20,8 @@ ecl_add_benchmark(snooze)
 ecl_add_benchmark(streams)
 ecl_add_benchmark(string_conversions)
 
-ecl_add_benchmark(eigen_sparse)
+# Sparse is still unstable...and got modified in quantal, comment out for now.
+#ecl_add_benchmark(eigen_sparse)
 ecl_add_benchmark(eigen3_inverse)
 ecl_add_benchmark(eigen3_decompositions)
 ecl_add_benchmark(eigen3_transforms)
