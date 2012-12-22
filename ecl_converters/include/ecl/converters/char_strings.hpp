@@ -97,30 +97,6 @@ class CharStringBuffer : public ConverterBase {
 ** Character String Converter Utilities
 *****************************************************************************/
 /**
- * Very fast internal utility function that converts a signed integral and puts it on the buffer.
- * @param number : the unsigned number to be converted.
- * @param buffer_begin : start of the buffer to be used.
- * @param buffer_end : end of the buffer to be used.
- * @return char* : a pointer to the buffer.
- *
- **/
-template <typename Number>
-char* convertSignedIntegral(const Number &number, char* buffer_begin, char* buffer_end)
-{
-    typedef typename Unsigned<Number>::type UnsignedNumber;
-
-    char *s;
-    if ( number >= 0 ) {
-        s = convertUnsignedIntegral(static_cast<UnsignedNumber>(number),buffer_begin,buffer_end);
-    } else {
-        s = convertUnsignedIntegral(static_cast<UnsignedNumber>(-1*number),buffer_begin+1,buffer_end);
-        --s;
-        *s = '-';
-    }
-    return s;
-}
-
-/**
  * @brief Fast internal utility function that converts an unsigned integral and puts it on the buffer.
  *
  * This function uses an assert (debug mode only) at the end of processing to check the buffer's
@@ -148,6 +124,29 @@ char* convertUnsignedIntegral(Number number, char* buffer_begin, char* buffer_en
     return str_ptr;
 };
 
+/**
+ * Very fast internal utility function that converts a signed integral and puts it on the buffer.
+ * @param number : the unsigned number to be converted.
+ * @param buffer_begin : start of the buffer to be used.
+ * @param buffer_end : end of the buffer to be used.
+ * @return char* : a pointer to the buffer.
+ *
+ **/
+template <typename Number>
+char* convertSignedIntegral(const Number &number, char* buffer_begin, char* buffer_end)
+{
+    typedef typename Unsigned<Number>::type UnsignedNumber;
+
+    char *s;
+    if ( number >= 0 ) {
+        s = convertUnsignedIntegral(static_cast<UnsignedNumber>(number),buffer_begin,buffer_end);
+    } else {
+        s = convertUnsignedIntegral(static_cast<UnsignedNumber>(-1*number),buffer_begin+1,buffer_end);
+        --s;
+        *s = '-';
+    }
+    return s;
+}
 
 
 }; // namespace converters
