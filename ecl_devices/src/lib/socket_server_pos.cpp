@@ -18,7 +18,7 @@
 ** Includes
 *****************************************************************************/
 
-#include <iostream>
+#include <unistd.h>
 #include <ecl/exceptions/standard_exception.hpp>
 #include "../../include/ecl/devices/socket_connection_status.hpp"
 #include "../../include/ecl/devices/socket_server_pos.hpp"

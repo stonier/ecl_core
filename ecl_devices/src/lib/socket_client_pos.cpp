@@ -18,6 +18,7 @@
 ** Includes
 *****************************************************************************/
 
+#include <unistd.h>
 #include <iostream>
 #include <netdb.h> // gethostbyname
 #include <ecl/exceptions/standard_exception.hpp>
