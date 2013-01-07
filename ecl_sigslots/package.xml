@@ -11,10 +11,10 @@
   </description>
   <maintainer email="d.stonier@gmail.com">Daniel Stonier</maintainer>
   <license>BSD</license>
-  <url type="website">http://wiki.ros.org/ecl_sigslots</url>
+  <url type="website">http://ros.org/wiki/ecl_sigslots</url>
   <url type="repository">https://github.com/stonier/ecl_core</url>
   <url type="bugtracker">https://github.com/stonier/ecl_core/issues</url>
-  <author email="d.stonier@gmail.com">Daniel Stonier</author> -->
+  <author email="d.stonier@gmail.com">Daniel Stonier</author>
 
   <buildtool_depend>catkin</buildtool_depend>
   <build_depend>ecl_license</build_depend>
