@@ -25,6 +25,7 @@
   <build_depend>ecl_time</build_depend>
   <build_depend>ecl_utilities</build_depend>
   
+  <run_depend>ecl_build</run_depend>
   <run_depend>ecl_config</run_depend>
   <run_depend>ecl_errors</run_depend>
   <run_depend>ecl_concepts</run_depend>
