@@ -13,9 +13,6 @@
   <url type="bugtracker">https://github.com/stonier/ecl_core/issues</url>
   <author email="d.stonier@gmail.com">Daniel Stonier</author>
 
-  <run_depend>ecl_tools</run_depend>
-  <run_depend>ecl_lite</run_depend>
-
   <run_depend>ecl_command_line</run_depend>
   <run_depend>ecl_concepts</run_depend>
   <run_depend>ecl_containers</run_depend>

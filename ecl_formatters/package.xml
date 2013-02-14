@@ -20,6 +20,7 @@
   <build_depend>ecl_exceptions</build_depend>
   <build_depend>ecl_converters</build_depend>
   
+  <run_depend>ecl_license</run_depend>
   <run_depend>ecl_config</run_depend>
   <run_depend>ecl_exceptions</run_depend>
   <run_depend>ecl_converters</run_depend>

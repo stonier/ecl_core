@@ -15,6 +15,7 @@
 
   <buildtool_depend>catkin</buildtool_depend>
   <build_depend>ecl_license</build_depend>
+  <run_depend>ecl_license</run_depend>
 </package>
 
 
