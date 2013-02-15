@@ -1,0 +1,13 @@
+[
+# Official Ros Stacks
+#{'setup-file': {'local-name': '/opt/ros/groovy/setup.sh'}},
+#{'other': {'local-name': '/opt/ros/groovy/share/ros'}},
+#{'other': {'local-name': '/opt/ros/groovy/share'}},
+#{'other': {'local-name': '/opt/ros/groovy/stacks'}},
+
+{'git': {'local-name': 'ecl_tools', 'version': 'groovy-devel', 'uri':'https://github.com/stonier/ecl_tools.git'}},
+{'git': {'local-name': 'ecl_lite', 'version': 'groovy-devel', 'uri':'https://github.com/stonier/ecl_lite.git'}},
+{'git': {'local-name': 'ecl_core', 'version': 'groovy-devel', 'uri':'https://github.com/stonier/ecl_core.git'}},
+{'git': {'local-name': 'ecl_navigation', 'version': 'groovy-devel', 'uri':'https://github.com/stonier/ecl_navigation.git'}},
+{'git': {'local-name': 'ecl_manipulation', 'version': 'groovy-devel', 'uri':'https://github.com/stonier/ecl_manipulation.git'}},
+]
