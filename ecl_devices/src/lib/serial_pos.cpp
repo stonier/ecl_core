@@ -118,7 +118,7 @@ bool Serial::open(const std::string& port_name, const BaudRate &baud_rate, const
     file_lock.l_len   = 0;
     file_lock.l_pid   = getpid();
     if (fcntl(file_descriptor, F_SETLK, &file_lock) != 0) {
-    	ecl_throw_decl(StandardException(LOC,OpenError,std::string("Device is already locked. Try 'lsof | grep ") + port + std::string("' to find other processes that currently have the port open.")));
+    	ecl_throw_decl(StandardException(LOC,OpenError,std::string("Device is already locked. Try 'lsof | grep ") + port + std::string("' to find other processes that currently have the port open (if the device is a symbolic link you may need to replace the device name with the device that it is pointing to).")));
     	error_handler = IsLockedError;
     	is_open = false;
     	return false;
