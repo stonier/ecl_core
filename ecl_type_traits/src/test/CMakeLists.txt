@@ -1,13 +1,24 @@
+###############################################################################
+# Test Macro
+###############################################################################
+
+macro(ecl_type_traits_add_gtest test_name)
+  catkin_add_gtest(test_${test_name} ${test_name}.cpp)
+  # If we don't have gtest installed, then the target doesn't get made - check!
+  if(TARGET test_${test_name})
+      target_link_libraries(test_${test_name} ${PROJECT_NAME})
+  endif()
+endmacro()
+
+###############################################################################
+# Google Tests
+###############################################################################
+
 ##############################################################################
 # Files
 ##############################################################################
 
-catkin_add_gtest(test_numeric_limits numeric_limits)
-target_link_libraries(test_numeric_limits ${PROJECT_NAME})
-#target_link_libraries(test_numeric_limits ${ECL_LINK_NO_AS_NEEDED_FLAG} -lpthread)
-
-catkin_add_gtest(test_fundamental_types fundamental_types)
-target_link_libraries(test_fundamental_types ${PROJECT_NAME})
-#target_link_libraries(test_fundamental_types ${ECL_LINK_NO_AS_NEEDED_FLAG} -lpthread)
+ecl_type_traits_add_gtest(test_numeric_limits numeric_limits)
+ecl_type_traits_add_gtest(test_fundamental_types fundamental_types)
 
 
