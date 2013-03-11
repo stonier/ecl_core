@@ -1,8 +1,17 @@
-##############################################################################
-# Files
-##############################################################################
+###############################################################################
+# Google Tests Macro
+###############################################################################
 
-catkin_add_gtest(test_byte_array_converters byte_array_converters.cpp)
-target_link_libraries(test_byte_array_converters ${catkin_LIBRARIES})
-catkin_add_gtest(test_converters converters.cpp)
-target_link_libraries(test_converters ${catkin_LIBRARIES})
+macro(ecl_converters_add_gtest test_name)
+  catkin_add_gtest(ecl_test_${test_name} ${test_name}.cpp)
+  if(TARGET ecl_test_${test_name})
+    target_link_libraries(ecl_test_${test_name} ${catkin_LIBRARIES})
+  endif()
+endmacro()
+
+###############################################################################
+# Google Tests
+###############################################################################
+
+ecl_converters_add_gtest(test_byte_array_converters byte_array_converters.cpp)
+ecl_converters_add_gtest(test_converters converters.cpp)
