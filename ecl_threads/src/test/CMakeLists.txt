@@ -19,7 +19,8 @@ set(ECL_JENKINS $ENV{ECL_JENKINS})
 if("${ECL_JENKINS}" STREQUAL "")
   catkin_add_gtest(ecl_test_mutex mutex.cpp)
   if(TARGET ecl_test_mutex)
-  target_link_libraries(ecl_test_mutex ${PROJECT_NAME})
+    target_link_libraries(ecl_test_mutex ${PROJECT_NAME})
+  endif()
 endif()
 
 ###############################################################################
