@@ -14,9 +14,9 @@ endmacro()
 # Google Tests
 ###############################################################################
 
-ecl_add_gtest(cpuwatch cpuwatch_rt.cpp)
-ecl_add_gtest(sleep sleep.cpp)
-ecl_add_gtest(snooze snooze.cpp)
-ecl_add_gtest(timestamp timestamp.cpp)
-ecl_add_gtest(time_data time_data.cpp)
-ecl_add_gtest(stopwatch stopwatch.cpp)
+ecl_add_gtest(cpuwatch_rt)
+ecl_add_gtest(sleep)
+ecl_add_gtest(snooze)
+ecl_add_gtest(timestamp)
+ecl_add_gtest(time_data)
+ecl_add_gtest(stopwatch)

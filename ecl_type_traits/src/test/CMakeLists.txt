@@ -18,7 +18,7 @@ endmacro()
 # Files
 ##############################################################################
 
-ecl_type_traits_add_gtest(test_numeric_limits numeric_limits)
-ecl_type_traits_add_gtest(test_fundamental_types fundamental_types)
+ecl_type_traits_add_gtest(numeric_limits)
+ecl_type_traits_add_gtest(fundamental_types)
 
 

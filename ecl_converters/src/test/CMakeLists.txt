@@ -13,5 +13,5 @@ endmacro()
 # Google Tests
 ###############################################################################
 
-ecl_converters_add_gtest(test_byte_array_converters byte_array_converters.cpp)
-ecl_converters_add_gtest(test_converters converters.cpp)
+ecl_converters_add_gtest(byte_array_converters)
+ecl_converters_add_gtest(converters)
