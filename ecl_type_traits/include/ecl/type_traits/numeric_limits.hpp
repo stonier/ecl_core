@@ -76,7 +76,7 @@ public:
 	static const char maximum = CHAR_MAX;
 
 	typedef float Precision;
-	static const Precision dummy_precision = 0;
+	static const Precision dummy_precision;
 };
 
 /**
@@ -94,7 +94,7 @@ public:
 	static const unsigned char maximum = UCHAR_MAX;
 
 	typedef float Precision;
-	static const Precision dummy_precision = 0;
+	static const Precision dummy_precision;
 };
 
 /**
@@ -112,7 +112,7 @@ public:
 	static const short maximum = SHRT_MAX;
 
 	typedef float Precision;
-	static const Precision dummy_precision = 0;
+	static const Precision dummy_precision;
 };
 
 /**
@@ -130,7 +130,7 @@ public:
 	static const unsigned short maximum = USHRT_MAX;
 
 	typedef float Precision;
-	static const Precision dummy_precision = 0;
+	static const Precision dummy_precision;
 };
 
 /**
@@ -148,7 +148,7 @@ public:
 	static const int maximum = INT_MAX;
 
 	typedef float Precision;
-	static const Precision dummy_precision = 0;
+	static const Precision dummy_precision;
 };
 
 /**
@@ -166,7 +166,7 @@ public:
 	static const unsigned int maximum = UINT_MAX;
 
 	typedef float Precision;
-	static const Precision dummy_precision = 0;
+	static const Precision dummy_precision;
 };
 
 
@@ -185,7 +185,7 @@ public:
 	static const long maximum = LONG_MAX;
 
 	typedef float Precision;
-	static const Precision dummy_precision = 0;
+	static const Precision dummy_precision;
 };
 
 /**
@@ -203,7 +203,7 @@ public:
 	static const unsigned long maximum = ULONG_MAX;
 
 	typedef float Precision;
-	static const Precision dummy_precision = 0;
+	static const Precision dummy_precision;
 };
 
 /**
@@ -217,11 +217,11 @@ public:
 	static const long long one = 1LL;
 	static const uint16 bits = ECL_SIZE_OF_LONG_LONG*8;
 	static const uint16 bytes = ECL_SIZE_OF_LONG_LONG;
-	static const long long minimum = LONG_LONG_MIN;
-	static const long long maximum = LONG_LONG_MAX;
+	static const long long minimum = LLONG_MIN;
+	static const long long maximum = LLONG_MAX;
 
 	typedef float Precision;
-	static const Precision dummy_precision = 0;
+	static const Precision dummy_precision;
 };
 
 /**
@@ -236,10 +236,10 @@ public:
 	static const uint16 bits = ECL_SIZE_OF_LONG_LONG*8;
 	static const uint16 bytes = ECL_SIZE_OF_LONG_LONG;
 	static const unsigned long long minimum = 0ULL;
-	static const unsigned long long maximum = ULONG_LONG_MAX;
+	static const unsigned long long maximum = ULLONG_MAX;
 
 	typedef float Precision;
-	static const Precision dummy_precision = 0;
+	static const Precision dummy_precision;
 };
 
 /**

@@ -74,17 +74,34 @@ const uint16 numeric_limits<uint64>::bytes;
 const uint64 numeric_limits<uint64>::minimum;
 const uint64 numeric_limits<uint64>::maximum;
 
+/* Dummy precision is a useful concept borrowed from eigen. It is used to help define
+ * fuzzy operators which is especially handy for comparing floats which are notorious with
+ * a strict '=' operator.
+ *
+ * @sa eigen/include/ecl/Eigen3/src/Core/NumTraits.h
+ */
+const numeric_limits<char>::Precision numeric_limits<char>::dummy_precision = 1e-5f;
+const numeric_limits<unsigned char>::Precision numeric_limits<unsigned char>::dummy_precision = 1e-5f;
+const numeric_limits<short>::Precision numeric_limits<short>::dummy_precision = 1e-5f;
+const numeric_limits<unsigned short>::Precision numeric_limits<unsigned short>::dummy_precision = 1e-5f;
+const numeric_limits<int>::Precision numeric_limits<int>::dummy_precision = 0.0;
+const numeric_limits<unsigned int>::Precision numeric_limits<unsigned int>::dummy_precision = 0.0;
+const numeric_limits<long>::Precision numeric_limits<long>::dummy_precision = 0.0;
+const numeric_limits<unsigned long>::Precision numeric_limits<unsigned long>::dummy_precision = 0.0;
+const numeric_limits<long long>::Precision numeric_limits<long long>::dummy_precision = 0.0;
+const numeric_limits<unsigned long long>::Precision numeric_limits<unsigned long long>::dummy_precision = 0.0;
+
 const float numeric_limits<float>::minimum = -std::numeric_limits<float>::max();
 const float numeric_limits<float>::maximum = std::numeric_limits<float>::max();
-const float numeric_limits<float>::dummy_precision = 1e-5l;
+const float numeric_limits<float>::dummy_precision = 1e-5f;
 
 const double numeric_limits<double>::minimum = -std::numeric_limits<double>::max();
 const double numeric_limits<double>::maximum = std::numeric_limits<double>::max();
-const double numeric_limits<double>::dummy_precision = 1e-12l;
+const double numeric_limits<double>::dummy_precision = 1e-12;
 
 const long double numeric_limits<long double>::minimum = -std::numeric_limits<long double>::max();
 const long double numeric_limits<long double>::maximum = std::numeric_limits<long double>::max();
-const long double numeric_limits<long double>::dummy_precision = 1e-15l;
+const long double numeric_limits<long double>::dummy_precision = 1e-15;
 /**
  * @endcond
  */
