@@ -42,62 +42,62 @@ int main() {
 
     std::cout << "numeric_limits<char>::bytes " << numeric_limits<char>::bytes << std::endl;
     std::cout << "numeric_limits<char>::bits " << numeric_limits<char>::bits << std::endl;
-    std::cout << "numeric_limits<char>::min " << numeric_limits<char>::min << std::endl;
-    std::cout << "numeric_limits<char>::max " << numeric_limits<char>::max << std::endl;
+    std::cout << "numeric_limits<char>::min " << static_cast<int>(numeric_limits<char>::minimum) << std::endl;
+    std::cout << "numeric_limits<char>::max " << static_cast<int>(numeric_limits<char>::maximum) << std::endl;
     std::cout << std::endl;
 
     std::cout << "numeric_limits<unsigned char>::bytes " << numeric_limits<unsigned char>::bytes << std::endl;
     std::cout << "numeric_limits<unsigned char>::bits " << numeric_limits<unsigned char>::bits << std::endl;
-    std::cout << "numeric_limits<unsigned char>::min " << numeric_limits<unsigned char>::min << std::endl;
-    std::cout << "numeric_limits<unsigned char>::max " << numeric_limits<unsigned char>::max << std::endl;
+    std::cout << "numeric_limits<unsigned char>::min " << static_cast<int>(numeric_limits<unsigned char>::minimum) << std::endl;
+    std::cout << "numeric_limits<unsigned char>::max " << static_cast<int>(numeric_limits<unsigned char>::maximum) << std::endl;
     std::cout << std::endl;
 
     std::cout << "numeric_limits<short>::bytes " << numeric_limits<short>::bytes << std::endl;
     std::cout << "numeric_limits<short>::bits " << numeric_limits<short>::bits << std::endl;
-    std::cout << "numeric_limits<short>::min " << numeric_limits<short>::min << std::endl;
-    std::cout << "numeric_limits<short>::max " << numeric_limits<short>::max << std::endl;
+    std::cout << "numeric_limits<short>::min " << numeric_limits<short>::minimum << std::endl;
+    std::cout << "numeric_limits<short>::max " << numeric_limits<short>::maximum << std::endl;
     std::cout << std::endl;
 
     std::cout << "numeric_limits<unsigned short>::bytes " << numeric_limits<unsigned short>::bytes << std::endl;
     std::cout << "numeric_limits<unsigned short>::bits " << numeric_limits<unsigned short>::bits << std::endl;
-    std::cout << "numeric_limits<unsigned short>::min " << numeric_limits<unsigned short>::min << std::endl;
-    std::cout << "numeric_limits<unsigned short>::max " << numeric_limits<unsigned short>::max << std::endl;
+    std::cout << "numeric_limits<unsigned short>::min " << numeric_limits<unsigned short>::minimum << std::endl;
+    std::cout << "numeric_limits<unsigned short>::max " << numeric_limits<unsigned short>::maximum << std::endl;
     std::cout << std::endl;
 
     std::cout << "numeric_limits<int>::bytes " << numeric_limits<int>::bytes << std::endl;
     std::cout << "numeric_limits<int>::bits " << numeric_limits<int>::bits << std::endl;
-    std::cout << "numeric_limits<int>::min " << numeric_limits<int>::min << std::endl;
-    std::cout << "numeric_limits<int>::max " << numeric_limits<int>::max << std::endl;
+    std::cout << "numeric_limits<int>::min " << numeric_limits<int>::minimum << std::endl;
+    std::cout << "numeric_limits<int>::max " << numeric_limits<int>::maximum << std::endl;
     std::cout << std::endl;
 
     std::cout << "numeric_limits<unsigned int>::bytes " << numeric_limits<unsigned int>::bytes << std::endl;
     std::cout << "numeric_limits<unsigned int>::bits " << numeric_limits<unsigned int>::bits << std::endl;
-    std::cout << "numeric_limits<unsigned int>::min " << numeric_limits<unsigned int>::min << std::endl;
-    std::cout << "numeric_limits<unsigned int>::max " << numeric_limits<unsigned int>::max << std::endl;
+    std::cout << "numeric_limits<unsigned int>::min " << numeric_limits<unsigned int>::minimum << std::endl;
+    std::cout << "numeric_limits<unsigned int>::max " << numeric_limits<unsigned int>::maximum << std::endl;
     std::cout << std::endl;
 
     std::cout << "numeric_limits<long>::bytes " << numeric_limits<long>::bytes << std::endl;
     std::cout << "numeric_limits<long>::bits " << numeric_limits<long>::bits << std::endl;
-    std::cout << "numeric_limits<long>::min " << numeric_limits<long>::min << std::endl;
-    std::cout << "numeric_limits<long>::max " << numeric_limits<long>::max << std::endl;
+    std::cout << "numeric_limits<long>::min " << numeric_limits<long>::minimum << std::endl;
+    std::cout << "numeric_limits<long>::max " << numeric_limits<long>::maximum << std::endl;
     std::cout << std::endl;
 
     std::cout << "numeric_limits<unsigned long>::bytes " << numeric_limits<unsigned long>::bytes << std::endl;
     std::cout << "numeric_limits<unsigned long>::bits " << numeric_limits<unsigned long>::bits << std::endl;
-    std::cout << "numeric_limits<unsigned long>::min " << numeric_limits<unsigned long>::min << std::endl;
-    std::cout << "numeric_limits<unsigned long>::max " << numeric_limits<unsigned long>::max << std::endl;
+    std::cout << "numeric_limits<unsigned long>::min " << numeric_limits<unsigned long>::minimum << std::endl;
+    std::cout << "numeric_limits<unsigned long>::max " << numeric_limits<unsigned long>::maximum << std::endl;
     std::cout << std::endl;
 
     std::cout << "numeric_limits<long long>::bytes " << numeric_limits<long long>::bytes << std::endl;
     std::cout << "numeric_limits<long long>::bits " << numeric_limits<long long>::bits << std::endl;
-    std::cout << "numeric_limits<long long>::min " << numeric_limits<long long>::min << std::endl;
-    std::cout << "numeric_limits<long long>::max " << numeric_limits<long long>::max << std::endl;
+    std::cout << "numeric_limits<long long>::min " << numeric_limits<long long>::minimum << std::endl;
+    std::cout << "numeric_limits<long long>::max " << numeric_limits<long long>::maximum << std::endl;
     std::cout << std::endl;
 
     std::cout << "numeric_limits<unsigned long long>::bytes " << numeric_limits<unsigned long long>::bytes << std::endl;
     std::cout << "numeric_limits<unsigned long long>::bits " << numeric_limits<unsigned long long>::bits << std::endl;
-    std::cout << "numeric_limits<unsigned long long>::min " << numeric_limits<unsigned long long>::min << std::endl;
-    std::cout << "numeric_limits<unsigned long long>::max " << numeric_limits<unsigned long long>::max << std::endl;
+    std::cout << "numeric_limits<unsigned long long>::min " << numeric_limits<unsigned long long>::minimum << std::endl;
+    std::cout << "numeric_limits<unsigned long long>::max " << numeric_limits<unsigned long long>::maximum << std::endl;
 
 //    std::cout << std::endl;
 //    std::cout << "***********************************************************" << std::endl;

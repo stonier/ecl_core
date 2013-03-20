@@ -19,6 +19,7 @@
 #include <limits>
 #include <climits>
 #include <ecl/config/portable_types.hpp>
+#include "macros.hpp"
 
 /*****************************************************************************
 ** Namespaces
@@ -52,7 +53,7 @@ namespace ecl {
  * @tparam T : the type to check (currently must be a fundamental type).
  */
 template <typename T>
-class numeric_limits : public std::numeric_limits<T> {
+class ecl_type_traits_PUBLIC numeric_limits : public std::numeric_limits<T> {
 public:
 	numeric_limits() {}
 private:
@@ -67,7 +68,7 @@ private:
  * @sa ecl::numeric_limits
  */
 template <>
-class numeric_limits<char> : public std::numeric_limits<char> {
+class ecl_type_traits_PUBLIC numeric_limits<char> : public std::numeric_limits<char> {
 public:
 	static const char one = 1;
 	static const uint16 bits = ECL_SIZE_OF_CHAR*8;
@@ -85,7 +86,7 @@ public:
  * @sa ecl::numeric_limits
  */
 template <>
-class numeric_limits<unsigned char> : public std::numeric_limits<unsigned char> {
+class ecl_type_traits_PUBLIC numeric_limits<unsigned char> : public std::numeric_limits<unsigned char> {
 public:
 	static const unsigned char one = 1U;
 	static const uint16 bits = ECL_SIZE_OF_CHAR*8;
@@ -103,7 +104,7 @@ public:
  * @sa ecl::numeric_limits
  */
 template <>
-class numeric_limits<short> : public std::numeric_limits<short> {
+class ecl_type_traits_PUBLIC numeric_limits<short> : public std::numeric_limits<short> {
 public:
 	static const short one = 1;
 	static const uint16 bits = ECL_SIZE_OF_SHORT*8;
@@ -121,7 +122,7 @@ public:
  * @sa ecl::numeric_limits
  */
 template <>
-class numeric_limits<unsigned short> : public std::numeric_limits<unsigned short> {
+class ecl_type_traits_PUBLIC numeric_limits<unsigned short> : public std::numeric_limits<unsigned short> {
 public:
 	static const unsigned short one = 1U;
 	static const uint16 bits = ECL_SIZE_OF_SHORT*8;
@@ -139,7 +140,7 @@ public:
  * @sa ecl::numeric_limits
  */
 template <>
-class numeric_limits<int> : public std::numeric_limits<int> {
+class ecl_type_traits_PUBLIC numeric_limits<int> : public std::numeric_limits<int> {
 public:
 	static const int one = 1;
 	static const uint16 bits = ECL_SIZE_OF_INT*8;
@@ -157,7 +158,7 @@ public:
  * @sa ecl::numeric_limits
  */
 template <>
-class numeric_limits<unsigned int> : public std::numeric_limits<unsigned int> {
+class ecl_type_traits_PUBLIC numeric_limits<unsigned int> : public std::numeric_limits<unsigned int> {
 public:
 	static const unsigned int one = 1U;
 	static const uint16 bits = ECL_SIZE_OF_INT*8;
@@ -176,7 +177,7 @@ public:
  * @sa ecl::numeric_limits
  */
 template <>
-class numeric_limits<long> : public std::numeric_limits<long> {
+class ecl_type_traits_PUBLIC numeric_limits<long> : public std::numeric_limits<long> {
 public:
 	static const long one = 1L;
 	static const uint16 bits = ECL_SIZE_OF_LONG*8;
@@ -194,7 +195,7 @@ public:
  * @sa ecl::numeric_limits
  */
 template <>
-class numeric_limits<unsigned long> : public std::numeric_limits<unsigned long> {
+class ecl_type_traits_PUBLIC numeric_limits<unsigned long> : public std::numeric_limits<unsigned long> {
 public:
 	static const unsigned long one = 1UL;
 	static const uint16 bits = ECL_SIZE_OF_LONG*8;
@@ -212,7 +213,7 @@ public:
  * @sa ecl::numeric_limits
  */
 template <>
-class numeric_limits<long long> : public std::numeric_limits<long long> {
+class ecl_type_traits_PUBLIC numeric_limits<long long> : public std::numeric_limits<long long> {
 public:
 	static const long long one = 1LL;
 	static const uint16 bits = ECL_SIZE_OF_LONG_LONG*8;
@@ -230,7 +231,7 @@ public:
  * @sa ecl::numeric_limits
  */
 template <>
-class numeric_limits<unsigned long long> : public std::numeric_limits<unsigned long long> {
+class ecl_type_traits_PUBLIC numeric_limits<unsigned long long> : public std::numeric_limits<unsigned long long> {
 public:
 	static const unsigned long long one = 1ULL;
 	static const uint16 bits = ECL_SIZE_OF_LONG_LONG*8;
@@ -248,7 +249,7 @@ public:
  * @sa ecl::numeric_limits
  */
 template <>
-class numeric_limits<float> : public std::numeric_limits<float> {
+class ecl_type_traits_PUBLIC numeric_limits<float> : public std::numeric_limits<float> {
 public:
 	static const uint16 bits = ECL_SIZE_OF_FLOAT*8;
 	static const uint16 bytes = ECL_SIZE_OF_FLOAT;
@@ -266,7 +267,7 @@ public:
  * @sa ecl::numeric_limits
  */
 template <>
-class numeric_limits<double> : public std::numeric_limits<double> {
+class ecl_type_traits_PUBLIC numeric_limits<double> : public std::numeric_limits<double> {
 public:
 	static const uint16 bits = ECL_SIZE_OF_DOUBLE*8;
 	static const uint16 bytes = ECL_SIZE_OF_DOUBLE;
@@ -284,7 +285,7 @@ public:
  * @sa ecl::numeric_limits
  */
 template <>
-class numeric_limits<long double> : public std::numeric_limits<long double> {
+class ecl_type_traits_PUBLIC numeric_limits<long double> : public std::numeric_limits<long double> {
 public:
 	static const uint16 bits = ECL_SIZE_OF_LONG_DOUBLE*8;
 	static const uint16 bytes = ECL_SIZE_OF_LONG_DOUBLE;
