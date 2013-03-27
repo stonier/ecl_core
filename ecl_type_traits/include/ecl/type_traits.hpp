@@ -16,6 +16,7 @@
 ** Includes
 *****************************************************************************/
 
+#include "type_traits/macros.hpp"
 #include "type_traits/traits.hpp"
 #include "type_traits/fundamental_types.hpp"
 #include "type_traits/numeric_limits.hpp"

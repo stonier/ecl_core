@@ -55,7 +55,7 @@ namespace ecl {
  * @sa StandardException, @ref errorsExceptions "Exceptions Guide".
  */
 template <typename ThrowingClass>
-class PosixErrorHandler {
+class ecl_exceptions_PUBLIC PosixErrorHandler {
 public:
 	/**
 	 * This static function is the general case response for generating

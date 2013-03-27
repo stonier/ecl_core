@@ -46,7 +46,7 @@ namespace ecl {
  *
  * @sa StandardException, DataException, @ref errorsExceptions "Exceptions Guide".
  **/
-class Exception : public std::exception
+class ecl_exceptions_PUBLIC Exception : public std::exception
 {
     public:
         /**
@@ -66,6 +66,7 @@ class Exception : public std::exception
          * @param loc : use with the LOC macro, identifies the line and file of the code.
          **/
         Exception(const char* loc ) : location(loc) {};
+
         std::string location;
 };
 

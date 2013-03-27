@@ -33,12 +33,6 @@
 #include <iostream>
 
 /*****************************************************************************
-** Using
-*****************************************************************************/
-
-using namespace std;
-
-/*****************************************************************************
 ** Exceptions
 *****************************************************************************/
 
@@ -53,7 +47,7 @@ public:
          char ** symbols = backtrace_symbols(array, nSize);
 
          for (int i = 0; i < nSize; i++) {
-             cout << symbols[i] << endl;
+             std::cout << symbols[i] << std::endl;
          }
          free(symbols);
      }
@@ -75,6 +69,8 @@ int main(int argc, char **argv) {
 	return 0;
 }
 #else
+
+#include <iostream>
 
 int main(int argc, char **argv) {
 

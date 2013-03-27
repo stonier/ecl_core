@@ -51,7 +51,7 @@ namespace ecl {
 
  @sa Exception, DataException, PosixErrorHandler, @ref errorsExceptions "Exceptions Guide".
  **/
-class StandardException : public Exception
+class ecl_exceptions_PUBLIC StandardException : public Exception
 {
     public:
         /**
