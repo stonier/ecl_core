@@ -28,11 +28,13 @@ include_directories(SYSTEM include ${catkin_INCLUDE_DIRS} ${EIGEN_INCLUDE_DIR} $
 # External Eigen
 ##############################################################################
 
-# TODO : Fix this later when we need internal eigen.
-#find_package(Eigen)
-#if(NOT EIGEN_INCLUDE_DIR)
-#  set(ECL_EIGEN_IS_INTERNAL 1)
-#endif()
+if(NOT DEFINED ECL_EIGEN_IS_INTERNAL_3_1_2)
+  find_package(Eigen)
+  if(NOT EIGEN_INCLUDE_DIR)
+    set(ECL_EIGEN_IS_INTERNAL_3_1_2 1 CACHE BOOL "User ecl's eigen version 3.1.2")
+  endif()
+endif()
+
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/include/ecl/linear_algebra/macros.hpp.in ${CATKIN_DEVEL_PREFIX}/include/ecl/linear_algebra/macros.hpp) 
 install(FILES ${CATKIN_DEVEL_PREFIX}/include/ecl/linear_algebra/macros.hpp DESTINATION ${CATKIN_GLOBAL_INCLUDE_DESTINATION}/ecl/linear_algebra)
 
