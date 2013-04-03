@@ -1,23 +1,23 @@
 /**
- * @file /include/ecl/time/sleep_pos.hpp
+ * @file /include/ecl/time/sleep_win.hpp
  *
  * @brief Interface for the sleep classes utilising posix timers.
  *
- * @date August 2009
+ * @date April 2013
  **/
 /*****************************************************************************
 ** Ifdefs
 *****************************************************************************/
 
-#ifndef ECL_TIME_SLEEP_POS_HPP_
-#define ECL_TIME_SLEEP_POS_HPP_
+#ifndef ECL_TIME_SLEEP_WIN_HPP_
+#define ECL_TIME_SLEEP_WIN_HPP_
 
 /*****************************************************************************
 ** Platform Check
 *****************************************************************************/
 
 #include <ecl/config.hpp>
-#if defined(ECL_IS_POSIX)
+#if defined(ECL_IS_WIN32)
 
 /*****************************************************************************
 ** Includes
@@ -29,6 +29,7 @@
 #include <ecl/config/macros.hpp>
 #include <ecl/exceptions/macros.hpp>
 #include <ecl/exceptions/standard_exception.hpp>
+#include <ecl/time_lite.hpp>
 #include "duration.hpp"
 #include "macros.hpp"
 
@@ -121,7 +122,7 @@ public:
 	void operator()(const Duration &duration) ecl_assert_throw_decl(StandardException);
 
 private:
-    timespec required, remaining;
+    TimeStructure required, remaining;
 };
 
 /**
@@ -182,7 +183,7 @@ public:
 	 */
 	void operator()(const unsigned long &milliseconds) ecl_assert_throw_decl(StandardException);
 private:
-    timespec required, remaining;
+    TimeStructure required, remaining;
 };
 
 /**
@@ -243,7 +244,7 @@ public:
 	 */
 	void operator()(const unsigned long &micro_seconds) ecl_assert_throw_decl(StandardException);
 private:
-    timespec required, remaining;
+    TimeStructure required, remaining;
 };
 
 /**
@@ -304,7 +305,7 @@ public:
 	 */
 	void operator()(const unsigned long &nanoseconds) ecl_assert_throw_decl(StandardException);
 private:
-    timespec required, remaining;
+    TimeStructure required, remaining;
 };
 
 
@@ -331,13 +332,13 @@ namespace time {
 inline ecl::StandardException throwSleepException(const char* loc ) {
 	int error_result = errno;
 	switch (error_result) {
-		case ( EINTR  ) : return StandardException(loc, ecl::InterruptedError, "A posix signal interrupted the sleep.");
+		case ( EINTR  ) : return StandardException(loc, ecl::InterruptedError, "Interrupted the sleep.");
 		case ( EINVAL ) : return StandardException(loc, ecl::InvalidInputError, "Specified value was negative or exceeded resolution range.\n\n            Sleep: [N/A]\n            MilliSleep: [0-1000]\n            MicroSleep: [0-1x10^6]\n            NanoSleep: [0-1x10^9]\n");
-		case ( EFAULT ) : return StandardException(loc, ecl::MemoryError, "Internal posix issue copying information from user space.");
+		case ( EFAULT ) : return StandardException(loc, ecl::MemoryError, "Memory error.");
 		default         :
 		{
 			std::ostringstream ostream;
-			ostream << "Unknown posix error " << error_result << ": " << strerror(error_result) << ".";
+			ostream << "Unknown error " << error_result << ": " << strerror(error_result) << ".";
 			return StandardException(loc, UnknownError, ostream.str());
 		}
 	}
@@ -349,5 +350,5 @@ inline ecl::StandardException throwSleepException(const char* loc ) {
 } // namespace ecl
 #endif
 
-#endif /* ECL_IS_POSIX */
-#endif /* ECL_TIME_SLEEP_POS_HPP_ */
+#endif /* ECL_IS_WIN32 */
+#endif /* ECL_TIME_SLEEP_WIN_HPP_ */

@@ -1,19 +1,16 @@
 /**
- * @file /ecl_time/include/ecl/time/cpuwatch_rt.hpp
+ * @file /ecl_time/include/ecl/time/cpuwatch_win.hpp
  *
  * @brief This class measures cpu time for a process.
  *
- * Currently it is only valid for systems with rt timers, i.e. clock_gettime.
- * This is constrained by the selection made in cpuwatch.hpp.
- *
- * @date September 2010
+ * @date April 2013
  **/
 /*****************************************************************************
 ** Ifdefs
 *****************************************************************************/
 
-#ifndef ECL_TIME_CPUWATCH_POS_HPP_
-#define ECL_TIME_CPUWATCH_POS_HPP_
+#ifndef ECL_TIME_CPUWATCH_WIN_HPP_
+#define ECL_TIME_CPUWATCH_WIN_HPP_
 
 /*****************************************************************************
 ** Platform Check
@@ -21,9 +18,7 @@
 
 #include <ecl/config.hpp>
 
-#if defined(ECL_IS_POSIX)
-  // monotonic clock, cpu clock -> clock_gettime; clock_selection -> clock_nanosleep
-  #if defined(_POSIX_MONOTONIC_CLOCK) && (_POSIX_MONOTONIC_CLOCK) >= 0L && defined(_POSIX_CLOCK_SELECTION) && (_POSIX_CLOCK_SELECTION) >= 0L
+#if defined(ECL_IS_WIN32)
 
 /*****************************************************************************
 ** Includes
@@ -104,11 +99,10 @@ class ecl_time_PUBLIC CpuWatch
 
     private:
         TimeStamp start_time, split_time;
-        timespec tmp; // use for temporary cacluations.
+        TimeStructure tmp; // use for temporary cacluations.
 };
 
 }; // namespace ecl
 
-#endif /* MANY POSIX TIME REQ'MENTS */
-#endif /* ECL_IS_POSIX */
-#endif /* ECL_TIME_CPUWATCH_POS_HPP_ */
+#endif /* ECL_IS_WIN32 */
+#endif /* ECL_TIME_CPUWATCH_WIN_HPP_ */

@@ -2,17 +2,20 @@
 # SOURCES
 ###############################################################################
 
+# Note, macro magic stops us compiling objects for the wrong implementations below
 SET(SOURCES 
     cpuwatch_rt.cpp
+    cpuwatch_win.cpp
+    sleep_win.cpp
     sleep_pos.cpp
     snooze_pos.cpp
-      stopwatch.cpp
+    snooze_win.cpp
+    stopwatch.cpp
     timestamp_base.cpp
     timestamp_pos.cpp
     timestamp_win.cpp
     time_data.cpp
 )
-
 ###############################################################################
 # External Library Dependencies
 ###############################################################################

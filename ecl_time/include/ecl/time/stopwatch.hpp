@@ -18,6 +18,8 @@
 
 #include <ecl/config/macros.hpp>
 #include "timestamp.hpp"
+#include "macros.hpp"
+
 #ifdef ECL_HAS_TIMESTAMP
 
 /*****************************************************************************
@@ -51,7 +53,7 @@ namespace ecl {
  * stopwatch.restart();
  * @endcode
  **/
-class ECL_PUBLIC StopWatch
+class ecl_time_PUBLIC StopWatch
 {
     public:
         /**
