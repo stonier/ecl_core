@@ -24,6 +24,8 @@
 
 #if defined(ECL_IS_POSIX)
   #include "snooze_pos.hpp"
+#else
+  #include "snooze_win.hpp"
 #endif
 
 #endif /* ECL_TIME_SNOOZE_HPP_ */

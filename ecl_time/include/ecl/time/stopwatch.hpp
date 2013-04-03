@@ -51,7 +51,7 @@ namespace ecl {
  * stopwatch.restart();
  * @endcode
  **/
-class ECL_PUBLIC StopWatch
+class ECL_HELPER_EXPORT StopWatch
 {
     public:
         /**

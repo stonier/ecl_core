@@ -35,7 +35,7 @@ namespace ecl {
  * This serves as both a container and interface for generating statistics on
  * a sequence of timings.
  */
-class ECL_PUBLIC TimeData {
+class ECL_HELPER_EXPORT TimeData {
 public:
 	/*********************
 	** Collection

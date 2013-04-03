@@ -28,7 +28,7 @@
     // No fallback available
   #endif
 #else
-  // No fallback available
+    #include "cpuwatch_win.hpp"
 #endif
 
 #endif /* ECL_TIME_CPUWATCH_HPP_ */
