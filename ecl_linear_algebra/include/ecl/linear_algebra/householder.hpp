@@ -25,6 +25,8 @@
 
 #ifdef ECL_EIGEN_IS_INTERNAL
   #include <ecl/Eigen3/Householder>
+#elif defined ECL_EIGEN_IS_INTERNAL_3_1_2      
+  #include <ecl/Eigen3.1.2/Householder>
 #else
   #include <eigen3/Eigen/Householder>
 #endif

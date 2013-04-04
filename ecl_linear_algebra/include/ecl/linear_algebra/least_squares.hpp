@@ -21,6 +21,11 @@
   #define EIGEN_MATRIXBASE_PLUGIN <ecl/linear_algebra/eigen_plugin.hpp>
 #endif
 
+
+#ifdef ECL_EIGEN_IS_INTERNAL_3_1_2        
+  #include <ecl/Eigen3.1.2/LeastSquares>
+#endif
+
 // This is an eigen2 support module, forget it.
 
 //#ifdef ECL_EIGEN_IS_INTERNAL
