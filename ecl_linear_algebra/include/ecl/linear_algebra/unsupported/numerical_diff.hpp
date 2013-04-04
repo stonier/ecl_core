@@ -24,6 +24,8 @@
 
 #ifdef ECL_EIGEN_IS_INTERNAL
   #include <ecl/Eigen3/unsupported/Eigen/NumericalDiff>
+#elif defined ECL_EIGEN_IS_INTERNAL_3_1_2
+  #include <ecl/Eigen3.1.2/unsupported/Eigen/NumericalDiff>
 #else
   #include <eigen3/unsupported/Eigen/NumericalDiff>
 #endif
