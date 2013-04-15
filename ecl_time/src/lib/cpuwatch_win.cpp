@@ -19,6 +19,7 @@
 
 #include "../../include/ecl/time/cpuwatch_win.hpp"
 #include <ecl/time_lite/cpu_time.hpp>
+#include <ecl/time_lite/functions.hpp>
 
 /*****************************************************************************
 ** Namespaces
@@ -31,7 +32,7 @@ namespace ecl {
 *****************************************************************************/
 
 CpuWatch::CpuWatch() {
-	cpu_time(tmp);
+	epoch_time(tmp);
 	start_time.stamp(tmp.tv_sec, tmp.tv_nsec);
 	split_time = start_time;
 };
@@ -42,14 +43,14 @@ CpuWatch::CpuWatch() {
 
 void CpuWatch::restart()
 {
-	cpu_time(tmp);
+	epoch_time(tmp);
 	start_time.stamp(tmp.tv_sec, tmp.tv_nsec);
     split_time = start_time;
 }
 
 TimeStamp CpuWatch::elapsed()
 {
-	cpu_time(tmp);
+	epoch_time(tmp);
     TimeStamp current_time(tmp.tv_sec, tmp.tv_nsec);
     return ( current_time - start_time );
 }
@@ -57,7 +58,7 @@ TimeStamp CpuWatch::elapsed()
 TimeStamp CpuWatch::split()
 {
     TimeStamp last_time = split_time;
-	cpu_time(tmp);
+    epoch_time(tmp);
     split_time.stamp(tmp.tv_sec,tmp.tv_nsec);
     return (split_time - last_time);
 }

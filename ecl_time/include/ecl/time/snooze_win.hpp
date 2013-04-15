@@ -26,6 +26,7 @@
 #include "duration.hpp"
 #include <ecl/config/macros.hpp>
 #include <ecl/time_lite/types.hpp>
+#include "macros.hpp"
 
 /*****************************************************************************
 ** Namespaces
@@ -89,7 +90,7 @@ namespace ecl {
  * }
  * @endcode
  **/
-class ECL_HELPER_EXPORT Snooze {
+class ecl_time_PUBLIC Snooze {
 public:
 	/*********************
 	** C&D's

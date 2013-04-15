@@ -29,7 +29,9 @@
 #include <ecl/config/macros.hpp>
 #include <ecl/exceptions/macros.hpp>
 #include <ecl/exceptions/standard_exception.hpp>
+#include <ecl/time_lite.hpp>
 #include "duration.hpp"
+#include "macros.hpp"
 
 /*****************************************************************************
 ** Namespaces
@@ -57,7 +59,7 @@ namespace ecl {
  *
  * @sa Duration, MilliSleep, MicroSleep, NanoSleep.
  */
-class ECL_HELPER_EXPORT Sleep {
+class ecl_time_PUBLIC Sleep {
 public:
 	/**
 	 * @brief Preconfigures the sleep functor with a specified duration.
@@ -120,7 +122,7 @@ public:
 	void operator()(const Duration &duration) ecl_assert_throw_decl(StandardException);
 
 private:
-    timespec required, remaining;
+    TimeStructure required, remaining;
 };
 
 /**
@@ -138,7 +140,7 @@ private:
  *
  * @sa Duration, Sleep, MicroSleep, NanoSleep.
  */
-class ECL_HELPER_EXPORT MilliSleep {
+class ecl_time_PUBLIC MilliSleep {
 public:
 	/**
 	 * @brief Preconfigures the sleep functor with a specified length (msecs).
@@ -181,7 +183,7 @@ public:
 	 */
 	void operator()(const unsigned long &milliseconds) ecl_assert_throw_decl(StandardException);
 private:
-    timespec required, remaining;
+    TimeStructure required, remaining;
 };
 
 /**
@@ -199,7 +201,7 @@ private:
  *
  * @sa Duration, Sleep, MilliSleep, NanoSleep.
  */
-class ECL_HELPER_EXPORT MicroSleep {
+class ecl_time_PUBLIC MicroSleep {
 public:
 	/**
 	 * @brief Preconfigures the sleep functor with a specified length (usecs).
@@ -242,7 +244,7 @@ public:
 	 */
 	void operator()(const unsigned long &micro_seconds) ecl_assert_throw_decl(StandardException);
 private:
-    timespec required, remaining;
+    TimeStructure required, remaining;
 };
 
 /**
@@ -260,7 +262,7 @@ private:
  *
  * @sa Duration, Sleep, MilliSleep, MicroSleep.
  */
-class ECL_HELPER_EXPORT NanoSleep {
+class ecl_time_PUBLIC NanoSleep {
 public:
 	/**
 	 * @brief Preconfigures the sleep functor with a specified length (nsecs).
@@ -303,7 +305,7 @@ public:
 	 */
 	void operator()(const unsigned long &nanoseconds) ecl_assert_throw_decl(StandardException);
 private:
-    timespec required, remaining;
+    TimeStructure required, remaining;
 };
 
 

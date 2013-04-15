@@ -31,6 +31,7 @@
 
 #include <ecl/config/macros.hpp>
 #include "timestamp.hpp"
+#include "macros.hpp"
 
 /*****************************************************************************
 ** Namespaces
@@ -68,7 +69,7 @@ namespace ecl {
  * cpuwatch.restart();
  * @endcode
  **/
-class ECL_PUBLIC CpuWatch
+class ecl_time_PUBLIC CpuWatch
 {
     public:
         /**

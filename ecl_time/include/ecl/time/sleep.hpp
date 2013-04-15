@@ -24,7 +24,7 @@
 
 #if defined(ECL_IS_POSIX)
   #include "sleep_pos.hpp"
-#elif defined(ECL_IS_WIN32)
+#else if defined(ECL_IS_WIN32)
   #include "sleep_win.hpp"
 #endif
 

@@ -26,6 +26,7 @@
 
 #include <ecl/config/macros.hpp>
 #include "timestamp.hpp"
+#include "macros.hpp"
 
 /*****************************************************************************
 ** Namespaces
@@ -63,7 +64,7 @@ namespace ecl {
  * cpuwatch.restart();
  * @endcode
  **/
-class ECL_HELPER_EXPORT CpuWatch
+class ecl_time_PUBLIC CpuWatch
 {
     public:
         /**
@@ -98,7 +99,7 @@ class ECL_HELPER_EXPORT CpuWatch
 
     private:
         TimeStamp start_time, split_time;
-        timespec tmp; // use for temporary cacluations.
+        TimeStructure tmp; // use for temporary cacluations.
 };
 
 }; // namespace ecl

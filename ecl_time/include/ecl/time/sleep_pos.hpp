@@ -30,6 +30,7 @@
 #include <ecl/exceptions/macros.hpp>
 #include <ecl/exceptions/standard_exception.hpp>
 #include "duration.hpp"
+#include "macros.hpp"
 
 /*****************************************************************************
 ** Namespaces
@@ -57,7 +58,7 @@ namespace ecl {
  *
  * @sa Duration, MilliSleep, MicroSleep, NanoSleep.
  */
-class ECL_PUBLIC Sleep {
+class ecl_time_PUBLIC Sleep {
 public:
 	/**
 	 * @brief Preconfigures the sleep functor with a specified duration.
@@ -138,7 +139,7 @@ private:
  *
  * @sa Duration, Sleep, MicroSleep, NanoSleep.
  */
-class ECL_PUBLIC MilliSleep {
+class ecl_time_PUBLIC MilliSleep {
 public:
 	/**
 	 * @brief Preconfigures the sleep functor with a specified length (msecs).
@@ -199,7 +200,7 @@ private:
  *
  * @sa Duration, Sleep, MilliSleep, NanoSleep.
  */
-class ECL_PUBLIC MicroSleep {
+class ecl_time_PUBLIC MicroSleep {
 public:
 	/**
 	 * @brief Preconfigures the sleep functor with a specified length (usecs).
@@ -260,7 +261,7 @@ private:
  *
  * @sa Duration, Sleep, MilliSleep, MicroSleep.
  */
-class ECL_PUBLIC NanoSleep {
+class ecl_time_PUBLIC NanoSleep {
 public:
 	/**
 	 * @brief Preconfigures the sleep functor with a specified length (nsecs).
