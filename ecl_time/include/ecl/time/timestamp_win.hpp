@@ -88,7 +88,7 @@ namespace ecl {
  * need to remain fast, like containers, and since they're not usually
  * destructive, such bells and whistles are omitted.
  **/
-class ECL_PUBLIC TimeStamp : public TimeStampBase {
+class ecl_time_PUBLIC TimeStamp : public TimeStampBase {
 public:
 	/*********************
 	** Constructors

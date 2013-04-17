@@ -1,23 +1,23 @@
 /**
- * @file /include/ecl/time/snooze_pos.hpp
+ * @file /include/ecl/time/snooze_win.hpp
  *
  * @brief Periodic loop timers via the rt library.
  *
- * @date December 2009
+ * @date April 2013
  **/
 /*****************************************************************************
 ** Ifdefs
 *****************************************************************************/
 
-#ifndef ECL_TIME_SNOOZE_POS_HPP_
-#define ECL_TIME_SNOOZE_POS_HPP_
+#ifndef ECL_TIME_SNOOZE_WIN_HPP_
+#define ECL_TIME_SNOOZE_WIN_HPP_
 
 /*****************************************************************************
 ** Platform Check
 *****************************************************************************/
 
 #include <ecl/config.hpp>
-#if defined(ECL_IS_POSIX)
+#if defined(ECL_IS_WIN32)
 
 /*****************************************************************************
 ** Includes
@@ -194,5 +194,5 @@ protected:
 
 } // namespace ecl
 
-#endif /* ECL_IS_POSIX */
-#endif /* ECL_TIME_SNOOZE_POS_HPP_ */
+#endif /* ECL_IS_WIN32 */
+#endif /* ECL_TIME_SNOOZE_WIN_HPP_ */

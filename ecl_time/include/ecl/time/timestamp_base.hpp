@@ -19,6 +19,7 @@
 #include <ecl/time_lite/types.hpp>
 #include <ecl/config/macros.hpp>
 #include <ecl/exceptions/standard_exception.hpp>
+#include "macros.hpp"
 
 /*****************************************************************************
 ** Namespaces
@@ -35,7 +36,7 @@ namespace ecl {
  * Most of the operations on a timestamp class is common from one platform
  * to the next. These functions are bundled together in this class.
  */
-class ECL_PUBLIC TimeStampBase {
+class ecl_time_PUBLIC TimeStampBase {
 public:
     /*********************
     ** Constructors
