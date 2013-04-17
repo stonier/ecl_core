@@ -27,8 +27,6 @@
   #else
     // No fallback available
   #endif
-#else
-  // No fallback available
 #endif
 
 #endif /* ECL_TIME_CPUWATCH_HPP_ */

@@ -19,6 +19,7 @@
 #include <vector>
 #include <ecl/config/macros.hpp>
 #include <ecl/time/duration.hpp>
+#include "macros.hpp"
 
 /*****************************************************************************
 ** Namespaces
@@ -35,7 +36,7 @@ namespace ecl {
  * This serves as both a container and interface for generating statistics on
  * a sequence of timings.
  */
-class ECL_PUBLIC TimeData {
+class ecl_time_PUBLIC TimeData {
 public:
 	/*********************
 	** Collection

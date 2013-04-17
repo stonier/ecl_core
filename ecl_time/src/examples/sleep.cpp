@@ -10,7 +10,6 @@
 *****************************************************************************/
 
 #include <ecl/config.hpp>
-#if defined(ECL_IS_POSIX)
 
 /*****************************************************************************
 ** Includes
@@ -28,7 +27,7 @@ int main() {
     std::cout << std::endl;
 
     ecl::Duration duration(1,300000000);
-    ecl::Sleep sleep;
+    ecl::MilliSleep sleep;
     ecl::MilliSleep sleep_ms;
     ecl::MicroSleep sleep_us;
     ecl::NanoSleep sleep_ns;
@@ -43,7 +42,6 @@ int main() {
     for ( int i = 0; i < 2; ++i ) { sleep_us(500000); }
     std::cout << "NanoSleep:  500,000,000 x 2 = 1s" << std::endl;
     for ( int i = 0; i < 2; ++i ) { sleep_ns(500000000); }
-
 
     std::cout << std::endl;
     std::cout << "***********************************************************" << std::endl;
@@ -72,20 +70,3 @@ int main() {
 
     return 0;
 }
-
-#else
-
-#include <iostream>
-
-/*****************************************************************************
-** Main
-*****************************************************************************/
-
-int main(int argc, char **argv) {
-
-	std::cout << "This platform is not yet supported." << std::endl;
-
-	return 0;
-}
-
-#endif
