@@ -21,6 +21,8 @@
 #include "priority_common.hpp"
 #if defined(ECL_IS_POSIX)
   #include "priority_pos.hpp"
+#elif defined(ECL_HAS_WIN32_THREADS)
+  #include "priority_win.hpp"
 #endif
 
 
