@@ -27,7 +27,6 @@
 
 #include <windows.h>
 #include <ecl/time/duration.hpp>
-#include "macros.hpp"
 
 
 /*****************************************************************************
@@ -55,7 +54,7 @@ typedef CRITICAL_SECTION RawMutex; /**< @brief Abstraction representing the fund
  * interface is used across platforms (the timed trylock defaults to an
  * ordinary trylock).
  **/
-class ecl_threads_PUBLIC Mutex {
+class Mutex {
 public:
 	/**
 	 * @brief Initialises the mutex.

@@ -27,8 +27,6 @@
 
 #if defined(ECL_HAS_POSIX_THREADS)
   #include "thread_pos.hpp"
-#elif defined(ECL_HAS_WIN32_THREADS)
-  #include "thread_win.hpp"
 #endif
 
 

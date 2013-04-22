@@ -30,38 +30,43 @@ namespace ecl {
 *****************************************************************************/
 
 Mutex::Mutex(const bool locked) : number_locks(0)  {
+
 	InitializeCriticalSection(&mutex); // has no return value
 	if ( locked ) {
 		this->lock();
 	}
-}
+};
 
 Mutex::~Mutex() {
 	DeleteCriticalSection(&mutex); // has no return value
 }
 
 void Mutex::lock() {
-	InterlockedIncrement((long*)&number_locks);
+    ++number_locks;
     EnterCriticalSection(&mutex); // has no return value
-}
+};
 
 bool Mutex::trylock(Duration &duration) {
 	return trylock();
-}
+};
 
 bool Mutex::trylock() {
-	if (number_locks > 0)
+	int result = TryEnterCriticalSection(&mutex);
+	if ( result == 0 ) {
 		return false;
-	lock();
-	return true;
-}
+	} else {
+		++number_locks;
+		return true;
+	}
+};
+
 
 void Mutex::unlock()
 {
+    --number_locks;
     LeaveCriticalSection( &mutex );
-    InterlockedDecrement((long*)&number_locks);
-}
+};
 
-} // namespace ecl
+}; // namespace ecl
 
 #endif /* ECL_IS_WIN32 */
