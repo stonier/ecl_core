@@ -18,6 +18,7 @@
 
 #include <ecl/config/macros.hpp>
 #include <ecl/concepts/devices.hpp>
+#include "../macros.hpp"
 
 /*****************************************************************************
 ** Namespaces
@@ -88,7 +89,7 @@ namespace interfaces {
  * @sa Manipulator.
  */
 template <typename Derived>
-class ECL_PUBLIC Manipulator {
+class ecl_streams_PUBLIC Manipulator {
 public:
 	/**
 	 * @brief The static crtp virtual parent call.

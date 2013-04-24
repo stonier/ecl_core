@@ -12,7 +12,7 @@
 *****************************************************************************/
 
 #include <ecl/config.hpp>
-#if defined(ECL_IS_POSIX)
+//#if defined(ECL_IS_POSIX)
 
 /*****************************************************************************
 ** Includes
@@ -21,7 +21,8 @@
 #include <iostream>
 #include <string>
 #include <ecl/time/timestamp.hpp>
-#include "../../include/ecl/devices/serial_pos.hpp"
+//#include "../../include/ecl/devices/serial_pos.hpp"
+#include "../../include/ecl/devices/serial.hpp"
 
 /*****************************************************************************
 ** Namespaces
@@ -170,18 +171,18 @@ int main(int argc, char **argv) {
     return 0;
 }
 
-#else
-
-/*****************************************************************************
-** Main
-*****************************************************************************/
-
-int main(int argc, char **argv) {
-
-	std::cout << "This demo is only for testing low latency blocking timeouts" << std::endl;
-	std::cout << "on on posix systems." << std::endl;
-
-	return 0;
-}
-
-#endif
+//#else
+//
+///*****************************************************************************
+//** Main
+//*****************************************************************************/
+//
+//int main(int argc, char **argv) {
+//
+//	std::cout << "This demo is only for testing low latency blocking timeouts" << std::endl;
+//	std::cout << "on on posix systems." << std::endl;
+//
+//	return 0;
+//}
+//
+//#endif

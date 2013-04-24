@@ -17,7 +17,7 @@
 *****************************************************************************/
 
 #include <ecl/config/ecl.hpp>
-#ifdef ECL_IS_POSIX
+//#ifdef ECL_IS_POSIX
 
 /*****************************************************************************
 ** Includes
@@ -79,5 +79,5 @@ StandardException read_exception(const char* loc);
 } // namespace devices
 } // namespace ecl
 
-#endif /* ECL_IS_POSIX */
+//#endif /* ECL_IS_POSIX */
 #endif /* ECL_DEVICES_EXCEPTION_HANDLER_POS_HPP_ */

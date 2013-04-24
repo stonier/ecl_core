@@ -23,6 +23,7 @@
 #include "text_streams/base_text_stream.hpp"
 #include "text_streams/output_text_stream.hpp"
 #include "text_streams/input_text_stream.hpp"
+#include "macros.hpp"
 
 /*****************************************************************************
 ** Namespaces

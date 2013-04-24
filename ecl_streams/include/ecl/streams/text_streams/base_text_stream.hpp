@@ -18,6 +18,7 @@
 
 #include <ecl/config/macros.hpp>
 #include <ecl/errors/handlers.hpp>
+#include "../macros.hpp"
 
 /*****************************************************************************
 ** Namespaces

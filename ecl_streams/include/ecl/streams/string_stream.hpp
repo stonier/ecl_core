@@ -22,6 +22,7 @@
 #include <ecl/config/macros.hpp>
 #include <ecl/devices/string.hpp>
 #include "text_stream.hpp"
+#include "macros.hpp"
 
 /*****************************************************************************
 ** Namespaces
@@ -40,7 +41,7 @@ namespace ecl {
  * interfaces to some of the string device functions (otherwise you would
  * normally be required to use TextStream's device() method).
  */
-class ECL_PUBLIC StringStream : public TextStream<String> {
+class ecl_streams_PUBLIC StringStream : public TextStream<String> {
 public:
 	/**
 	 * @brief Character string representation of the underlying device's contents.

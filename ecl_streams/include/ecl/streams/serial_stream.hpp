@@ -39,7 +39,7 @@ namespace ecl {
  *
  * @sa @ref ecl::TextStream "TextStream".
  */
-class ECL_PUBLIC SerialStream : public TextStream<Serial> {
+class ecl_streams_PUBLIC SerialStream : public TextStream<Serial> {
 public:
 	/**
 	 * @brief Default constructor, underlying device must be manually opened.
@@ -66,7 +66,8 @@ public:
 			const StopBits &stop_bits = StopBits_1, const Parity &parity = NoParity) ecl_throw_decl(StandardException)
 	{
 		ecl_try {
-			if ( !this->device().open(port_name, baud_rate, data_bits, stop_bits, parity) ) {
+			this->device().open(port_name, baud_rate, data_bits, stop_bits, parity);
+			if ( !this->device().open() ) {
 				error = this->device().error();
 			}
 		} ecl_catch(StandardException &e) {

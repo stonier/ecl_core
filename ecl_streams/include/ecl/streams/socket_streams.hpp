@@ -14,6 +14,7 @@
 #ifndef ECL_STREAMS_SOCKET_STREAMS_HPP_
 #define ECL_STREAMS_SOCKET_STREAMS_HPP_
 
+#ifdef ECL_IS_POSIX
 
 /*****************************************************************************
 ** Includes
@@ -24,6 +25,7 @@
 #include <ecl/devices/socket.hpp>
 #include <ecl/exceptions/standard_exception.hpp>
 #include "text_stream.hpp"
+#include "macros.hpp"
 
 /*****************************************************************************
 ** Namespaces
@@ -42,7 +44,7 @@ namespace ecl {
  *
  * @sa @ref ecl::TextStream "TextStream".
  */
-class ECL_PUBLIC SocketClientStream : public TextStream<SocketClient> {
+class ecl_streams_PUBLIC SocketClientStream : public TextStream<SocketClient> {
 public:
 	/**
 	 * @brief Default constructor, underlying device must be manually opened.
@@ -87,7 +89,7 @@ public:
  *
  * @sa @ref ecl::TextStream "TextStream".
  */
-class ECL_PUBLIC SocketServerStream : public TextStream<SocketServer> {
+class ecl_streams_PUBLIC SocketServerStream : public TextStream<SocketServer> {
 public:
 	/**
 	 * @brief Default constructor, underlying device must be manually opened.
@@ -120,5 +122,6 @@ public:
 
 } // namespace ecl
 
+#endif /* ECL_IS_POSIX */
 
 #endif /* ECL_STREAMS_SOCKET_STREAMS_HPP_ */

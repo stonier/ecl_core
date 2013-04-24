@@ -29,12 +29,41 @@
 #include <ecl/utilities/blueprints.hpp>
 #include <ecl/formatters/floats.hpp>
 #include <iostream>
+#include "macros.hpp"
 
 /*****************************************************************************
 ** Namespaces
 *****************************************************************************/
 
 namespace ecl {
+
+/*****************************************************************************
+** Forward declarations
+*****************************************************************************/
+
+template <unsigned int N> class Polynomial;
+
+/*****************************************************************************
+** BluePrintFactory
+*****************************************************************************/
+
+/**
+ * @brief Primary template for the @ref ecl::Polynomial "Polynomial" blueprint factories.
+ *
+ * Primary template for the polynomial blueprint factories. This is in fact empty since it covers
+ * polynomials of all orders. Particular polynomial blueprint factories are specified in the
+ * specialisations.
+ *
+ * @tparam N : degree of the polynomials to create blueprints for.
+ *
+ * @sa @ref ecl::Polynomial "Polynomial", BluePrintFactory< ecl::Polynomial<3> >.
+ */
+template<unsigned int N>
+class BluePrintFactory< Polynomial<N> > {
+public:
+	BluePrintFactory() {};
+	~BluePrintFactory() {};
+};
 
 /*****************************************************************************
 ** Interface [Polynomial]
@@ -78,7 +107,7 @@ namespace ecl {
  * @sa @ref polynomialsGeometry "Math::Polynomials".
  **/
 template <unsigned int N>
-class ECL_PUBLIC Polynomial : public BluePrintFactory< Polynomial<N> >, public FunctionMath< Polynomial<N> > {
+class ecl_geometry_PUBLIC Polynomial : public BluePrintFactory< Polynomial<N> >, public FunctionMath< Polynomial<N> > {
     public:
         /*********************
         ** Convenience
@@ -799,24 +828,6 @@ using blueprints::LinearPointSlopeForm;
 using blueprints::CubicDerivativeInterpolation;
 using blueprints::CubicSecondDerivativeInterpolation;
 using blueprints::QuinticInterpolation;
-
-/**
- * @brief Primary template for the @ref ecl::Polynomial "Polynomial" blueprint factories.
- *
- * Primary template for the polynomial blueprint factories. This is in fact empty since it covers
- * polynomials of all orders. Particular polynomial blueprint factories are specified in the
- * specialisations.
- *
- * @tparam N : degree of the polynomials to create blueprints for.
- *
- * @sa @ref ecl::Polynomial "Polynomial", BluePrintFactory< ecl::Polynomial<3> >.
- */
-template<unsigned int N>
-class BluePrintFactory< Polynomial<N> > {
-public:
-	BluePrintFactory() {};
-	~BluePrintFactory() {};
-};
 
 /**
  * @brief Blueprint factory for linear functions.
