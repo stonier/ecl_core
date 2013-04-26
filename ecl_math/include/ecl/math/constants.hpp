@@ -34,7 +34,7 @@ namespace ecl {
 	const float  pi_2_f  = pi_2;  /**< @brief Mathematical constant (float format) for pi/2. */
 	const float  pi_4_f  = pi_4;  /**< @brief Mathematical constant (float format) for pi/4. */
 #else
-	double const pi = 4*std::atan((double)1); /**< @brief Mathematical constant for pi. */
+	double const pi = 4.0*std::atan(1.0); /**< @brief Mathematical constant for pi. */
 	const double two_pi  = 2.0*pi;  /**< @brief Mathematical constant for 2*pi. */
 	const double pi_2    = pi/2.0;  /**< @brief Mathematical constant for pi/2. */
 	const double pi_4    = pi/4.0;  /**< @brief Mathematical constant for pi/4. */

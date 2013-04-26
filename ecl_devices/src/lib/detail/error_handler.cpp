@@ -11,7 +11,6 @@
 *****************************************************************************/
 
 #include <ecl/config/ecl.hpp>
-//#ifdef ECL_IS_POSIX
 
 /*****************************************************************************
 ** Includes
@@ -19,7 +18,7 @@
 
 #include <errno.h>
 #include <ecl/errors/handlers.hpp>
-#include "../../../include/ecl/devices/detail/error_handler_pos.hpp"
+#include "../../../include/ecl/devices/detail/error_handler.hpp"
 
 /*****************************************************************************
 ** Namespaces
@@ -107,6 +106,3 @@ ecl::Error close_error() {
 
 } // namespace devices
 } // namespace ecl
-
-//#endif  /* ECL_IS_POSIX */
-
