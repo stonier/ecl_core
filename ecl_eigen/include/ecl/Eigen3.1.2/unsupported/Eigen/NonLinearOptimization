@@ -15,7 +15,7 @@
 #include <Eigen/Core>
 #include <Eigen/Jacobi>
 #include <Eigen/QR>
-#include <ecl/Eigen3.1.2/unsupported/Eigen/NumericalDiff>
+#include <unsupported/Eigen/NumericalDiff>
 
 /** \ingroup Unsupported_modules
   * \defgroup NonLinearOptimization_Module Non linear optimization module
