@@ -11,7 +11,6 @@
 // Only because there is only ofile_pos support so far.
 
 #include <ecl/config/ecl.hpp>
-#if defined(ECL_IS_POSIX)
 
 /*****************************************************************************
 ** Includes
@@ -212,5 +211,3 @@ bool SharedFile::flush() ecl_debug_throw_decl(StandardException) {
 
 
 }; // namespace ecl
-
-#endif /* ECL_IS_POSIX */

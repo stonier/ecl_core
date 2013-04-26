@@ -19,8 +19,8 @@ catkin_package(
         LIBRARIES ${PROJECT_NAME}
 	CATKIN_DEPENDS 
             ecl_config
-            ecl_converters
             ecl_exceptions
+            ecl_converters
         )
 include_directories(SYSTEM include ${catkin_INCLUDE_DIRS})
 

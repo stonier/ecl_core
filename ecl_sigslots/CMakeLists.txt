@@ -12,7 +12,6 @@ project(ecl_sigslots)
 find_package(catkin REQUIRED COMPONENTS ecl_config ecl_threads)
 catkin_package(
         INCLUDE_DIRS include
-        LIBRARIES ${PROJECT_NAME}
 	CATKIN_DEPENDS ecl_config ecl_threads
         )
 include_directories(SYSTEM include ${catkin_INCLUDE_DIRS})

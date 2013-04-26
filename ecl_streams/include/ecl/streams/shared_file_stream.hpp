@@ -21,6 +21,7 @@
 #include <ecl/exceptions/standard_exception.hpp>
 #include <ecl/devices/shared_file.hpp>
 #include "text_stream.hpp"
+#include "macros.hpp"
 
 /*****************************************************************************
 ** Namespaces
@@ -39,7 +40,7 @@ namespace ecl {
  *
  * @sa @ref ecl::TextStream "TextStream".
  */
-class ECL_PUBLIC SharedFileStream : public TextStream<SharedFile> {
+class ecl_streams_PUBLIC SharedFileStream : public TextStream<SharedFile> {
 public:
 	/**
 	 * @brief Default constructor, underlying device must be manually opened.

@@ -12,9 +12,10 @@ set(SOURCES
     detail/socket_exception_handler_pos.cpp
     console.cpp
     ofile_pos.cpp
+    ofile_w32.cpp
     serial_pos.cpp # Don't need to split now as I put ifdef guards around the cpp's. Do to the others too!
     serial_w32.cpp
-    shared_file_pos.cpp
+    shared_file.cpp
     socket_client_pos.cpp
     socket_server_pos.cpp
     string.cpp

@@ -29,6 +29,7 @@
 #include <ecl/utilities/parameter.hpp>
 #include "serial_parameters.hpp"
 #include "traits.hpp"
+#include "macros.hpp"
 
 /*****************************************************************************
 ** Namespaces
@@ -110,7 +111,7 @@ namespace ecl {
  * http://www.faqs.org/docs/Linux-HOWTO/Serial-Programming-HOWTO.html#AEN144).
  * This might get around some bottlenecking io performance problems.
  */
-class Serial {
+class ecl_devices_PUBLIC Serial {
 public:
 	/*********************
 	** C&D

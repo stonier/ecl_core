@@ -26,6 +26,7 @@
 #include <ecl/converters.hpp>
 #include <ecl/concepts/devices.hpp>
 #include "../manipulators/manipulator.hpp"
+#include "../macros.hpp"
 
 /*****************************************************************************
 ** Namespaces
