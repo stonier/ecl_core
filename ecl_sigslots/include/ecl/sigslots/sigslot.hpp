@@ -42,7 +42,7 @@ namespace ecl {
  * This is the workhorse for both signals and slots, providing the implementation
  * for all the functions necessary by both types of frontends.
  */
-template <typename Data>
+template <typename Data=Void>
 class ECL_PUBLIC SigSlot {
 public:
 	/*********************

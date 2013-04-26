@@ -17,7 +17,6 @@
 *****************************************************************************/
 
 #include <ecl/config/ecl.hpp>
-//#ifdef ECL_IS_POSIX
 
 /*****************************************************************************
 ** Includes
@@ -66,5 +65,4 @@ ecl::Error read_error();
 } // namespace devices
 } // namespace ecl
 
-//#endif /* ECL_IS_POSIX */
 #endif /* ECL_DEVICES_ERROR_HANDLER_POS_HPP_ */

@@ -11,7 +11,6 @@
 *****************************************************************************/
 
 #include <ecl/config/ecl.hpp>
-//#ifdef ECL_IS_POSIX
 
 /*****************************************************************************
 ** Includes
@@ -107,6 +106,4 @@ ecl::Error close_error() {
 
 } // namespace devices
 } // namespace ecl
-
-//#endif  /* ECL_IS_POSIX */
 

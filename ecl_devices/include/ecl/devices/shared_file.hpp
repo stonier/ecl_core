@@ -1,5 +1,5 @@
 /**
- * @file /include/ecl/devices/shared_file_pos.hpp
+ * @file /include/ecl/devices/shared_file.hpp
  *
  * @brief Output file specially suited for logging across threads.
  *

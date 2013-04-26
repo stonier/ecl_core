@@ -11,7 +11,6 @@
 *****************************************************************************/
 
 #include <ecl/config/ecl.hpp>
-//#ifdef ECL_IS_POSIX
 
 /*****************************************************************************
 ** Includes
@@ -144,5 +143,4 @@ StandardException close_exception(const char* loc, const std::string &file_name)
 } // namespace devices
 } // namespace ecl
 
-//#endif  /* ECL_IS_POSIX */
 
