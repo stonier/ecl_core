@@ -65,7 +65,7 @@ private:
 	/*********************
 	** Logging Variables
 	**********************/
-	timespec time_actual;
+	TimeStructure time_actual;
 	double latency;
 	int count;
 	double avg,avg_noise;

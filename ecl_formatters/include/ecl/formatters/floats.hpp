@@ -21,6 +21,10 @@
 #include "common.hpp"
 #include <ecl/exceptions/standard_exception.hpp>
 
+#if _MSC_VER
+#define snprintf _snprintf
+#endif
+
 /*****************************************************************************
 ** Namespaces
 *****************************************************************************/

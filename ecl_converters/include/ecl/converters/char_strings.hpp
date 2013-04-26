@@ -28,6 +28,10 @@
 #include <ecl/exceptions/standard_exception.hpp>
 #include <ecl/mpl/converters.hpp>
 
+#if _MSC_VER
+#define snprintf _snprintf
+#endif
+
 /*****************************************************************************
 ** Namespaces
 *****************************************************************************/

@@ -22,6 +22,7 @@
 #include <ecl/config/macros.hpp>
 #include "../manipulators.hpp"
 #include "../text_stream.hpp"
+#include "../macros.hpp"
 
 /*****************************************************************************
 ** Namespaces
@@ -44,7 +45,7 @@ namespace ecl {
  *
  * @sa Manipulator.
  **/
-class ECL_PUBLIC ClearScreen : public Manipulator<ClearScreen> {
+class ecl_streams_PUBLIC ClearScreen : public Manipulator<ClearScreen> {
 public:
 	/**
 	 * @brief Clears a terminal screen the c++ (hard) way.

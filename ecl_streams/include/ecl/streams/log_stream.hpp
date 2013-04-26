@@ -23,6 +23,7 @@
 #include <ecl/exceptions/standard_exception.hpp>
 #include <ecl/time/timestamp.hpp>
 #include "text_stream.hpp"
+#include "macros.hpp"
 
 /*****************************************************************************
 ** Macros
@@ -106,7 +107,7 @@ namespace ecl {
  * By default this will automatically add header and timestamp information. You
  * can manually disable these if you prefer.
  */
-class ECL_PUBLIC LogStream : public TextStream<SharedFile> {
+class ecl_streams_PUBLIC LogStream : public TextStream<SharedFile> {
 public:
 	/**
 	 * @brief Default constructor, underlying device must be manually opened.

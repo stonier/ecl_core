@@ -20,6 +20,7 @@
 #include "traits.hpp"
 #include <ecl/errors/handlers.hpp>
 #include <ecl/exceptions/standard_exception.hpp>
+#include "macros.hpp"
 
 /*****************************************************************************
 ** Namespaces
@@ -39,7 +40,7 @@ namespace ecl {
  * use this directly, it serves only as the device handle for the console
  * stream classes.
  **/
-class OConsole {
+class ecl_devices_PUBLIC OConsole {
 public:
 	/**
 	 * @brief Default constructor.
@@ -116,7 +117,7 @@ private:
  * use this directly, it serves only as the device handle for the console
  * stream classes.
  **/
-class EConsole {
+class ecl_devices_PUBLIC EConsole {
 public:
 	/**
 	 * @brief Default constructor.
@@ -199,7 +200,7 @@ private:
  * incoming input. This is a characteristic exclusive to the input console
  * device because of its interactive nature with the user.
  **/
-class IConsole {
+class ecl_devices_PUBLIC IConsole {
 public:
 	/**
 	 * @brief Default constructor.

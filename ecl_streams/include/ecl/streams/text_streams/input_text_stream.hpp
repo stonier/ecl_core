@@ -28,6 +28,7 @@
 #include <ecl/concepts/devices.hpp>
 #include <ecl/type_traits/numeric_limits.hpp>
 #include "base_text_stream.hpp"
+#include "../macros.hpp"
 
 /*****************************************************************************
 ** Namespaces

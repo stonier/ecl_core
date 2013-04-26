@@ -39,7 +39,7 @@ namespace ecl {
  *
  * @sa @ref ecl::TextStream "TextStream".
  */
-class ECL_PUBLIC OFileStream : public TextStream<OFile> {
+class ecl_streams_PUBLIC OFileStream : public TextStream<OFile> {
 public:
 	/**
 	 * @brief Default constructor, underlying device must be manually opened.

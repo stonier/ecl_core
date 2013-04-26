@@ -19,6 +19,7 @@
 #include <string>
 #include <ecl/exceptions/standard_exception.hpp>
 #include "common.hpp"
+#include "macros.hpp"
 
 /*****************************************************************************
 ** Namespaces
@@ -38,7 +39,7 @@ namespace ecl {
  * speed is not an issue.
  **/
 template <>
-class Format<std::string> {
+class ecl_formatters_PUBLIC Format<std::string> {
     public:
         /******************************************
         ** C&D's

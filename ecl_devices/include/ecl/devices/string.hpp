@@ -18,6 +18,7 @@
 
 #include <string>
 #include "traits.hpp"
+#include "macros.hpp"
 
 /*****************************************************************************
 ** Namespaces
@@ -45,7 +46,7 @@ namespace ecl {
  * Writing always appends and reading has nothing to do whatsoever with the
  * state of the write pointer.
  **/
-class String {
+class ecl_devices_PUBLIC String {
 public:
 	/**
 	 * @brief Initialises the string device.

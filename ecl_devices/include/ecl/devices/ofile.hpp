@@ -24,6 +24,8 @@
 
 #if defined(ECL_IS_POSIX)
   #include "ofile_pos.hpp"
+#elif defined(ECL_IS_WIN32)
+  #include "ofile_w32.hpp"
 #endif
 
 

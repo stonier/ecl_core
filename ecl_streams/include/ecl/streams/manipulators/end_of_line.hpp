@@ -19,6 +19,7 @@
 #include <ecl/config/macros.hpp>
 #include "../manipulators.hpp"
 #include "../text_stream.hpp"
+#include "../macros.hpp"
 
 /*****************************************************************************
 ** Namespaces
@@ -39,7 +40,7 @@ namespace ecl {
  *
  * @sa Manipulator.
  */
-class ECL_PUBLIC EndOfLine : public Manipulator<EndOfLine> {
+class ecl_streams_PUBLIC EndOfLine : public Manipulator<EndOfLine> {
 public:
 	/**
 	 * @brief Forces an end of line character/flush combination.
