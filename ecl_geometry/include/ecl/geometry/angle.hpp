@@ -22,6 +22,7 @@
 #include <ecl/type_traits/fundamental_types.hpp>
 #include <ecl/mpl/enable_if.hpp>
 #include <ecl/math/constants.hpp>
+#include "macros.hpp"
 
 /*****************************************************************************
 ** Namespaces
@@ -37,7 +38,7 @@ namespace ecl {
  * @return T : the angle in degrees.
  */
 template <typename T>
-ECL_PUBLIC T radians_to_degrees(const T &radians, typename enable_if<ecl::is_float<T> >::type* dummy = 0) {
+T radians_to_degrees(const T &radians, typename enable_if<ecl::is_float<T> >::type* dummy = 0) {
 	static const T rads_to_degs = 180.0/pi;
 	return radians*rads_to_degs;
 }
@@ -50,7 +51,7 @@ ECL_PUBLIC T radians_to_degrees(const T &radians, typename enable_if<ecl::is_flo
  * @return T : the angle in radians.
  */
 template <typename T>
-ECL_PUBLIC T degrees_to_radians(const T &degrees, typename enable_if<ecl::is_float<T> >::type* dummy = 0) {
+T degrees_to_radians(const T &degrees, typename enable_if<ecl::is_float<T> >::type* dummy = 0) {
 	static const T degs_to_rads = pi/180.0;
 	return degrees*degs_to_rads;
 }
@@ -64,7 +65,7 @@ ECL_PUBLIC T degrees_to_radians(const T &degrees, typename enable_if<ecl::is_flo
  *
  * @param angle : the angle to be wrapped.
  */
-ECL_PUBLIC const float& wrap_angle(float &angle);
+ecl_geometry_PUBLIC const float& wrap_angle(float &angle);
 
 /**
  * @brief Return the wrapped the angle on -pi,pi (float types).
@@ -76,7 +77,7 @@ ECL_PUBLIC const float& wrap_angle(float &angle);
  * @param angle : the angle to be wrapped.
  * @return float : the wrapped angle.
  */
-ECL_PUBLIC float wrap_angle(const float &angle);
+ecl_geometry_PUBLIC float wrap_angle(const float &angle);
 /**
  * @brief Wrap the angle on -pi,pi (double types).
  *
@@ -86,7 +87,7 @@ ECL_PUBLIC float wrap_angle(const float &angle);
  *
  * @param angle : the angle to be wrapped.
  */
-ECL_PUBLIC const double& wrap_angle(double &angle);
+ecl_geometry_PUBLIC const double& wrap_angle(double &angle);
 
 /**
  * @brief Return the wrapped the angle on -pi,pi (double types).
@@ -98,7 +99,7 @@ ECL_PUBLIC const double& wrap_angle(double &angle);
  * @param angle : the angle to be wrapped.
  * @return double : the wrapped angle.
  */
-ECL_PUBLIC double wrap_angle(const double &angle);
+ecl_geometry_PUBLIC double wrap_angle(const double &angle);
 
 /*****************************************************************************
 ** Interface [Angle]
@@ -109,7 +110,7 @@ ECL_PUBLIC double wrap_angle(const double &angle);
  * Do not use this directly. Use the specialisations instead.
  */
 template <class T, typename Enable = void>
-class ECL_LOCAL Angle {
+class Angle {
 private:
 	/**
 	 * @brief Prevents usage of this template class directly.
@@ -132,7 +133,7 @@ private:
  * @tparam T : must be a float type (e.g. float, double, float32, float64)
  */
 template <typename T>
-class ECL_PUBLIC Angle<T, typename enable_if<is_float<T> >::type> {
+class Angle<T, typename enable_if<is_float<T> >::type> {
 public:
 	/*********************
 	** Typedefs
