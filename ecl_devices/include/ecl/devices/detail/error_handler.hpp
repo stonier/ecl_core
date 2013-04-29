@@ -9,8 +9,8 @@
 ** Ifdefs
 *****************************************************************************/
 
-#ifndef ECL_DEVICES_ERROR_HANDLER_POS_HPP_
-#define ECL_DEVICES_ERROR_HANDLER_POS_HPP_
+#ifndef ECL_DEVICES_ERROR_HANDLER_HPP_
+#define ECL_DEVICES_ERROR_HANDLER_HPP_
 
 /*****************************************************************************
 ** Cross Platform Check
@@ -65,4 +65,4 @@ ecl::Error read_error();
 } // namespace devices
 } // namespace ecl
 
-#endif /* ECL_DEVICES_ERROR_HANDLER_POS_HPP_ */
+#endif /* ECL_DEVICES_ERROR_HANDLER_HPP_ */
