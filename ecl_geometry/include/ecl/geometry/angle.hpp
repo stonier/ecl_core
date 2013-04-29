@@ -38,7 +38,7 @@ namespace ecl {
  * @return T : the angle in degrees.
  */
 template <typename T>
-T radians_to_degrees(const T &radians, typename enable_if<ecl::is_float<T> >::type* dummy = 0) {
+ECL_PUBLIC T radians_to_degrees(const T &radians, typename enable_if<ecl::is_float<T> >::type* dummy = 0) {
 	static const T rads_to_degs = 180.0/pi;
 	return radians*rads_to_degs;
 }
@@ -51,7 +51,7 @@ T radians_to_degrees(const T &radians, typename enable_if<ecl::is_float<T> >::ty
  * @return T : the angle in radians.
  */
 template <typename T>
-T degrees_to_radians(const T &degrees, typename enable_if<ecl::is_float<T> >::type* dummy = 0) {
+ECL_PUBLIC T degrees_to_radians(const T &degrees, typename enable_if<ecl::is_float<T> >::type* dummy = 0) {
 	static const T degs_to_rads = pi/180.0;
 	return degrees*degs_to_rads;
 }
@@ -110,7 +110,7 @@ ecl_geometry_PUBLIC double wrap_angle(const double &angle);
  * Do not use this directly. Use the specialisations instead.
  */
 template <class T, typename Enable = void>
-class Angle {
+class ECL_LOCAL Angle {
 private:
 	/**
 	 * @brief Prevents usage of this template class directly.
@@ -133,7 +133,7 @@ private:
  * @tparam T : must be a float type (e.g. float, double, float32, float64)
  */
 template <typename T>
-class Angle<T, typename enable_if<is_float<T> >::type> {
+class ECL_PUBLIC Angle<T, typename enable_if<is_float<T> >::type> {
 public:
 	/*********************
 	** Typedefs
