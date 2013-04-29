@@ -22,6 +22,7 @@
 #include <ecl/type_traits/fundamental_types.hpp>
 #include <ecl/mpl/enable_if.hpp>
 #include <ecl/math/constants.hpp>
+#include "macros.hpp"
 
 /*****************************************************************************
 ** Namespaces
@@ -64,7 +65,7 @@ ECL_PUBLIC T degrees_to_radians(const T &degrees, typename enable_if<ecl::is_flo
  *
  * @param angle : the angle to be wrapped.
  */
-ECL_PUBLIC const float& wrap_angle(float &angle);
+ecl_geometry_PUBLIC const float& wrap_angle(float &angle);
 
 /**
  * @brief Return the wrapped the angle on -pi,pi (float types).
@@ -76,7 +77,7 @@ ECL_PUBLIC const float& wrap_angle(float &angle);
  * @param angle : the angle to be wrapped.
  * @return float : the wrapped angle.
  */
-ECL_PUBLIC float wrap_angle(const float &angle);
+ecl_geometry_PUBLIC float wrap_angle(const float &angle);
 /**
  * @brief Wrap the angle on -pi,pi (double types).
  *
@@ -86,7 +87,7 @@ ECL_PUBLIC float wrap_angle(const float &angle);
  *
  * @param angle : the angle to be wrapped.
  */
-ECL_PUBLIC const double& wrap_angle(double &angle);
+ecl_geometry_PUBLIC const double& wrap_angle(double &angle);
 
 /**
  * @brief Return the wrapped the angle on -pi,pi (double types).
@@ -98,7 +99,7 @@ ECL_PUBLIC const double& wrap_angle(double &angle);
  * @param angle : the angle to be wrapped.
  * @return double : the wrapped angle.
  */
-ECL_PUBLIC double wrap_angle(const double &angle);
+ecl_geometry_PUBLIC double wrap_angle(const double &angle);
 
 /*****************************************************************************
 ** Interface [Angle]

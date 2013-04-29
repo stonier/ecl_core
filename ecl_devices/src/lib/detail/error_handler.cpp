@@ -18,7 +18,7 @@
 
 #include <errno.h>
 #include <ecl/errors/handlers.hpp>
-#include "../../../include/ecl/devices/detail/error_handler_pos.hpp"
+#include "../../../include/ecl/devices/detail/error_handler.hpp"
 
 /*****************************************************************************
 ** Namespaces
@@ -106,4 +106,3 @@ ecl::Error close_error() {
 
 } // namespace devices
 } // namespace ecl
-

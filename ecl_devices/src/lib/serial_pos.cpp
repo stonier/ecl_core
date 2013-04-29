@@ -24,7 +24,7 @@
 #include <ecl/exceptions/standard_exception.hpp>
 #include <ecl/exceptions/macros.hpp>
 #include "../../include/ecl/devices/serial_pos.hpp"
-#include "../../include/ecl/devices/detail/error_handler_pos.hpp"
+#include "../../include/ecl/devices/detail/error_handler.hpp"
 
 /*****************************************************************************
 ** Namespaces

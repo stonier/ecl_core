@@ -18,7 +18,7 @@
 *****************************************************************************/
 
 #include "../../include/ecl/devices/ofile_w32.hpp"
-#include "../../include/ecl/devices/detail/error_handler_pos.hpp"
+#include "../../include/ecl/devices/detail/error_handler.hpp"
 #include <iostream>
 #include <ecl/exceptions/macros.hpp>
 #include <io.h>

@@ -6,7 +6,7 @@
 
 set(SOURCES 
     detail/character_buffer.cpp
-    detail/error_handler_pos.cpp
+    detail/error_handler.cpp
     detail/exception_handler_pos.cpp
     #detail/socket_error_handler_pos.cpp
     detail/socket_exception_handler_pos.cpp
