@@ -30,7 +30,7 @@
 #include <ecl/time/snooze.hpp>
 #include <ecl/utilities/parameter.hpp>
 #include <ecl/type_traits/fundamental_types.hpp>
-#include "detail/error_handler_pos.hpp"
+#include "detail/error_handler.hpp"
 #include "detail/exception_handler_pos.hpp"
 #include "serial_parameters.hpp"
 #include "traits.hpp"
