@@ -1,5 +1,5 @@
 /**
- * @file /include/ecl/devices/detail/error_handler_pos.hpp
+ * @file /include/ecl/devices/detail/error_handler.hpp
  *
  * @brief Defines error handlers for posix devices.
  *
