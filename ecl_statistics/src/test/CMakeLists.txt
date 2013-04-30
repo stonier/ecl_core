@@ -2,10 +2,12 @@
 # GTest setup
 ###############################################################################
 
-macro(ecl_add_gtest TESTNAME)
-  catkin_add_gtest(test_${TESTNAME} ${TESTNAME}.cpp)
-  target_link_libraries(test_${TESTNAME} ${PROJECT_NAME} ${catkin_LIBRARIES})
-endmacro(ecl_add_gtest)
+macro(ecl_add_gtest test_name)
+  catkin_add_gtest(ecl_test_${test_name} ${test_name}.cpp)
+  if(TARGET ecl_test_${test_name})
+      target_link_libraries(ecl_test_${test_name} ${PROJECT_NAME})
+  endif()
+endmacro()
 
 ###############################################################################
 # GTests
