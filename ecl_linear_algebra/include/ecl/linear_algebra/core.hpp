@@ -23,9 +23,7 @@
   #define EIGEN_MATRIXBASE_PLUGIN <ecl/linear_algebra/eigen_plugin.hpp>
 #endif
 
-#ifdef ECL_EIGEN_IS_INTERNAL
-  #include <ecl/Eigen3/Core>
-#elif defined ECL_EIGEN_IS_INTERNAL_3_1_2  
+#if defined ECL_EIGEN_IS_INTERNAL_3_1_2
   #include <ecl/Eigen3.1.2/Core>
 #else
   #include <eigen3/Eigen/Core>

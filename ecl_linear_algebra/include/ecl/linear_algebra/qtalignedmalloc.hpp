@@ -23,9 +23,7 @@
 
 // This one is bad - it doesn't inline its headers (Eigen v3.01) - avoid it for now.
 
-#ifdef ECL_EIGEN_IS_INTERNAL
-  #include <ecl/Eigen3/QtAlignedMalloc>
-#elif defined ECL_EIGEN_IS_INTERNAL_3_1_2          
+#if defined ECL_EIGEN_IS_INTERNAL_3_1_2
   #include <ecl/Eigen3.1.2/QtAlignedMalloc>
 #else
   #include <eigen3/Eigen/QtAlignedMalloc>
