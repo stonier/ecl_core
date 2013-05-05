@@ -22,6 +22,7 @@
 #include <ecl/exceptions/data_exception.hpp>
 #include <ecl/exceptions/standard_exception.hpp>
 #include "polynomial.hpp"
+#include "macros.hpp"
 
 /*****************************************************************************
 ** Namespaces
@@ -41,7 +42,7 @@ namespace ecl {
  *
  * @ref splinesGeometry "Math::Splines.
  **/
-class ECL_PUBLIC SmoothLinearSpline {
+class ecl_geometry_PUBLIC SmoothLinearSpline {
 public:
 	/**
 	 * @brief Default constructor.

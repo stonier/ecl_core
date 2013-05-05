@@ -24,7 +24,7 @@
 #include <ecl/containers/array.hpp>
 #include <ecl/exceptions/standard_exception.hpp>
 #include <ecl/utilities/blueprints.hpp>
-
+#include "macros.hpp"
 
 /*****************************************************************************
 ** Namespaces
@@ -92,7 +92,7 @@ public:
  *
  * @sa @ref ecl::CubicSpline "CubicSpline", @ref splinesGeometry "Math::Splines.
  **/
-class ECL_PUBLIC TensionSpline : public BluePrintFactory< TensionSpline > {
+class ecl_geometry_PUBLIC TensionSpline : public BluePrintFactory< TensionSpline > {
     public:
         /******************************************
         ** Typedefs
@@ -249,7 +249,7 @@ namespace blueprints {
  * @sa @ref ecl::TensionSpline "TensionSpline".
  *
  **/
-class ECL_PUBLIC C2TensionSpline : public ecl::BluePrint<C2TensionSpline> {
+class ecl_geometry_PUBLIC C2TensionSpline : public ecl::BluePrint<C2TensionSpline> {
     public:
         /**
          * @brief Abstract representation of the class to be instantiated/configured.
