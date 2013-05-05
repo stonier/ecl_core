@@ -31,6 +31,7 @@ include_directories(SYSTEM include ${catkin_INCLUDE_DIRS} ${EIGEN_INCLUDE_DIR} $
 if(NOT DEFINED ECL_EIGEN_IS_INTERNAL_3_1_2)
   find_package(Eigen)
   if(NOT EIGEN_INCLUDE_DIR)
+    message(STATUS "Eigen not found...using ecl's internal eigen.")
     set(ECL_EIGEN_IS_INTERNAL_3_1_2 1 CACHE BOOL "User ecl's eigen version 3.1.2")
   endif()
 endif()
