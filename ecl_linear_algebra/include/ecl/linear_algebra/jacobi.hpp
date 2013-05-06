@@ -26,7 +26,7 @@
 #if defined ECL_EIGEN_IS_INTERNAL_3_1_2
   #include <ecl/Eigen3.1.2/Jacobi>
 #else
-  #include <eigen3/Eigen/Jacobi>
+  #include <Eigen/Jacobi>
 #endif
 
 #endif /* ECL_LINEAR_ALGEBRA_JACOBI_HPP_ */

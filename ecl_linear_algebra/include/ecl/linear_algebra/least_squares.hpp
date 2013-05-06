@@ -31,7 +31,7 @@
 //#ifdef ECL_EIGEN_IS_INTERNAL
 //  #include <ecl/Eigen3/LeastSquares>
 //#else
-//  #include <eigen3/Eigen/LeastSquares>
+//  #include <Eigen/LeastSquares>
 //#endif
 
 #endif /* ECL_LINEAR_ALGEBRA_LEAST_SQUARES_HPP_ */

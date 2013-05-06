@@ -26,7 +26,7 @@
 #if defined ECL_EIGEN_IS_INTERNAL_3_1_2
   #include <ecl/Eigen3.1.2/QR>
 #else
-  #include <eigen3/Eigen/QR>
+  #include <Eigen/QR>
 #endif
 
 #endif /* ECL_LINEAR_ALGEBRA_QR_HPP_ */

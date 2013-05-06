@@ -24,7 +24,7 @@
 #if defined ECL_EIGEN_IS_INTERNAL_3_1_2
   #include <ecl/Eigen3.1.2/StdDeque>
 #else
-  #include <eigen3/Eigen/StdDeque>
+  #include <Eigen/StdDeque>
 #endif
 
 #endif /* ECL_LINEAR_ALGEBRA_STDDEQUE_HPP_ */

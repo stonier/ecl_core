@@ -27,7 +27,7 @@
 #elif defined ECL_EIGEN_IS_INTERNAL_3_1_2
   #include <ecl/Eigen3.1.2/unsupported/Eigen/NonLinearOptimization>
 #else
-  #include <eigen3/unsupported/Eigen/NonLinearOptimization>
+  #include <unsupported/Eigen/NonLinearOptimization>
 #endif
 
 #endif /* ECL_LINEAR_ALGEBRA_NONLINEAR_OPTIMIZATION_HPP_ */

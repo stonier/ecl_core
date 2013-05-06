@@ -26,7 +26,7 @@
 #if defined ECL_EIGEN_IS_INTERNAL_3_1_2
   #include <ecl/Eigen3.1.2/Eigenvalues>
 #else
-  #include <eigen3/Eigen/Eigenvalues>
+  #include <Eigen/Eigenvalues>
 #endif
 
 #endif /* ECL_LINEAR_ALGEBRA_EIGENVALUES_HPP_ */
