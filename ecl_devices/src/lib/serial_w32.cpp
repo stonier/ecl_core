@@ -56,13 +56,8 @@ void Serial::open(const std::string& port_name, const BaudRate &baud_rate, const
 		close();
 	}
 
-    if ( port_name.length() == 5 ) {
-        /******************************************
-         * Ugly windoze hack for COM# > 10
-         ******************************************/
-        // Assume COMxx call is basically correct and prefix
-        port = std::string("\\\\.\\") + port_name;
-    }
+    port = std::string("\\\\.\\") + port_name;
+
     /******************************************
      * Reset Timeouts
      ******************************************/
