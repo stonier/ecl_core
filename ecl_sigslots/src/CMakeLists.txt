@@ -2,5 +2,6 @@
 # SUBDIRECTORIES
 ###############################################################################
 
+add_subdirectory(lib)
 add_subdirectory(examples)
 add_subdirectory(test)

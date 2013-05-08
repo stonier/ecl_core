@@ -23,7 +23,9 @@
 #include <string>
 #include <ecl/exceptions/standard_exception.hpp>
 #include <ecl/config/macros.hpp>
+#include <ecl/utilities/void.hpp>
 #include "topic.hpp"
+#include "macros.hpp"
 
 /*****************************************************************************
 ** Namespaces
@@ -45,7 +47,7 @@ namespace ecl {
  * @tparam Data : the type of sigslots this manager looks after.
  */
 template<typename Data = Void>
-class ECL_PUBLIC SigSlotsManager {
+class SigSlotsManager {
 public:
 
 	friend class SigSlot<Data>;
@@ -55,7 +57,7 @@ public:
 	 *
 	 * Only here for debugging purposes only.
 	 */
-	ECL_PUBLIC static void printStatistics() {
+	static void printStatistics() {
 		std::cout << "Topics" << std::endl;
 		typename std::map< std::string, Topic<Data> >::iterator iter;
 		for ( iter = topics().begin(); iter != topics().end(); ++iter ) {
@@ -78,7 +80,7 @@ private:
 	 * @param sigslot : sigslot that will be publishing.
 	 * @return const Subscribers& : a reference to the subscriber list.
 	 */
-	ECL_LOCAL static const Subscribers* connectSignal(const std::string& topic, SigSlot<Data>* sigslot) {
+	static const Subscribers* connectSignal(const std::string& topic, SigSlot<Data>* sigslot) {
 		// Try and insert a new topic in case it doesn't already exist
 		// In any case, we always get the iterator back (to new or existing)
 		//
@@ -97,7 +99,7 @@ private:
 	 * @param topic : topic to subscribe (listen) to.
 	 * @param sigslot : sigslot that will be subscribing (listening).
 	 */
-	ECL_LOCAL static void connectSlot(const std::string& topic, SigSlot<Data>* sigslot) {
+	static void connectSlot(const std::string& topic, SigSlot<Data>* sigslot) {
 		// Try and insert a new topic in case it doesn't already exist
 		// In any case, we always get the iterator back (to new or existing)
 		//
@@ -116,7 +118,7 @@ private:
 	 * @param topic : topic that the sigslot must be disconnected from.
 	 * @param sigslot : the sigslots that is to be disconnected.
 	 */
-	ECL_LOCAL static void disconnect(const std::string& topic, SigSlot<Data>* sigslot) {
+	static void disconnect(const std::string& topic, SigSlot<Data>* sigslot) {
 		typename std::map<std::string, Topic<Data> >::iterator iter = topics().find(topic);
 		if ( iter != topics().end() ) {
 			iter->second.disconnect(sigslot);
@@ -132,7 +134,7 @@ private:
 	 * @param topic : topic to check.
 	 * @return bool : success/failure of the request.
 	 */
-	ECL_LOCAL static bool isTopic(const std::string& topic) {
+	static bool isTopic(const std::string& topic) {
 		return !( topics().find(topic) == topics().end() );
 	}
 
@@ -143,7 +145,7 @@ private:
 	 *
 	 * @return map : a handle to the string id/topic database.
 	 */
-	ECL_PUBLIC static std::map< std::string, Topic<Data> >& topics() {
+	static std::map< std::string, Topic<Data> >& topics() {
 		static std::map< std::string, Topic<Data> > topic_list;
 		return topic_list;
 	}
@@ -158,7 +160,7 @@ private:
 	 * @param topic : the topic to check for.
 	 * @return Subscribers : a set of pointers to subscribers of a topic.
 	 */
-	ECL_LOCAL static const Subscribers& subscribers(const std::string& topic) {
+	static const Subscribers& subscribers(const std::string& topic) {
 		typename std::map< std::string, Topic<Data> >::const_iterator iter = topics().find(topic);
 		/*
 		 * Note that this is called only by SigSlotsManager::connectSignal which
@@ -166,10 +168,289 @@ private:
 		 * handling here.
 		 */
 		// ecl_assert_throw( iter != topics().end(), StandardException(LOC,InvalidInputError,std::string("No sigslots topic with name:")+topic) );
-		return iter->second.subscribers();
+		return *iter->second.subscribers();
 	}
+
 };
 
+/*****************************************************************************
+** Interface
+*****************************************************************************/
+/**
+ * @brief Specialized sigslots connection manager.
+ *
+ * This handles all of connections which are a way to emit without passing data
+ * via the unique string identifiers. It does this invisibly,
+ * so the programmer need not actually have to use this
+ * class. However, it may be useful for debugging to actually check the number
+ * of connections with the printStatistics() method.
+ *
+ */
+template<>
+class ecl_sigslots_PUBLIC SigSlotsManager<Void> {
+public:
+
+	friend class SigSlot<Void>;
+
+	/**
+	 * @brief Print some statistics on the current status of the manager.
+	 *
+	 * Only here for debugging purposes only.
+	 */
+	static void printStatistics();
+
+private:
+	/**
+	 * @brief A list of subscribers (slots) to a given topic.
+	 */
+	typedef Topic<Void>::Subscribers Subscribers;
+
+	/**
+	 * Connects the signal to the topic if it already exists, or creates
+	 * the topic if it doesn't. Returns the subscriber list which is used by
+	 * sigslot to bypass the manager when emitting.
+	 *
+	 * @param topic : topic to publish to.
+	 * @param sigslot : sigslot that will be publishing.
+	 * @return const Subscribers& : a reference to the subscriber list.
+	 */
+	static const Subscribers* connectSignal(const std::string& topic, SigSlot<Void>* sigslot);
+
+	/**
+	 * Connects the slot to the topic if it already exists, or creates
+	 * the topic if it doesn't.
+	 *
+	 * @param topic : topic to subscribe (listen) to.
+	 * @param sigslot : sigslot that will be subscribing (listening).
+	 */
+	static void connectSlot(const std::string& topic, SigSlot<Void>* sigslot);
+
+	/**
+	 * @brief Disconnect the sigslot from the specified topic.
+	 *
+	 * This disconnection works for both signals and slots.
+	 *
+	 * @param topic : topic that the sigslot must be disconnected from.
+	 * @param sigslot : the sigslots that is to be disconnected.
+	 */
+	static void disconnect(const std::string& topic, SigSlot<Void>* sigslot);
+
+	/**
+	 * @brief Check to see if the specified topic exists (and is being used).
+	 *
+	 * @param topic : topic to check.
+	 * @return bool : success/failure of the request.
+	 */
+	static bool isTopic(const std::string& topic);
+
+	/**
+	 * @brief Hack to create a static variable internally without.
+	 *
+	 * Simple trick to avoid the explicit instantiation in a library.
+	 *
+	 * @return map : a handle to the string id/topic database.
+	 */
+	static std::map< std::string, Topic<Void> >& topics();
+
+	/**
+	 * @brief Provides a list of subscribers (listeners) associated with a topic.
+	 *
+	 * This provides a handle to the list of subscribers to a topic. Used by
+	 * the signals to keep track of who's following them and who to run when
+	 * emitting.
+	 *
+	 * @param topic : the topic to check for.
+	 * @return Subscribers : a set of pointers to subscribers of a topic.
+	 */
+	static const Subscribers& subscribers(const std::string& topic);
+
+};
+
+/*****************************************************************************
+** Interface
+*****************************************************************************/
+/**
+ * @brief Specialized sigslots connection manager.
+ *
+ * This handles all of connections which are a way to emit with passing integer data
+ * via the unique string identifiers. It does this invisibly,
+ * so the programmer need not actually have to use this
+ * class. However, it may be useful for debugging to actually check the number
+ * of connections with the printStatistics() method.
+ *
+ */
+template<>
+class ecl_sigslots_PUBLIC SigSlotsManager<int> {
+public:
+
+	friend class SigSlot<int>;
+
+	/**
+	 * @brief Print some statistics on the current status of the manager.
+	 *
+	 * Only here for debugging purposes only.
+	 */
+	static void printStatistics();
+
+private:
+	/**
+	 * @brief A list of subscribers (slots) to a given topic.
+	 */
+	typedef Topic<int>::Subscribers Subscribers;
+
+	/**
+	 * Connects the signal to the topic if it already exists, or creates
+	 * the topic if it doesn't. Returns the subscriber list which is used by
+	 * sigslot to bypass the manager when emitting.
+	 *
+	 * @param topic : topic to publish to.
+	 * @param sigslot : sigslot that will be publishing.
+	 * @return const Subscribers& : a reference to the subscriber list.
+	 */
+	static const Subscribers* connectSignal(const std::string& topic, SigSlot<int>* sigslot);
+
+	/**
+	 * Connects the slot to the topic if it already exists, or creates
+	 * the topic if it doesn't.
+	 *
+	 * @param topic : topic to subscribe (listen) to.
+	 * @param sigslot : sigslot that will be subscribing (listening).
+	 */
+	static void connectSlot(const std::string& topic, SigSlot<int>* sigslot);
+
+	/**
+	 * @brief Disconnect the sigslot from the specified topic.
+	 *
+	 * This disconnection works for both signals and slots.
+	 *
+	 * @param topic : topic that the sigslot must be disconnected from.
+	 * @param sigslot : the sigslots that is to be disconnected.
+	 */
+	static void disconnect(const std::string& topic, SigSlot<int>* sigslot);
+
+	/**
+	 * @brief Check to see if the specified topic exists (and is being used).
+	 *
+	 * @param topic : topic to check.
+	 * @return bool : success/failure of the request.
+	 */
+	static bool isTopic(const std::string& topic);
+
+	/**
+	 * @brief Hack to create a static variable internally without.
+	 *
+	 * Simple trick to avoid the explicit instantiation in a library.
+	 *
+	 * @return map : a handle to the string id/topic database.
+	 */
+	static std::map< std::string, Topic<int> >& topics();
+
+	/**
+	 * @brief Provides a list of subscribers (listeners) associated with a topic.
+	 *
+	 * This provides a handle to the list of subscribers to a topic. Used by
+	 * the signals to keep track of who's following them and who to run when
+	 * emitting.
+	 *
+	 * @param topic : the topic to check for.
+	 * @return Subscribers : a set of pointers to subscribers of a topic.
+	 */
+	static const Subscribers& subscribers(const std::string& topic);
+
+};
+
+/*****************************************************************************
+** Interface
+*****************************************************************************/
+/**
+ * @brief Specialized sigslots connection manager.
+ *
+ * This handles all of connections which are a way to emit with passing float data
+ * via the unique string identifiers. It does this invisibly,
+ * so the programmer need not actually have to use this
+ * class. However, it may be useful for debugging to actually check the number
+ * of connections with the printStatistics() method.
+ *
+ */
+template<>
+class ecl_sigslots_PUBLIC SigSlotsManager<float> {
+public:
+
+	friend class SigSlot<float>;
+
+	/**
+	 * @brief Print some statistics on the current status of the manager.
+	 *
+	 * Only here for debugging purposes only.
+	 */
+	static void printStatistics();
+
+private:
+	/**
+	 * @brief A list of subscribers (slots) to a given topic.
+	 */
+	typedef Topic<float>::Subscribers Subscribers;
+
+	/**
+	 * Connects the signal to the topic if it already exists, or creates
+	 * the topic if it doesn't. Returns the subscriber list which is used by
+	 * sigslot to bypass the manager when emitting.
+	 *
+	 * @param topic : topic to publish to.
+	 * @param sigslot : sigslot that will be publishing.
+	 * @return const Subscribers& : a reference to the subscriber list.
+	 */
+	static const Subscribers* connectSignal(const std::string& topic, SigSlot<float>* sigslot);
+
+	/**
+	 * Connects the slot to the topic if it already exists, or creates
+	 * the topic if it doesn't.
+	 *
+	 * @param topic : topic to subscribe (listen) to.
+	 * @param sigslot : sigslot that will be subscribing (listening).
+	 */
+	static void connectSlot(const std::string& topic, SigSlot<float>* sigslot);
+
+	/**
+	 * @brief Disconnect the sigslot from the specified topic.
+	 *
+	 * This disconnection works for both signals and slots.
+	 *
+	 * @param topic : topic that the sigslot must be disconnected from.
+	 * @param sigslot : the sigslots that is to be disconnected.
+	 */
+	static void disconnect(const std::string& topic, SigSlot<float>* sigslot);
+
+	/**
+	 * @brief Check to see if the specified topic exists (and is being used).
+	 *
+	 * @param topic : topic to check.
+	 * @return bool : success/failure of the request.
+	 */
+	static bool isTopic(const std::string& topic);
+
+	/**
+	 * @brief Hack to create a static variable internally without.
+	 *
+	 * Simple trick to avoid the explicit instantiation in a library.
+	 *
+	 * @return map : a handle to the string id/topic database.
+	 */
+	static std::map< std::string, Topic<float> >& topics();
+
+	/**
+	 * @brief Provides a list of subscribers (listeners) associated with a topic.
+	 *
+	 * This provides a handle to the list of subscribers to a topic. Used by
+	 * the signals to keep track of who's following them and who to run when
+	 * emitting.
+	 *
+	 * @param topic : the topic to check for.
+	 * @return Subscribers : a set of pointers to subscribers of a topic.
+	 */
+	static const Subscribers& subscribers(const std::string& topic);
+
+};
 
 } // namespace ecl
 
