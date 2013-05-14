@@ -23,6 +23,7 @@
 #include <string>
 #include <ecl/exceptions/standard_exception.hpp>
 #include <ecl/config/macros.hpp>
+#include <ecl/utilities/void.hpp>
 #include "topic.hpp"
 
 /*****************************************************************************
@@ -45,7 +46,7 @@ namespace ecl {
  * @tparam Data : the type of sigslots this manager looks after.
  */
 template<typename Data = Void>
-class ECL_PUBLIC SigSlotsManager {
+class SigSlotsManager {
 public:
 
 	friend class SigSlot<Data>;
@@ -55,7 +56,7 @@ public:
 	 *
 	 * Only here for debugging purposes only.
 	 */
-	ECL_PUBLIC static void printStatistics() {
+	static void printStatistics() {
 		std::cout << "Topics" << std::endl;
 		typename std::map< std::string, Topic<Data> >::iterator iter;
 		for ( iter = topics().begin(); iter != topics().end(); ++iter ) {
@@ -78,7 +79,7 @@ private:
 	 * @param sigslot : sigslot that will be publishing.
 	 * @return const Subscribers& : a reference to the subscriber list.
 	 */
-	ECL_LOCAL static const Subscribers* connectSignal(const std::string& topic, SigSlot<Data>* sigslot) {
+	static const Subscribers* connectSignal(const std::string& topic, SigSlot<Data>* sigslot) {
 		// Try and insert a new topic in case it doesn't already exist
 		// In any case, we always get the iterator back (to new or existing)
 		//
@@ -97,7 +98,7 @@ private:
 	 * @param topic : topic to subscribe (listen) to.
 	 * @param sigslot : sigslot that will be subscribing (listening).
 	 */
-	ECL_LOCAL static void connectSlot(const std::string& topic, SigSlot<Data>* sigslot) {
+	static void connectSlot(const std::string& topic, SigSlot<Data>* sigslot) {
 		// Try and insert a new topic in case it doesn't already exist
 		// In any case, we always get the iterator back (to new or existing)
 		//
@@ -116,7 +117,7 @@ private:
 	 * @param topic : topic that the sigslot must be disconnected from.
 	 * @param sigslot : the sigslots that is to be disconnected.
 	 */
-	ECL_LOCAL static void disconnect(const std::string& topic, SigSlot<Data>* sigslot) {
+	static void disconnect(const std::string& topic, SigSlot<Data>* sigslot) {
 		typename std::map<std::string, Topic<Data> >::iterator iter = topics().find(topic);
 		if ( iter != topics().end() ) {
 			iter->second.disconnect(sigslot);
@@ -132,7 +133,7 @@ private:
 	 * @param topic : topic to check.
 	 * @return bool : success/failure of the request.
 	 */
-	ECL_LOCAL static bool isTopic(const std::string& topic) {
+	static bool isTopic(const std::string& topic) {
 		return !( topics().find(topic) == topics().end() );
 	}
 
@@ -143,7 +144,7 @@ private:
 	 *
 	 * @return map : a handle to the string id/topic database.
 	 */
-	ECL_PUBLIC static std::map< std::string, Topic<Data> >& topics() {
+	static std::map< std::string, Topic<Data> >& topics() {
 		static std::map< std::string, Topic<Data> > topic_list;
 		return topic_list;
 	}
@@ -158,7 +159,7 @@ private:
 	 * @param topic : the topic to check for.
 	 * @return Subscribers : a set of pointers to subscribers of a topic.
 	 */
-	ECL_LOCAL static const Subscribers& subscribers(const std::string& topic) {
+	static const Subscribers& subscribers(const std::string& topic) {
 		typename std::map< std::string, Topic<Data> >::const_iterator iter = topics().find(topic);
 		/*
 		 * Note that this is called only by SigSlotsManager::connectSignal which
@@ -166,10 +167,10 @@ private:
 		 * handling here.
 		 */
 		// ecl_assert_throw( iter != topics().end(), StandardException(LOC,InvalidInputError,std::string("No sigslots topic with name:")+topic) );
-		return iter->second.subscribers();
+		return *iter->second.subscribers();
 	}
-};
 
+};
 
 } // namespace ecl
 
