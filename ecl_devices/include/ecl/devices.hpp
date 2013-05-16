@@ -24,5 +24,6 @@
 #include "devices/serial.hpp"
 #include "devices/socket.hpp"
 #include "devices/string.hpp"
+#include "devices/access.hpp"
 
 #endif /*ECL_IO_DEVICES_HPP_*/

@@ -10,6 +10,7 @@ set(SOURCES
     detail/exception_handler_pos.cpp
     #detail/socket_error_handler_pos.cpp
     detail/socket_exception_handler_pos.cpp
+    access.cpp
     console.cpp
     ofile_pos.cpp
     ofile_w32.cpp
