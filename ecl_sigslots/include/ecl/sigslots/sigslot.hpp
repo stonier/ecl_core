@@ -43,7 +43,7 @@ namespace ecl {
  * for all the functions necessary by both types of frontends.
  */
 template <typename Data=Void>
-class ECL_PUBLIC SigSlot {
+class SigSlot {
 public:
 	/*********************
 	** Typedefs
@@ -211,7 +211,7 @@ private:
  * specialisation of the general case for void callbacks.
  */
 template<>
-class ECL_PUBLIC SigSlot<Void> {
+class SigSlot<Void> {
 public:
 	// typedef std::set<SigSlot<Void>*> Subscribers
 	typedef Topic<Void>::Subscribers Subscribers; /**< @brief A list of subscribers (slots) to a given topic. **/
