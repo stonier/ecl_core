@@ -56,7 +56,10 @@ void Serial::open(const std::string& port_name, const BaudRate &baud_rate, const
 		close();
 	}
 
-    port = std::string("\\\\.\\") + port_name;
+	if (strstr(port_name.c_str(), "\\\\.\\"))
+		port = port_name;
+	else
+		port = std::string("\\\\.\\") + port_name;
 
     /******************************************
      * Reset Timeouts
