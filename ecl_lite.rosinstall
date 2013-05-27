@@ -1,4 +1,6 @@
+# Testies
 [
 {'git': {'local-name': 'ecl_tools', 'version': 'groovy-devel', 'uri':'https://github.com/stonier/ecl_tools.git'}},
 {'git': {'local-name': 'ecl_lite', 'version': 'groovy-devel', 'uri':'https://github.com/stonier/ecl_lite.git'}},
+# Testies in the mdidle
 ]
