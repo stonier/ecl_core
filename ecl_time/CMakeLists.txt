@@ -20,7 +20,7 @@ catkin_package(
         LIBRARIES ${PROJECT_NAME}
 	CATKIN_DEPENDS ecl_config ecl_errors ecl_time_lite ecl_exceptions
         )
-include_directories(SYSTEM include ${catkin_INCLUDE_DIRS})
+include_directories(include ${catkin_INCLUDE_DIRS})
 
 ##############################################################################
 # Actual project configuration

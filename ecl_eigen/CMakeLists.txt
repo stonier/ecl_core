@@ -17,7 +17,7 @@ catkin_package(
         #INCLUDE_DIRS include/ecl/Eigen3.1.2
         DEPENDS Eigen
         )
-include_directories(SYSTEM include ${catkin_INCLUDE_DIRS})
+include_directories(include ${catkin_INCLUDE_DIRS})
 
 ##############################################################################
 # Actual project configuration

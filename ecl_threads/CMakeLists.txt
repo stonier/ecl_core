@@ -29,7 +29,7 @@ catkin_package(
             ecl_time
             ecl_utilities
         )
-include_directories(SYSTEM include ${catkin_INCLUDE_DIRS})
+include_directories(include ${catkin_INCLUDE_DIRS})
 
 ##############################################################################
 # Thread Detection

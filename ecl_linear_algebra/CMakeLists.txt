@@ -22,7 +22,7 @@ catkin_package(
             ecl_formatters
             ecl_eigen
         )
-include_directories(SYSTEM include ${catkin_INCLUDE_DIRS} ${EIGEN_INCLUDE_DIR} ${CATKIN_DEVEL_PREFIX}/include)
+include_directories(include ${catkin_INCLUDE_DIRS} ${EIGEN_INCLUDE_DIR} ${CATKIN_DEVEL_PREFIX}/include)
 
 ##############################################################################
 # External Eigen

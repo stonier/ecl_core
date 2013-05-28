@@ -22,7 +22,7 @@ catkin_package(
             ecl_exceptions
             ecl_converters
         )
-include_directories(SYSTEM include ${catkin_INCLUDE_DIRS})
+include_directories(include ${catkin_INCLUDE_DIRS})
 
 ##############################################################################
 # Actual project configuration

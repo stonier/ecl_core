@@ -14,7 +14,7 @@ catkin_package(
         INCLUDE_DIRS include
 	CATKIN_DEPENDS ecl_config ecl_type_traits
         )
-include_directories(SYSTEM include ${catkin_INCLUDE_DIRS})
+include_directories(include ${catkin_INCLUDE_DIRS})
 
 ##############################################################################
 # Actual project configuration

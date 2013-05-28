@@ -14,7 +14,7 @@ catkin_package(
         INCLUDE_DIRS include
 	CATKIN_DEPENDS ecl_mpl ecl_concepts
         )
-include_directories(SYSTEM include ${catkin_INCLUDE_DIRS})
+include_directories(include ${catkin_INCLUDE_DIRS})
 
 ##############################################################################
 # Actual project configuration

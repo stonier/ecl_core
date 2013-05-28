@@ -40,7 +40,7 @@ else()
         )
 endif()
 
-include_directories(SYSTEM include ${catkin_INCLUDE_DIRS})
+include_directories(include ${catkin_INCLUDE_DIRS})
 
 ##############################################################################
 # Platform Detection

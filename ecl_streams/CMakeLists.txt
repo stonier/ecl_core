@@ -28,7 +28,7 @@ catkin_package(
             ecl_converters
             ecl_type_traits
         )
-include_directories(SYSTEM include ${catkin_INCLUDE_DIRS})
+include_directories(include ${catkin_INCLUDE_DIRS})
 
 ##############################################################################
 # Actual project configuration

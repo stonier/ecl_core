@@ -30,7 +30,7 @@ catkin_package(
             ecl_containers
             ecl_threads
         )
-include_directories(SYSTEM include ${catkin_INCLUDE_DIRS})
+include_directories(include ${catkin_INCLUDE_DIRS})
 
 ##############################################################################
 # Actual project configuration

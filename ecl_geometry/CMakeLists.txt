@@ -32,7 +32,7 @@ catkin_package(
         ecl_math
         ecl_mpl
         )
-include_directories(SYSTEM include ${catkin_INCLUDE_DIRS})
+include_directories(include ${catkin_INCLUDE_DIRS})
 
 ##############################################################################
 # Actual project configuration

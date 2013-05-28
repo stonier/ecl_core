@@ -28,7 +28,7 @@ find_package(catkin REQUIRED COMPONENTS
     )
 catkin_package()
 
-include_directories(SYSTEM include ${catkin_INCLUDE_DIRS})
+include_directories(include ${catkin_INCLUDE_DIRS})
 
 ##############################################################################
 # Actual project configuration
