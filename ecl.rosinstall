@@ -1,7 +1,7 @@
 [
-{'git': {'local-name': 'ecl_tools', 'version': 'groovy-devel', 'uri':'https://github.com/stonier/ecl_tools.git'}},
-{'git': {'local-name': 'ecl_lite', 'version': 'groovy-devel', 'uri':'https://github.com/stonier/ecl_lite.git'}},
-{'git': {'local-name': 'ecl_core', 'version': 'groovy-devel', 'uri':'https://github.com/stonier/ecl_core.git'}},
-{'git': {'local-name': 'ecl_navigation', 'version': 'groovy-devel', 'uri':'https://github.com/stonier/ecl_navigation.git'}},
-{'git': {'local-name': 'ecl_manipulation', 'version': 'groovy-devel', 'uri':'https://github.com/stonier/ecl_manipulation.git'}},
+{'git': {'local-name': 'ecl_tools', 'version': 'hydro-devel', 'uri':'https://github.com/stonier/ecl_tools.git'}},
+{'git': {'local-name': 'ecl_lite', 'version': 'hydro-devel', 'uri':'https://github.com/stonier/ecl_lite.git'}},
+{'git': {'local-name': 'ecl_core', 'version': 'hydro-devel', 'uri':'https://github.com/stonier/ecl_core.git'}},
+{'git': {'local-name': 'ecl_navigation', 'version': 'hydro-devel', 'uri':'https://github.com/stonier/ecl_navigation.git'}},
+{'git': {'local-name': 'ecl_manipulation', 'version': 'hydro-devel', 'uri':'https://github.com/stonier/ecl_manipulation.git'}},
 ]
