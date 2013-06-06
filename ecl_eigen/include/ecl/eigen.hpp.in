@@ -1,5 +1,5 @@
 /**
- * @file /ecl_linear_algebra/include/ecl/linear_algebra/macros.hpp
+ * @file /ecl_eigen/include/ecl/eigen.hpp
  *
  * @brief Defines a macro on the result of not auto-finding eigen via cmake.
  *
@@ -8,10 +8,11 @@
 ** Ifdefs
 *****************************************************************************/
 
-#ifndef ECL_LINEAR_ALGEBRA_MACROS_HPP_
-#define ECL_LINEAR_ALGEBRA_MACROS_HPP_
+#ifndef ECL_EIGEN_HPP_
+#define ECL_EIGEN_HPP_
 
 #cmakedefine ECL_EIGEN_IS_INTERNAL_3_1_2
+#cmakedefine ECL_EIGEN_IS_EXTERNAL
 
-#endif /* ECL_LINEAR_ALGEBRA_MACROS_HPP_ */
+#endif /* ECL_EIGEN_HPP_ */
 
