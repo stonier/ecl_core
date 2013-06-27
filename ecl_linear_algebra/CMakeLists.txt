@@ -16,7 +16,7 @@ find_package(catkin REQUIRED COMPONENTS
     )
 
 catkin_package(
-    INCLUDE_DIRS include ${CATKIN_DEVEL_PREFIX}/include
+    INCLUDE_DIRS include
 	CATKIN_DEPENDS 
             ecl_exceptions 
             ecl_formatters
