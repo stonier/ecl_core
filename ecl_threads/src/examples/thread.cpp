@@ -17,7 +17,7 @@
 
 #include <iostream>
 #include "../../include/ecl/threads/thread.hpp"
-#include "../../../ecl_time/include/ecl/time/sleep.hpp"
+#include <ecl/time/sleep.hpp>
 
 class ThreadMemberFunctions {
 public:

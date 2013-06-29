@@ -19,7 +19,7 @@
 #include <vector>
 #include "../../include/ecl/threads/mutex.hpp"
 #include "../../include/ecl/threads/thread.hpp"
-#include "../../../ecl_time/include/ecl/time/sleep.hpp"
+#include <ecl/time/time/sleep.hpp>
 
 int shared_value = 0;
 ecl::Mutex mutex;
