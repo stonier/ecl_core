@@ -23,6 +23,7 @@ find_package(catkin REQUIRED COMPONENTS
     ecl_ipc
     ecl_sigslots
     ecl_streams
+    ecl_threads
     ecl_type_traits
     ecl_time_lite
     )
