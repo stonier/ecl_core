@@ -2,6 +2,20 @@
 Changelog
 ^^^^^^^^^
 
+0.60.5 (2013-07-05)
+-------------------
+
+* Bugfixes for catkin library finding in raring.
+
+0.60.0 (2013-06-28)
+-------------------
+
+* Windows port
+* First **hydro** release.
+
+0.50.5 (2013-02-15) 
+-------------------
+
 0.50.5 (2013-02-15) 
 -------------------
 
@@ -30,13 +44,13 @@ Changelog
 -------------------
 
 * Upgraded for catkin.
-* First '''groovy''' release.
+* First **groovy** release.
 
 0.43.9 (2012-05-24) 
 -------------------
 
 * Upgraded with bugfixes for fuerte and precise.
-* First '''fuerte''' release.
+* First **fuerte** release.
 
 0.43.8 (2012-04-17) 
 -------------------
@@ -47,7 +61,7 @@ Changelog
 -------------------
 
 * Initial stack import into ros.
-* First '''electric''' release.
+* First **electric** release.
 
 
 
