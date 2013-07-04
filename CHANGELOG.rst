@@ -7,6 +7,11 @@ Changelog
 
 * Bugfixes for catkin library finding in raring.
 
+0.60.2 (2013-07-02)
+-------------------
+
+* Bugfixes to windows port.
+
 0.60.0 (2013-06-28)
 -------------------
 
