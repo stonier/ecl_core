@@ -33,7 +33,6 @@ endif()
 # Catkin
 ##############################################################################
 
-message(STATUS "catkin_LIBRARIES...........${catkin_LIBRARIES}")
 catkin_package(
         INCLUDE_DIRS include
         LIBRARIES ${PROJECT_NAME}
