@@ -1,0 +1,9 @@
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Changelog for package ecl_threads
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+0.60.6 (2014-01-29)
+-------------------
+* update to catkin's CFG_EXTRAS for easy to find cmake modules.
+* remove cmake debug message.
+* Contributors: Daniel Stonier
