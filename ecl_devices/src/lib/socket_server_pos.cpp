@@ -167,7 +167,11 @@ long SocketServer::remaining() {
 *****************************************************************************/
 
 long SocketServer::write(const char *s, unsigned long n) ecl_debug_throw_decl(StandardException) {
-    int bytes_written = ::send(client_socket_fd,s,n,0);
+    #ifdef MSG_NOSIGNAL
+        int bytes_written = ::send(client_socket_fd,s,n,0|MSG_NOSIGNAL);
+    #else
+        int bytes_written = ::send(client_socket_fd,s,n,0);
+    #endif
     if ( bytes_written < 0 ) {
         switch(errno) {
             case ( EPIPE ) : {
