@@ -17,6 +17,8 @@ find_package(catkin REQUIRED COMPONENTS
     ecl_time
     )
 
+ecl_detect_threads()
+
 if(ECL_PLATFORM_HAS_POSIX_THREADS) 
     catkin_package(
         INCLUDE_DIRS include
@@ -41,15 +43,6 @@ else()
 endif()
 
 include_directories(include ${catkin_INCLUDE_DIRS})
-
-##############################################################################
-# Platform Detection
-##############################################################################
-
-# Don't think we need this any longer, dependencies handle the specifics.
-#set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${ecl_build_DIR}/modules)
-#include(ecl_platform_detection)
-#ecl_detect_platform()
 
 ##############################################################################
 # Actual project configuration
