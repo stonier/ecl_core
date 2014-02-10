@@ -2,6 +2,9 @@
 Changelog for package ecl_eigen
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+0.60.8 (2014-02-10)
+-------------------
+
 0.60.7 (2014-02-03)
 -------------------
 * export devel prefix include path to ensure configured headers are found.

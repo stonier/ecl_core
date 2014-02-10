@@ -2,6 +2,12 @@
 Changelog for package ecl_ipc
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+0.60.8 (2014-02-10)
+-------------------
+* ecl_ipc requires ecl_build for cmake modules.
+* make sure we detect threads in this module
+* Contributors: Daniel Stonier
+
 0.60.7 (2014-02-03)
 -------------------
 
