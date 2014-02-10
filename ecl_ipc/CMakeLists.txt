@@ -10,6 +10,7 @@ project(ecl_ipc)
 ##############################################################################
 
 find_package(catkin REQUIRED COMPONENTS 
+    ecl_build
     ecl_config
     ecl_errors
     ecl_time_lite
