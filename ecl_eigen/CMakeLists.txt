@@ -9,7 +9,7 @@ project(ecl_eigen)
 # Catkin
 ##############################################################################
 
-find_package(catkin REQUIRED)
+find_package(catkin REQUIRED COMPONENTS cmake_modules)
 
 ##############################################################################
 # Internal vs External Eigen
