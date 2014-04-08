@@ -2,6 +2,11 @@
 Changelog for package ecl_eigen
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+0.60.9 (2014-04-09)
+-------------------
+* transfer eigen hunting to ros cmake modules
+* Contributors: Daniel Stonier
+
 0.60.8 (2014-02-10)
 -------------------
 
