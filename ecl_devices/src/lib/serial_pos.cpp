@@ -28,6 +28,21 @@
 #include "../../include/ecl/devices/detail/error_handler.hpp"
 
 /*****************************************************************************
+ ** Platform Checks
+ *****************************************************************************/
+
+#include <ecl/config.hpp>
+// B921600 baud rate macro is not part of the posix specification (see
+// http://digilander.libero.it/robang/rubrica/serial.htm#3_1_1). However
+// FreeBSD has had it for at least four years and linux quite some time too.
+// Apple Macs however do not currently have it, so we help it here.
+#if defined(ECL_IS_APPLE)
+  #ifndef B921600
+    #define B921600 921600
+  #endif
+#endif
+
+/*****************************************************************************
  ** Namespaces
  *****************************************************************************/
 
