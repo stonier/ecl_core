@@ -9,7 +9,7 @@ project(ecl_eigen)
 # Catkin
 ##############################################################################
 
-find_package(catkin REQUIRED COMPONENTS cmake_modules)
+find_package(catkin REQUIRED)
 
 ##############################################################################
 # Internal vs External Eigen
@@ -17,7 +17,13 @@ find_package(catkin REQUIRED COMPONENTS cmake_modules)
 
 file(MAKE_DIRECTORY ${CATKIN_DEVEL_PREFIX}/include)
 
-if(DEFINED ECL_EIGEN_IS_INTERNAL_3_1_2)
+
+if(DEFINED ECL_EIGEN_IS_INTERNAL_3_2_1)
+    message(STATUS "Using ecl's internal eigen 3.2.1.")
+    catkin_package(
+            INCLUDE_DIRS include;${CATKIN_DEVEL_PREFIX}/${CATKIN_GLOBAL_INCLUDE_DESTINATION};include/eigen3.2.1;include/eigen3.2.1/Eigen   # the second directory ensures the unsupported modules are available
+            )
+elseif(DEFINED ECL_EIGEN_IS_INTERNAL_3_1_2)
 #    set(ECL_EIGEN_IS_INTERNAL_3_1_2 1)
     message(STATUS "Using ecl's internal eigen.")
     catkin_package(
