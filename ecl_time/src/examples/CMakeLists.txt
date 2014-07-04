@@ -1,8 +1,18 @@
 ###############################################################################
-# GTEST SETUP
+# Macro
 ###############################################################################
 
-add_executable(demo_sleep sleep.cpp)
-target_link_libraries(demo_sleep ${PROJECT_NAME})
-install(TARGETS demo_sleep RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
+macro(ecl_time_add_example name)
+  set(target_name ecl_time_example_${name})
+  add_executable(${target_name} ${name}.cpp)
+  target_link_libraries(${target_name} ${PROJECT_NAME})
+  set_target_properties(${target_name} PROPERTIES OUTPUT_NAME demo_${name})
+  install(TARGETS ${target_name} RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
+endmacro()
 
+###############################################################################
+# Examples
+###############################################################################
+
+ecl_time_add_example(random_number_generator)
+ecl_time_add_example(sleep)
