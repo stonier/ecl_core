@@ -111,7 +111,7 @@ private:
   static void seed()
   {
     unsigned long a = clock();
-    unsigned long b = time(NULL);
+    unsigned long b = ::time(NULL);
     unsigned long c = getpid();
     a=a-b;  a=a-c;  a=a^(c >> 13);
     b=b-c;  b=b-a;  b=b^(a << 8);
