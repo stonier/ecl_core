@@ -148,7 +148,20 @@ public:
 	 * @exception StandardException : throws if clock lookup fails [debug mode only].
 	 */
 	const TimeStamp& stamp() ecl_debug_throw_decl(StandardException);
+#if defined(ECL_HAS_RT_TIMERS)
+	/**
+	 * @brief Force use of the realtime clock (even if monotonic is available).
+	 *
+	 * This is not the preferred stamp and isn't intended to be a cross-platform
+	 * option. Quite often 3rd party libraries (e.g. ros) do use this clock though,
+	 * so to be compatible we provide the option here.
+	 */
+        const TimeStamp& realtime_stamp() ecl_debug_throw_decl(StandardException);
+#endif
 };
+
+
+
 }; // namespace ecl
 
 #ifdef ECL_HAS_EXCEPTIONS
