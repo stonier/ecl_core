@@ -379,7 +379,7 @@ public:
 	 *
 	 * @return bool : true if the thread task is still running, false otherwise.
 	 */
-	bool isRunning() { if ( thread_task == NULL ) { return false; } else { return true; } }
+	bool isRunning() const { if ( thread_task == NULL ) { return false; } else { return true; } }
 
 	/**
 	 * @brief Queue a cancel request for this thread to abort.
