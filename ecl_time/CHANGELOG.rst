@@ -1,12 +1,9 @@
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Changelog for package ecl_time
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^
+Changelog
+^^^^^^^^^
 
-0.60.8 (2014-02-10)
--------------------
+Forthcoming
+-----------
+* random number generator
+* optional realtime stamping (not monotone) to sync with ros stamps
 
-0.60.7 (2014-02-03)
--------------------
-
-0.60.6 (2014-01-29)
--------------------

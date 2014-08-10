@@ -1,6 +1,11 @@
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Changelog for package ecl_devices
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^
+Changelog
+^^^^^^^^^
+
+Forthcoming
+-----------
+* allow immediate socket reuse in the socket client/server
+* define an undefined baud rate for apple
 
 0.60.8 (2014-02-10)
 -------------------
