@@ -92,6 +92,8 @@ public:
 		**********************/
         for (unsigned int i = 0; i < ecl::numeric_limits<Integral>::bytes; ++i ) {
             byte_array[i] = static_cast<typename ByteArray::value_type>( input >> 8*i);
+//            Einstein was bit 'AND'ing a 0xff for dslam - is this useful?
+//            byte_array[i] = static_cast<typename ByteArray::value_type>( input >> 8*i & 0xff);
         }
         return byte_array;
     }
