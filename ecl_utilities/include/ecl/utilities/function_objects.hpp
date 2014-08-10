@@ -668,8 +668,8 @@ private:
  *
  * int main() {
  *     A a;
- *     PartiallyBoundUnaryMemberFunction<A,int,void> function_object(&A::f,a,1);
- *     function_object();
+ *     PartiallyBoundUnaryMemberFunction<A,int,void> function_object(&A::f,a);
+ *     function_object(1);
  * }
  * @endcode
  *
@@ -772,6 +772,68 @@ private:
 	C &member_class;
     void (C::*member_function)(A);
     A argument;
+};
+
+/**
+ * @brief Binary function object for partially bound binary member functions.
+ *
+ * Binds the class instance but not the arguments for a binary member function and uses this to
+ * construct a binary function object.
+ *
+ * <b>Usage: </b>
+ * @code
+ * class A {
+ * public:
+ *     void f(int i, string n) { //...
+ *     }
+ *
+ * int main() {
+ *     A a;
+ *     PartiallyBoundBinaryMemberFunction<A,int,string,void> function_object(&A::f,a);
+ *     function_object(1,"dude");
+ * }
+ * @endcode
+ *
+ * @sa generateFunctionObject
+ *
+ * @tparam C : the member function's class type.
+ * @tparam A : the member function's first argument type.
+ * @tparam B : the member function's second argument type.
+ * @tparam R : the return type.
+ *
+ * @sa @ref functionobjectsGuide "FunctionObjects".
+ */
+template <typename C, typename A, typename B, typename R = void>
+class PartiallyBoundBinaryMemberFunction : public BinaryFunction<A,B,R> {
+public:
+        /**
+         * @brief Binds a binary member function and creates a binary function object.
+         *
+         * Accepts the function, class instance only (not the arguments), binds them
+         * and creates a binary function object.
+         * @param function : the unary global/static function.
+         * @param class_object : the member function's class instance.
+         */
+        PartiallyBoundBinaryMemberFunction( R (C::*function)(A, B), C &class_object) :
+                member_class(class_object),
+                member_function(function)
+        {}
+        virtual ~PartiallyBoundBinaryMemberFunction() {}; /**< @brief This ensures any children objects are deleted correctly. **/
+        /**
+         * @brief A binary function object call.
+         *
+         * Redirects the binary function object call to the bound member function.
+         *
+         * @param a : the first argument passed to the function (type A).
+         * @param b : the second argument passed to the function (type B).
+         * @return R : the function's return value.
+         */
+        R operator()(A a, B b) {
+                return (member_class.*member_function)(a, b);
+        }
+private:
+        C &member_class;
+        void (C::*member_function)(A, B);
 };
 /*****************************************************************************
 ** Function Object Wrappers
