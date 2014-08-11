@@ -25,6 +25,7 @@
 #include <gtest/gtest.h>
 //#include </ecl/config/ecl.hpp>
 #include "../../include/ecl/containers/array.hpp"
+#include "../../include/ecl/containers/stencil.hpp"
 #include <ecl/concepts/containers.hpp>
 
 /*****************************************************************************
@@ -134,6 +135,26 @@ TEST(StencilTests,byteStrings) {
 //    for ( unsigned int i = 0; i < stencil.size(); ++i ) {
 //    	std::cout << i << ": " << stencil[i] << std::endl;
 //    }
+
+    SUCCEED();
+}
+
+TEST(StencilTests,unsignedCharArrays) {
+
+    //unsigned char buffer[4] = { 0xff, 0x00, 0x01, 0x02 };
+    unsigned char buffer[4];
+    Stencil<unsigned char*> stencil( buffer, 4, buffer, buffer + 4);
+    stencil << 0xff, 0x00, 0x01, 0x02;
+    EXPECT_EQ(4,stencil.size());
+    EXPECT_EQ(255,stencil[0]);
+    EXPECT_EQ(0,stencil[1]);
+    EXPECT_EQ(1,stencil[2]);
+    EXPECT_EQ(2,stencil[3]);
+//    std::cout << std::hex;
+//    for ( unsigned int i = 0; i < stencil.size(); ++i ) {
+//      std::cout << i << ": " << static_cast<int>(stencil[i]) << std::endl;
+//    }
+//    std::cout << std::dec;
 
     SUCCEED();
 }
