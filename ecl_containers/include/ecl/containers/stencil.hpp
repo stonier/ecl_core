@@ -20,6 +20,7 @@
 *****************************************************************************/
 
 #include "stencil/stencil.hpp"
+#include "stencil/specialisations.hpp"
 #include "stencil/converters.hpp"
 #include "stencil/formatters.hpp"
 
