@@ -91,6 +91,13 @@ class ECL_PUBLIC Converter< Stencil< std::vector<unsigned char> >, int > : publi
 template <>
 class ECL_PUBLIC Converter< Stencil< std::vector<unsigned char> >, long > : public converters::IntegralToByteArray< Stencil< std::vector<unsigned char> >, long > {};
 
+/**
+ * @brief Specialisation for const unsigned char* Stencil container based FromByteArray converter.
+ */
+template <typename Integral>
+class ECL_PUBLIC Converter <Integral, Stencil< const unsigned char* > > : public converters::FromByteArray< Integral, Stencil< const unsigned char* > > {};
+
+
 } // namespace ecl
 
 #endif /* ECL_CONTAINERS_STENCIL_CONVERTERS_HPP_ */
