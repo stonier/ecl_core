@@ -70,7 +70,7 @@ public:
 	 * @param w : width (default - no width constraints)
 	 * @param p : the number of decimal places of precision (default - 4)
 	 **/
-	FloatMatrixFormatter(const unsigned int &p = 2, const int &w = -1) :
+	FloatMatrixFormatter(const int &w = -1, const unsigned int &p = 2) :
 		tmp_formatting(false),
 		ready_to_format(false),
 		_matrix(NULL)
@@ -155,11 +155,11 @@ public:
 	 * @endcode
 	 *
 	 * @param matrix : the matrix to be formatted (gets temporarily stored as a pointer).
-	 * @param p : the number of decimal places of precision.
 	 * @param w : the width to use for inserted floats (-1 is no width constraint).
+         * @param p : the number of decimal places of precision.
 	 * @return FloatMatrixFormatter& : this formatter readied for use with a stream.
 	 **/
-	FloatMatrixFormatter< Derived >& operator() (const Derived & matrix, const unsigned int &p, const int &w ) {
+	FloatMatrixFormatter< Derived >& operator() (const Derived & matrix, const int &w, const unsigned int &p) {
 		_matrix = &matrix;
 		tmp_precision = p;
 		tmp_width = w;
@@ -250,7 +250,7 @@ OutputStream& operator << (OutputStream& ostream, FloatMatrixFormatter< Derived_
 template <typename Derived, typename Scalar>
 class MatrixFormatter<Derived, Scalar, typename ecl::enable_if< ecl::is_float<Scalar> >::type> : public FloatMatrixFormatter<Derived> {
 public:
-	MatrixFormatter(const unsigned int &p = 2, const int &w = -1) : FloatMatrixFormatter<Derived>(p,w) {};
+	MatrixFormatter(const int &w = -1, const unsigned int &p = 2) : FloatMatrixFormatter<Derived>(w, p) {};
 };
 
 } // namespace Eigen
