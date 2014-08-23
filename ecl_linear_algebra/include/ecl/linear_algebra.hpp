@@ -52,6 +52,9 @@
 #include "linear_algebra/unsupported/numerical_diff.hpp"
 #include "linear_algebra/unsupported/nonlinear_optimization.hpp"
 
+// our modules
+#include "linear_algebra/formatters.hpp"
+
 namespace ecl {
     namespace linear_algebra = Eigen;
 }

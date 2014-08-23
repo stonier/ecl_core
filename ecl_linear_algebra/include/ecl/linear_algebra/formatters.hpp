@@ -228,7 +228,9 @@ OutputStream& operator << (OutputStream& ostream, FloatMatrixFormatter< Derived_
 			{
 				ostream <<  formatter.format(formatter._matrix->coeff( i, j )) << "  ";
 			}
-			ostream << "\n";
+			if ( rows != 1 ) {  // special condition for row vectors so we can do inline the formatting.
+			  ostream << "\n";
+			}
 		}
 
 		if ( formatter.tmp_formatting ) {
