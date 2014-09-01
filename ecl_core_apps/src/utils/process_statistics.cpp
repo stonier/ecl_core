@@ -1,5 +1,5 @@
 /**
- * @file /src/utils/process.cpp
+ * @file /src/utils/process_statistics.cpp
  *
  * @brief Detects parameter configurations for processes' on your system.
  *
