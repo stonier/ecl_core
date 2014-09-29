@@ -25,10 +25,14 @@ namespace ecl {
 /**
  * @brief Serial connection baud rate.
  *
- * The baud rate of a serial connection.
+ * The baud rate of a serial connection. Support is rather dependent on the
+ * device, so check first. Some good references:
+ *
+ * - National Instruments : http://digital.ni.com/public.nsf/allkb/D37754FFA24F7C3F86256706005B9BE7
+ * - FTDI : http://www.ftdichip.com/Support/Documents/AppNotes/AN232B-05_BaudRates.pdf
  **/
 enum BaudRate {
-    BaudRate_110,
+    BaudRate_110,     // these are supported by most serial devices
     BaudRate_300,
     BaudRate_600,
     BaudRate_1200,
@@ -39,6 +43,10 @@ enum BaudRate {
     BaudRate_38400,
     BaudRate_57600,
     BaudRate_115200,
+    BaudRate_153600,  // these are supported by some serial devices (YMMV).
+    BaudRate_230400,
+    BaudRate_256000,
+    BaudRate_460800,
     BaudRate_921600
 };
 
