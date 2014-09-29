@@ -2,8 +2,8 @@
 Changelog
 ^^^^^^^^^
 
-Forthcoming
------------
+0.61.0 (2014-09-12)
+-------------------
 * allow immediate socket reuse in the socket client/server
 * define an undefined baud rate for apple
 
