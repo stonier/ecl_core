@@ -108,7 +108,7 @@ public:
 	 * Initialises the timestamp with the specified double value. Note that this is
 	 * slower than the manual initialisation with a sec/nsec pair.
 	 *
-	 * @param decimal_time_value : time units in seconds (integral part) and nanoseconds (decimal part).
+	 * @param decimal_time_value : time in decimal format (secs).
 	 *
 	 * @exception StandardException : thrown from TimeStampBase if the input arguments is not positive [debug mode only].
 	 */
