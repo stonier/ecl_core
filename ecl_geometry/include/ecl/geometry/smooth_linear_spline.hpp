@@ -179,7 +179,7 @@ OutputStream& operator << (OutputStream &ostream, const SmoothLinearSpline &smoo
 
     ostream << smooth_linear_spline.segments[0] << "\n";
     for ( unsigned int i = 1; i < smooth_linear_spline.segments.size(); ++i ) {
-        ostream << smooth_linear_spline.corners[i] << "\n";
+        ostream << smooth_linear_spline.corners[i-1] << "\n";
         ostream << smooth_linear_spline.segments[i] << "\n";
     }
     ostream.flush();
