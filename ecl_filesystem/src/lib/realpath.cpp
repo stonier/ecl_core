@@ -34,9 +34,18 @@ namespace ecl {
 *****************************************************************************/
 
 ecl_filesystem_PUBLIC ecl::Error realpath(const std::string& path, std::string& absolute_path) {
+  int path_max;
+  // see the man page for realpath for details
+  #ifdef PATH_MAX
+    path_max = PATH_MAX; /* PATH_MAX from limits.h, but not always defined */
+  #else
+    path_max = pathconf(path, _PC_PATH_MAX);
+    if (path_max <= 0) { path_max = 4096; } /* Not guaranteed to give you results */
+  #endif
 
-  char buffer[PATH_MAX + 1]; /* PATH_MAX from limits.h */
+  char buffer[path_max];
   char *result = ::realpath(path.c_str(), buffer);
+  absolute_path = buffer;
   if ( result != NULL ) {
     absolute_path = buffer;
   } else {

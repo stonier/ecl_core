@@ -35,6 +35,7 @@ TEST(FilesystemTests,realpath) {
   // TODO : right now, we have no idea of where this will run. Once we have
   // a `pwd` like function later, insert it here to derive the test properly.
   //EXPECT_EQ(std::string("Foo"), abs_path);
+  std::cout << "Absolute path: " << abs_path << std::endl;
   SUCCEED();
 }
 
