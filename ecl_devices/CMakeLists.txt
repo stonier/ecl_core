@@ -36,6 +36,8 @@ include_directories(include ${catkin_INCLUDE_DIRS})
 # Actual project configuration
 ##############################################################################
 
+ecl_enable_cxx11_compiler()
+
 add_subdirectory(include)
 add_subdirectory(src)
 
