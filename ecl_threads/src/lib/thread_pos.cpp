@@ -73,7 +73,7 @@ Thread::~Thread() {
 //			// Has already been joined, so leave it be.
 //		}
 //	}
-	if ( !join_requested ) {
+	if ( has_started && !join_requested ) {
 	    pthread_detach(thread_handle);
 	}
 }
