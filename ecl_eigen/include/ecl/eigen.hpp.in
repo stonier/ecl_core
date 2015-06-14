@@ -14,5 +14,8 @@
 #cmakedefine ECL_EIGEN_IS_INTERNAL_3_1_2
 #cmakedefine ECL_EIGEN_IS_EXTERNAL
 
+#cmakedefine ECL_EIGEN_IS_INTERNAL_3_2_1
+#cmakedefine ECL_EIGEN_IS_EXTERNAL
+
 #endif /* ECL_EIGEN_HPP_ */
 
