@@ -43,9 +43,7 @@ enum BaudRate {
     BaudRate_38400,
     BaudRate_57600,
     BaudRate_115200,
-    BaudRate_153600,  // these are supported by some serial devices (YMMV).
     BaudRate_230400,
-    BaudRate_256000,
     BaudRate_460800,
     BaudRate_921600
 };
