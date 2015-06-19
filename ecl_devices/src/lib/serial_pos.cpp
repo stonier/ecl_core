@@ -117,7 +117,14 @@ bool Serial::open(const std::string& port_name, const BaudRate &baud_rate, const
   }
 
   static const int baud_rate_flags[] = {B110, B300, B600, B1200, B2400, B4800, B9600, B19200, B38400, B57600, B115200,
-                                        B921600};
+                                        B230400, B460800, B921600};
+  if (baud_rate >= (sizeof(baud_rate_flags) / sizeof(B110)))
+  {
+    ecl_throw(StandardException(LOC,ConfigurationError,"Selected baudrate is not supported."));
+    error_handler = InvalidArgError;
+    is_open = false;
+    return false;
+  }
   static const int data_bits_flags[] = {CS5, CS6, CS7, CS8};
 
   /*********************
@@ -159,7 +166,13 @@ bool Serial::open(const std::string& port_name, const BaudRate &baud_rate, const
   /*********************
    ** Baud rates
    **********************/
-  cfsetispeed(&options, baud_rate_flags[baud_rate]);
+  if (cfsetspeed(&options, baud_rate_flags[baud_rate]) < 0)
+  {
+    ecl_throw(StandardException(LOC,ConfigurationError,"Setting speed failed."));
+    error_handler = InvalidArgError;
+    is_open = false;
+    return false;
+  }
 
   /*********************
    ** Ownership
