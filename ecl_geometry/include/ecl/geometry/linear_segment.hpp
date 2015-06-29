@@ -31,8 +31,20 @@ public:
                 const double& x_2,
                 const double& y_2);
 
-  double squaredDistanceFromPoint(const double& x,
-                                  const double& y);
+  /**
+   * @brief Distance of a point from the segment.
+   *
+   * Returns the distance from one of the end points if it is closer than
+   * the segment itself.
+   *
+   * TODO shift this to a standard geometry function
+   * computing the squared distance between two geometric objects.
+   *
+   * @param x : x coordinate of the point
+   * @param y : y-coordinate of the point
+   * @return double
+   */
+  double squaredDistanceFromPoint(const double& x, const double& y) const;
 
   ecl::Parameter<double> A, B, C;
 

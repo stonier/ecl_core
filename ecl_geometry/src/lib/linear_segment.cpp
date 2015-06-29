@@ -33,7 +33,7 @@ LinearSegment::LinearSegment(const double& x_1,
   }
 }
 
-double LinearSegment::squaredDistanceFromPoint(const double& x, const double& y)
+double LinearSegment::squaredDistanceFromPoint(const double& x, const double& y) const
 {
   // pp1 = [ x - x1 ]     p2p1 = [ x2 - x1 ]
   //       [ y - y1 ]            [ y2 - y1 ]
