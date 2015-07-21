@@ -6,24 +6,42 @@ cmake_minimum_required(VERSION 2.8.3)
 project(ecl_time)
 
 ##############################################################################
+# Find Packages
+##############################################################################
+
+find_package(catkin REQUIRED COMPONENTS
+    ecl_build 
+    ecl_config
+    ecl_errors
+    ecl_exceptions
+    ecl_time_lite
+)
+
+##############################################################################
 # Catkin
 ##############################################################################
 
-find_package(catkin REQUIRED COMPONENTS 
-    ecl_config
-    ecl_errors
-    ecl_time_lite
-    ecl_exceptions
-    )
 catkin_package(
-        INCLUDE_DIRS include
-        LIBRARIES ${PROJECT_NAME}
-	CATKIN_DEPENDS ecl_config ecl_errors ecl_time_lite ecl_exceptions
-        )
+    INCLUDE_DIRS include
+    LIBRARIES ${PROJECT_NAME}
+	CATKIN_DEPENDS 
+	    ecl_build
+	    ecl_config
+	    ecl_errors
+        ecl_exceptions
+	    ecl_time_lite
+)
+
+##############################################################################
+# Project configuration
+##############################################################################
+
+
+ecl_enable_cxx11_compiler()
 include_directories(include ${catkin_INCLUDE_DIRS})
 
 ##############################################################################
-# Actual project configuration
+# Sources
 ##############################################################################
 
 add_subdirectory(include)
