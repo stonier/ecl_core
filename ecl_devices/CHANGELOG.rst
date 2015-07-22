@@ -2,6 +2,12 @@
 Changelog
 ^^^^^^^^^
 
+0.61.1 (2015-07-22)
+-------------------
+* catch the error code as a hint for when fcntl calls fail on serial devices
+* additional baud rate enums for serial devices covering a wider range
+* deprecated a couple of serial device baud rates that are no longer valid
+
 0.61.0 (2014-09-12)
 -------------------
 * allow immediate socket reuse in the socket client/server
