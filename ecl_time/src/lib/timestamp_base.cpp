@@ -13,7 +13,7 @@
 #include <ecl/config.hpp>
 #include <ecl/exceptions/standard_exception.hpp>
 #include "../../include/ecl/time/timestamp_base.hpp"
-#include <iostream>
+
 /*****************************************************************************
 ** Namespaces
 *****************************************************************************/
