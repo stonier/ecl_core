@@ -16,6 +16,7 @@
 ** Includes
 *****************************************************************************/
 
+#include <cstdlib>
 #include <ecl/time_lite/types.hpp>
 #include <ecl/config/macros.hpp>
 #include <ecl/exceptions/standard_exception.hpp>
@@ -224,25 +225,29 @@ protected:
 template <typename OutputStream>
 OutputStream& operator <<( OutputStream &ostream , const TimeStampBase& time_stamp )
 {
+    if ( ( time_stamp.time.tv_sec == 0 ) && (time_stamp.time.tv_nsec < 0 ) ) {
+      ostream << "-";
+    }
     ostream << time_stamp.time.tv_sec << ".";
-    if ( time_stamp.time.tv_nsec < 10 ) {
+    long nanoseconds = std::abs(time_stamp.time.tv_nsec);
+    if ( nanoseconds < 10 ) {
         ostream << "00000000";
-    } else if ( time_stamp.time.tv_nsec < 100 ) {
+    } else if ( nanoseconds < 100 ) {
         ostream << "0000000";
-    } else if ( time_stamp.time.tv_nsec < 1000 ) {
+    } else if ( nanoseconds < 1000 ) {
         ostream << "000000";
-    } else if ( time_stamp.time.tv_nsec < 10000 ) {
+    } else if ( nanoseconds < 10000 ) {
         ostream << "00000";
-    } else if ( time_stamp.time.tv_nsec < 100000 ) {
+    } else if ( nanoseconds < 100000 ) {
         ostream << "0000";
-    } else if ( time_stamp.time.tv_nsec < 1000000 ) {
+    } else if ( nanoseconds < 1000000 ) {
         ostream << "000";
-    } else if ( time_stamp.time.tv_nsec < 10000000 ) {
+    } else if ( nanoseconds < 10000000 ) {
         ostream << "00";
-    } else if ( time_stamp.time.tv_nsec < 100000000 ) {
+    } else if ( nanoseconds < 100000000 ) {
         ostream << "0";
     }
-    ostream << time_stamp.time.tv_nsec;
+    ostream << nanoseconds;
     return ostream;
 }
 

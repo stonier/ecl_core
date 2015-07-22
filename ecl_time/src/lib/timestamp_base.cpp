@@ -13,7 +13,7 @@
 #include <ecl/config.hpp>
 #include <ecl/exceptions/standard_exception.hpp>
 #include "../../include/ecl/time/timestamp_base.hpp"
-
+#include <iostream>
 /*****************************************************************************
 ** Namespaces
 *****************************************************************************/
@@ -26,13 +26,15 @@ namespace ecl {
 
 TimeStampBase::TimeStampBase (const double& decimal_time_value) ecl_assert_throw_decl(StandardException)
 {
-    ecl_assert_throw( decimal_time_value >= 0.0, StandardException(LOC,InvalidInputError,"Timestamps must always be positive (design requirement), make sure your input argument is also positive.") );
     time.tv_sec = static_cast<long>(decimal_time_value);
     time.tv_nsec = (decimal_time_value - static_cast<long>(decimal_time_value))*1000000000L;
 }
 
 TimeStampBase::TimeStampBase (const time_t& seconds, const long& nanoseconds) ecl_assert_throw_decl(StandardException) {
-    ecl_assert_throw( (seconds >= 0) && (nanoseconds >= 0), StandardException(LOC,InvalidInputError,"Timestamps must always be positive (design requirement), make sure your input arguments are also positive.") );
+    ecl_assert_throw( ( (seconds > 0) && (nanoseconds >= 0) ) ||
+                      ( (seconds < 0) && (nanoseconds <= 0) ) ||
+                      ( (seconds == 0) ),
+                      StandardException(LOC,InvalidInputError,"Positive timestamps require positive nanoseconds, negative timestamps require negative nanoseconds.") );
     time.tv_sec = seconds;
     time.tv_nsec = nanoseconds;
 }
@@ -42,14 +44,16 @@ TimeStampBase::TimeStampBase (const time_t& seconds, const long& nanoseconds) ec
 *****************************************************************************/
 
 const TimeStampBase& TimeStampBase::stamp (const double& decimal_time_value) ecl_assert_throw_decl(StandardException) {
-    ecl_assert_throw( decimal_time_value >= 0.0, StandardException(LOC,InvalidInputError,"Timestamps must always be positive (design requirement), make sure your input argument is also positive.") );
     time.tv_sec = static_cast<time_t>(decimal_time_value);
     time.tv_nsec = (decimal_time_value - static_cast<long>(decimal_time_value))*1000000000L;
     return (*this);
 }
 
 const TimeStampBase& TimeStampBase::stamp (const time_t& seconds, const long& nanoseconds) ecl_assert_throw_decl(StandardException) {
-    ecl_assert_throw( (seconds >= 0) && (nanoseconds >= 0), StandardException(LOC,InvalidInputError,"Timestamps must always be positive (design requirement), make sure your input arguments are also positive.") );
+  ecl_assert_throw( ( (seconds > 0) && (nanoseconds >= 0) ) ||
+                    ( (seconds < 0) && (nanoseconds <= 0) ) ||
+                    ( (seconds == 0) ),
+                    StandardException(LOC,InvalidInputError,"Positive timestamps require positive nanoseconds, negative timestamps require negative nanoseconds.") );
     time.tv_sec = seconds;
     time.tv_nsec = nanoseconds;
     return (*this);
@@ -125,18 +129,41 @@ bool TimeStampBase::operator>(const TimeStampBase& time_stamp ) {
 void TimeStampBase::operator+=(const TimeStampBase& time_stamp ) {
     time.tv_sec += time_stamp.time.tv_sec;
     int64 nsec = time.tv_nsec + time_stamp.time.tv_nsec;
-    time.tv_nsec = nsec%1000000000L;
-    if ( nsec > 1000000000L ) {
-        time.tv_sec += 1;
+    if ( nsec >= 1000000000L ) {
+      time.tv_sec += 1;
+      nsec -= 1000000000L;
+    } else if ( nsec <= -1000000000L ) {
+      time.tv_sec -= 1;
+      nsec += 1000000000L;
     }
+    if ( ( time.tv_sec > 0 ) && ( nsec < 0 ) ) {
+      time.tv_sec -= 1;
+      nsec = 1000000000L + nsec;
+    }
+    if ( ( time.tv_sec < 0 ) && ( nsec > 0 ) ) {
+      time.tv_sec += 1;
+      nsec = nsec - 1000000000L;
+    }
+    time.tv_nsec = nsec;
 }
 
 TimeStampBase TimeStampBase::operator+(const TimeStampBase& time_stamp ) {
     long sec = time.tv_sec + time_stamp.time.tv_sec;
     int64 nsec = time.tv_nsec + time_stamp.time.tv_nsec;
-    if ( nsec > 1000000000L ) {
-        sec += 1;
-        nsec = nsec%1000000000L;
+    if ( nsec >= 1000000000L ) {
+      sec += 1;
+      nsec -= 1000000000L;
+    } else if ( nsec <= -1000000000L ) {
+      sec -= 1;
+      nsec += 1000000000L;
+    }
+    if ( ( sec > 0 ) && ( nsec < 0 ) ) {
+      sec -= 1;
+      nsec = 1000000000L + nsec;
+    }
+    if ( ( sec < 0 ) && ( nsec > 0 ) ) {
+      sec += 1;
+      nsec = nsec - 1000000000L;
     }
     return TimeStampBase(sec,nsec);
 }
@@ -145,11 +172,12 @@ void TimeStampBase::operator-=(const TimeStampBase& time_stamp ) ecl_assert_thro
     time_t sec = time.tv_sec - time_stamp.time.tv_sec;
     long nsec = time.tv_nsec - time_stamp.time.tv_nsec;
 
-    ecl_assert_throw( ( ( sec > 0 ) || ((sec == 0) && (nsec >= 0)) ), StandardException(LOC,InvalidInputError,"Timestamps must always be positive (design requirement), possibly you have your timestamps in the wrong order.") );
-
-    if ( nsec < 0 ) {
+    if ( (sec > 0) && ( nsec < 0 )) {
         sec -= 1;
         nsec += 1000000000L;
+    } else if ( (sec < 0) && ( nsec > 0 )) {
+      sec += 1;
+      nsec -= 1000000000L;
     }
     time.tv_sec = sec;
     time.tv_nsec = nsec;
@@ -159,11 +187,12 @@ TimeStampBase TimeStampBase::operator-(const TimeStampBase& time_stamp ) ecl_ass
     time_t sec = time.tv_sec - time_stamp.time.tv_sec;
     long nsec = time.tv_nsec - time_stamp.time.tv_nsec;
 
-    ecl_assert_throw( ( ( sec > 0 ) || ((sec == 0) && (nsec >= 0)) ), StandardException(LOC,InvalidInputError,"Timestamps must always be positive (design requirement), possibly you have your timestamps in the wrong order.") );
-
-    if ( nsec < 0 ) {
+    if ( (sec > 0) && ( nsec < 0 )) {
         sec -= 1;
         nsec += 1000000000L;
+    } else if ( (sec < 0) && ( nsec > 0 )) {
+      sec += 1;
+      nsec -= 1000000000L;
     }
     return TimeStampBase(sec,nsec);
 }
