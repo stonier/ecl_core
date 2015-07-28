@@ -92,6 +92,12 @@ template <>
 class ECL_PUBLIC Converter< Stencil< std::vector<unsigned char> >, long > : public converters::IntegralToByteArray< Stencil< std::vector<unsigned char> >, long > {};
 
 /**
+ * @brief Specialisation for long long to vector based unsigned char Stencil container.
+ */
+template <>
+class ECL_PUBLIC Converter< Stencil< std::vector<unsigned char> >, long long > : public converters::IntegralToByteArray< Stencil< std::vector<unsigned char> >, long long > {};
+
+/**
  * @brief Specialisation for const unsigned char* Stencil container based FromByteArray converter.
  */
 template <typename Integral>

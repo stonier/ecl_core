@@ -222,6 +222,31 @@ class Converter<std::vector<signed char>, unsigned long> : public converters::In
 {
 };
 
+/**
+ * @brief Converts long long to a byte array of chars.
+ **/
+template<>
+class Converter<std::vector<char>, long long> : public converters::IntegralToByteArray<std::vector<char>, long long>
+{
+};
+
+/**
+ * @brief Converts long long to a byte array of unsigned chars.
+ **/
+template<>
+class Converter<std::vector<unsigned char>, long long> : public converters::IntegralToByteArray<std::vector<unsigned char>,
+long long>
+{
+};
+
+/**
+ * @brief Converts long long to a byte array of signed chars.
+ **/
+template<>
+class Converter<std::vector<signed char>, long long> : public converters::IntegralToByteArray<std::vector<signed char>, long long>
+{
+};
+
 /*****************************************************************************
  ** Byte Converter Interface
  *****************************************************************************/
