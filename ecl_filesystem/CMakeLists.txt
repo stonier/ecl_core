@@ -35,7 +35,7 @@ catkin_package(
             ecl_errors
     DEPENDS ${ECL_PLATFORM_FILESYSTEM_LIBRARIES}
 )
-include_directories(include ${catkin_INCLUDE_DIRS})
+include_directories(include ${CATKIN_DEVEL_PREFIX}/include ${catkin_INCLUDE_DIRS})
 
 ##############################################################################
 # Actual project configuration
