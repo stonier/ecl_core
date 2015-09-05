@@ -2,6 +2,10 @@
 Changelog
 ^^^^^^^^^
 
+0.61.3 (2015-09-05)
+-------------------
+* fix build dirs for devel build.
+
 0.61.0 (2014-09-12)
 -------------------
 * const'ness for appropriate thread functions
