@@ -24,7 +24,7 @@
 #include <ecl/type_traits/fundamental_types.hpp>
 #include <ecl/type_traits/numeric_limits.hpp>
 #include "converter.hpp"
-
+#include <iostream>
 /*****************************************************************************
  ** Namespaces
  *****************************************************************************/
@@ -88,9 +88,11 @@ public:
      **********************/
     if (byte_array.size() != ecl::numeric_limits<Integral>::bytes)
     {
+      std::cout << "Failed size check" << std::endl;
       ecl_debug_throw(
           StandardException(LOC,ConversionError,"The specified byte array size does not match the byte size of the integral type."));
       error_handler = ConversionError;
+      return byte_array;
     }
 
     /*********************

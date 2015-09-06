@@ -97,7 +97,12 @@ TEST(Converter,toByteArrayFailedSize) {
 	} catch ( ecl::StandardException &e ) {
 	    if ( debug_output ) { std::cout << "Caught an exception from improper size of reserved memory." << std::endl; }
 	}
-	SUCCEED();
+	ecl::Error result = toByteArray.error();
+	if ( result.flag() == ecl::ConversionError ) {
+	  SUCCEED();
+	} else {
+	  FAIL();
+	}
 }
 
 TEST(Converter,charToByteArray) {
