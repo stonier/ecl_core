@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package>
   <name>ecl_eigen</name>
-  <version>0.61.3</version>
+  <version>0.61.4</version>
   <description>
      This provides an Eigen implementation for ecl's linear algebra.
   </description>

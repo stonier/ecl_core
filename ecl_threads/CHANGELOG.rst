@@ -2,6 +2,10 @@
 Changelog
 ^^^^^^^^^
 
+0.61.4 (2015-10-10)
+-------------------
+* fix long standing bug in mutex tests on the build farm - skip deadlock tests in release mode
+
 0.61.1 (2015-07-22)
 -------------------
 * don't detach an ecl thread that hasn't been started
