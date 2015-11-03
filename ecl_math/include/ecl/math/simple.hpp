@@ -38,6 +38,7 @@ template <typename Scalar>
 inline int sign(const Scalar &x) {
 	// ToDo: should probably check some numeric traits here
 	// Is this faster? (v > 0) - (v < 0);
+        // http://stackoverflow.com/questions/1903954/is-there-a-standard-sign-function-signum-sgn-in-c-c
 	if ( x > 0 ) {
 		return 1;
 	} else if ( x < 0 ) {
