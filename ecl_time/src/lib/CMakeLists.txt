@@ -5,6 +5,7 @@
 # Note, macro magic stops us compiling objects for the wrong implementations below
 SET(SOURCES 
     cpuwatch_rt.cpp
+    frequency.cpp
     sleep_win.cpp
     sleep_pos.cpp
     snooze_pos.cpp
