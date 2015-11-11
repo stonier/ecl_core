@@ -9,20 +9,29 @@ project(ecl_geometry)
 # Catkin
 ##############################################################################
 
-find_package(catkin REQUIRED COMPONENTS 
-    ecl_config 
-    ecl_type_traits
-    ecl_containers
-    ecl_formatters
-    ecl_linear_algebra
-    ecl_exceptions
-    ecl_math
-    ecl_mpl
-    )
+find_package(catkin
+    REQUIRED
+    COMPONENTS
+        ecl_build 
+        ecl_config 
+        ecl_type_traits
+        ecl_containers
+        ecl_formatters
+        ecl_linear_algebra
+        ecl_exceptions
+        ecl_math
+        ecl_mpl
+)
+
+##############################################################################
+# Exports
+##############################################################################
+
 catkin_package(
         INCLUDE_DIRS include
         LIBRARIES ${PROJECT_NAME}
     CATKIN_DEPENDS
+        ecl_build
         ecl_config 
         ecl_type_traits
         ecl_containers
@@ -32,10 +41,16 @@ catkin_package(
         ecl_math
         ecl_mpl
         )
+
+##############################################################################
+# Project Configuration
+##############################################################################
+
+ecl_enable_cxx11_compiler()
 include_directories(include ${catkin_INCLUDE_DIRS})
 
 ##############################################################################
-# Actual project configuration
+# Sources
 ##############################################################################
 
 add_subdirectory(include)

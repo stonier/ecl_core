@@ -1,15 +1,13 @@
 ###############################################################################
-# SUBDIRECTORIES
+# Subdirectories
 ###############################################################################
 
-add_subdirectory(eigen)
-add_subdirectory(sophus)
+add_subdirectory(unsupported)
 
 ###############################################################################
-# FILES
+# Files
 ###############################################################################
 
 file(GLOB HEADERS RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} *.hpp)
-  
-install(FILES ${HEADERS} DESTINATION ${CATKIN_GLOBAL_INCLUDE_DESTINATION}/ecl/linear_algebra)
 
+install(FILES ${HEADERS} DESTINATION include/${PROJECT_NAME}/eigen)

@@ -1,8 +1,7 @@
 ###############################################################################
-# FILES
+# Files
 ###############################################################################
 
 file(GLOB HEADERS RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} *.hpp)
-  
-install(FILES ${HEADERS} DESTINATION include/ecl/linear_algebra/unsupported)
 
+install(FILES ${HEADERS} DESTINATION include/${PROJECT_NAME}/sophus)
