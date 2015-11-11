@@ -15,6 +15,7 @@
 #include <ecl/exceptions/standard_exception.hpp>
 #include <ecl/linear_algebra.hpp>
 #include <Eigen/Core>
+#include <Eigen/Geometry>
 #include <iomanip>
 #include <iostream>
 #include <memory>
