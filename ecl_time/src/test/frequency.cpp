@@ -9,9 +9,9 @@
 *****************************************************************************/
 
 #include <gtest/gtest.h>
+#include "../../include/ecl/time/frequency.hpp"
 #include "../../include/ecl/time/sleep.hpp"
 #include "../../include/ecl/time/timestamp.hpp"
-#include "../../include/ecl/time/frequency_diagnostics.hpp"
 
 /*****************************************************************************
 ** Platform Check
@@ -19,6 +19,20 @@
 
 #ifdef ECL_HAS_TIMESTAMP
 
+/*****************************************************************************
+** Methods
+*****************************************************************************/
+
+std::ostream& operator <<( std::ostream& ostream , const ecl::FrequencyDiagnostics& diagnostics )
+{
+  ostream << "hz : " << diagnostics.hz;
+  ostream << ", min : " << diagnostics.minimum_interval;
+  ostream << ", max : " << diagnostics.maximum_interval;
+  ostream << ", last_incoming : " << std::fixed << diagnostics.last_incoming << std::scientific;
+  // could print the others, but that would require use of std ios flags to pretty print correctly.
+  // let the user do that how they wish if they want to
+  return ostream;
+}
 
 /*****************************************************************************
 ** Tests

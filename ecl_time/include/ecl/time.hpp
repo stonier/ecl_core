@@ -26,6 +26,7 @@
 #endif
 
 #include "time/duration.hpp"
+#include <ecl/time/frequency.hpp>
 #include "time/random_number_generator.hpp"
 #include "time/sleep.hpp" // Posix rt-timers only
 #include "time/snooze.hpp" // Posix rt-timers only
