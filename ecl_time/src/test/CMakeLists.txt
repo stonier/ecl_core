@@ -15,6 +15,7 @@ endmacro()
 ###############################################################################
 
 ecl_add_gtest(cpuwatch_rt)
+ecl_add_gtest(frequency)
 ecl_add_gtest(sleep)
 ecl_add_gtest(snooze)
 ecl_add_gtest(timestamp)
