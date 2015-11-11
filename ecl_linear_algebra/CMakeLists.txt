@@ -9,24 +9,42 @@ project(ecl_linear_algebra)
 # Catkin
 ##############################################################################
 
-find_package(catkin REQUIRED COMPONENTS 
-    ecl_exceptions
-    ecl_formatters
-    ecl_eigen
-    )
+find_package(catkin
+    REQUIRED
+    COMPONENTS
+        ecl_build 
+        ecl_exceptions
+        ecl_formatters
+        ecl_eigen
+)
+
+find_package(sophus REQUIRED)
+
+##############################################################################
+# Exports
+##############################################################################
 
 catkin_package(
     INCLUDE_DIRS include
+    LIBRARIES ${PROJECT_NAME}
 	CATKIN_DEPENDS 
-            ecl_exceptions 
-            ecl_formatters
-            ecl_eigen
+	    ecl_build
+        ecl_exceptions 
+        ecl_formatters
+        ecl_eigen
+    DEPENDS                
+        sophus
     )
-include_directories(include ${catkin_INCLUDE_DIRS})
-
 
 ##############################################################################
-# Actual project configuration
+# Project Configuration
+##############################################################################
+
+ecl_enable_cxx11_compiler()
+include_directories(include ${catkin_INCLUDE_DIRS})
+
+##############################################################################
+# Sources
 ##############################################################################
 
 add_subdirectory(include)
