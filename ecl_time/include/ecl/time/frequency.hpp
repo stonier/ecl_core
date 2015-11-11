@@ -36,6 +36,7 @@ struct FrequencyDiagnostics {
   , std_dev(-1.0)
   , minimum_interval(-1.0)
   , maximum_interval(-1.0)
+  , last_incoming()
   {}
 
   bool has_connection;
@@ -43,19 +44,9 @@ struct FrequencyDiagnostics {
   float std_dev;
   float minimum_interval;
   float maximum_interval;
+  float last_incoming;
 
-  template <typename OutputStream>
-  friend OutputStream& operator << ( OutputStream &ostream , const FrequencyDiagnostics& diagnostics );
 };
-
-template <typename OutputStream>
-OutputStream& operator <<( OutputStream &ostream , const FrequencyDiagnostics& diagnostics )
-{
-  ostream << "hz : " << diagnostics.hz;
-  ostream << ", min : " << diagnostics.minimum_interval;
-  ostream << ", max : " << diagnostics.maximum_interval;
-  return ostream;
-}
 
 /**
  * @brief Lightweight and fast frequency monitor.
@@ -121,7 +112,7 @@ public:
    */
   const FrequencyDiagnostics& diagnostics() const { return current_diagnostics; };
 
-private:
+protected:
   FrequencyDiagnostics current_diagnostics;
   ecl::TimeStamp last_incoming;
   unsigned int incoming_counter;

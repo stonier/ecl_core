@@ -5,7 +5,7 @@
 ** Includes
 *****************************************************************************/
 
-#include "../../include/ecl/time/frequency_diagnostics.hpp"
+#include <ecl/time/frequency.hpp>
 
 /*****************************************************************************
 ** Namespaces
@@ -71,6 +71,8 @@ const FrequencyDiagnostics& FrequencyMonitor::analyse() {
       maximum_interval = ecl::TimeStamp(0.0);
     }
   }
+  // always update this one
+  current_diagnostics.last_incoming = last_incoming;
   return current_diagnostics;
 }
 
