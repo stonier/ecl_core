@@ -41,7 +41,7 @@ catkin_package(
 ##############################################################################
 
 ecl_enable_cxx11_compiler()
-include_directories(include ${catkin_INCLUDE_DIRS})
+include_directories(include ${catkin_INCLUDE_DIRS} ${sophus_INCLUDE_DIRS})
 
 ##############################################################################
 # Sources
