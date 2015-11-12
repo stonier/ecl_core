@@ -30,9 +30,7 @@
 #include <Eigen/QR>
 // This one is bad - it doesn't inline its headers (Eigen v3.01) - avoid it for now.
 // #include <Eigen/QtAlignedMalloc>
-#ifdef EIGEN_YES_I_KNOW_SPARSE_MODULE_IS_NOT_STABLE_YET
-  #include <Eigen/Sparse>
-#endif
+#include <Eigen/Sparse>
 #include <Eigen/StdDeque>
 #include <Eigen/StdList>
 #include <Eigen/StdVector>
