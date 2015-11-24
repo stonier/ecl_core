@@ -1,6 +1,6 @@
 <package>
   <name>ecl_core</name>
-  <version>0.61.4</version>
+  <version>0.61.5</version>
   <description>
     A set of tools and interfaces extending the capabilities of c++ to 
     provide a lightweight, consistent interface with a focus for control

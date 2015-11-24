@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package>
   <name>ecl_command_line</name>
-  <version>0.61.4</version>
+  <version>0.61.5</version>
   <description>
      Embeds the TCLAP library inside the ecl. This is a very convenient
      command line parser in templatised c++.
