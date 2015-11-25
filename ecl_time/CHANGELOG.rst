@@ -2,8 +2,8 @@
 Changelog
 =========
 
-Forthcoming
------------
+0.61.6 (2015-11-25)
+-------------------
 * bugfix frequency monitor timestamp initialisation
 
 0.61.5 (2015-11-24)
