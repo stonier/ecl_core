@@ -23,12 +23,12 @@ FrequencyMonitor::FrequencyMonitor(
 )
 : current_diagnostics()
 , incoming_counter(0)
-, last_incoming()
 , last_anyalsed()
 , minimum_interval(100000.0) // something ridiculously large so the next interval will fall underneath it
 , maximum_interval(0.0)
 , period(window_period)
 , use_realtime_clock(use_realtime_clock)
+, last_incoming((use_realtime_clock) ? ecl::TimeStamp::realtime_now() : ecl::TimeStamp())
 {
 }
 

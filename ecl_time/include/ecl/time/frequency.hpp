@@ -114,13 +114,13 @@ public:
 
 protected:
   FrequencyDiagnostics current_diagnostics;
-  ecl::TimeStamp last_incoming;
   unsigned int incoming_counter;
   ecl::TimeStamp last_anyalsed;
   ecl::TimeStamp period;
   ecl::TimeStamp minimum_interval;
   ecl::TimeStamp maximum_interval;
   bool use_realtime_clock;
+  ecl::TimeStamp last_incoming;
 };
 
 /*****************************************************************************
