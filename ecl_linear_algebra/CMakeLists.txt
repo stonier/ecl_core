@@ -13,9 +13,10 @@ find_package(catkin
     REQUIRED
     COMPONENTS
         ecl_build 
+        ecl_eigen
         ecl_exceptions
         ecl_formatters
-        ecl_eigen
+        ecl_math
 )
 
 find_package(sophus REQUIRED)
@@ -29,9 +30,10 @@ catkin_package(
     LIBRARIES ${PROJECT_NAME}
 	CATKIN_DEPENDS 
 	    ecl_build
+        ecl_eigen
         ecl_exceptions 
         ecl_formatters
-        ecl_eigen
+        ecl_math
     DEPENDS                
         sophus
     )
