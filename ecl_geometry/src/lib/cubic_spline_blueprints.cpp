@@ -44,7 +44,7 @@ C2CubicSpline::C2CubicSpline(const ecl::Array<double>& x_set, const ecl::Array<d
                                     x_data(x_set),
                                     y_data(y_set)
 {
-    if (x_data.size() < 2)
+    if (x_data.size() < 2 || y_data.size() < 2)
     {
       ecl_throw(StandardException(LOC,OutOfRangeError) );
     }
@@ -84,7 +84,7 @@ C2CubicSpline::C2CubicSpline(const ecl::Array<double>& x_set, const ecl::Array<d
                                     x_data(x_set),
                                     y_data(y_set)
 {
-    if (x_data.size() < 2)
+    if (x_data.size() < 2 || y_data.size() < 2)
     {
       ecl_throw(StandardException(LOC,OutOfRangeError) );
     }
