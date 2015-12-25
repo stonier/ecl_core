@@ -44,6 +44,10 @@ C2CubicSpline::C2CubicSpline(const ecl::Array<double>& x_set, const ecl::Array<d
                                     x_data(x_set),
                                     y_data(y_set)
 {
+    if (x_data.size() < 2 || y_data.size() < 2)
+    {
+      ecl_throw(StandardException(LOC,OutOfRangeError) );
+    }
     ecl_assert_throw( x_data.size() == y_data.size(), StandardException(LOC,OutOfRangeError) );
     unsigned int n = x_data.size();
     yddot_data.resize(n);
@@ -80,6 +84,10 @@ C2CubicSpline::C2CubicSpline(const ecl::Array<double>& x_set, const ecl::Array<d
                                     x_data(x_set),
                                     y_data(y_set)
 {
+    if (x_data.size() < 2 || y_data.size() < 2)
+    {
+      ecl_throw(StandardException(LOC,OutOfRangeError) );
+    }
     ecl_assert_throw( x_data.size() == y_data.size(), StandardException(LOC,OutOfRangeError) );
     unsigned int n = x_data.size();
     yddot_data.resize(n);
