@@ -2,6 +2,10 @@
 Changelog
 =========
 
+Forthcoming
+-----------
+* drop the c++11 transitive export flag, catkin installs dont support this
+
 0.61.7 (2016-01-09)
 -------------------
 * transitively export c++11 requirement instead of forcing users to do it
