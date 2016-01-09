@@ -35,7 +35,7 @@ Eigen::Vector3f toPose2D(const Sophus::SE3f& pose)
 ** C++11 Implementation
 *****************************************************************************/
 
-#if defined(ECL_CX11_FOUND)
+#if defined(ECL_CXX11_FOUND)
   Sophus::SE3fPtr points2DToSophusTransform(float from_x, float from_y, float to_x, float to_y) {
     // copied code from output receiver
     Eigen::Vector3f origin(from_x, from_y, 0.0);

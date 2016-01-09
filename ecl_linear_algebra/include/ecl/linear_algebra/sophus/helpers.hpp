@@ -19,7 +19,7 @@
 #include <Eigen/Geometry>
 #include <iomanip>
 #include <iostream>
-#if defined(ECL_CX11_FOUND)
+#if defined(ECL_CXX11_FOUND)
     #include <memory>
 #endif
 #include <sophus/se3.hpp>
@@ -40,7 +40,7 @@ namespace Sophus {
  ** C++11 Api Only
  *****************************************************************************/
 
-#if defined(ECL_CX11_FOUND)
+#if defined(ECL_CXX11_FOUND)
     typedef std::shared_ptr<SE3f> SE3fPtr;
 
     /// Converts a line drawn between two points on the z-plane into the transform of a sophus frame relative to the origin.
