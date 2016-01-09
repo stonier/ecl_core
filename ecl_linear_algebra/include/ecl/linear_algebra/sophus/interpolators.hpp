@@ -16,7 +16,6 @@
 #include <ecl/linear_algebra.hpp>
 #include <iomanip>
 #include <iostream>
-#include <memory>
 #include <sophus/se3.hpp>
 #include <sophus/se2.hpp>
 #include <sophus/so2.hpp>

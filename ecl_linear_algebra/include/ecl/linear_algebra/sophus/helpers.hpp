@@ -12,13 +12,16 @@
 ** Includes
 *****************************************************************************/
 
+#include <ecl/config/macros.hpp>
 #include <ecl/exceptions/standard_exception.hpp>
 #include <ecl/linear_algebra.hpp>
 #include <Eigen/Core>
 #include <Eigen/Geometry>
 #include <iomanip>
 #include <iostream>
-#include <memory>
+#if defined(ECL_CX11_FOUND)
+    #include <memory>
+#endif
 #include <sophus/se3.hpp>
 #include <sophus/se2.hpp>
 #include <sophus/so2.hpp>
@@ -34,10 +37,15 @@
 namespace Sophus {
 
 /*****************************************************************************
- ** Typedefs
+ ** C++11 Api Only
  *****************************************************************************/
 
-typedef std::shared_ptr<SE3f> SE3fPtr;
+#if defined(ECL_CX11_FOUND)
+    typedef std::shared_ptr<SE3f> SE3fPtr;
+
+    /// Converts a line drawn between two points on the z-plane into the transform of a sophus frame relative to the origin.
+    Sophus::SE3fPtr points2DToSophusTransform(float from_x, float from_y, float to_x, float to_y);
+#endif
 
 /*****************************************************************************
 ** Interfaces
@@ -65,10 +73,6 @@ std::ostream & operator << ( std::ostream & out, const SE2Group<T> & se2 )
 
 /// Convert a full Sophus pose into a 2 dimensional pose (x,y,heading).
 Eigen::Vector3f toPose2D(const Sophus::SE3f& pose);
-
-/// Converts a line drawn between two points on the z-plane into the transform of a sophus frame relative to the origin.
-Sophus::SE3fPtr points2DToSophusTransform(float from_x, float from_y, float to_x, float to_y);
-
 
 class PlanarRotation2Quaternion
 {

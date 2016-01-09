@@ -6,6 +6,7 @@
 *****************************************************************************/
 
 #include <cmath>
+#include <ecl/config/macros.hpp>
 #include <ecl/linear_algebra.hpp>
 #include "../../include/ecl/linear_algebra/sophus/helpers.hpp"
 
@@ -16,7 +17,7 @@
 namespace Sophus {
 
 /*****************************************************************************
-** Implementation
+** Vanilla Implementation
 *****************************************************************************/
 
 Eigen::Vector3f toPose2D(const Sophus::SE3f& pose)
@@ -30,14 +31,20 @@ Eigen::Vector3f toPose2D(const Sophus::SE3f& pose)
   return pose2d;
 }
 
-Sophus::SE3fPtr points2DToSophusTransform(float from_x, float from_y, float to_x, float to_y) {
-  // copied code from output receiver
-  Eigen::Vector3f origin(from_x, from_y, 0.0);
-  double angle = std::atan2(to_y-from_y, to_x-from_x);
-  Eigen::Quaternion<float> q; q = Eigen::AngleAxis<float>(angle, Eigen::Vector3f::UnitZ ());
-  return std::make_shared<Sophus::SE3f>(q, origin);
-//  std::cout << "  Origin: " << origin.transpose() << std::endl;
-//  std::cout << "  Angle : " << angle << std::endl;
-}
+/*****************************************************************************
+** C++11 Implementation
+*****************************************************************************/
+
+#if defined(ECL_CX11_FOUND)
+  Sophus::SE3fPtr points2DToSophusTransform(float from_x, float from_y, float to_x, float to_y) {
+    // copied code from output receiver
+    Eigen::Vector3f origin(from_x, from_y, 0.0);
+    double angle = std::atan2(to_y-from_y, to_x-from_x);
+    Eigen::Quaternion<float> q; q = Eigen::AngleAxis<float>(angle, Eigen::Vector3f::UnitZ ());
+    return std::make_shared<Sophus::SE3f>(q, origin);
+  //  std::cout << "  Origin: " << origin.transpose() << std::endl;
+  //  std::cout << "  Angle : " << angle << std::endl;
+  }
+#endif
 
 } // namespace Sophus

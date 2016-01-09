@@ -51,7 +51,7 @@ public:
   , tmp_precision(p)
   , tmp_formatting(false)
   , ready_to_format(false)
-  , s_(nullptr)
+  , s_(NULL)
 {}
   virtual ~SE3fFormatter() {}
   /**
