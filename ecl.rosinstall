@@ -1,7 +1,0 @@
-[
-{'git': {'local-name': 'ecl_tools', 'version': 'indigo', 'uri':'https://github.com/stonier/ecl_tools.git'}},
-{'git': {'local-name': 'ecl_lite', 'version': 'indigo', 'uri':'https://github.com/stonier/ecl_lite.git'}},
-{'git': {'local-name': 'ecl_core', 'version': 'indigo', 'uri':'https://github.com/stonier/ecl_core.git'}},
-{'git': {'local-name': 'ecl_navigation', 'version': 'indigo', 'uri':'https://github.com/stonier/ecl_navigation.git'}},
-{'git': {'local-name': 'ecl_manipulation', 'version': 'indigo', 'uri':'https://github.com/stonier/ecl_manipulation.git'}},
-]
