@@ -51,7 +51,7 @@ int main(int argc, char** argv) {
     }
     double rads = 2*acos(w);
     double degrees = rads * 360.0 / (2 * ecl::pi);
-    std::cout << "Quaternion {" << x << ", " << y << ", " << z << ", " << w << "} -> ";
+    std::cout << "Quaternion {x: " << x << " y: " << y << " z: " << z << " w: " << w << "} -> ";
     std::cout << rads << " radians -> " << degrees << " degrees." << std::endl;
 
     return 0;

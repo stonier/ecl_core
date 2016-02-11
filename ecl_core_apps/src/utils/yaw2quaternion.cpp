@@ -41,7 +41,7 @@ int main(int argc, char** argv) {
     }
     Eigen::Quaternion<double> q;
     q = Eigen::AngleAxis<double>(yaw, Eigen::Vector3d::UnitZ());
-    std::cout << "Quaternion: [" << q.x() << " " << q.y() << " " << q.z() << " " << q.w() << "]" << std::endl;
+    std::cout << "Quaternion: [x: " << q.x() << " y: " << q.y() << " z: " << q.z() << " w: " << q.w() << "]" << std::endl;
 
     return 0;
 }
