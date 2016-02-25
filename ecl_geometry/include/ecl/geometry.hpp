@@ -47,6 +47,7 @@ namespace ecl { namespace geometry {
 #include "geometry/spline_function.hpp"
 #include "geometry/tension_function.hpp"
 #include "geometry/tension_spline.hpp"
+#include "geometry/pose.hpp"
 #include "geometry/pose2d.hpp"
 #include "geometry/pose3d.hpp"
 
