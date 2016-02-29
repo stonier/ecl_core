@@ -14,14 +14,16 @@
 
   <buildtool_depend>catkin</buildtool_depend>
   <build_depend>ecl_build</build_depend>
+  <build_depend>ecl_converters</build_depend>
   <build_depend>ecl_eigen</build_depend>
   <build_depend>ecl_exceptions</build_depend>
   <build_depend>ecl_formatters</build_depend>
   <build_depend>ecl_license</build_depend>
   <build_depend>ecl_math</build_depend>
   <build_depend>sophus</build_depend>
-  
+
   <run_depend>ecl_build</run_depend>
+  <run_depend>ecl_converters</run_depend>
   <run_depend>ecl_eigen</run_depend>
   <run_depend>ecl_exceptions</run_depend>
   <run_depend>ecl_formatters</run_depend>

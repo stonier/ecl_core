@@ -13,6 +13,7 @@
 *****************************************************************************/
 
 #include <ecl/config/macros.hpp>
+#include <ecl/converters.hpp>
 #include <ecl/exceptions/standard_exception.hpp>
 #include <ecl/linear_algebra.hpp>
 #include <Eigen/Core>
@@ -54,7 +55,7 @@ namespace Sophus {
 template<typename T>
 std::ostream & operator << ( std::ostream & out, const SE3Group<T> & se3 )
 {
-//  typename SE3Group<T>::Tangent tanget_vector = SE3Group<T>::log( se3 );  
+//  typename SE3Group<T>::Tangent tanget_vector = SE3Group<T>::log( se3 );
 //  out << tanget_vector.transpose();
   const Eigen::Matrix<T,3,1> & t = se3.translation();
   const Eigen::Quaternion<T> & q = se3.unit_quaternion();
@@ -70,9 +71,20 @@ std::ostream & operator << ( std::ostream & out, const SE2Group<T> & se2 )
   return out;
 }
 
-
-/// Convert a full Sophus pose into a 2 dimensional pose (x,y,heading).
+/**
+ * @brief Convert a full Sophus pose into a 2 dimensional pose.
+ *
+ * The 2d pose is a typical mobile robot 2d pose with (x, y, heading) with
+ * heading measured in radians.
+ **/
 Eigen::Vector3f toPose2D(const Sophus::SE3f& pose);
+/**
+ * @brief Convert a 2 dimensional pose to a full Sophus pose in 3d.
+ *
+ * The 2d pose is a typical mobile robot 2d pose with (x, y, heading) with
+ * heading measured in radians.
+ **/
+Sophus::SE3f toPose3D(const Eigen::Vector3f& pose);
 
 class PlanarRotation2Quaternion
 {
@@ -80,7 +92,7 @@ public:
   PlanarRotation2Quaternion(){}
   Eigen::Quaternionf operator() ( float theta )
   {
-    Eigen::Matrix3f R = ( Eigen::AngleAxis<float> (static_cast<float> ( theta ), Eigen::Vector3f::UnitZ ()) ).matrix();  
+    Eigen::Matrix3f R = ( Eigen::AngleAxis<float> (static_cast<float> ( theta ), Eigen::Vector3f::UnitZ ()) ).matrix();
     Eigen::Quaternionf q(R);
     q.normalize();
     return q;
@@ -101,5 +113,32 @@ public:
 
 
 } // namespace Sophus
+
+/*****************************************************************************
+** Converters
+*****************************************************************************/
+
+namespace ecl {
+
+/**
+ * @brief Converter class representing the Sophus::toPose3D method.
+ */
+template<>
+class Converter<Sophus::SE3f, Eigen::Vector3f> {
+public:
+  Sophus::SE3f operator()(const Eigen::Vector3f& pose);
+};
+
+/**
+ * @brief Converter class representing the Sophus::toPose2D method.
+ */
+template<>
+class Converter<Eigen::Vector3f, Sophus::SE3f> {
+public:
+  Eigen::Vector3f operator()(const Sophus::SE3f& pose);
+};
+
+} // namespace ecl
+
 
 #endif /* yocs_math_toolkit_SOPHUS_HELPERS_HPP_ */

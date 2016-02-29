@@ -12,7 +12,7 @@ project(ecl_linear_algebra)
 find_package(catkin
     REQUIRED
     COMPONENTS
-        ecl_build 
+        ecl_build
         ecl_eigen
         ecl_exceptions
         ecl_formatters
@@ -28,13 +28,13 @@ find_package(sophus REQUIRED)
 catkin_package(
     INCLUDE_DIRS include
     LIBRARIES ${PROJECT_NAME}
-	CATKIN_DEPENDS 
+	CATKIN_DEPENDS
 	    ecl_build
         ecl_eigen
-        ecl_exceptions 
+        ecl_exceptions
         ecl_formatters
         ecl_math
-    DEPENDS                
+    DEPENDS
         sophus
     )
 
