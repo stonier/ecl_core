@@ -3,4 +3,7 @@
 ###############################################################################
 
 add_subdirectory(examples)
-add_subdirectory(test)
+if(CATKIN_ENABLE_TESTING)
+  add_subdirectory(test)
+endif()
+
