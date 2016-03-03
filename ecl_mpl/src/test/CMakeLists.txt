@@ -2,4 +2,6 @@
 # Gtests
 ###############################################################################
 
-catkin_add_gtest(test_enable_if enable_if.cpp)
+if(CATKIN_ENABLE_TESTING)
+  catkin_add_gtest(test_enable_if enable_if.cpp)
+endif()
