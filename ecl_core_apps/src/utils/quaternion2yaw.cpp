@@ -51,7 +51,7 @@ int main(int argc, char** argv) {
     }
     // This is a very naive way of calculating - it is only for the case where it is a
     // rotation around a z-axis.
-    double rads = 2*acos(w)* ecl::math::sign(z);
+    double rads = 2*acos(w)* ecl::sign(z);
     double degrees = rads * 360.0 / (2 * ecl::pi);
     std::cout << "Quaternion {x: " << x << " y: " << y << " z: " << z << " w: " << w << "} -> ";
     std::cout << rads << " radians -> " << degrees << " degrees." << std::endl;
