@@ -28,14 +28,22 @@ FrequencyMonitor::FrequencyMonitor(
 , maximum_interval(0.0)
 , period(window_period)
 , use_realtime_clock(use_realtime_clock)
+#if defined(ECL_HAS_RT_TIMERS)
 , last_incoming((use_realtime_clock) ? ecl::TimeStamp::realtime_now() : ecl::TimeStamp())
+#else
+, last_incoming(ecl::TimeStamp())
+#endif
 {
 }
 
 void FrequencyMonitor::update() {
   current_diagnostics.has_connection = true;
   incoming_counter++;
+#if defined(ECL_HAS_RT_TIMERS)
   ecl::TimeStamp new_incoming = (use_realtime_clock) ? ecl::TimeStamp::realtime_now() : ecl::TimeStamp();
+#else
+  ecl::TimeStamp new_incoming = ecl::TimeStamp();
+#endif
   ecl::TimeStamp time_since_last = new_incoming - last_incoming;
   if ( time_since_last < minimum_interval ) {
     minimum_interval = time_since_last;
@@ -47,7 +55,11 @@ void FrequencyMonitor::update() {
 }
 
 const FrequencyDiagnostics& FrequencyMonitor::analyse() {
+#if defined(ECL_HAS_RT_TIMERS)
   ecl::TimeStamp now = ecl::TimeStamp::realtime_now();
+#else
+  ecl::TimeStamp now = ecl::TimeStamp();
+#endif 
   ecl::TimeStamp interval = now - last_anyalsed;
 
   /// every two seconds, we update the status as follows

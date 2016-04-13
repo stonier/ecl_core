@@ -21,7 +21,9 @@
 #include <ecl/config.hpp>
 #if defined(ECL_IS_POSIX)
 #include <unistd.h>
+#if !defined(ECL_IS_APPLE)
 #include <bits/posix_opt.h>
+#endif
 #ifdef _POSIX_SHARED_MEMORY_OBJECTS
 #if _POSIX_SHARED_MEMORY_OBJECTS > 0
 
