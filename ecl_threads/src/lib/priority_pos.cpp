@@ -324,6 +324,7 @@ bool set_real_time_priority(int policy,int priority_level) ecl_debug_throw_decl(
 		schedule_parameters.sched_priority = priority_level;
 		if ( sched_setscheduler(0, policy, &schedule_parameters) == -1 ) {
 			ecl_debug_throw(throwPriorityException(LOC));
+			return false;
 		}
 		return true;
 	#else
