@@ -49,8 +49,6 @@ public:
 	 */
 	ecl_compile_time_concept_test(ContainerConcept)
 	{
-		typedef typename Implementation::value_type element_type;
-		typedef typename Implementation::iterator iterator;
 		iter = container.begin();
 		iter = container.end();
 		unsigned int n;
@@ -84,8 +82,6 @@ public:
 	 */
 	ecl_compile_time_concept_test(DynamicContainerConcept)
 	{
-		typedef typename Implementation::value_type element_type;
-		typedef typename Implementation::iterator iterator;
 		iter = container.begin();
 		iter = container.end();
 		unsigned int n;
@@ -253,7 +249,6 @@ public:
 	ecl_compile_time_concept_test(UnsignedByteContainerConcept)
 	{
 		typedef typename Implementation::value_type element_type;
-		typedef typename Implementation::iterator iterator;
 		iter = container.begin();
 		iter = container.end();
 		unsigned int n;
@@ -289,7 +284,6 @@ public:
 	ecl_compile_time_concept_test(SignedByteContainerConcept)
 	{
 		typedef typename Implementation::value_type element_type;
-		typedef typename Implementation::iterator iterator;
 		iter = container.begin();
 		iter = container.end();
 		unsigned int n;
@@ -326,7 +320,6 @@ public:
 	ecl_compile_time_concept_test(ByteContainerConcept)
 	{
 		typedef typename Implementation::value_type element_type;
-		typedef typename Implementation::iterator iterator;
 		iter = container.begin();
 		iter = container.end();
 		unsigned int n;
