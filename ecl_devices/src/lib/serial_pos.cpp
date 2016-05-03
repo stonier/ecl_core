@@ -17,6 +17,7 @@
  ** Includes
  *****************************************************************************/
 
+#include <errno.h>
 #include <fcntl.h>
 #include <sys/ioctl.h>
 #include <termios.h>
@@ -37,6 +38,9 @@
 // FreeBSD has had it for at least four years and linux quite some time too.
 // Apple Macs however do not currently have it, so we help it here.
 #if defined(ECL_IS_APPLE)
+  #ifndef B460800
+    #define B460800 460800
+  #endif
   #ifndef B921600
     #define B921600 921600
   #endif
