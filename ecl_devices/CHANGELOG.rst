@@ -2,6 +2,10 @@
 Changelog
 ^^^^^^^^^
 
+0.61.12 (2016-05-03)
+--------------------
+* apple baud rate 460800
+
 0.61.1 (2015-07-22)
 -------------------
 * catch the error code as a hint for when fcntl calls fail on serial devices

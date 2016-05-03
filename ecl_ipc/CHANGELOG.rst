@@ -2,6 +2,10 @@
 Changelog for package ecl_ipc
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+0.61.12 (2016-05-03)
+--------------------
+* minor bugfix for includes on apple osx
+
 0.60.8 (2014-02-10)
 -------------------
 * ecl_ipc requires ecl_build for cmake modules.

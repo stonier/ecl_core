@@ -2,6 +2,10 @@
 Changelog
 =========
 
+Frequency
+---------
+* consideration for time on apple for the frequency class
+
 0.61.6 (2015-11-25)
 -------------------
 * bugfix frequency monitor timestamp initialisation
