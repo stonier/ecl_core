@@ -89,7 +89,7 @@ class ecl_exceptions_PUBLIC StandardException : public Exception
          *
          * @return std::string : the detailed message
          */
-        const std::string& message() const;
+        const std::string& message() const { return detailed_message; };
 
         const ErrorFlag& flag() const { return error_flag; }  /**< @brief Flag enumerating the type of exception thrown. **/
 
