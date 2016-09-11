@@ -20,8 +20,8 @@
 #include <gtest/gtest.h>
 #include <ecl/linear_algebra.hpp>
 #include <ecl/math/constants.hpp>
-#include "../../include/ecl/geometry/pose2d.hpp"
-#include "../../include/ecl/geometry/pose3d.hpp"
+#include "../../include/ecl/geometry/legacy_pose2d.hpp"
+#include "../../include/ecl/geometry/legacy_pose3d.hpp"
 
 /*****************************************************************************
 ** Using

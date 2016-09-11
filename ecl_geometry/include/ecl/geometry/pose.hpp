@@ -29,8 +29,12 @@ namespace ecl {
 ** Interfaces
 *****************************************************************************/
 
-typedef Eigen::Vector3f SimplePose2D;  /**< @brief 2D float representation of planner poses (x, y, heading). **/
-typedef Sophus::SE3f    SimplePose3D;  /**< @brief 3D float representation of planner poses. **/
+// prefer to typedef these as and where needed rather than 'force' typedefs
+// on users of this library (this lets us fling classes and libraries around
+// for which the only dependencies are Eigen and Sophus)
+
+//typedef Eigen::Vector3f Pose2D;  /**< @brief 2D float representation of planner poses (x, y, heading). **/
+//typedef Sophus::SE3f    Pose3D;  /**< @brief 3D float representation of planner poses. **/
 
 // Haven't had the need to use doubles yet...
 

@@ -11,8 +11,8 @@
 ** Ifdefs
 *****************************************************************************/
 
-#ifndef ECL_GEOMETRY_POSE3D_HPP_
-#define ECL_GEOMETRY_POSE3D_HPP_
+#ifndef ECL_GEOMETRY_LEGACY_POSE3D_HPP_
+#define ECL_GEOMETRY_LEGACY_POSE3D_HPP_
 
 /*****************************************************************************
 ** Includes
@@ -21,7 +21,8 @@
 #include <ecl/linear_algebra.hpp>
 
 #include <ecl/config/macros.hpp>
-#include "pose2d.hpp"
+
+#include "legacy_pose2d.hpp"
 
 /*****************************************************************************
 ** Namespaces
@@ -39,9 +40,9 @@ namespace ecl {
  * Do not use this directly. Use the specialisations instead.
  */
 template <class Float, typename Enable = void>
-class ECL_LOCAL Pose3D {
+class ECL_LOCAL LegacyPose3D {
 private:
-        Pose3D() {}; /**< @brief Prevents usage of this template class directly. **/
+        LegacyPose3D() {}; /**< @brief Prevents usage of this template class directly. **/
 };
 
 /**
@@ -56,7 +57,7 @@ private:
  * @tparam Float : must be a float type (e.g. float, double, float32, float64)
  */
 template<typename Float>
-class ECL_PUBLIC Pose3D<Float, typename enable_if<is_float<Float> >::type> {
+class ECL_PUBLIC LegacyPose3D<Float, typename enable_if<is_float<Float> >::type> {
 public:
         /******************************************
         ** Eigen Alignment
@@ -76,7 +77,7 @@ public:
         /**
          * @brief Initialise with zero rotation and zero translation.
          */
-        Pose3D() : rot(RotationMatrix::Identity()), trans(Translation::Zero()) {}
+        LegacyPose3D() : rot(RotationMatrix::Identity()), trans(Translation::Zero()) {}
 
         /**
          * @brief Initialise with rotation matrix and translation.
@@ -90,8 +91,8 @@ public:
          * @tparam Trans : any compatible eigen 3x1 matrix type (e.g. Matrix<Float,3,1>).
          */
         template<typename Rot, typename Trans>
-//      Pose3D(const ecl::linear_algebra::MatrixBase<Rot>& rotation, const ecl::linear_algebra::MatrixBase<Trans>& translation) :
-        Pose3D(const ecl::linear_algebra::EigenBase<Rot>& rotation, const ecl::linear_algebra::EigenBase<Trans>& translation) :
+//      LegacyPose3D(const ecl::linear_algebra::MatrixBase<Rot>& rotation, const ecl::linear_algebra::MatrixBase<Trans>& translation) :
+        LegacyPose3D(const ecl::linear_algebra::EigenBase<Rot>& rotation, const ecl::linear_algebra::EigenBase<Trans>& translation) :
                 rot(rotation),
                 trans(translation)
         {}
@@ -103,7 +104,7 @@ public:
          * @param pose : the 2d pose.
          */
         template <enum Pose2DStorageType Storage_>
-        Pose3D(const Pose2D<Float,Storage_>& pose) :
+        LegacyPose3D(const DeprecatedPose2D<Float,Storage_>& pose) :
             rot(RotationMatrix::Identity()),
             trans(Translation::Zero())
         {
@@ -119,7 +120,7 @@ public:
          * @tparam Trans : any compatible eigen 3x1 matrix type (e.g. Matrix<Float,3,1>).
          */
         template<typename Trans>
-        Pose3D(const ecl::linear_algebra::AngleAxis<Float>& angle_axis, const ecl::linear_algebra::MatrixBase<Trans>& translation) :
+        LegacyPose3D(const ecl::linear_algebra::AngleAxis<Float>& angle_axis, const ecl::linear_algebra::MatrixBase<Trans>& translation) :
             rot(RotationMatrix::Identity()),
             trans(Translation::Zero())
         {
@@ -133,7 +134,7 @@ public:
          * @tparam Trans : any compatible eigen 3x1 matrix type (e.g. Matrix<Float,3,1>).
          */
         template<typename Trans>
-        Pose3D(const ecl::linear_algebra::Quaternion<Float>& quaternion, const ecl::linear_algebra::MatrixBase<Trans>& translation) :
+        LegacyPose3D(const ecl::linear_algebra::Quaternion<Float>& quaternion, const ecl::linear_algebra::MatrixBase<Trans>& translation) :
             rot(quaternion.toRotationMatrix()),
             trans(translation)
         {}
@@ -142,12 +143,12 @@ public:
          * @brief Copy constructor for 3d poses.
          * @param pose : the pose to be copied.
          */
-        Pose3D(const Pose3D<Float>& pose) :
+        LegacyPose3D(const LegacyPose3D<Float>& pose) :
                 rot(pose.rotation()),
                 trans(pose.translation())
         {}
 
-        virtual ~Pose3D() {}
+        virtual ~LegacyPose3D() {}
 
         /******************************************
         ** Assignment
@@ -158,7 +159,7 @@ public:
          * @return Pose2D<Float>& : reference handle to this object.
          */
         template <enum Pose2DStorageType Storage_>
-        Pose3D<Float>& operator=(const Pose2D<Float,Storage_>& pose) {
+        LegacyPose3D<Float>& operator=(const DeprecatedPose2D<Float,Storage_>& pose) {
                 rot.template block<2,2>(0,0) = pose.rotationMatrix();
                 (rot.template block<2,1>(0,2)) << 0.0, 0.0;
                 (rot.template block<1,3>(2,0)) << 0.0, 0.0, 1.0;
@@ -172,7 +173,7 @@ public:
          * @param pose : another Pose2D, storage type is irrelevant.
          * @return Pose2D<Float>& : reference handle to this object.
          */
-        Pose3D<Float>& operator=(const Pose3D<Float>& pose) {
+        LegacyPose3D<Float>& operator=(const LegacyPose3D<Float>& pose) {
                 rot = pose.rotation();
                 trans = pose.translation();
                 return *this;
@@ -236,8 +237,8 @@ public:
      *
      * @return Pose3D : the inverse pose with target and reference frames swapped.
      */
-    Pose3D<Float> inverse() const {
-        Pose3D<Float> inverse;
+    LegacyPose3D<Float> inverse() const {
+        LegacyPose3D<Float> inverse;
         inverse.rotation(rot.transpose());
         inverse.translation(-1*(inverse.rot*trans));
         return inverse;
@@ -248,8 +249,8 @@ public:
      * @return Pose3D<Float> : new instance representing the product of the poses.
      */
     template <typename Float_>
-    Pose3D<Float> operator*(const Pose3D<Float_> &pose) const {
-                return Pose3D<Float>(rotation()*pose.rotation(),translation() + rotation()*pose.translation());
+    LegacyPose3D<Float> operator*(const LegacyPose3D<Float_> &pose) const {
+                return LegacyPose3D<Float>(rotation()*pose.rotation(),translation() + rotation()*pose.translation());
     }
 
     // Do we need operator* for Pose2D rh values?
@@ -261,7 +262,7 @@ public:
      * @return Pose3D<Float>& : handle to the updated pose (wrt common/global frame).
      */
         template <typename Float_>
-    Pose3D<Float>& operator*=(const Pose3D<Float_> &pose) {
+    LegacyPose3D<Float>& operator*=(const LegacyPose3D<Float_> &pose) {
         // This probably needs checking for aliasing...could also be (marginally) sped up.
         *this = (*this)*pose;
         return (*this);
@@ -275,7 +276,7 @@ public:
      * @return Pose3D<Float> : new instance representing the relative.
      */
         template <typename Float_>
-    Pose3D<Float> relative(const Pose3D<Float_> &pose) const {
+    LegacyPose3D<Float> relative(const LegacyPose3D<Float_> &pose) const {
                 return pose.inverse()*(*this);
     }
 
@@ -285,7 +286,7 @@ public:
         ** Streaming
         **********************/
         template <typename OutputStream, typename Float_>
-        friend OutputStream& operator<<(OutputStream &ostream , const Pose3D<Float_> &pose);
+        friend OutputStream& operator<<(OutputStream &ostream , const LegacyPose3D<Float_> &pose);
 
 private:
         RotationMatrix rot;
@@ -305,7 +306,7 @@ private:
  * @return OutputStream : the returning stream handle.
  */
 template <typename OutputStream, typename Float_>
-OutputStream& operator<<(OutputStream &ostream , const Pose3D<Float_> &pose) {
+OutputStream& operator<<(OutputStream &ostream , const LegacyPose3D<Float_> &pose) {
         ecl::Format<Float_> format;
         format.width(6);
         format.precision(3);
@@ -325,7 +326,7 @@ OutputStream& operator<<(OutputStream &ostream , const Pose3D<Float_> &pose) {
 
 // This is more convenient and less bughuntish than always assigning allocators with your vectors
 // but currently fails on oneiric with gcc 4.6 (bugfixed in eigen, but not yet out in oneiric).
-//EIGEN_DEFINE_STL_VECTOR_SPECIALIZATION(ecl::Pose3D<float>)
-//EIGEN_DEFINE_STL_VECTOR_SPECIALIZATION(ecl::Pose3D<double>)
+//EIGEN_DEFINE_STL_VECTOR_SPECIALIZATION(ecl::LegacyPose3D<float>)
+//EIGEN_DEFINE_STL_VECTOR_SPECIALIZATION(ecl::LegacyPose3D<double>)
 
-#endif /* ECL_GEOMETRY_POSE3D_HPP_ */
+#endif /* ECL_GEOMETRY_LEGACY_POSE3D_HPP_ */
