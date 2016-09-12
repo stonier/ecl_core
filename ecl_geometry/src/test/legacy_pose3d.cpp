@@ -27,8 +27,8 @@
 ** Using
 *****************************************************************************/
 
-using ecl::Pose2D;
-using ecl::Pose3D;
+using ecl::LegacyPose2D;
+using ecl::LegacyPose3D;
 using ecl::linear_algebra::AngleAxis;
 using ecl::linear_algebra::Matrix3d;
 using ecl::linear_algebra::Vector3d;
@@ -39,36 +39,36 @@ using ecl::linear_algebra::Translation3d;
 ** Tests
 *****************************************************************************/
 
-TEST(Pose3DTests,constructors) {
+TEST(LegacyPose3DTests,constructors) {
 	bool result;
 	Vector3d v; v << 1.0,2.0,3.0;
 	Matrix3d zero_rotation = Matrix3d::Identity();
 	Vector3d zero_translation; zero_translation << 0.0,0.0,0.0;
-	Pose2D<double> pose_2d(0.0,1.0,ecl::pi);
-	Pose3D<double> pose1(zero_rotation,v);
+	LegacyPose2D<double> pose_2d(0.0,1.0,ecl::pi);
+	LegacyPose3D<double> pose1(zero_rotation,v);
 	EXPECT_TRUE(pose1.rotation().isApprox(zero_rotation,0.1));
 	EXPECT_TRUE(pose1.translation().isApprox(v,0.1));
-	Pose3D<double> pose2(pose_2d);
+	LegacyPose3D<double> pose2(pose_2d);
 	result = pose2.rotation().block<2,2>(0,0).isApprox(pose_2d.rotationMatrix(),0.1);
 	EXPECT_TRUE(result);
 	result = pose2.translation().segment<2>(0).isApprox(pose_2d.translation(),0.1);
 	EXPECT_TRUE(result);
-	Pose3D<double> pose3(Quaternion<double>(pose2.rotation()),v);
+	LegacyPose3D<double> pose3(Quaternion<double>(pose2.rotation()),v);
 	EXPECT_TRUE(pose3.rotation().isApprox(pose2.rotation(),0.1));
 	EXPECT_TRUE(pose3.translation().isApprox(v,0.1));
-	Pose3D<double> pose4(pose3);
+	LegacyPose3D<double> pose4(pose3);
 	EXPECT_TRUE(pose4.rotation().isApprox(pose3.rotation(),0.1));
 	EXPECT_TRUE(pose4.translation().isApprox(pose3.translation(),0.1));
 }
 
 
-TEST(Pose3DTests,assignment) {
+TEST(LegacyPose3DTests,assignment) {
 	Vector3d v; v << 0.0,1.0,0.0;
 	Matrix3d rot; rot << -1.0,  0.0,  0.0,
 						  0.0, -1.0,  0.0,
 						  0.0,  0.0,  1.0;;
-	Pose2D<double> pose_2d(0.0,1.0,ecl::pi);
-	Pose3D<double> pose1, pose2;
+	LegacyPose2D<double> pose_2d(0.0,1.0,ecl::pi);
+	LegacyPose3D<double> pose1, pose2;
 	pose1 = pose_2d;
 	EXPECT_TRUE(pose1.rotation().isApprox(rot,0.1));
 	EXPECT_TRUE(pose1.translation().isApprox(v,0.1));
@@ -77,25 +77,25 @@ TEST(Pose3DTests,assignment) {
 	EXPECT_TRUE(pose2.translation().isApprox(v,0.1));
 }
 
-TEST(Pose3DTests,eigenStyle) {
+TEST(LegacyPose3DTests,eigenStyle) {
 	Vector3d v; v << 0.0,1.0,0.0;
 	Matrix3d rot; rot << -1.0,  0.0,  0.0,
 						  0.0, -1.0,  0.0,
 						  0.0,  0.0,  1.0;;
-	Pose3D<double> pose1;
+	LegacyPose3D<double> pose1;
 	pose1.rotation(rot);
 	pose1.translation(v);
 	EXPECT_TRUE(pose1.rotation().isApprox(rot,0.1));
 	EXPECT_TRUE(pose1.translation().isApprox(v,0.1));
 }
-TEST(Pose3DTests,inverse) {
+TEST(LegacyPose3DTests,inverse) {
 	Vector3d z_axis; z_axis << 0.0, 0.0, 1.0;
 	Vector3d zero = Vector3d::Zero();
 	Matrix3d rot = AngleAxis<double>(ecl::pi/2.0,z_axis).toRotationMatrix();
 	Vector3d trans; trans << 1.0, 2.0, 3.0;
-	Pose3D<double> pose(rot, trans);
-	Pose3D<double> inverse = pose.inverse();
-	Pose3D<double> repose = pose*inverse;
+	LegacyPose3D<double> pose(rot, trans);
+	LegacyPose3D<double> inverse = pose.inverse();
+	LegacyPose3D<double> repose = pose*inverse;
 	EXPECT_TRUE(Matrix3d::Identity().isApprox(repose.rotation(),0.1));
 	for ( unsigned int i = 0; i < 3; ++i ) {
 		EXPECT_LT(zero[i],repose.translation()[i]+0.01);
@@ -103,14 +103,14 @@ TEST(Pose3DTests,inverse) {
 	}
 }
 
-TEST(Pose3DTests,operators) {
+TEST(LegacyPose3DTests,operators) {
 	Vector3d z_axis; z_axis << 0.0, 0.0, 1.0;
 	Matrix3d rot = AngleAxis<double>(ecl::pi/2.0,z_axis).toRotationMatrix();
 	Matrix3d rot_pi = AngleAxis<double>(ecl::pi,z_axis).toRotationMatrix();
 	Vector3d trans; trans << 1.0, 2.0, 3.0;
 	Vector3d expected_final_trans; expected_final_trans << -1.0, 3.0, 6.0;
-	Pose3D<double> pose(rot, trans);
-	Pose3D<double> final_pose = pose*pose;
+	LegacyPose3D<double> pose(rot, trans);
+	LegacyPose3D<double> final_pose = pose*pose;
 	EXPECT_TRUE(rot_pi.isApprox(final_pose.rotation()));
 	EXPECT_TRUE(expected_final_trans.isApprox(final_pose.translation()));
 	pose *= pose;

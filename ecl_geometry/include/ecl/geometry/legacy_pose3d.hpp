@@ -104,7 +104,7 @@ public:
          * @param pose : the 2d pose.
          */
         template <enum Pose2DStorageType Storage_>
-        LegacyPose3D(const DeprecatedPose2D<Float,Storage_>& pose) :
+        LegacyPose3D(const LegacyPose2D<Float,Storage_>& pose) :
             rot(RotationMatrix::Identity()),
             trans(Translation::Zero())
         {
@@ -159,7 +159,7 @@ public:
          * @return Pose2D<Float>& : reference handle to this object.
          */
         template <enum Pose2DStorageType Storage_>
-        LegacyPose3D<Float>& operator=(const DeprecatedPose2D<Float,Storage_>& pose) {
+        LegacyPose3D<Float>& operator=(const LegacyPose2D<Float,Storage_>& pose) {
                 rot.template block<2,2>(0,0) = pose.rotationMatrix();
                 (rot.template block<2,1>(0,2)) << 0.0, 0.0;
                 (rot.template block<1,3>(2,0)) << 0.0, 0.0, 1.0;
