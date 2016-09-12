@@ -21,7 +21,7 @@
 #include <ecl/linear_algebra.hpp>
 #include <ecl/math/constants.hpp>
 #include "../../include/ecl/geometry/angle.hpp"
-#include "../../include/ecl/geometry/pose2d.hpp"
+#include "../../include/ecl/geometry/legacy_pose2d.hpp"
 
 /*****************************************************************************
 ** Using

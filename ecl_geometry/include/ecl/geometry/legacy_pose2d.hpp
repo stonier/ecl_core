@@ -11,8 +11,8 @@
 ** Ifdefs
 *****************************************************************************/
 
-#ifndef ECL_GEOMETRY_POSE2D_HPP_
-#define ECL_GEOMETRY_POSE2D_HPP_
+#ifndef ECL_GEOMETRY_LEGACY_POSE2D_HPP_
+#define ECL_GEOMETRY_LEGACY_POSE2D_HPP_
 
 /*****************************************************************************
 ** Includes
@@ -30,14 +30,11 @@
 #include "angle.hpp"
 
 /*****************************************************************************
-** Namespaces
+** Enums
 *****************************************************************************/
 
 namespace ecl {
 
-/*****************************************************************************
-** Enums
-*****************************************************************************/
 /**
  * @brief Used by the traits to select the storage type for Pose2D classes.
  */
@@ -46,26 +43,35 @@ enum Pose2DStorageType {
         RotationMatrixStorage,//!< RotationMatrixStorage
 };
 
+} // namespace ecl
+
 /*****************************************************************************
 ** Forward declarations
 *****************************************************************************/
 
-template <typename Float, enum Pose2DStorageType Storage, typename Enable> class Pose2D;
+namespace ecl {
+
+template <typename Float, enum Pose2DStorageType Storage, typename Enable> class LegacyPose2D;
+
+} // namespace ecl
 
 /*****************************************************************************
 ** Traits
 *****************************************************************************/
+
+namespace ecl {
+
 /**
  * @brief Parent template for ecl traits of the pose classes.
  */
 template <typename Float, enum Pose2DStorageType Storage, typename Enable>
-class ecl_traits< Pose2D<Float, Storage, Enable> > {};
+class ecl_traits< LegacyPose2D<Float, Storage, Enable> > {};
 
 /**
  * @brief Traits for the pose2D class with rotation matrix storage.
  */
 template <typename Float, typename Enable>
-class ecl_traits< Pose2D<Float, RotationMatrixStorage, Enable> > {
+class ecl_traits< LegacyPose2D<Float, RotationMatrixStorage, Enable> > {
 public:
         typedef Float Scalar; /**< @brief Element type. **/
         typedef ecl::linear_algebra::Matrix<Float,2,2> RotationType;  /**< @brief Rotation storage type (matrix). **/
@@ -75,17 +81,21 @@ public:
  * @brief Traits for the pose2D class with scalar angle storage.
  */
 template <typename Float, typename Enable>
-class ecl_traits< Pose2D<Float, RotationAngleStorage, Enable> > {
+class ecl_traits< LegacyPose2D<Float, RotationAngleStorage, Enable> > {
 public:
         typedef Float Scalar; /**< @brief Element type. **/
         typedef Angle<Float> RotationType;  /**< @brief Rotation storage type (angle). **/
 };
 
-namespace geometry {
+} // namespace ecl
 
 /*****************************************************************************
 ** Operations
 *****************************************************************************/
+
+namespace ecl {
+namespace geometry {
+
 /**
  * @brief Parent template for the pose2D math classes.
  */
@@ -132,21 +142,25 @@ public:
 };
 
 } // namespace geometry
+} // namespace ecl
 
 
 /*****************************************************************************
 ** Pose2D
 *****************************************************************************/
+
+namespace ecl {
+
 /**
  * @brief Parent template definition for Pose2D.
  *
  * Do not use this directly. Use the specialisations instead.
  */
 template <class Float, enum Pose2DStorageType Storage = RotationMatrixStorage, typename Enable = void>
-class ECL_PUBLIC Pose2D {
+class ECL_PUBLIC LegacyPose2D {
         typedef Float Scalar;
 private:
-        Pose2D() {}; /**< @brief Prevents usage of this template class directly. **/
+        LegacyPose2D() {}; /**< @brief Prevents usage of this template class directly. **/
 };
 
 /**
@@ -159,14 +173,14 @@ private:
  * parameter to the type:
  *
  * @code
- * Pose2D<double,RotationAngleStorage>
+ * LegacyPose2D<double,RotationAngleStorage>
  * @endcode
  *
  * @tparam Float : must be a float type (e.g. float, double, float32, float64)
  * @tparam Storage : type of storage (RotationMatrixStorage, RotationAngleStorage).
  */
 template<typename Float, enum Pose2DStorageType Storage>
-class ECL_PUBLIC Pose2D<Float, Storage, typename enable_if<is_float<Float> >::type> {
+class ECL_PUBLIC LegacyPose2D<Float, Storage, typename enable_if<is_float<Float> >::type> {
 public:
         /******************************************
         ** Eigen Alignment
@@ -180,7 +194,7 @@ public:
         typedef geometry::Pose2DMath<Float,Storage> RotationMath; /**< @brief Rotational math specific to this storage type. **/
         typedef geometry::Pose2DMath<Float,RotationMatrixStorage> RotationMatrixMath; /**< @brief Rotational math specific to rotational matrices. **/
         typedef geometry::Pose2DMath<Float,RotationAngleStorage> RotationAngleMath; /**< @brief Rotational math specific to rotational angles. **/
-        typedef typename ecl_traits< Pose2D<Float,Storage,typename enable_if<is_float<Float> >::type> >::RotationType RotationType;  /**< @brief The type used for storage of the rotation/angle. **/
+        typedef typename ecl_traits< LegacyPose2D<Float,Storage,typename enable_if<is_float<Float> >::type> >::RotationType RotationType;  /**< @brief The type used for storage of the rotation/angle. **/
         typedef ecl::linear_algebra::Matrix<Float,2,2> RotationMatrix; /**< @brief The type used to represent rotation matrices. **/
         typedef ecl::linear_algebra::Matrix<Float,2,1> Translation;  /**< @brief The type used to represent translations. **/
 
@@ -195,7 +209,7 @@ public:
          * If we do so, maybe a debug mode is_initialised flag? Also, if we do so
          * make sure to update the Identity static function.
          */
-        Pose2D() : rot( RotationMath::Identity()), trans(Translation::Zero()) {}
+        LegacyPose2D() : rot( RotationMath::Identity()), trans(Translation::Zero()) {}
 
         /**
          * @brief Construct the pose using scalars for position and rotation angle.
@@ -203,7 +217,7 @@ public:
          * @param  x,y  : position (origin) of the target frame
          * @param angle : initial heading angle (double is compatible)(radians).
          */
-        Pose2D(const Float &x, const Float &y, const Angle<Float> &angle) :
+        LegacyPose2D(const Float &x, const Float &y, const Angle<Float> &angle) :
                 rot( RotationMath::Rotation(angle)),
                 trans( (Translation() << x,y).finished() )
         {}
@@ -220,7 +234,7 @@ public:
          * @tparam Trans : any compatible eigen 2x1 matrix type (e.g. Matrix<Float,2,1>).
          */
         template<typename Rot, typename Trans>
-        Pose2D(const ecl::linear_algebra::MatrixBase<Rot>& R, const ecl::linear_algebra::MatrixBase<Trans>& T) :
+        LegacyPose2D(const ecl::linear_algebra::MatrixBase<Rot>& R, const ecl::linear_algebra::MatrixBase<Trans>& T) :
                 rot( RotationMath::Rotation(R) ),
                 trans(T)
         {}
@@ -235,7 +249,7 @@ public:
          * @tparam Trans : any compatible eigen 2x1 matrix type (e.g. Matrix<Float,2,1>).
          */
         template<typename Trans>
-        Pose2D(const Angle<Float>& angle, const ecl::linear_algebra::MatrixBase<Trans>& T) :
+        LegacyPose2D(const Angle<Float>& angle, const ecl::linear_algebra::MatrixBase<Trans>& T) :
                 rot( RotationMath::Rotation(angle) ),
                 trans(T)
         {}
@@ -247,12 +261,12 @@ public:
          * @param pose : the pose to copy.
          */
         template <enum Pose2DStorageType Storage_>
-        Pose2D(const Pose2D<Float,Storage_>& pose) :
+        LegacyPose2D(const LegacyPose2D<Float,Storage_>& pose) :
                 rot(RotationMath::Rotation(pose.rotation())),
                 trans(pose.translation())
         {}
 
-        virtual ~Pose2D() {}
+        virtual ~LegacyPose2D() {}
 
         /******************************************
         ** Assignment
@@ -263,7 +277,7 @@ public:
          * @return Pose2D<Float>& : reference handle to this object.
          */
         template <enum Pose2DStorageType Storage_>
-        Pose2D<Float,Storage>& operator=(const Pose2D<Float,Storage_>& pose) {
+        LegacyPose2D<Float,Storage>& operator=(const LegacyPose2D<Float,Storage_>& pose) {
                 trans = pose.translation();
                 rot = RotationMath::Rotation(pose.rotation());
                 return *this;
@@ -332,8 +346,8 @@ public:
          *
          * @return Pose2D<Float,Storage> : the zero rotation, zero translation pose.
          */
-        static Pose2D<Float,Storage> Identity() {
-                return Pose2D<Float,Storage>();
+        static LegacyPose2D<Float,Storage> Identity() {
+                return LegacyPose2D<Float,Storage>();
         }
 
         /******************************************
@@ -384,8 +398,8 @@ public:
      *
      * @return Pose2D : the inverse pose with target and reference frames swapped.
      */
-    Pose2D<Float,Storage> inverse() const {
-        Pose2D<Float,Storage> inverse;
+    LegacyPose2D<Float,Storage> inverse() const {
+        LegacyPose2D<Float,Storage> inverse;
         inverse.rotation(RotationMath::Inverse(rot));
         inverse.translation(-1*(RotationMatrixMath::Rotation(inverse.rot)*trans));
         return inverse;
@@ -397,15 +411,15 @@ public:
      * @return Pose2D<Float> : new instance representing the product of the poses.
      */
         template <enum Pose2DStorageType Storage_>
-    Pose2D<Float,Storage> operator*(const Pose2D<Float,Storage_> &pose) const {
-                return Pose2D<Float,Storage>(RotationMath::Product(rot,pose.rot),trans + rotationMatrix()*pose.trans);
+    LegacyPose2D<Float,Storage> operator*(const LegacyPose2D<Float,Storage_> &pose) const {
+                return LegacyPose2D<Float,Storage>(RotationMath::Product(rot,pose.rot),trans + rotationMatrix()*pose.trans);
     }
     /**
      * @brief Transform this pose by the specified input pose.
      * @param pose : a pose differential (wrt this pose's frame).
      * @return Pose2D<Float>& : handle to the updated pose (wrt common/global frame).
      */
-    Pose2D<Float>& operator*=(const Pose2D<Float> &pose) {
+    LegacyPose2D<Float>& operator*=(const LegacyPose2D<Float> &pose) {
         // This probably needs checking...could also be (marginally) sped up.
         *this = (*this)*pose;
         return (*this);
@@ -425,7 +439,7 @@ public:
      * @return Pose2D<Float> : new instance representing the relative.
      */
         template <enum Pose2DStorageType Storage_>
-    Pose2D<Float,Storage> relative(const Pose2D<Float,Storage_> &pose) const {
+    LegacyPose2D<Float,Storage> relative(const LegacyPose2D<Float,Storage_> &pose) const {
                 return pose.inverse()*(*this);
     }
 
@@ -433,16 +447,21 @@ public:
         ** Streaming
         **********************/
         template <typename OutputStream, typename Float_, enum Pose2DStorageType Storage_>
-        friend OutputStream& operator<<(OutputStream &ostream , const Pose2D<Float_, Storage_> &pose);
+        friend OutputStream& operator<<(OutputStream &ostream , const LegacyPose2D<Float_, Storage_> &pose);
 
 private:
         RotationType rot;
         Translation trans;
 };
 
+} // namespace ecl
+
 /*****************************************************************************
 ** Insertion Operators
 *****************************************************************************/
+
+namespace ecl {
+
 /**
  * @brief Insertion operator for output streams.
  *
@@ -453,7 +472,7 @@ private:
  * @return OutputStream : the returning stream handle.
  */
 template <typename OutputStream, typename Float_, enum Pose2DStorageType Storage_>
-OutputStream& operator<<(OutputStream &ostream , const Pose2D<Float_,Storage_> &pose) {
+OutputStream& operator<<(OutputStream &ostream , const LegacyPose2D<Float_,Storage_> &pose) {
         ecl::Format<Float_> format;
         format.width(6);
         format.precision(3);
@@ -471,9 +490,9 @@ OutputStream& operator<<(OutputStream &ostream , const Pose2D<Float_,Storage_> &
 
 // This is more convenient and less bughuntish than always assigning allocators with your vectors
 // but currently fails on oneiric with gcc 4.6 (bugfixed in eigen, but not yet out in oneiric).
-// EIGEN_DEFINE_STL_VECTOR_SPECIALIZATION(ecl::Pose2D<float,ecl::RotationAngleStorage>)
-// EIGEN_DEFINE_STL_VECTOR_SPECIALIZATION(ecl::Pose2D<float,ecl::RotationMatrixStorage>)
-// EIGEN_DEFINE_STL_VECTOR_SPECIALIZATION(ecl::Pose2D<double,ecl::RotationAngleStorage>)
-// EIGEN_DEFINE_STL_VECTOR_SPECIALIZATION(ecl::Pose2D<double,ecl::RotationMatrixStorage>)
+// EIGEN_DEFINE_STL_VECTOR_SPECIALIZATION(ecl::LegacyPose2D<float,ecl::RotationAngleStorage>)
+// EIGEN_DEFINE_STL_VECTOR_SPECIALIZATION(ecl::LegacyPose2D<float,ecl::RotationMatrixStorage>)
+// EIGEN_DEFINE_STL_VECTOR_SPECIALIZATION(ecl::LegacyPose2D<double,ecl::RotationAngleStorage>)
+// EIGEN_DEFINE_STL_VECTOR_SPECIALIZATION(ecl::LegacyPose2D<double,ecl::RotationMatrixStorage>)
 
-#endif /* ECL_GEOMETRY_POSE2D_HPP_ */
+#endif /* ECL_GEOMETRY_LEGACY_POSE2D_HPP_ */

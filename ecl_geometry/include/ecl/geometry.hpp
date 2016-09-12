@@ -20,19 +20,6 @@
 #include <ecl/linear_algebra.hpp>
 
 /*****************************************************************************
-** Namespaces
-*****************************************************************************/
-
-namespace ecl { namespace geometry {
-    using linear_algebra::Quaternion;
-    using linear_algebra::Quaterniond;
-    using linear_algebra::Quaternionf;
-    using linear_algebra::AngleAxis;
-    using linear_algebra::AngleAxisd;
-    using linear_algebra::AngleAxisf;
-}}
-
-/*****************************************************************************
 ** Includes
 *****************************************************************************/
 
@@ -48,7 +35,5 @@ namespace ecl { namespace geometry {
 #include "geometry/tension_function.hpp"
 #include "geometry/tension_spline.hpp"
 #include "geometry/pose.hpp"
-#include "geometry/pose2d.hpp"
-#include "geometry/pose3d.hpp"
 
 #endif /*ECL_GEOMETRY_HPP_*/
