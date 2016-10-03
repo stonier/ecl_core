@@ -17,11 +17,15 @@
   <build_depend>ecl_license</build_depend>
   <build_depend>ecl_config</build_depend>
   <build_depend>ecl_linear_algebra</build_depend>
-  
+  <build_depend>ecl_mpl</build_depend>
+  <build_depend>ecl_type_traits</build_depend>
+
   <run_depend>ecl_build</run_depend>
   <run_depend>ecl_license</run_depend>
   <run_depend>ecl_config</run_depend>
   <run_depend>ecl_linear_algebra</run_depend>
+  <run_depend>ecl_mpl</run_depend>
+  <run_depend>ecl_type_traits</run_depend>
 </package>
 
 

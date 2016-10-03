@@ -17,6 +17,7 @@
 *****************************************************************************/
 
 #include "statistics/covariance_ellipsoid.hpp"
+#include "statistics/cumulative_statistics.hpp"
 
 #endif /* ECL_STATISTICS_HPP_ */
 

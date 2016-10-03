@@ -15,6 +15,8 @@ find_package(catkin
         ecl_build
         ecl_config
         ecl_linear_algebra
+        ecl_mpl
+        ecl_type_traits
 )
 
 ##############################################################################
@@ -28,6 +30,8 @@ catkin_package(
         ecl_build
         ecl_config
         ecl_linear_algebra
+        ecl_mpl
+        ecl_type_traits
 )
 
 ##############################################################################

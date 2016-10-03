@@ -14,3 +14,4 @@ endmacro()
 ###############################################################################
 
 ecl_add_gtest(covariance_ellipsoids)
+ecl_add_gtest(cumulative_statistics)
