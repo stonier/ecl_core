@@ -1,10 +1,10 @@
-#ifndef ECL_GEOMETRY_ODOMETRY_HELPER_HPP_
-#define ECL_GEOMETRY_ODOMETRY_HELPER_HPP_
+#ifndef ECL_ODOMETRY_ODOMETRY_HELPER_HPP_
+#define ECL_ODOMETRY_ODOMETRY_HELPER_HPP_
 
-#include "odometry.hpp"
+#include "odometry_typedefs.hpp"
 
 namespace ecl {
-namespace geometry {
+namespace odometry {
 
 double distance(const Pose2D& pose, const Trajectory2D& trajectory);
 double distance(const Position2D& pose, const Trajectory2D& trajectory);
@@ -91,8 +91,8 @@ Position2D getPosition(const Pose2D& pose);
 float getX(const Position2D& position);
 float getY(const Position2D& position);
 
-} // namespace geometry
+} // namespace odometry
 } // namsepace ecl
 
-#endif
+#endif /*ECL_ODOMETRY_ODOMETRY_HELPER_HPP_*/
 

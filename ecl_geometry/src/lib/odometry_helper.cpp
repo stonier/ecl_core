@@ -1,9 +1,9 @@
 #include <math.h>
-#include "../../include/ecl/geometry/odometry_helper.hpp"
+#include "../../include/ecl/odometry/odometry_helper.hpp"
 #include "../../include/ecl/geometry/linear_segment.hpp"
 
 namespace ecl {
-namespace geometry {
+namespace odometry {
 
 double distance(const Pose2D& pose, const Trajectory2D& trajectory)
 {
@@ -349,5 +349,5 @@ float getY(const Position2D& position)
   return position(1);
 }
 
-} // namespace geometry
+} // namespace odometry
 } // namespace ecl
