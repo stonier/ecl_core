@@ -19,11 +19,8 @@ double distance(const Pose2D& pose, const Trajectory2D& trajectory);
  */
 double distance(const Position2D& position, const Trajectory2D& trajectory);
 
-bool empty(const Trajectory2DPtr& trajectory_ptr); /**< @brief Check if trajectory ptr is empty (ptr not set or has no poses) */
-bool empty(const Odom2DTrajectoryPtr& trajectory_ptr); /**< @brief Check if trajectory ptr is empty (ptr not set or has no odometries) */
-
-int size(const Trajectory2DPtr& trajectory); /**< @brief Get the size of the trajectory */
-int size(const Odom2DTrajectoryPtr& trajectory); /**< @brief Get the size of the trajectory */
+bool empty(const Trajectory2D& trajectory); /**< @brief Check if trajectory ptr is empty (ptr not set or has no poses) */
+bool empty(const Odom2DTrajectory& trajectory); /**< @brief Check if trajectory ptr is empty (ptr not set or has no odometries) */
 
 int size(const Trajectory2D& trajectory); /**< @brief Get the size of the trajectory */
 int size(const Odom2DTrajectory& trajectory); /**< @brief Get the size of the trajectory */
@@ -47,8 +44,8 @@ void addAtEnd(Trajectory2D& target, const Trajectory2D& addition);
  */
 void addAtEnd(Odom2DTrajectory& target, const Odom2DTrajectory& addition);
 
-Trajectory2DPtr vectorToTrajectory(const std::vector<Pose2D>& vec); /**< @brief Convert vector of Pose2D to Trajectory2D */
-Odom2DTrajectoryPtr vectorToTrajectory(const std::vector<Odom2D>& vec); /**< @brief Convert vector of Odom2D to Odom2DTrajectoryPtr */
+Trajectory2D vectorToTrajectory(const std::vector<Pose2D>& vec); /**< @brief Convert vector of Pose2D to Trajectory2D */
+Odom2DTrajectory vectorToTrajectory(const std::vector<Odom2D>& vec); /**< @brief Convert vector of Odom2D to Odom2DTrajectory */
 
 /**< @brief Resizes trajectory appending uninitialised values if needed
  *
@@ -120,6 +117,24 @@ Position2D getPosition(const Pose2D& pose); /**< @brief Extract position from po
 
 float getX(const Position2D& position); /**< @brief Get x position */
 float getY(const Position2D& position); /**< @brief Get y position */
+
+
+/*****************************************************************************
+** c++11 helpers
+*****************************************************************************/
+
+#if defined(ECL_CXX11_FOUND)
+
+  bool empty(const Trajectory2DPtr& trajectory_ptr); /**< @brief Check if trajectory ptr is empty (ptr not set or has no poses) */
+  bool empty(const Odom2DTrajectoryPtr& trajectory_ptr); /**< @brief Check if trajectory ptr is empty (ptr not set or has no odometries) */
+
+  int size(const Trajectory2DPtr& trajectory); /**< @brief Get the size of the trajectory */
+  int size(const Odom2DTrajectoryPtr& trajectory); /**< @brief Get the size of the trajectory */
+
+  Trajectory2DPtr vectorToTrajectoryPtr(const std::vector<Pose2D>& vec); /**< @brief Convert vector of Pose2D to Trajectory2DPtr */
+  Odom2DTrajectoryPtr vectorToTrajectoryPtr(const std::vector<Odom2D>& vec); /**< @brief Convert vector of Odom2D to Odom2DTrajectoryPtr */
+
+#endif /*ECL_CXX11_FOUND*/
 
 } // namespace odometry
 } // namsepace ecl

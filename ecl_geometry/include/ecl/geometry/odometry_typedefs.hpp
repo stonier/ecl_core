@@ -2,7 +2,10 @@
 #define ECL_ODOMETRY_ODOMETRY_TYPEDEFS_HPP_
 
 #include <Eigen/Dense>
-#include <memory>
+
+#if defined(ECL_CXX11_FOUND)
+    #include <memory>
+#endif
 
 namespace ecl {
 namespace odometry {
@@ -13,8 +16,6 @@ namespace odometry {
  * Represents a point in 2D. Uses a 2x1 Eigen vector.
  */
 typedef Eigen::Vector2f Position2D;
-/** @brief std::shared_ptr of Position2D (2x1 Eigen vector) */
-typedef std::shared_ptr<Position2D> Position2DPtr;
 
 /**
  * @brief Float representation of a path in 2D (x1,y1; x2,y2; ..; xn,yn).
@@ -23,8 +24,6 @@ typedef std::shared_ptr<Position2D> Position2DPtr;
  * Uses a 2xn Eigen matrix where each colum is one point of the path.
  */
 typedef Eigen::Matrix2Xf Path2D;
-/** @brief std::shared_ptr of Path2D (2xn Eigen matrix) */
-typedef std::shared_ptr<Path2D> Path2DPtr;
 
 /**
  * @brief Float representation of a pose in 2D (x, y, heading).
@@ -33,8 +32,6 @@ typedef std::shared_ptr<Path2D> Path2DPtr;
  * Uses a 3x1 Eigen vector.
  */
 typedef Eigen::Vector3f Pose2D;
-/** @brief std::shared_ptr of Pose2D (3x1 Eigen vector: x, y, heading) */
-typedef std::shared_ptr<Pose2D> Pose2DPtr;
 
 /**
  * @brief Float representation of a trajectory in 2D (poses in 2D).
@@ -43,8 +40,6 @@ typedef std::shared_ptr<Pose2D> Pose2DPtr;
  * Uses a 3xn Eigen matrix where each column is one pose of the trajectory.
  */
 typedef Eigen::Matrix3Xf Trajectory2D;
-/** @brief std::shared_ptr of Trajectory2D (3xn Eigen matrix) */
-typedef std::shared_ptr<Trajectory2D> Trajectory2DPtr;
 
 /**
  * @brief Float representation of velocities in 2D (v_x, v_y, w).
@@ -54,8 +49,6 @@ typedef std::shared_ptr<Trajectory2D> Trajectory2DPtr;
  * Uses a 3x1 Eigen vector.
  */
 typedef Eigen::Vector3f Twist2D;
-/** @brief std::shared_ptr of Twist2D (3x1 Eigen vector: v_x, v_y, w) */
-typedef std::shared_ptr<Twist2D> Twist2DPtr;
 
 /**
  * @brief Float collection of 2D twists (twist: v_x, v_y, w).
@@ -64,8 +57,6 @@ typedef std::shared_ptr<Twist2D> Twist2DPtr;
  * Uses a 3xn Eigen matrix where each column is one twist.
  */
 typedef Eigen::Matrix3Xf Twist2DVector;
-/** @brief std::shared_ptr of Twist2DVector (3xn Eigen matrix) */
-typedef std::shared_ptr<Twist2DVector> Twist2DVectorPtr;
 
 /**
  * @brief Float representation of 2D odometry (x, y, heading, v_x, v_y, w).
@@ -77,8 +68,6 @@ typedef std::shared_ptr<Twist2DVector> Twist2DVectorPtr;
  * lower half the twist.
  */
 typedef Eigen::Matrix<float, 6, 1> Odom2D;
-/** @brief std::shared_ptr of Odom2D (6xn Eigen vector) */
-typedef std::shared_ptr<Odom2D> Odom2DPtr;
 
 /**
  * @brief Float collection of 2D odometries (x, y, heading, v_x, v_y, w).
@@ -90,8 +79,35 @@ typedef std::shared_ptr<Odom2D> Odom2DPtr;
  * the upper half being the pose and the lower half the twist.
  */
 typedef Eigen::Matrix<float, 6, Eigen::Dynamic> Odom2DTrajectory;
-/** @brief std::shared_ptr of Odom2DTrajectory (6xn Eigen matrix) */
-typedef std::shared_ptr<Odom2DTrajectory> Odom2DTrajectoryPtr;
+
+
+/*****************************************************************************
+** c++11 shared_ptr typedefs
+*****************************************************************************/
+
+#if defined(ECL_CXX11_FOUND)
+
+  /** @brief std::shared_ptr of Position2D (2x1 Eigen vector) */
+  typedef std::shared_ptr<Position2D> Position2DPtr;
+  /** @brief std::shared_ptr of Path2D (2xn Eigen matrix) */
+  typedef std::shared_ptr<Path2D> Path2DPtr;
+
+  /** @brief std::shared_ptr of Pose2D (3x1 Eigen vector: x, y, heading) */
+  typedef std::shared_ptr<Pose2D> Pose2DPtr;
+  /** @brief std::shared_ptr of Trajectory2D (3xn Eigen matrix) */
+  typedef std::shared_ptr<Trajectory2D> Trajectory2DPtr;
+
+  /** @brief std::shared_ptr of Twist2D (3x1 Eigen vector: v_x, v_y, w) */
+  typedef std::shared_ptr<Twist2D> Twist2DPtr;
+  /** @brief std::shared_ptr of Twist2DVector (3xn Eigen matrix) */
+  typedef std::shared_ptr<Twist2DVector> Twist2DVectorPtr;
+
+  /** @brief std::shared_ptr of Odom2D (6xn Eigen vector) */
+  typedef std::shared_ptr<Odom2D> Odom2DPtr;
+  /** @brief std::shared_ptr of Odom2DTrajectory (6xn Eigen matrix) */
+  typedef std::shared_ptr<Odom2DTrajectory> Odom2DTrajectoryPtr;
+
+#endif /*ECL_CXX11_FOUND*/
 
 } // namespace odometry
 } // namespace ecl

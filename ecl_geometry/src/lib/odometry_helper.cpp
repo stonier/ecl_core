@@ -1,4 +1,3 @@
-#include <math.h>
 #include "../../include/ecl/geometry/odometry_helper.hpp"
 #include "../../include/ecl/geometry/linear_segment.hpp"
 
@@ -40,24 +39,14 @@ double distance(const Position2D& position, const Trajectory2D& trajectory)
   return std::sqrt(min_squared_distance);
 }
 
-bool empty(const Trajectory2DPtr& trajectory_ptr)
+bool empty(const Trajectory2D& trajectory)
 {
-  return !trajectory_ptr || size(trajectory_ptr) == 0;
+  return size(trajectory) == 0;
 }
 
-bool empty(const Odom2DTrajectoryPtr& trajectory_ptr)
+bool empty(const Odom2DTrajectory& trajectory)
 {
-  return !trajectory_ptr || size(trajectory_ptr) == 0;
-}
-
-int size(const Trajectory2DPtr& trajectory)
-{
-  return size(*trajectory);
-}
-
-int size(const Odom2DTrajectoryPtr& trajectory)
-{
-  return size(*trajectory);
+  return size(trajectory) == 0;
 }
 
 int size(const Trajectory2D& trajectory)
@@ -117,27 +106,27 @@ void addAtEnd(Odom2DTrajectory& target, const Odom2DTrajectory& addition)
   target << addition;
 }
 
-Trajectory2DPtr vectorToTrajectory(const std::vector<Pose2D>& vec)
+Trajectory2D vectorToTrajectory(const std::vector<Pose2D>& vec)
 {
-  Trajectory2DPtr trajectory = std::make_shared<Trajectory2D>();
-  trajectory->resize(Eigen::NoChange, vec.size());
+  Trajectory2D trajectory;
+  trajectory.resize(Eigen::NoChange, vec.size());
 
   for (int i = 0; i < vec.size(); ++i)
   {
-    setAt(*trajectory, i, vec[i]);
+    setAt(trajectory, i, vec[i]);
   }
 
   return trajectory;
 }
 
-Odom2DTrajectoryPtr vectorToTrajectory(const std::vector<Odom2D>& vec)
+Odom2DTrajectory vectorToTrajectory(const std::vector<Odom2D>& vec)
 {
-  Odom2DTrajectoryPtr trajectory = std::make_shared<Odom2DTrajectory>();
-  trajectory->resize(Eigen::NoChange, vec.size());
+  Odom2DTrajectory trajectory;
+  trajectory.resize(Eigen::NoChange, vec.size());
 
   for (int i = 0; i < vec.size(); ++i)
   {
-    setAt(*trajectory, i, vec[i]);
+    setAt(trajectory, i, vec[i]);
   }
 
   return trajectory;
@@ -360,6 +349,60 @@ float getY(const Position2D& position)
 {
   return position(1);
 }
+
+/*****************************************************************************
+** c++11 helpers
+*****************************************************************************/
+
+#if defined(ECL_CXX11_FOUND)
+
+  bool empty(const Trajectory2DPtr& trajectory_ptr)
+  {
+    return !trajectory_ptr || size(trajectory_ptr) == 0;
+  }
+
+  bool empty(const Odom2DTrajectoryPtr& trajectory_ptr)
+  {
+    return !trajectory_ptr || size(trajectory_ptr) == 0;
+  }
+
+  int size(const Trajectory2DPtr& trajectory)
+  {
+    return size(*trajectory);
+  }
+
+  int size(const Odom2DTrajectoryPtr& trajectory)
+  {
+    return size(*trajectory);
+  }
+
+  Trajectory2DPtr vectorToTrajectoryPtr(const std::vector<Pose2D>& vec)
+  {
+    Trajectory2DPtr trajectory = std::make_shared<Trajectory2D>();
+    trajectory->resize(Eigen::NoChange, vec.size());
+
+    for (int i = 0; i < vec.size(); ++i)
+    {
+      setAt(*trajectory, i, vec[i]);
+    }
+
+    return trajectory;
+  }
+
+  Odom2DTrajectoryPtr vectorToTrajectoryPtr(const std::vector<Odom2D>& vec)
+  {
+    Odom2DTrajectoryPtr trajectory = std::make_shared<Odom2DTrajectory>();
+    trajectory->resize(Eigen::NoChange, vec.size());
+
+    for (int i = 0; i < vec.size(); ++i)
+    {
+      setAt(*trajectory, i, vec[i]);
+    }
+
+    return trajectory;
+  }
+
+#endif /*ECL_CXX11_FOUND*/
 
 } // namespace odometry
 } // namespace ecl
