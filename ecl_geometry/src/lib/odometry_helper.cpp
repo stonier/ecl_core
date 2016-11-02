@@ -97,11 +97,23 @@ double distanceSqared(const Pose2D& a, const Pose2D& b)
 
 void addAtEnd(Trajectory2D& target, const Trajectory2D& addition)
 {
+  if(size(target) == 0)
+  {
+    target = addition;
+    return;
+  }
+
   target << addition;
 }
 
 void addAtEnd(Odom2DTrajectory& target, const Odom2DTrajectory& addition)
 {
+  if(size(target) == 0)
+  {
+    target = addition;
+    return;
+  }
+
   target << addition;
 }
 
