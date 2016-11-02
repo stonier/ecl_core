@@ -1,5 +1,5 @@
 #include <math.h>
-#include "../../include/ecl/odometry/odometry_helper.hpp"
+#include "../../include/ecl/geometry/odometry_helper.hpp"
 #include "../../include/ecl/geometry/linear_segment.hpp"
 
 namespace ecl {

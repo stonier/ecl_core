@@ -13,15 +13,13 @@
 *****************************************************************************/
 
 #include <gtest/gtest.h>
-#include <ecl/math/constants.hpp>
-#include "../../include/ecl/odometry/odometry_helper.hpp"
+#include "../../include/ecl/geometry/odometry_helper.hpp"
 
 /*****************************************************************************
 ** Using
 *****************************************************************************/
 
 using namespace ecl::odometry;
-using ecl::pi;
 
 /*****************************************************************************
 ** Tests
@@ -29,6 +27,13 @@ using ecl::pi;
 
 TEST(OdometryTests,distances) {
   Trajectory2D trajectory(3, 5);
+
+  /**   ______
+   *    \_    |
+   *      \   |
+   *          |
+   *    ______|
+   */
   trajectory << -2.0, 2.0, 2.0, -2.0, 0.0,
                 -2.0, -2.0, 2.0, 2.0, 0.0,
                 0.3, -2.3, 0.0, 4.0, -4.0;
@@ -159,8 +164,6 @@ TEST(OdometryTests,trajectories) {
   setAt(*odom_traj, 1, getFront(*odom_traj));
   EXPECT_EQ(getAt(*odom_traj, 1), getFront(*odom_traj));
 }
-
-// operator tests
 
 /*****************************************************************************
 ** Main program

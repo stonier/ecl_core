@@ -18,7 +18,7 @@
 *****************************************************************************/
 
 #include <ecl/linear_algebra.hpp>
-#include "odometry/odometry.hpp"
+#include "geometry/odometry.hpp"
 
 /*****************************************************************************
 ** Includes
