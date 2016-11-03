@@ -1,14 +1,33 @@
+/**
+ * @file /include/ecl/geometry/odometry_typedefs.hpp
+ **/
+/*****************************************************************************
+** Ifdefs
+*****************************************************************************/
+
 #ifndef ECL_ODOMETRY_ODOMETRY_TYPEDEFS_HPP_
 #define ECL_ODOMETRY_ODOMETRY_TYPEDEFS_HPP_
 
-#include <Eigen/Dense>
+/*****************************************************************************
+** Includes
+*****************************************************************************/
+
+#include <ecl/linear_algebra.hpp>
 
 #if defined(ECL_CXX11_FOUND)
     #include <memory>
 #endif
 
+/*****************************************************************************
+** Namespaces
+*****************************************************************************/
+
 namespace ecl {
 namespace odometry {
+
+/*****************************************************************************
+** Methods
+*****************************************************************************/
 
 /**
  * @brief Float representation for a 2D position (x-, y-position).
@@ -108,6 +127,10 @@ typedef Eigen::Matrix<float, 6, Eigen::Dynamic> Odom2DTrajectory;
   typedef std::shared_ptr<Odom2DTrajectory> Odom2DTrajectoryPtr;
 
 #endif /*ECL_CXX11_FOUND*/
+
+/*****************************************************************************
+** Trailers
+*****************************************************************************/
 
 } // namespace odometry
 } // namespace ecl

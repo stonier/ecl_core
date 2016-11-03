@@ -1,10 +1,30 @@
+/**
+ * @file /include/ecl/geometry/odometry_helper.hpp
+ **/
+/*****************************************************************************
+** Ifdefs
+*****************************************************************************/
+
 #ifndef ECL_ODOMETRY_ODOMETRY_HELPER_HPP_
 #define ECL_ODOMETRY_ODOMETRY_HELPER_HPP_
 
+/*****************************************************************************
+** Includes
+*****************************************************************************/
+
+#include <ecl/config/macros.hpp>
 #include "odometry_typedefs.hpp"
+
+/*****************************************************************************
+** Namespaces
+*****************************************************************************/
 
 namespace ecl {
 namespace odometry {
+
+/*****************************************************************************
+** Methods
+*****************************************************************************/
 
 /** @brief Shortest distance between a pose and a trajectory
  *
@@ -120,7 +140,7 @@ float getY(const Position2D& position); /**< @brief Get y position */
 
 
 /*****************************************************************************
-** c++11 helpers
+** C++11 helpers
 *****************************************************************************/
 
 #if defined(ECL_CXX11_FOUND)
@@ -135,6 +155,10 @@ float getY(const Position2D& position); /**< @brief Get y position */
   Odom2DTrajectoryPtr vectorToTrajectoryPtr(const std::vector<Odom2D>& vec); /**< @brief Convert vector of Odom2D to Odom2DTrajectoryPtr */
 
 #endif /*ECL_CXX11_FOUND*/
+
+/*****************************************************************************
+** Trailers
+*****************************************************************************/
 
 } // namespace odometry
 } // namsepace ecl
