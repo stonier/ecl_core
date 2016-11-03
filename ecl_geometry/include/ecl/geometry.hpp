@@ -36,5 +36,6 @@
 #include "geometry/tension_function.hpp"
 #include "geometry/tension_spline.hpp"
 #include "geometry/pose.hpp"
+#include "geometry/odometry.hpp"
 
 #endif /*ECL_GEOMETRY_HPP_*/
