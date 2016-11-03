@@ -5,6 +5,7 @@
 ** Includes
 *****************************************************************************/
 
+#include <ecl/config/macros.hpp>
 #include "../../include/ecl/geometry/odometry_helper.hpp"
 #include "../../include/ecl/geometry/linear_segment.hpp"
 

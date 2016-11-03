@@ -12,6 +12,7 @@
 ** Includes
 *****************************************************************************/
 
+#include <ecl/config/macros.hpp>
 #include <ecl/linear_algebra.hpp>
 
 #if defined(ECL_CXX11_FOUND)
