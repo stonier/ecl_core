@@ -32,7 +32,7 @@
   #else // we are using shared lib/dll
     #define ecl_geometry_PUBLIC ECL_HELPER_IMPORT
   #endif
-  #define ecl_geometry_LOCAL ECL_HELPERS_LOCAL
+  #define ecl_geometry_LOCAL ECL_HELPER_LOCAL
 #else // ecl is being built around static libraries
   #define ecl_geometry_PUBLIC
   #define ecl_geometry_LOCAL
