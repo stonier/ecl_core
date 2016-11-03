@@ -110,7 +110,7 @@ ecl_geometry_PUBLIC double wrap_angle(const double &angle);
  * Do not use this directly. Use the specialisations instead.
  */
 template <class T, typename Enable = void>
-class ecl_geometry_LOCAL Angle {
+class ecl_geometry_PUBLIC Angle {
 private:
 	/**
 	 * @brief Prevents usage of this template class directly.
