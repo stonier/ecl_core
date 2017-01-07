@@ -32,10 +32,10 @@ elseif(DEFINED ECL_EIGEN_IS_INTERNAL_3_1_2)
 else()
     find_package(Eigen3)
     set(ECL_EIGEN_IS_EXTERNAL 1 CACHE BOOL "Using the system's eigen 3 implementation.")
-    if(EIGEN_INCLUDE_DIR)
+    if(EIGEN3_INCLUDE_DIRS)
         catkin_package(
             INCLUDE_DIRS include;${CATKIN_DEVEL_PREFIX}/${CATKIN_GLOBAL_INCLUDE_DESTINATION}
-            DEPENDS Eigen
+            DEPENDS EIGEN3
         )
     else()
         message(STATUS "Eigen not found...using ecl's internal eigen.")
