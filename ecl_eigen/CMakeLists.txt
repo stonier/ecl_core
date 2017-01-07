@@ -30,8 +30,8 @@ elseif(DEFINED ECL_EIGEN_IS_INTERNAL_3_1_2)
             INCLUDE_DIRS include;${CATKIN_DEVEL_PREFIX}/${CATKIN_GLOBAL_INCLUDE_DESTINATION};include/eigen3.1.2;include/eigen3.1.2/Eigen   # the second directory ensures the unsupported modules are available
             )
 else()
-    find_package(Eigen)
-    set(ECL_EIGEN_IS_EXTERNAL 1 CACHE BOOL "Using the system's eigen implementation.")
+    find_package(Eigen3)
+    set(ECL_EIGEN_IS_EXTERNAL 1 CACHE BOOL "Using the system's eigen 3 implementation.")
     if(EIGEN_INCLUDE_DIR)
         catkin_package(
             INCLUDE_DIRS include;${CATKIN_DEVEL_PREFIX}/${CATKIN_GLOBAL_INCLUDE_DESTINATION}
