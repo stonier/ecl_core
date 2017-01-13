@@ -31,8 +31,12 @@ elseif(DEFINED ECL_EIGEN_IS_INTERNAL_3_1_2)
             )
 else()
     find_package(Eigen3)
-    set(ECL_EIGEN_IS_EXTERNAL 1 CACHE BOOL "Using the system's eigen 3 implementation.")
-    if(EIGEN3_INCLUDE_DIRS)
+    set(ECL_EIGEN_IS_EXTERNAL 1 CACHE BOOL "Using the system's eigen3 implementation.")
+    if(EIGEN3_FOUND)
+        # On trusty, it sets EIGEN3_INCLUDE_DIR but not EIGEN3_INCLUDE_DIRS (xenial is fine), so help it
+        if(NOT EIGEN3_INCLUDE_DIRS)
+          set(EIGEN3_INCLUDE_DIRS ${EIGEN3_INCLUDE_DIR})
+        endif()
         catkin_package(
             INCLUDE_DIRS include;${CATKIN_DEVEL_PREFIX}/${CATKIN_GLOBAL_INCLUDE_DESTINATION}
             DEPENDS EIGEN3
@@ -50,7 +54,7 @@ endif()
 # Configure header macros
 ##############################################################################
 
-configure_file(${CMAKE_CURRENT_SOURCE_DIR}/include/ecl/eigen.hpp.in ${CATKIN_DEVEL_PREFIX}/include/ecl/eigen.hpp) 
+configure_file(${CMAKE_CURRENT_SOURCE_DIR}/include/ecl/eigen.hpp.in ${CATKIN_DEVEL_PREFIX}/include/ecl/eigen.hpp)
 install(FILES ${CATKIN_DEVEL_PREFIX}/include/ecl/eigen.hpp DESTINATION ${CATKIN_GLOBAL_INCLUDE_DESTINATION}/ecl)
 
 ##############################################################################
