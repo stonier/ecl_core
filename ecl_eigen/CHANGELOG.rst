@@ -2,6 +2,10 @@
 Changelog
 ^^^^^^^^^
 
+0.61.16 (2017-01-13)
+--------------------
+* find Eigen3 instead of Eigen (that is deprecating)
+
 0.61.0 (2014-09-12)
 -------------------
 * internal eigen support for v3.2.1
