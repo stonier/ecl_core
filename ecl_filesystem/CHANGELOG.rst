@@ -2,6 +2,10 @@
 Changelog
 ^^^^^^^^^
 
+Forthcoming
+-----------
+* bugfix implicit 'rt' dependency in catkin_package (removed)
+
 0.61.3 (2015-09-05)
 -------------------
 * fix build dirs for devel build.

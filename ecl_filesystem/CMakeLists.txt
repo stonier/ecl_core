@@ -9,20 +9,18 @@ project(ecl_filesystem)
 # Thread Detection
 ##############################################################################
 
-find_package(catkin REQUIRED COMPONENTS 
+find_package(catkin REQUIRED COMPONENTS
     ecl_build
     ecl_config
     ecl_errors
     )
 
+# This finds the platform specific filesystem libraries and sets them in the
+# variable ECL_PLATFORM_FILESYSTEM_LIBRARIES. Right now this is super simple
+# (typical just 'rt' on linux), but if this gets more complicated then
+# appropriate dependencies need to be listed in catkin_package's DEPENDS.
 ecl_detect_filesystem()
 
-#set (thread_INCLUDE_DIRS "" CACHE STRING "Platform thread include directories")
-#if(ECL_PLATFORM_HAS_POSIX_THREADS)
-#  set (thread_LIBRARIES "pthread" CACHE STRING "Platform thread libraries")
-#else()
-#  set (thread_LIBRARIES "" CACHE STRING "Platform thread libraries")
-#endif()
 ##############################################################################
 # Catkin
 ##############################################################################
@@ -30,10 +28,9 @@ ecl_detect_filesystem()
 catkin_package(
     INCLUDE_DIRS include
     LIBRARIES ${PROJECT_NAME}
-	CATKIN_DEPENDS 
+	CATKIN_DEPENDS
             ecl_config
             ecl_errors
-    DEPENDS ${ECL_PLATFORM_FILESYSTEM_LIBRARIES}
 )
 include_directories(include ${CATKIN_DEVEL_PREFIX}/include ${catkin_INCLUDE_DIRS})
 
