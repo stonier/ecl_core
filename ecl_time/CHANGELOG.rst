@@ -2,8 +2,8 @@
 Changelog
 =========
 
-Forthcoming
------------
+0.61.17 (2017-02-05)
+--------------------
 * bugfix realtime_now() to not return temporaries
 
 0.61.12 (2016-05-03)

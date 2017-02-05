@@ -2,8 +2,8 @@
 Changelog
 ^^^^^^^^^
 
-Forthcoming
------------
+0.61.17 (2017-02-05)
+--------------------
 * bugfix implicit 'rt' dependency in catkin_package (removed)
 
 0.61.3 (2015-09-05)
