@@ -2,8 +2,12 @@
 Changelog
 =========
 
-Frequency
----------
+Forthcoming
+-----------
+* bugfix realtime_now() to not return temporaries
+
+0.61.12 (2016-05-03)
+--------------------
 * consideration for time on apple for the frequency class
 
 0.61.6 (2015-11-25)

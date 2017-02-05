@@ -156,7 +156,7 @@ public:
 	 * option. Quite often 3rd party libraries (e.g. ros) do use this clock though,
 	 * so to be compatible we provide the option here.
 	 */
-        static const TimeStamp& realtime_now() ecl_debug_throw_decl(StandardException);
+        static TimeStamp realtime_now() ecl_debug_throw_decl(StandardException);
 #endif
 };
 
