@@ -123,7 +123,7 @@ class ECL_LOCAL FloatContainerFormatter {
          * @param w : the width to use for the inserted float.
          * @return FloatContainerFormatter& : this formatter readied for use with a stream.
          */
-        FloatContainerFormatter& operator()(const unsigned int p, const int w) { format.precision(p); prm_width(w); return *this; } // Permanent
+        FloatContainerFormatter& operator()(const unsigned int p, const int w) { format.precision(p); prm_width = w; return *this; } // Permanent
         /**
          * Convenient stream formatter. This function directly readies the formatter
          * with the specified container and the stored (permanent) settings.
