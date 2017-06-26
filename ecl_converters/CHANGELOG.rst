@@ -2,8 +2,8 @@
 Changelog
 =========
 
-Forthcoming
------------
+0.61.18 (2017-06-26)
+--------------------
 * disable byte array failed size test in release mode (debug exceptions only)
 
 0.61.4 (2015-10-10)
