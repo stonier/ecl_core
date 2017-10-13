@@ -2,35 +2,19 @@
 # Cmake
 ##############################################################################
 
-cmake_minimum_required(VERSION 2.8.3)
+cmake_minimum_required(VERSION 3.5)
 project(ecl_time)
 
 ##############################################################################
 # Find Packages
 ##############################################################################
 
-find_package(catkin REQUIRED COMPONENTS
-    ecl_build 
-    ecl_config
-    ecl_errors
-    ecl_exceptions
-    ecl_time_lite
-)
-
-##############################################################################
-# Catkin
-##############################################################################
-
-catkin_package(
-    INCLUDE_DIRS include
-    LIBRARIES ${PROJECT_NAME}
-	CATKIN_DEPENDS 
-	    ecl_build
-	    ecl_config
-	    ecl_errors
-        ecl_exceptions
-	    ecl_time_lite
-)
+find_package(ament_cmake REQUIRED)
+find_package(ecl_build REQUIRED)
+find_package(ecl_config REQUIRED)
+find_package(ecl_errors REQUIRED)
+find_package(ecl_exceptions REQUIRED)
+find_package(ecl_time_lite REQUIRED)
 
 ##############################################################################
 # Project configuration
@@ -38,7 +22,13 @@ catkin_package(
 
 
 ecl_enable_cxx11_compiler()
-include_directories(include ${catkin_INCLUDE_DIRS})
+include_directories(include 
+  ${ecl_build_INCLUDE_DIRS}
+  ${ecl_config_INCLUDE_DIRS}
+  ${ecl_errors_INCLUDE_DIRS}
+  ${ecl_exceptions_INCLUDE_DIRS}
+  ${ecl_time_lite_INCLUDE_DIRS}
+  )
 
 ##############################################################################
 # Sources
@@ -48,4 +38,7 @@ add_subdirectory(include)
 add_subdirectory(src)
 
 
-
+ament_export_include_directories(include)
+ament_export_libraries(${PROJECT_NAME})
+ament_export_dependencies(ecl_time_lite)
+ament_package()

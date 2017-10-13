@@ -4,5 +4,5 @@
 
 file(GLOB HEADERS RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} *.hpp)
   
-install(FILES ${HEADERS} DESTINATION ${CATKIN_GLOBAL_INCLUDE_DESTINATION}/ecl/streams/text_streams)
+install(FILES ${HEADERS} DESTINATION include/ecl/streams/text_streams)
 

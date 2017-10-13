@@ -2,19 +2,18 @@
 # Cmake
 ##############################################################################
 
-cmake_minimum_required(VERSION 2.8.3)
+cmake_minimum_required(VERSION 3.5)
 project(ecl_concepts)
 
 ##############################################################################
-# Catkin
+# ament
 ##############################################################################
 
-find_package(catkin REQUIRED COMPONENTS ecl_config ecl_type_traits)
-catkin_package(
-        INCLUDE_DIRS include
-	CATKIN_DEPENDS ecl_config ecl_type_traits
-        )
-include_directories(include ${catkin_INCLUDE_DIRS})
+find_package(ament_cmake REQUIRED)
+find_package(ecl_config REQUIRED)
+find_package(ecl_type_traits REQUIRED)
+
+include_directories(${ecl_config_INCLUDE_DIRS} ${ecl_type_traits_INCLUDE_DIRS})
 
 ##############################################################################
 # Actual project configuration
@@ -24,4 +23,5 @@ add_subdirectory(include)
 add_subdirectory(src)
 
 
-
+ament_export_include_directories(include)
+ament_package()

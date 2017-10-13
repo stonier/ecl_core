@@ -21,6 +21,8 @@
 #include "../../include/ecl/time/timestamp_win.hpp"
 //#include "../../include/ecl/time/detail/time_functions_win.hpp"
 
+#include <chrono>
+
 /*****************************************************************************
 ** Namespaces
 *****************************************************************************/
@@ -32,7 +34,17 @@ namespace ecl {
 *****************************************************************************/
 
 TimeStamp::TimeStamp() ecl_debug_throw_decl(StandardException) {
-	stamp();
+	std::chrono::high_resolution_clock clock;
+	auto now = clock.now();
+
+	auto time_since_epoch = now.time_since_epoch();
+	auto seconds = std::chrono::duration_cast<std::chrono::seconds>(time_since_epoch);
+	auto num_seconds = seconds.count();
+	auto num_nanoseconds = time_since_epoch.count() % 1000000000;
+
+	time.tv_sec = num_seconds;
+	time.tv_nsec = num_nanoseconds;
+
 }
 
 TimeStamp::TimeStamp (const double& decimal_time_value) ecl_assert_throw_decl(StandardException) :

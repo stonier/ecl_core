@@ -2,4 +2,4 @@
 # GTEST SETUP
 ###############################################################################
 
-catkin_add_gtest(test_concepts concepts.cpp)
+#catkin_add_gtest(test_concepts concepts.cpp)

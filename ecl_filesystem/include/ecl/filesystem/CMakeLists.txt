@@ -7,7 +7,7 @@
 if(ECL_POSIX_HAS_REALPATH)
   set(ECL_PRIVATE_HAS_POSIX_REALPATH 1)
 endif()
-configure_file(${CMAKE_CURRENT_SOURCE_DIR}/config.hpp.in ${CATKIN_DEVEL_PREFIX}/include/ecl/filesystem/config.hpp)
+configure_file(${CMAKE_CURRENT_SOURCE_DIR}/config.hpp.in ${CMAKE_CURRENT_BINARY_DIR}/config.hpp)
 
 ##############################################################################
 # Files
@@ -15,5 +15,5 @@ configure_file(${CMAKE_CURRENT_SOURCE_DIR}/config.hpp.in ${CATKIN_DEVEL_PREFIX}/
 
 file(GLOB HEADERS RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} *.hpp)
 
-install(FILES ${HEADERS} DESTINATION ${CATKIN_GLOBAL_INCLUDE_DESTINATION}/ecl/filesystem)
-install(FILES ${CATKIN_DEVEL_PREFIX}/include/ecl/filesystem/config.hpp DESTINATION ${CATKIN_GLOBAL_INCLUDE_DESTINATION}/ecl/filesystem)
+install(FILES ${HEADERS} DESTINATION include/ecl/filesystem)
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/config.hpp DESTINATION include/ecl/filesystem)

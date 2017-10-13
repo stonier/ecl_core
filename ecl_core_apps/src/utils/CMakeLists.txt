@@ -4,15 +4,51 @@
 
 macro(ecl_add_utility name)
   add_executable(ecl_${name} ${name}.cpp)
-  target_link_libraries(ecl_${name} ${catkin_LIBRARIES})
-  install(TARGETS ecl_${name} RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
+  target_link_libraries(ecl_${name} 
+  ${ecl_build_LIBRARIES}
+  ${ecl_config_LIBRARIES}
+  ${ecl_linear_algebra_LIBRARIES}
+  ${ecl_command_line_LIBRARIES}
+  ${ecl_converters_LIBRARIES}
+  ${ecl_containers_LIBRARIES}
+  ${ecl_devices_LIBRARIES}
+  ${ecl_errors_LIBRARIES}
+  ${ecl_exceptions_LIBRARIES}
+  ${ecl_formatters_LIBRARIES}
+  ${ecl_geometry_LIBRARIES}
+  ${ecl_ipc_LIBRARIES}
+  ${ecl_sigslots_LIBRARIES}
+  ${ecl_streams_LIBRARIES}
+  ${ecl_threads_LIBRARIES}
+  ${ecl_type_traits_LIBRARIES}
+  ${ecl_time_lite_LIBRARIES}
+  )
+  install(TARGETS ecl_${name} RUNTIME DESTINATION bin)
 endmacro()
 
 macro(ecl_add_global_utility name)
   add_executable(ecl_${name} ${name}.cpp)
-  target_link_libraries(ecl_${name} ${catkin_LIBRARIES})
-  set_target_properties(ecl_${name} PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CATKIN_DEVEL_PREFIX}/${CATKIN_GLOBAL_BIN_DESTINATION})
-  install(TARGETS ecl_${name} RUNTIME DESTINATION ${CATKIN_GLOBAL_BIN_DESTINATION})
+  target_link_libraries(ecl_${name} 
+  ${ecl_build_LIBRARIES}
+  ${ecl_config_LIBRARIES}
+  ${ecl_linear_algebra_LIBRARIES}
+  ${ecl_command_line_LIBRARIES}
+  ${ecl_converters_LIBRARIES}
+  ${ecl_containers_LIBRARIES}
+  ${ecl_devices_LIBRARIES}
+  ${ecl_errors_LIBRARIES}
+  ${ecl_exceptions_LIBRARIES}
+  ${ecl_formatters_LIBRARIES}
+  ${ecl_geometry_LIBRARIES}
+  ${ecl_ipc_LIBRARIES}
+  ${ecl_sigslots_LIBRARIES}
+  ${ecl_streams_LIBRARIES}
+  ${ecl_threads_LIBRARIES}
+  ${ecl_type_traits_LIBRARIES}
+  ${ecl_time_lite_LIBRARIES}
+  )
+  set_target_properties(ecl_${name} PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/bin)
+  install(TARGETS ecl_${name} RUNTIME DESTINATION bin)
 endmacro()
 
 ###############################################################################

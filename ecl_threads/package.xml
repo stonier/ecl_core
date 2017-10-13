@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<package>
+<package format="2">
   <name>ecl_threads</name>
   <version>0.61.18</version>
   <description>
@@ -15,7 +15,8 @@
   <url type="bugtracker">https://github.com/stonier/ecl_core/issues</url>
   <author email="d.stonier@gmail.com">Daniel Stonier</author> -->
 
-  <buildtool_depend>catkin</buildtool_depend>
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
   <build_depend>ecl_license</build_depend>
   <build_depend>ecl_build</build_depend>
   <build_depend>ecl_config</build_depend>
@@ -25,14 +26,17 @@
   <build_depend>ecl_time</build_depend>
   <build_depend>ecl_utilities</build_depend>
   
-  <run_depend>ecl_license</run_depend>
-  <run_depend>ecl_build</run_depend>
-  <run_depend>ecl_config</run_depend>
-  <run_depend>ecl_errors</run_depend>
-  <run_depend>ecl_concepts</run_depend>
-  <run_depend>ecl_exceptions</run_depend>
-  <run_depend>ecl_time</run_depend>
-  <run_depend>ecl_utilities</run_depend>
+  <exec_depend>ecl_license</exec_depend>
+  <exec_depend>ecl_build</exec_depend>
+  <exec_depend>ecl_config</exec_depend>
+  <exec_depend>ecl_errors</exec_depend>
+  <exec_depend>ecl_concepts</exec_depend>
+  <exec_depend>ecl_exceptions</exec_depend>
+  <exec_depend>ecl_time</exec_depend>
+  <exec_depend>ecl_utilities</exec_depend>
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
 </package>
 
 

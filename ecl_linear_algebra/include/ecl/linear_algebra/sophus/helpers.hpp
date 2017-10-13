@@ -52,24 +52,24 @@ namespace Sophus {
 ** Interfaces
 *****************************************************************************/
 
-template<typename T>
-std::ostream & operator << ( std::ostream & out, const SE3Group<T> & se3 )
-{
-//  typename SE3Group<T>::Tangent tanget_vector = SE3Group<T>::log( se3 );
-//  out << tanget_vector.transpose();
-  const Eigen::Matrix<T,3,1> & t = se3.translation();
-  const Eigen::Quaternion<T> & q = se3.unit_quaternion();
-  out << t.transpose() << " " << q.x() << " " << q.y() << " " << q.z() << " " << q.w();
-  return out;
-}
+//template<typename T>
+//std::ostream & operator << ( std::ostream & out, const SE3Group<T> & se3 )
+//{
+////  typename SE3Group<T>::Tangent tanget_vector = SE3Group<T>::log( se3 );
+////  out << tanget_vector.transpose();
+//  const Eigen::Matrix<T,3,1> & t = se3.translation();
+//  const Eigen::Quaternion<T> & q = se3.unit_quaternion();
+//  out << t.transpose() << " " << q.x() << " " << q.y() << " " << q.z() << " " << q.w();
+//  return out;
+//}
 
-template<typename T>
-std::ostream & operator << ( std::ostream & out, const SE2Group<T> & se2 )
-{
-  typename SE2Group<T>::Tangent tanget_vector = SE2Group<T>::log( se2 );
-  out << tanget_vector.transpose();
-  return out;
-}
+//template<typename T>
+//std::ostream & operator << ( std::ostream & out, const SE2Group<T> & se2 )
+//{
+//  typename SE2Group<T>::Tangent tanget_vector = SE2Group<T>::log( se2 );
+//  out << tanget_vector.transpose();
+//  return out;
+//}
 
 /**
  * @brief Convert a full Sophus pose into a 2 dimensional pose.

@@ -2,22 +2,21 @@
 # Cmake
 ##############################################################################
 
-cmake_minimum_required(VERSION 2.8.3)
+cmake_minimum_required(VERSION 3.5)
 project(ecl_threads)
 
 ##############################################################################
 # Thread Detection
 ##############################################################################
 
-find_package(catkin REQUIRED COMPONENTS 
-    ecl_build
-    ecl_config
-    ecl_errors
-    ecl_concepts
-    ecl_exceptions
-    ecl_time
-    ecl_utilities
-    )
+find_package(ament_cmake REQUIRED)
+find_package(ecl_build REQUIRED)
+find_package(ecl_config REQUIRED)
+find_package(ecl_errors REQUIRED)
+find_package(ecl_concepts REQUIRED)
+find_package(ecl_exceptions REQUIRED)
+find_package(ecl_time REQUIRED)
+find_package(ecl_utilities REQUIRED)
 
 ecl_detect_threads()
 
@@ -28,22 +27,18 @@ else()
   set (thread_LIBRARIES "" CACHE STRING "Platform thread libraries")
 endif()
 ##############################################################################
-# Catkin
+# ament
 ##############################################################################
 
-catkin_package(
-        INCLUDE_DIRS include
-        LIBRARIES ${PROJECT_NAME}
-	CATKIN_DEPENDS 
-            ecl_config
-            ecl_errors
-            ecl_concepts
-            ecl_exceptions
-            ecl_time
-            ecl_utilities
-         DEPENDS thread
-        )
-include_directories(include ${catkin_INCLUDE_DIRS})
+include_directories(include 
+  ${ecl_build_INCLUDE_DIRS}
+  ${ecl_config_INCLUDE_DIRS}
+  ${ecl_errors_INCLUDE_DIRS}
+  ${ecl_concepts_INCLUDE_DIRS}
+  ${ecl_exceptions_INCLUDE_DIRS}
+  ${ecl_time_INCLUDE_DIRS}
+  ${ecl_utilities_INCLUDE_DIRS}
+  )
 
 ##############################################################################
 # Actual project configuration
@@ -53,4 +48,8 @@ add_subdirectory(include)
 add_subdirectory(src)
 
 
-
+ament_export_include_directories(include)
+ament_export_dependencies(ecl_exceptions)
+ament_export_dependencies(ecl_time)
+ament_export_libraries(${PROJECT_NAME})
+ament_package()

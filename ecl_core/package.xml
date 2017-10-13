@@ -1,4 +1,5 @@
-<package>
+<?xml version="1.0"?>
+<package format="2">
   <name>ecl_core</name>
   <version>0.61.18</version>
   <description>
@@ -13,30 +14,32 @@
   <url type="bugtracker">https://github.com/stonier/ecl_core/issues</url>
   <author email="d.stonier@gmail.com">Daniel Stonier</author>
 
-  <buildtool_depend>catkin</buildtool_depend>
-  <run_depend>ecl_command_line</run_depend>
-  <run_depend>ecl_concepts</run_depend>
-  <run_depend>ecl_containers</run_depend>
-  <run_depend>ecl_converters</run_depend>
-  <run_depend>ecl_core_apps</run_depend>
-  <run_depend>ecl_devices</run_depend>
-  <run_depend>ecl_eigen</run_depend>
-  <run_depend>ecl_exceptions</run_depend>
-  <run_depend>ecl_formatters</run_depend>
-  <run_depend>ecl_geometry</run_depend>
-  <run_depend>ecl_ipc</run_depend>
-  <run_depend>ecl_linear_algebra</run_depend>
-  <run_depend>ecl_math</run_depend>
-  <run_depend>ecl_mpl</run_depend>
-  <run_depend>ecl_sigslots</run_depend>
-  <run_depend>ecl_statistics</run_depend>
-  <run_depend>ecl_streams</run_depend>
-  <run_depend>ecl_threads</run_depend>
-  <run_depend>ecl_time</run_depend>
-  <run_depend>ecl_type_traits</run_depend>
-  <run_depend>ecl_utilities</run_depend> 
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <exec_depend>ecl_command_line</exec_depend>
+  <exec_depend>ecl_concepts</exec_depend>
+  <exec_depend>ecl_containers</exec_depend>
+  <exec_depend>ecl_converters</exec_depend>
+  <exec_depend>ecl_core_apps</exec_depend>
+  <exec_depend>ecl_devices</exec_depend>
+  <exec_depend>ecl_eigen</exec_depend>
+  <exec_depend>ecl_exceptions</exec_depend>
+  <exec_depend>ecl_formatters</exec_depend>
+  <exec_depend>ecl_geometry</exec_depend>
+  <exec_depend>ecl_ipc</exec_depend>
+  <exec_depend>ecl_linear_algebra</exec_depend>
+  <exec_depend>ecl_math</exec_depend>
+  <exec_depend>ecl_mpl</exec_depend>
+  <exec_depend>ecl_sigslots</exec_depend>
+  <exec_depend>ecl_statistics</exec_depend>
+  <exec_depend>ecl_streams</exec_depend>
+  <exec_depend>ecl_threads</exec_depend>
+  <exec_depend>ecl_time</exec_depend>
+  <exec_depend>ecl_type_traits</exec_depend>
+  <exec_depend>ecl_utilities</exec_depend> 
 
   <export>
+    <build_type>ament_cmake</build_type>
     <metapackage/>
   </export>
 </package>
