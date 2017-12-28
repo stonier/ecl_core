@@ -3,5 +3,14 @@
 ###############################################################################
 
 add_executable(demo_container_formatters formatters.cpp)
-target_link_libraries(demo_container_formatters ${catkin_LIBRARIES})
-install(TARGETS demo_container_formatters RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
+ament_target_dependencies(demo_container_formatters ecl_config
+	ecl_errors
+	ecl_exceptions
+	ecl_formatters
+	ecl_converters
+	ecl_mpl
+	ecl_type_traits
+	ecl_utilities
+)
+
+install(TARGETS demo_container_formatters RUNTIME DESTINATION bin)

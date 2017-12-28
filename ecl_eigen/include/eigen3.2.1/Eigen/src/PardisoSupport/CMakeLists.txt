@@ -1,6 +1,6 @@
 FILE(GLOB Eigen_PardisoSupport_SRCS "*.h")
 
-INSTALL(FILES 
+INSTALL(FILES
   ${Eigen_PardisoSupport_SRCS}
-  DESTINATION ${INCLUDE_INSTALL_DIR}/Eigen/src/PardisoSupport COMPONENT Devel
+  DESTINATION include/Eigen/src/PardisoSupport COMPONENT Devel
   )

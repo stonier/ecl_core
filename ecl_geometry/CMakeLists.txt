@@ -2,52 +2,32 @@
 # Cmake
 ##############################################################################
 
-cmake_minimum_required(VERSION 2.8.3)
+cmake_minimum_required(VERSION 3.5)
 project(ecl_geometry)
 
 ##############################################################################
-# Catkin
+# Ament
 ##############################################################################
 
-find_package(catkin
-    REQUIRED
-    COMPONENTS
-        ecl_build 
-        ecl_config 
-        ecl_type_traits
-        ecl_containers
-        ecl_formatters
-        ecl_linear_algebra
-        ecl_exceptions
-        ecl_math
-        ecl_mpl
-)
 
-##############################################################################
-# Exports
-##############################################################################
+find_package(ament_cmake REQUIRED)
+find_package(ecl_build REQUIRED)
+find_package(ecl_config REQUIRED)
+find_package(ecl_type_traits REQUIRED)
+find_package(ecl_containers REQUIRED)
+find_package(ecl_formatters REQUIRED)
+find_package(ecl_linear_algebra REQUIRED)
+find_package(ecl_exceptions REQUIRED)
+find_package(ecl_math REQUIRED)
+find_package(ecl_mpl REQUIRED)
 
-catkin_package(
-        INCLUDE_DIRS include
-        LIBRARIES ${PROJECT_NAME}
-    CATKIN_DEPENDS
-        ecl_build
-        ecl_config 
-        ecl_type_traits
-        ecl_containers
-        ecl_formatters
-        ecl_linear_algebra
-        ecl_exceptions
-        ecl_math
-        ecl_mpl
-        )
 
 ##############################################################################
 # Project Configuration
 ##############################################################################
 
 ecl_enable_cxx11_compiler()
-include_directories(include ${catkin_INCLUDE_DIRS})
+include_directories(include)
 
 ##############################################################################
 # Sources
@@ -56,5 +36,18 @@ include_directories(include ${catkin_INCLUDE_DIRS})
 add_subdirectory(include)
 add_subdirectory(src)
 
+ament_export_libraries(${PROJECT_NAME})
+ament_export_include_directories(include)
+ament_export_dependencies(
+	ecl_build
+	ecl_config
+	ecl_type_traits
+	ecl_containers
+	ecl_formatters
+	ecl_linear_algebra
+	ecl_exceptions
+	ecl_math
+	ecl_mpl
+)
 
-
+ament_package()

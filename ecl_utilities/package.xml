@@ -1,5 +1,6 @@
 <?xml version="1.0"?>
-<package>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
   <name>ecl_utilities</name>
   <version>0.61.18</version>
   <description>
@@ -10,16 +11,19 @@
   <url type="website">http://wiki.ros.org/ecl_utilities</url>
   <url type="repository">https://github.com/stonier/ecl_core</url>
   <url type="bugtracker">https://github.com/stonier/ecl_core/issues</url>
-  <author email="d.stonier@gmail.com">Daniel Stonier</author> -->
+  <author email="d.stonier@gmail.com">Daniel Stonier</author>
 
-  <buildtool_depend>catkin</buildtool_depend>
+  <buildtool_depend>ament_cmake</buildtool_depend>
   <build_depend>ecl_license</build_depend>
   <build_depend>ecl_mpl</build_depend>
   <build_depend>ecl_concepts</build_depend>
-  
-  <run_depend>ecl_license</run_depend>
-  <run_depend>ecl_mpl</run_depend>
-  <run_depend>ecl_concepts</run_depend>
+
+  <exec_depend>ecl_license</exec_depend>
+  <exec_depend>ecl_mpl</exec_depend>
+  <exec_depend>ecl_concepts</exec_depend>
+
+	<export>
+		<build_type>ament_cmake</build_type>
+	</export>
+
 </package>
-
-

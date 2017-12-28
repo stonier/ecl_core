@@ -3,7 +3,7 @@
 ##############################################################################
 
 add_subdirectory(lib)
-if(CATKIN_ENABLE_TESTING)
+if(AMENT_ENABLE_TESTING)
   add_subdirectory(test)
 endif()
 add_subdirectory(utils)

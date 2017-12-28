@@ -3,9 +3,9 @@
 ##############################################################################
 
 add_executable(demo_sigslots_manager sigslots_manager.cpp)
-target_link_libraries(demo_sigslots_manager ${catkin_LIBRARIES})
-install(TARGETS demo_sigslots_manager RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
+ament_target_dependencies(demo_sigslots_manager ecl_config ecl_threads)
+install(TARGETS demo_sigslots_manager RUNTIME DESTINATION bin)
 
 add_executable(demo_sigslots sigslots.cpp)
-target_link_libraries(demo_sigslots ${catkin_LIBRARIES})
-install(TARGETS demo_sigslots RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
+ament_target_dependencies(demo_sigslots ecl_config ecl_threads)
+install(TARGETS demo_sigslots RUNTIME DESTINATION bin)

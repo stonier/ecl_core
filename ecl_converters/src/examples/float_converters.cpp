@@ -8,6 +8,7 @@
 
 #include <iostream>
 #include "../../include/ecl/converters/char_strings.hpp"
+
 /*****************************************************************************
 ** Main
 *****************************************************************************/
@@ -61,5 +62,3 @@ int main(int argc, char **argv) {
     std::cout << std::endl;
     return 0;
 }
-
-

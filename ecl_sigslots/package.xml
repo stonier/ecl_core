@@ -1,12 +1,13 @@
 <?xml version="1.0"?>
-<package>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
   <name>ecl_sigslots</name>
   <version>0.61.18</version>
   <description>
-     Provides a signal/slot mechanism (in the same vein as qt sigslots, 
-     boost::signals etc for intra-process communication. These include 
+     Provides a signal/slot mechanism (in the same vein as qt sigslots,
+     boost::signals etc for intra-process communication. These include
      some improvements - they do not need a preprocessor, are fully type safe,
-     allow for simple connections via a posix style string identifier 
+     allow for simple connections via a posix style string identifier
      and are multithread-safe.
   </description>
   <maintainer email="d.stonier@gmail.com">Daniel Stonier</maintainer>
@@ -16,14 +17,17 @@
   <url type="bugtracker">https://github.com/stonier/ecl_core/issues</url>
   <author email="d.stonier@gmail.com">Daniel Stonier</author>
 
-  <buildtool_depend>catkin</buildtool_depend>
+  <buildtool_depend>ament_cmake</buildtool_depend>
   <build_depend>ecl_license</build_depend>
   <build_depend>ecl_config</build_depend>
   <build_depend>ecl_threads</build_depend>
-  
-  <run_depend>ecl_license</run_depend>
-  <run_depend>ecl_config</run_depend>
-  <run_depend>ecl_threads</run_depend>
+
+  <exec_depend>ecl_license</exec_depend>
+  <exec_depend>ecl_config</exec_depend>
+  <exec_depend>ecl_threads</exec_depend>
+
+	<export>
+		<build_type>ament_cmake</build_type>
+	</export>
+
 </package>
-
-

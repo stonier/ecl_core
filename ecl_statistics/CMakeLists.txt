@@ -2,44 +2,26 @@
 # Cmake
 ##############################################################################
 
-cmake_minimum_required(VERSION 2.8.3)
+cmake_minimum_required(VERSION 3.5)
 project(ecl_statistics)
 
 ##############################################################################
-# Catkin
+# Ament
 ##############################################################################
 
-find_package(catkin
-    REQUIRED
-    COMPONENTS
-        ecl_build
-        ecl_config
-        ecl_linear_algebra
-        ecl_mpl
-        ecl_type_traits
-)
-
-##############################################################################
-# Exports
-##############################################################################
-
-catkin_package(
-    INCLUDE_DIRS include
-    LIBRARIES ${PROJECT_NAME}
-    CATKIN_DEPENDS
-        ecl_build
-        ecl_config
-        ecl_linear_algebra
-        ecl_mpl
-        ecl_type_traits
-)
+find_package(ament_cmake REQUIRED)
+find_package(ecl_config REQUIRED)
+find_package(ecl_build REQUIRED)
+find_package(ecl_linear_algebra REQUIRED)
+find_package(ecl_mpl REQUIRED)
+find_package(ecl_type_traits REQUIRED)
 
 ##############################################################################
 # Project Configuration
 ##############################################################################
 
 ecl_enable_cxx11_compiler()
-include_directories(include ${catkin_INCLUDE_DIRS})
+include_directories(include )
 
 ##############################################################################
 # Sources
@@ -49,4 +31,14 @@ add_subdirectory(include)
 add_subdirectory(src)
 
 
+ament_export_libraries(${PROJECT_NAME})
+ament_export_include_directories(include)
+ament_export_dependencies(
+				ecl_build
+        ecl_config
+        ecl_linear_algebra
+        ecl_mpl
+        ecl_type_traits
+)
 
+ament_package()

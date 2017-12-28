@@ -1,11 +1,12 @@
 <?xml version="1.0"?>
-<package>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
   <name>ecl_containers</name>
   <version>0.61.18</version>
   <description>
     The containers included here are intended to extend the stl containers.
     In all cases, these implementations are designed to implement
-    c++ conveniences and safety where speed is not sacrificed. 
+    c++ conveniences and safety where speed is not sacrificed.
 
     Also includes techniques for memory debugging of common problems such
     as buffer overruns.
@@ -17,7 +18,7 @@
   <url type="bugtracker">https://github.com/stonier/ecl_core/issues</url>
   <author email="d.stonier@gmail.com">Daniel Stonier</author> -->
 
-  <buildtool_depend>catkin</buildtool_depend>
+  <buildtool_depend>ament_cmake</buildtool_depend>
   <build_depend>ecl_license</build_depend>
   <build_depend>ecl_config</build_depend>
   <build_depend>ecl_errors</build_depend>
@@ -27,16 +28,20 @@
   <build_depend>ecl_mpl</build_depend>
   <build_depend>ecl_type_traits</build_depend>
   <build_depend>ecl_utilities</build_depend>
-  
-  <run_depend>ecl_license</run_depend>
-  <run_depend>ecl_config</run_depend>
-  <run_depend>ecl_errors</run_depend>
-  <run_depend>ecl_exceptions</run_depend>
-  <run_depend>ecl_formatters</run_depend>
-  <run_depend>ecl_converters</run_depend>
-  <run_depend>ecl_mpl</run_depend>
-  <run_depend>ecl_type_traits</run_depend>
-  <run_depend>ecl_utilities</run_depend>
+
+  <exec_depend>ecl_license</exec_depend>
+  <exec_depend>ecl_config</exec_depend>
+  <exec_depend>ecl_errors</exec_depend>
+  <exec_depend>ecl_exceptions</exec_depend>
+  <exec_depend>ecl_formatters</exec_depend>
+  <exec_depend>ecl_converters</exec_depend>
+  <exec_depend>ecl_mpl</exec_depend>
+  <exec_depend>ecl_type_traits</exec_depend>
+  <exec_depend>ecl_utilities</exec_depend>
+
+
+	<export>
+		<build_type>ament_cmake</build_type>
+	</export>
+
 </package>
-
-

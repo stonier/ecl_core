@@ -3,9 +3,17 @@
 ##############################################################################
 
 macro(ecl_linear_algebra_add_gtest test_name)
-  catkin_add_gtest(ecl_test_linear_algebra_${test_name} ${test_name}.cpp)
+  ament_add_gtest(ecl_test_linear_algebra_${test_name} ${test_name}.cpp)
   if(TARGET ecl_test_linear_algebra_${test_name})
-    target_link_libraries(ecl_test_linear_algebra_${test_name} ${PROJECT_NAME} ${catkin_LIBRARIES})
+		ament_target_dependencies(ecl_test_linear_algebra_${test_name} ${PROJECT_NAME}
+		sophus
+		ecl_build
+		ecl_eigen
+		ecl_exceptions
+		ecl_formatters
+		ecl_math)
+
+    target_link_libraries(ecl_test_linear_algebra_${test_name} ${PROJECT_NAME})
     # Hack just to make sure our tests pass if we're using external eigen3
     # Note that this is covered for dependant packages
     # in the manifest.xml externally via a hunt for pkg-config
@@ -22,4 +30,3 @@ endmacro()
 ecl_linear_algebra_add_gtest(plugin)
 ecl_linear_algebra_add_gtest(formatters)
 ecl_linear_algebra_add_gtest(interpolators)
-

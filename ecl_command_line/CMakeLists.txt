@@ -2,17 +2,20 @@
 # Cmake
 ##############################################################################
 
-cmake_minimum_required(VERSION 2.8.3)
+cmake_minimum_required(VERSION 3.5)
 project(ecl_command_line)
 
 ##############################################################################
-# Catkin
+# Ament
 ##############################################################################
 
-find_package(catkin)
-catkin_package(
-        INCLUDE_DIRS include
-        )
+find_package(ament_cmake REQUIRED)
+
+include_directories(
+  include
+)
+
+ament_export_include_directories(include)
 
 ##############################################################################
 # Actual project configuration
@@ -21,5 +24,4 @@ catkin_package(
 add_subdirectory(include)
 add_subdirectory(src)
 
-
-
+ament_package()
