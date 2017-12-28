@@ -28,7 +28,7 @@ SET(SOURCES
 # Install
 ###############################################################################
 
-add_library(${PROJECT_NAME} ${SOURCES})
+add_library(${PROJECT_NAME} SHARED ${SOURCES})
 
 ament_target_dependencies(${PROJECT_NAME}
 	ecl_config

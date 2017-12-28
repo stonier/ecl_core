@@ -10,7 +10,7 @@ SET(SOURCES
 # Install
 ###############################################################################
 
-add_library(${PROJECT_NAME} ${SOURCES})
+add_library(${PROJECT_NAME} SHARED ${SOURCES})
 target_link_libraries(${PROJECT_NAME} ${ECL_PLATFORM_FILESYSTEM_LIBRARIES})
 ament_target_dependencies(${PROJECT_NAME} ecl_config ecl_errors)
 

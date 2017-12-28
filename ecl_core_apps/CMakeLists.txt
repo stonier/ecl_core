@@ -34,6 +34,7 @@ find_package(ecl_time_lite REQUIRED)
 
 include_directories(include)
 ecl_enable_cxx11_compiler()
+SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-deprecated-declarations")
 
 ##############################################################################
 # Sources

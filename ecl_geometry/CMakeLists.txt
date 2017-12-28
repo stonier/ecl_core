@@ -27,6 +27,7 @@ find_package(ecl_mpl REQUIRED)
 ##############################################################################
 
 ecl_enable_cxx11_compiler()
+SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-deprecated-declarations")
 include_directories(include)
 
 ##############################################################################

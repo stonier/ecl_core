@@ -12,10 +12,10 @@
 #define ECL_EIGEN_HPP_
 
 /* #undef ECL_EIGEN_IS_INTERNAL_3_1_2 */
-#define ECL_EIGEN_IS_EXTERNAL
+/* #undef ECL_EIGEN_IS_EXTERNAL */
 
 /* #undef ECL_EIGEN_IS_INTERNAL_3_2_1 */
-#define ECL_EIGEN_IS_EXTERNAL
+/* #undef ECL_EIGEN_IS_EXTERNAL */
 
 #endif /* ECL_EIGEN_HPP_ */
 

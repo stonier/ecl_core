@@ -8,7 +8,7 @@ file(GLOB SOURCES RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} *.cpp)
 # INSTALL
 ###############################################################################
 
-add_library(ecl_streams ${SOURCES})
+add_library(ecl_streams SHARED ${SOURCES})
 ament_target_dependencies(${PROJECT_NAME}
 	ecl_errors
 	ecl_concepts

@@ -24,8 +24,6 @@ if(NOT Eigen_FOUND)
   set(Eigen_INCLUDE_DIR ${EIGEN3_INCLUDE_DIR})
 endif()
 include_directories(${Eigen_INCLUDE_DIR})
-message(STATUS "=======> ${Eigen_INCLUDE_DIR}")
-
 
 ##############################################################################
 # Project Configuration
