@@ -7,7 +7,7 @@ macro(ecl_time_add_example name)
   add_executable(${target_name} ${name}.cpp)
   target_link_libraries(${target_name} ${PROJECT_NAME})
   set_target_properties(${target_name} PROPERTIES OUTPUT_NAME demo_${name})
-  install(TARGETS ${target_name} RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
+  install(TARGETS ${target_name} RUNTIME DESTINATION bin)
 endmacro()
 
 ###############################################################################

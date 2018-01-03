@@ -3,7 +3,6 @@
 ##############################################################################
 
 add_executable(demo_float_converters float_converters.cpp)
-target_link_libraries(demo_float_converters ${catkin_LIBRARIES})
-install(TARGETS demo_float_converters RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
+ament_target_dependencies(demo_float_converters ecl_exceptions ecl_mpl)
 
-#target_link_libraries(demo_exceptions ${PROJECT_NAME})
+install(TARGETS demo_float_converters RUNTIME DESTINATION lib)

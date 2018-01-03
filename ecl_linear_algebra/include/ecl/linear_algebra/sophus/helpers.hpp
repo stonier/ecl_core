@@ -53,7 +53,7 @@ namespace Sophus {
 *****************************************************************************/
 
 template<typename T>
-std::ostream & operator << ( std::ostream & out, const SE3Group<T> & se3 )
+std::ostream & operator << ( std::ostream & out, const SO3<T> & se3 )
 {
 //  typename SE3Group<T>::Tangent tanget_vector = SE3Group<T>::log( se3 );
 //  out << tanget_vector.transpose();
@@ -64,9 +64,9 @@ std::ostream & operator << ( std::ostream & out, const SE3Group<T> & se3 )
 }
 
 template<typename T>
-std::ostream & operator << ( std::ostream & out, const SE2Group<T> & se2 )
+std::ostream & operator << ( std::ostream & out, const SO2<T> & se2 )
 {
-  typename SE2Group<T>::Tangent tanget_vector = SE2Group<T>::log( se2 );
+  typename SO2<T>::Tangent tanget_vector = SO2<T>::log( se2 );
   out << tanget_vector.transpose();
   return out;
 }

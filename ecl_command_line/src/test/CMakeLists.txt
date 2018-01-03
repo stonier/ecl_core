@@ -3,4 +3,4 @@
 ###############################################################################
 
 # Currently broken.
-#catkin_add_gtest(test_command_line command_line.cpp)
+#ament_add_gtest(test_command_line command_line.cpp)

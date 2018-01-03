@@ -1,12 +1,13 @@
 <?xml version="1.0"?>
-<package>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
   <name>ecl_converters</name>
   <version>0.61.18</version>
   <description>
      Some fast/convenient type converters, mostly for char strings or strings.
      These are not really fully fleshed out, alot of them could use the addition for
      the whole range of fundamental types (e.g. all integers, not just int, unsigned int).
-     
+
      They will come as the need arises.
   </description>
   <maintainer email="d.stonier@gmail.com">Daniel Stonier</maintainer>
@@ -16,7 +17,7 @@
   <url type="bugtracker">https://github.com/stonier/ecl_core/issues</url>
   <author email="d.stonier@gmail.com">Daniel Stonier</author> -->
 
-  <buildtool_depend>catkin</buildtool_depend>
+  <buildtool_depend>ament_cmake</buildtool_depend>
   <build_depend>ecl_license</build_depend>
   <build_depend>ecl_config</build_depend>
   <build_depend>ecl_errors</build_depend>
@@ -24,14 +25,17 @@
   <build_depend>ecl_mpl</build_depend>
   <build_depend>ecl_type_traits</build_depend>
   <build_depend>ecl_concepts</build_depend>
-  
-  <run_depend>ecl_license</run_depend>
-  <run_depend>ecl_config</run_depend>
-  <run_depend>ecl_errors</run_depend>
-  <run_depend>ecl_exceptions</run_depend>
-  <run_depend>ecl_mpl</run_depend>
-  <run_depend>ecl_type_traits</run_depend>
-  <run_depend>ecl_concepts</run_depend>
+
+  <exec_depend>ecl_license</exec_depend>
+  <exec_depend>ecl_config</exec_depend>
+  <exec_depend>ecl_errors</exec_depend>
+  <exec_depend>ecl_exceptions</exec_depend>
+  <exec_depend>ecl_mpl</exec_depend>
+  <exec_depend>ecl_type_traits</exec_depend>
+  <exec_depend>ecl_concepts</exec_depend>
+
+	<export>
+		<build_type>ament_cmake</build_type>
+  </export>
+
 </package>
-
-

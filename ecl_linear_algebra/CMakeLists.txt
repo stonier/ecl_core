@@ -2,48 +2,35 @@
 # Cmake
 ##############################################################################
 
-cmake_minimum_required(VERSION 2.8.3)
+cmake_minimum_required(VERSION 3.5)
 project(ecl_linear_algebra)
 
 ##############################################################################
-# Catkin
+# Ament
 ##############################################################################
 
-find_package(catkin
-    REQUIRED
-    COMPONENTS
-        ecl_build
-        ecl_eigen
-        ecl_exceptions
-        ecl_formatters
-        ecl_math
-)
-
+find_package(ament_cmake REQUIRED)
+find_package(ecl_build REQUIRED)
+find_package(ecl_eigen REQUIRED)
+find_package(ecl_exceptions REQUIRED)
+find_package(ecl_formatters REQUIRED)
+find_package(ecl_math REQUIRED)
 find_package(sophus REQUIRED)
 
-##############################################################################
-# Exports
-##############################################################################
 
-catkin_package(
-    INCLUDE_DIRS include
-    LIBRARIES ${PROJECT_NAME}
-	CATKIN_DEPENDS
-	    ecl_build
-        ecl_eigen
-        ecl_exceptions
-        ecl_formatters
-        ecl_math
-    DEPENDS
-        sophus
-    )
+find_package(Eigen 3 QUIET)
+if(NOT Eigen_FOUND)
+  include(${PROJ_SOURCE_DIR}cfg/FindEigen3.cmake)
+  set(Eigen_INCLUDE_DIR ${EIGEN3_INCLUDE_DIR})
+endif()
+include_directories(${Eigen_INCLUDE_DIR})
 
 ##############################################################################
 # Project Configuration
 ##############################################################################
 
 ecl_enable_cxx11_compiler()
-include_directories(include ${catkin_INCLUDE_DIRS} ${sophus_INCLUDE_DIRS})
+include_directories(include ${sophus_INCLUDE_DIRS} ${Eigen_INCLUDE_DIR})
 
 ##############################################################################
 # Sources
@@ -52,5 +39,16 @@ include_directories(include ${catkin_INCLUDE_DIRS} ${sophus_INCLUDE_DIRS})
 add_subdirectory(include)
 add_subdirectory(src)
 
+ament_export_libraries(${PROJECT_NAME})
 
+ament_export_include_directories(include)
+ament_export_dependencies(
+	sophus
+	ecl_build
+	ecl_eigen
+	ecl_exceptions
+	ecl_formatters
+	ecl_math
+	)
 
+ament_package()

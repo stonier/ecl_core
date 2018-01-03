@@ -1,12 +1,13 @@
 <?xml version="1.0"?>
-<package>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
   <name>ecl_ipc</name>
   <version>0.61.18</version>
   <description>
   Interprocess mechanisms vary greatly across platforms - sysv, posix, win32, there
-  are more than a few. This package provides an infrastructure to allow for developing 
-  cross platform c++ wrappers around the lower level c api's that handle these 
-  mechanisms. These make it not only easier to utilise such mechanisms, but allow it 
+  are more than a few. This package provides an infrastructure to allow for developing
+  cross platform c++ wrappers around the lower level c api's that handle these
+  mechanisms. These make it not only easier to utilise such mechanisms, but allow it
   to be done consistently across platforms.
   </description>
   <maintainer email="d.stonier@gmail.com">Daniel Stonier</maintainer>
@@ -16,7 +17,7 @@
   <url type="bugtracker">https://github.com/stonier/ecl_core/issues</url>
   <author email="d.stonier@gmail.com">Daniel Stonier</author> -->
 
-  <buildtool_depend>catkin</buildtool_depend>
+  <buildtool_depend>ament_cmake</buildtool_depend>
   <build_depend>ecl_license</build_depend>
   <build_depend>ecl_build</build_depend>
   <build_depend>ecl_config</build_depend>
@@ -24,14 +25,17 @@
   <build_depend>ecl_time_lite</build_depend>
   <build_depend>ecl_exceptions</build_depend>
   <build_depend>ecl_time</build_depend>
-  
-  <run_depend>ecl_license</run_depend>
-  <run_depend>ecl_build</run_depend>
-  <run_depend>ecl_config</run_depend>
-  <run_depend>ecl_errors</run_depend>
-  <run_depend>ecl_time_lite</run_depend>
-  <run_depend>ecl_exceptions</run_depend>
-  <run_depend>ecl_time</run_depend>
+
+  <exec_depend>ecl_license</exec_depend>
+  <exec_depend>ecl_build</exec_depend>
+  <exec_depend>ecl_config</exec_depend>
+  <exec_depend>ecl_errors</exec_depend>
+  <exec_depend>ecl_time_lite</exec_depend>
+  <exec_depend>ecl_exceptions</exec_depend>
+  <exec_depend>ecl_time</exec_depend>
+
+	<export>
+		<build_type>ament_cmake</build_type>
+	</export>
+
 </package>
-
-
