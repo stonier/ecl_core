@@ -111,12 +111,7 @@ private:
     unsigned long b = ::time(NULL);
 
 #if defined(ECL_IS_WIN32)
-#define ECL_IS_WIN32_ONECORE
-#ifndef ECL_IS_WIN32_ONECORE
-	unsigned long c = _getpid();
-#else
 	unsigned long c = GetCurrentProcessId();
-#endif
 #else
 	unsigned long c = getpid();
 #endif

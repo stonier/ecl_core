@@ -14,9 +14,6 @@ macro(ecl_time_add_example name)
   )
   set_target_properties(${target_name} PROPERTIES OUTPUT_NAME demo_${name})
   install(TARGETS ${target_name} RUNTIME DESTINATION bin)
-
-  message("asdfasdf ${ecl_time_lite_LIBRARIES}")
-
 endmacro()
 
 ###############################################################################
