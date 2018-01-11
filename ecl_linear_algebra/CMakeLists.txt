@@ -17,7 +17,6 @@ find_package(ecl_formatters REQUIRED)
 find_package(ecl_math REQUIRED)
 
 find_package(sophus REQUIRED)
-message("sophus: ${sophus_INCLUDE_DIRS} </end>")
 
 
 ##############################################################################
