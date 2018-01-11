@@ -17,6 +17,8 @@ find_package(ecl_formatters REQUIRED)
 find_package(ecl_math REQUIRED)
 
 find_package(sophus REQUIRED)
+message("sophus: ${sophus_INCLUDE_DIRS} </end>")
+
 
 ##############################################################################
 # Project Configuration
@@ -41,4 +43,5 @@ add_subdirectory(src)
 
 
 ament_export_include_directories(include)
+ament_export_libraries(${PROJECT_NAME})
 ament_package()
