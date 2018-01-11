@@ -31,8 +31,6 @@ include_directories(include
   ${ecl_errors_INCLUDE_DIRS}
   )
 
-message("asdfadfafda ${PROJECT_BINARY_DIR}/include")
-
 ##############################################################################
 # Actual project configuration
 ##############################################################################
@@ -42,4 +40,5 @@ add_subdirectory(src)
 
 
 ament_export_include_directories(include)
+ament_export_libraries(${PROJECT_NAME})
 ament_package()

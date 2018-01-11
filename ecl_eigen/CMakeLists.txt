@@ -64,10 +64,6 @@ configure_file(
   ${CMAKE_CURRENT_SOURCE_DIR}/include/ecl/eigen.hpp.in 
   ${PROJECT_BINARY_DIR}/include/ecl/eigen.hpp
 )
-message(STATUS "install FILES ${PROJECT_BINARY_DIR}/include/ecl/eigen.hpp ...")
-
-ament_export_include_directories(include)
-ament_package()
 
 install(
   FILES ${PROJECT_BINARY_DIR}/include/ecl/eigen.hpp
@@ -76,12 +72,15 @@ install(
 
 install(
   DIRECTORY include/eigen3.1.2/Eigen
-  DESTINATION include
+  DESTINATION include/ecl
 )
 
 ##############################################################################
 # Actual project configuration
 ##############################################################################
 
-#add_subdirectory(include)
-#add_subdirectory(license)
+add_subdirectory(include)
+add_subdirectory(license)
+
+ament_export_include_directories(include/ecl)
+ament_package()
