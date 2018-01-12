@@ -70,10 +70,10 @@ install(
   DESTINATION include/ecl
 )
 
-#install(
-#  DIRECTORY include/eigen3.1.2/Eigen
-#  DESTINATION include/ecl
-#)
+install(
+  DIRECTORY include/eigen3.1.2/Eigen
+  DESTINATION include/ecl
+)
 
 ##############################################################################
 # Actual project configuration
@@ -82,6 +82,5 @@ install(
 add_subdirectory(include)
 add_subdirectory(license)
 
-ament_export_include_directories(include)
-ament_export_libraries(${PROJECT_NAME})
+ament_export_include_directories(include/ecl)
 ament_package()

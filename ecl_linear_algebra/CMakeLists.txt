@@ -18,7 +18,6 @@ find_package(ecl_math REQUIRED)
 
 find_package(sophus REQUIRED)
 
-
 ##############################################################################
 # Project Configuration
 ##############################################################################
@@ -30,6 +29,7 @@ include_directories(include
   ${ecl_exceptions_INCLUDE_DIRS}
   ${ecl_formatters_INCLUDE_DIRS}
   ${ecl_math_INCLUDE_DIRS}
+  ${Eigen3_INCLUDE_DIRS}
   ${sophus_INCLUDE_DIRS}
   )
 
@@ -42,5 +42,6 @@ add_subdirectory(src)
 
 
 ament_export_include_directories(include)
+ament_export_dependencies(ecl_eigen)
 ament_export_libraries(${PROJECT_NAME})
 ament_package()

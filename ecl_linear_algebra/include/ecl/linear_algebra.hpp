@@ -16,6 +16,11 @@
 #ifndef ECL_LINEAR_ALGEBRA_HPP_
 #define ECL_LINEAR_ALGEBRA_HPP_
 
+#ifdef _MSC_VER
+#define _USE_MATH_DEFINES
+#include <math.h> // M_PI
+#endif // _MSC_VER
+
 #include "linear_algebra/eigen.hpp"
 #include "linear_algebra/sophus.hpp"
 

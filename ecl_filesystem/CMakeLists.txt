@@ -31,8 +31,6 @@ include_directories(include
   ${ecl_errors_INCLUDE_DIRS}
   )
 
-message("asdfadfafda ${PROJECT_BINARY_DIR}/include")
-
 ##############################################################################
 # Actual project configuration
 ##############################################################################

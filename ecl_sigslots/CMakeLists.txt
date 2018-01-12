@@ -13,8 +13,6 @@ find_package(ament_cmake REQUIRED)
 find_package(ecl_config REQUIRED)
 find_package(ecl_threads REQUIRED)
 
-message("aaa ${ecl_threads_INCLUDE_DIRS} bb ${ecl_threads_LIBRARIES} ccc")
-
 include_directories(include 
   ${ecl_config_INCLUDE_DIRS}
   ${ecl_threads_INCLUDE_DIRS}
@@ -29,5 +27,4 @@ add_subdirectory(src)
 
 
 ament_export_include_directories(include)
-ament_export_libraries(${PROJECT_NAME})
 ament_package()
