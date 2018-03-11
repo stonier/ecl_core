@@ -20,9 +20,8 @@ find_package(ecl_time_lite REQUIRED)
 # Project configuration
 ##############################################################################
 
-
 ecl_enable_cxx11_compiler()
-include_directories(include 
+include_directories(include
   ${ecl_build_INCLUDE_DIRS}
   ${ecl_config_INCLUDE_DIRS}
   ${ecl_errors_INCLUDE_DIRS}
@@ -37,8 +36,16 @@ include_directories(include
 add_subdirectory(include)
 add_subdirectory(src)
 
+##############################################################################
+# Exports
+##############################################################################
 
 ament_export_include_directories(include)
 ament_export_libraries(${PROJECT_NAME})
-ament_export_dependencies(ecl_time_lite)
+ament_export_dependencies(
+    ecl_config
+    ecl_errors
+    ecl_exceptions
+    ecl_time_lite
+)
 ament_package()

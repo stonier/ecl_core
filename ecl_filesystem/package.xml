@@ -18,13 +18,16 @@
   <build_depend>ecl_build</build_depend>
   <build_depend>ecl_config</build_depend>
   <build_depend>ecl_errors</build_depend>
-  <build_depend>ecl_exceptions</build_depend>
-  
+
   <exec_depend>ecl_license</exec_depend>
   <exec_depend>ecl_build</exec_depend>
   <exec_depend>ecl_config</exec_depend>
   <exec_depend>ecl_errors</exec_depend>
-  <exec_depend>ecl_exceptions</exec_depend>
+
+  <test_depend>ament_cmake_gtest</test_depend>
+  <test_depend>ament_lint_auto</test_depend>
+  <test_depend>ament_lint_common</test_depend>
+
   <export>
     <build_type>ament_cmake</build_type>
   </export>

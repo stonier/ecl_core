@@ -57,4 +57,5 @@
 			<resource resourceType="PROJECT" workspacePath="/ecl_filesystem"/>
 		</configuration>
 	</storageModule>
+	<storageModule moduleId="org.eclipse.cdt.make.core.buildtargets"/>
 </cproject>

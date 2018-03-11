@@ -6,7 +6,7 @@ cmake_minimum_required(VERSION 3.5)
 project(ecl_filesystem)
 
 ##############################################################################
-# Thread Detection
+# Find Packages
 ##############################################################################
 
 find_package(ament_cmake REQUIRED)
@@ -21,24 +21,26 @@ find_package(ecl_errors REQUIRED)
 ecl_detect_filesystem()
 
 ##############################################################################
-# ament
+# Project Configuration
 ##############################################################################
 
-include_directories(include 
+include_directories(include
   ${PROJECT_BINARY_DIR}/include
-  ${ecl_build_INCLUDE_DIRS}
   ${ecl_config_INCLUDE_DIRS}
   ${ecl_errors_INCLUDE_DIRS}
   )
 
-##############################################################################
-# Actual project configuration
-##############################################################################
-
 add_subdirectory(include)
 add_subdirectory(src)
 
+##############################################################################
+# Exports
+##############################################################################
 
 ament_export_include_directories(include)
 ament_export_libraries(${PROJECT_NAME})
+ament_export_dependencies(
+    ecl_config
+    ecl_errors
+)
 ament_package()

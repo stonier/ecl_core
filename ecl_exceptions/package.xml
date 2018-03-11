@@ -19,10 +19,11 @@
   <build_depend>ecl_license</build_depend>
   <build_depend>ecl_config</build_depend>
   <build_depend>ecl_errors</build_depend>
-  
+
   <exec_depend>ecl_license</exec_depend>
   <exec_depend>ecl_config</exec_depend>
   <exec_depend>ecl_errors</exec_depend>
+
   <export>
     <build_type>ament_cmake</build_type>
   </export>

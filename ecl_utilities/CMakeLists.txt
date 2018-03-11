@@ -6,24 +6,32 @@ cmake_minimum_required(VERSION 3.5)
 project(ecl_utilities)
 
 ##############################################################################
-# ament
+# Find Packages
 ##############################################################################
 
 find_package(ament_cmake REQUIRED)
-find_package(ecl_mpl REQUIRED)
 find_package(ecl_concepts REQUIRED)
-include_directories(include 
-  ${ecl_mpl_INCLUDE_DIRS}
-  ${ecl_concepts_INCLUDE_DIRS}
-  )
+find_package(ecl_mpl REQUIRED)
 
 ##############################################################################
-# Actual project configuration
+# Project Configuration
 ##############################################################################
+
+include_directories(include
+  ${ecl_concepts_INCLUDE_DIRS}
+  ${ecl_mpl_INCLUDE_DIRS}
+  )
 
 add_subdirectory(include)
 add_subdirectory(src)
 
+##############################################################################
+# Exports
+##############################################################################
 
 ament_export_include_directories(include)
+ament_export_dependencies(
+    ecl_concepts
+    ecl_mpl
+)
 ament_package()

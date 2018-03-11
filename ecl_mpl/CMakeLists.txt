@@ -6,7 +6,7 @@ cmake_minimum_required(VERSION 3.5)
 project(ecl_mpl)
 
 ##############################################################################
-# ament
+# Ament
 ##############################################################################
 
 find_package(ament_cmake REQUIRED)
@@ -17,7 +17,6 @@ find_package(ament_cmake REQUIRED)
 
 add_subdirectory(include)
 add_subdirectory(src)
-
 
 ament_export_include_directories(include)
 ament_package()
