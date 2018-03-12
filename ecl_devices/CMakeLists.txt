@@ -12,12 +12,12 @@ project(ecl_devices)
 find_package(ament_cmake REQUIRED)
 find_package(ecl_build REQUIRED)
 find_package(ecl_config REQUIRED)
+find_package(ecl_containers REQUIRED)
 find_package(ecl_errors REQUIRED)
 find_package(ecl_mpl REQUIRED)
+find_package(ecl_threads REQUIRED)
 find_package(ecl_type_traits REQUIRED)
 find_package(ecl_utilities REQUIRED)
-find_package(ecl_containers REQUIRED)
-find_package(ecl_threads REQUIRED)
 
 
 ##############################################################################
@@ -27,13 +27,13 @@ find_package(ecl_threads REQUIRED)
 ecl_enable_cxx14_compiler()
 
 include_directories(include
-  ${ecl_build_INCLUDE_DIRS}
   ${ecl_config_INCLUDE_DIRS}
+  ${ecl_containers_INCLUDE_DIRS}
   ${ecl_errors_INCLUDE_DIRS}
   ${ecl_mpl_INCLUDE_DIRS}
+  ${ecl_threads_INCLUDE_DIRS}
   ${ecl_type_traits_INCLUDE_DIRS}
   ${ecl_utilities_INCLUDE_DIRS}
-  ${ecl_containers_INCLUDE_DIRS}
   )
 
 ##############################################################################
@@ -54,6 +54,7 @@ ament_export_dependencies(
     ecl_containers
     ecl_errors
     ecl_mpl
+    ecl_threads
     ecl_type_traits
     ecl_utilities
 )
