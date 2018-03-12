@@ -44,7 +44,7 @@ class A {
 public:
 	A() : f_count(0), g_count(0) {}
 
-	void f(const int &i) {
+	void f(const int &/*i*/) {
 //	    std::cout << "  Member function with argument: " << i << std::endl;;
 		f_count++;
 	}
@@ -62,7 +62,7 @@ public:
 static int f_count = 0;
 static int g_count = 0;
 
-void f(const int &i)
+void f(const int &/*i*/)
 {
 	f_count++;
 //    std::cout << "  Global function with argument: " << i << std::endl;;

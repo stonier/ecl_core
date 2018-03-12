@@ -26,7 +26,6 @@ ecl_enable_cxx14_compiler()
 
 ecl_detect_threads()
 
-set (thread_INCLUDE_DIRS "" CACHE STRING "Platform thread include directories")
 if(ECL_PLATFORM_HAS_POSIX_THREADS)
   set (thread_LIBRARIES "pthread" CACHE STRING "Platform thread libraries")
 else()
@@ -56,6 +55,9 @@ add_subdirectory(src)
 
 ament_export_include_directories(include)
 ament_export_libraries(${PROJECT_NAME})
+if(ECL_PLATFORM_HAS_POSIX_THREADS)
+  ament_export_link_flags(pthread)
+endif()
 ament_export_dependencies(
     ecl_config
     ecl_errors
@@ -63,6 +65,5 @@ ament_export_dependencies(
     ecl_exceptions
     ecl_time
     ecl_utilities
-    thread
 )
 ament_package()
