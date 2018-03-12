@@ -15,53 +15,30 @@ find_package(ament_cmake REQUIRED)
 # Internal vs External Eigen
 ##############################################################################
 
-file(MAKE_DIRECTORY ${PROJECT_BINARY_DIR}/include)
+# Internal eigen logic is quite broken since ament, surgically removed for now
+# Leaving the infrastructure in place though, in case we should need to make
+# use of it again
 
-
-if(DEFINED ECL_EIGEN_IS_INTERNAL_3_2_1)
-    message(STATUS "Using ecl's internal eigen 3.2.1.")
-    #ament_package(
-    #        INCLUDE_DIRS include;${PROJECT_BINARY_DIR}/include;include/eigen3.2.1;include/eigen3.2.1/Eigen   # the second directory ensures the unsupported modules are available
-    #        )
-elseif(DEFINED ECL_EIGEN_IS_INTERNAL_3_1_2)
-#    set(ECL_EIGEN_IS_INTERNAL_3_1_2 1)
-    message(STATUS "Using ecl's internal eigen.")
-    include_directories(
-        include
-        ${PROJECT_BINARY_DIR}/include
-        include/eigen3.1.2
-        include/eigen3.1.2/Eigen
-    )
-    #ament_package(
-    #        INCLUDE_DIRS include;${PROJECT_BINARY_DIR}/include;include/eigen3.1.2;include/eigen3.1.2/Eigen   # the second directory ensures the unsupported modules are available
-    #        )
-else()
-    find_package(Eigen3)
+find_package(Eigen3)
+if(EIGEN3_FOUND)
     set(ECL_EIGEN_IS_EXTERNAL 1 CACHE BOOL "Using the system's eigen3 implementation.")
-    if(EIGEN3_FOUND)
-        # On trusty, it sets EIGEN3_INCLUDE_DIR but not EIGEN3_INCLUDE_DIRS (xenial is fine), so help it
-        if(NOT EIGEN3_INCLUDE_DIRS)
-          set(EIGEN3_INCLUDE_DIRS ${EIGEN3_INCLUDE_DIR})
-        endif()
-        #ament_package(
-        #    INCLUDE_DIRS include;${PROJECT_BINARY_DIR}/include
-        #    DEPENDS EIGEN3
-        #)
-    else()
-        message(STATUS "Eigen not found...using ecl's internal eigen.")
-        set(ECL_EIGEN_IS_INTERNAL_3_1_2 1 CACHE BOOL "Using ecl's internal eigen implementation version 3.1.2")
-        #ament_package(
-        #    INCLUDE_DIRS ${PROJECT_BINARY_DIR}/include;include/eigen3.1.2;include/eigen3.1.2/Eigen   # the second directory ensures the unsupported modules are available
-        #)
+    # On trusty, it sets EIGEN3_INCLUDE_DIR but not EIGEN3_INCLUDE_DIRS (xenial is fine), so help it
+    if(NOT EIGEN3_INCLUDE_DIRS)
+      set(EIGEN3_INCLUDE_DIRS ${EIGEN3_INCLUDE_DIR})
     endif()
+else()
+    message(STATUS "Eigen not found...using ecl's internal eigen.")
+    set(ECL_EIGEN_IS_EXTERNAL 0 CACHE BOOL "Using the system's eigen3 implementation.")
 endif()
 
 ##############################################################################
-# Configure header macros
+# Project Configuration
 ##############################################################################
 
+file(MAKE_DIRECTORY ${PROJECT_BINARY_DIR}/include)
+
 configure_file(
-  ${CMAKE_CURRENT_SOURCE_DIR}/include/ecl/eigen.hpp.in 
+  ${CMAKE_CURRENT_SOURCE_DIR}/include/ecl/eigen.hpp.in
   ${PROJECT_BINARY_DIR}/include/ecl/eigen.hpp
 )
 
@@ -70,17 +47,19 @@ install(
   DESTINATION include/ecl
 )
 
-install(
-  DIRECTORY include/eigen3.1.2/Eigen
-  DESTINATION include/ecl
-)
-
 ##############################################################################
-# Actual project configuration
+# Sources
 ##############################################################################
 
 add_subdirectory(include)
 add_subdirectory(license)
 
+##############################################################################
+# Export
+##############################################################################
+
 ament_export_include_directories(include/ecl)
+ament_export_dependencies(
+    Eigen3
+)
 ament_package()

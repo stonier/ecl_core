@@ -47,14 +47,15 @@ add_subdirectory(src)
 
 
 ament_export_include_directories(include)
-ament_export_dependencies(ecl_build)
-ament_export_dependencies(ecl_config)
-ament_export_dependencies(ecl_type_traits)
-ament_export_dependencies(ecl_containers)
-ament_export_dependencies(ecl_formatters)
-ament_export_dependencies(ecl_linear_algebra)
-ament_export_dependencies(ecl_exceptions)
-ament_export_dependencies(ecl_math)
-ament_export_dependencies(ecl_mpl)
 ament_export_libraries(${PROJECT_NAME})
+ament_export_dependencies(
+    ecl_config
+    ecl_containers
+    ecl_exceptions
+    ecl_formatters
+    ecl_math
+    ecl_mpl
+    ecl_linear_algebra
+    ecl_type_traits
+)
 ament_package()

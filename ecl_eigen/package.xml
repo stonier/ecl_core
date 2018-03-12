@@ -13,8 +13,11 @@
   <author email="d.stonier@gmail.com">Daniel Stonier</author> -->
 
   <buildtool_depend>ament_cmake</buildtool_depend>
+
   <build_depend>eigen</build_depend>
+
   <exec_depend>eigen</exec_depend>
+
   <export>
     <build_type>ament_cmake</build_type>
   </export>
