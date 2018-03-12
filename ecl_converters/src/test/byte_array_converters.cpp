@@ -105,6 +105,8 @@ TEST(Converter,toByteArrayFailedSize) {
     if ( result.flag() == ecl::ConversionError ) {
       SUCCEED();
     } else {
+      std::cout << "Result Flag: " << result.flag() << std::endl;
+      std::cout << "ConversionError: " << ecl::ConversionError << std::endl;
       FAIL();
     }
   #endif

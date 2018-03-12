@@ -31,6 +31,7 @@ namespace converters {
 class ConverterBase {
 public:
 	ConverterBase() : error_handler(ecl::NoError) {};
+	virtual ~ConverterBase() {}  /** @brief Required virtual destructor **/
 	virtual Error error() const { return error_handler; }
 protected:
 	Error error_handler;

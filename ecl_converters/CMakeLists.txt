@@ -12,11 +12,11 @@ project(ecl_converters)
 find_package(ament_cmake REQUIRED)
 find_package(ecl_build REQUIRED)
 find_package(ecl_config REQUIRED)
-find_package(ecl_mpl REQUIRED)
+find_package(ecl_concepts REQUIRED)
 find_package(ecl_errors REQUIRED)
 find_package(ecl_exceptions REQUIRED)
+find_package(ecl_mpl REQUIRED)
 find_package(ecl_type_traits REQUIRED)
-find_package(ecl_concepts REQUIRED)
 
 ##############################################################################
 # Platform Configuration
@@ -25,12 +25,12 @@ find_package(ecl_concepts REQUIRED)
 ecl_enable_cxx14_compiler()
 
 include_directories(include
+  ${ecl_concepts_INCLUDE_DIRS}
   ${ecl_config_INCLUDE_DIRS}
-  ${ecl_mpl_INCLUDE_DIRS}
   ${ecl_errors_INCLUDE_DIRS}
   ${ecl_exceptions_INCLUDE_DIRS}
+  ${ecl_mpl_INCLUDE_DIRS}
   ${ecl_type_traits_INCLUDE_DIRS}
-  ${ecl_concepts_INCLUDE_DIRS}
   )
 
 ##############################################################################
