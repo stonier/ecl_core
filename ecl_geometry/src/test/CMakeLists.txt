@@ -3,7 +3,7 @@
 ###############################################################################
 
 macro(ecl_add_gtest TESTNAME)
-  catkin_add_gtest(ecl_test_${TESTNAME} ${TESTNAME}.cpp)
+  ament_add_gtest(ecl_test_${TESTNAME} ${TESTNAME}.cpp)
   if(TARGET ecl_test_${TESTNAME})
     target_link_libraries(ecl_test_${TESTNAME} ${PROJECT_NAME}
       ${ecl_build_LIBRARIES}
