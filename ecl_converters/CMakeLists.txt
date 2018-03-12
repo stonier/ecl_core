@@ -45,4 +45,12 @@ add_subdirectory(src)
 ##############################################################################
 
 ament_export_include_directories(include)
+ament_export_dependencies(
+    ecl_concepts
+    ecl_config
+    ecl_errors
+    ecl_exceptions
+    ecl_mpl
+    ecl_type_traits
+)
 ament_package()

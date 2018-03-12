@@ -12,10 +12,10 @@ project(ecl_containers)
 find_package(ament_cmake REQUIRED)
 find_package(ecl_build REQUIRED)
 find_package(ecl_config REQUIRED)
+find_package(ecl_converters REQUIRED)
 find_package(ecl_errors REQUIRED)
 find_package(ecl_exceptions REQUIRED)
 find_package(ecl_formatters REQUIRED)
-find_package(ecl_converters REQUIRED)
 find_package(ecl_mpl REQUIRED)
 find_package(ecl_type_traits REQUIRED)
 find_package(ecl_utilities REQUIRED)
@@ -28,10 +28,10 @@ ecl_enable_cxx14_compiler()
 
 include_directories(include
   ${ecl_config_INCLUDE_DIRS}
+  ${ecl_converters_INCLUDE_DIRS}
   ${ecl_errors_INCLUDE_DIRS}
   ${ecl_exceptions_INCLUDE_DIRS}
   ${ecl_formatters_INCLUDE_DIRS}
-  ${ecl_converters_INCLUDE_DIRS}
   ${ecl_mpl_INCLUDE_DIRS}
   ${ecl_type_traits_INCLUDE_DIRS}
   ${ecl_utilities_INCLUDE_DIRS}
@@ -49,4 +49,14 @@ add_subdirectory(src)
 ##############################################################################
 
 ament_export_include_directories(include)
+ament_export_dependencies(
+    ecl_config
+    ecl_converters
+    ecl_errors
+    ecl_exceptions
+    ecl_formatters
+    ecl_mpl
+    ecl_type_traits
+    ecl_utilities
+)
 ament_package()
