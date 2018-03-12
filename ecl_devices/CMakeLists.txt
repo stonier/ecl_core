@@ -6,7 +6,7 @@ cmake_minimum_required(VERSION 3.5)
 project(ecl_devices)
 
 ##############################################################################
-# ament
+# Find Packages
 ##############################################################################
 
 find_package(ament_cmake REQUIRED)
@@ -19,6 +19,13 @@ find_package(ecl_utilities REQUIRED)
 find_package(ecl_containers REQUIRED)
 find_package(ecl_threads REQUIRED)
 
+
+##############################################################################
+# Project Configuration
+##############################################################################
+
+ecl_enable_cxx14_compiler()
+
 include_directories(include
   ${ecl_build_INCLUDE_DIRS}
   ${ecl_config_INCLUDE_DIRS}
@@ -30,21 +37,24 @@ include_directories(include
   )
 
 ##############################################################################
-# Actual project configuration
+# Sources
 ##############################################################################
-
-ecl_enable_cxx11_compiler()
 
 add_subdirectory(include)
 add_subdirectory(src)
 
+##############################################################################
+# Exports
+##############################################################################
 
 ament_export_include_directories(include)
-ament_export_dependencies(ecl_errors)
-ament_export_dependencies(ecl_mpl)
-ament_export_dependencies(ecl_type_traits)
-ament_export_dependencies(ecl_utilities)
-ament_export_dependencies(ecl_containers)
-ament_export_dependencies(ecl_threads)
 ament_export_libraries(${PROJECT_NAME})
+ament_export_dependencies(
+    ecl_config
+    ecl_containers
+    ecl_errors
+    ecl_mpl
+    ecl_type_traits
+    ecl_utilities
+)
 ament_package()

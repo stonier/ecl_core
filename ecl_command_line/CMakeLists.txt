@@ -10,14 +10,26 @@ project(ecl_command_line)
 ##############################################################################
 
 find_package(ament_cmake REQUIRED)
+find_package(ecl_build REQUIRED)
+
+##############################################################################
+# Project Configuration
+##############################################################################
+
+ecl_enable_cxx14_compiler()
+
 include_directories(include)
 
 ##############################################################################
-# Actual project configuration
+# Sources
 ##############################################################################
 
 add_subdirectory(include)
 add_subdirectory(src)
+
+##############################################################################
+# Exports
+##############################################################################
 
 ament_export_include_directories(include)
 ament_package()

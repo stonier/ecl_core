@@ -10,12 +10,15 @@ project(ecl_exceptions)
 ##############################################################################
 
 find_package(ament_cmake REQUIRED)
+find_package(ecl_build REQUIRED)
 find_package(ecl_config REQUIRED)
 find_package(ecl_errors REQUIRED)
 
 ##############################################################################
 # Project Configuration
 ##############################################################################
+
+ecl_enable_cxx14_compiler()
 
 include_directories(include
   ${ecl_config_INCLUDE_DIRS}

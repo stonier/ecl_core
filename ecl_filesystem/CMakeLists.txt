@@ -24,6 +24,8 @@ ecl_detect_filesystem()
 # Project Configuration
 ##############################################################################
 
+ecl_enable_cxx14_compiler()
+
 include_directories(include
   ${PROJECT_BINARY_DIR}/include
   ${ecl_config_INCLUDE_DIRS}

@@ -24,8 +24,9 @@ find_package(ecl_mpl REQUIRED)
 # Project Configuration
 ##############################################################################
 
-ecl_enable_cxx11_compiler()
-include_directories(include 
+ecl_enable_cxx14_compiler()
+
+include_directories(include
   ${ecl_build_INCLUDE_DIRS}
   ${ecl_config_INCLUDE_DIRS}
   ${ecl_type_traits_INCLUDE_DIRS}

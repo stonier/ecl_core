@@ -20,8 +20,8 @@ find_package(ecl_type_traits REQUIRED)
 # Project Configuration
 ##############################################################################
 
-ecl_enable_cxx11_compiler()
-include_directories(include 
+ecl_enable_cxx14_compiler()
+include_directories(include
   ${ecl_build_INCLUDE_DIRS}
   ${ecl_config_INCLUDE_DIRS}
   ${ecl_linear_algebra_INCLUDE_DIRS}
@@ -35,7 +35,6 @@ include_directories(include
 
 add_subdirectory(include)
 add_subdirectory(src)
-
 
 ament_export_include_directories(include)
 ament_export_libraries(${PROJECT_NAME})

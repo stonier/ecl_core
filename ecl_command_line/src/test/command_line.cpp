@@ -36,7 +36,7 @@ static char **myargv;
 *****************************************************************************/
 
 TEST(CommandLineTests,verify) {
-//    try {
+    try {
         // Supply a program description, argument separator (optional) and version number (optional).
         CmdLine cmd("This is a test program to test the command line parsing facilities provided by TCLAP.");
 //        CmdLine cmd("This is a test program to test the command line parsing facilities provided by TCLAP.", ' ', "0.01");
@@ -54,7 +54,7 @@ TEST(CommandLineTests,verify) {
         /*********************
         ** Parse
         **********************/
-        cmd.parse(myargc,myargv); // RoS gtest 'make test' breaks here.
+        cmd.parse(myargc, myargv); // RoS gtest 'make test' breaks here.
         bool debug = debugSwitch.getValue();
         int test = intArg.getValue();
 
@@ -62,7 +62,7 @@ TEST(CommandLineTests,verify) {
         EXPECT_FALSE(debug);
 
     } catch ( ArgException &e ) {
-    	ADD_FAILURE() << "Failed to parse commadn line arguments";
+    	ADD_FAILURE() << "Failed to parse command line arguments";
     }
 }
 

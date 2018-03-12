@@ -32,7 +32,7 @@ find_package(ecl_time_lite REQUIRED)
 # Project Configuration
 ##############################################################################
 
-include_directories(include 
+include_directories(include
   ${ecl_build_INCLUDE_DIRS}
   ${ecl_config_INCLUDE_DIRS}
   ${ecl_linear_algebra_INCLUDE_DIRS}
@@ -51,7 +51,7 @@ include_directories(include
   ${ecl_type_traits_INCLUDE_DIRS}
   ${ecl_time_lite_INCLUDE_DIRS}
   )
-ecl_enable_cxx11_compiler()
+ecl_enable_cxx14_compiler()
 
 ##############################################################################
 # Sources

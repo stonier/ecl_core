@@ -17,10 +17,10 @@ find_package(ecl_exceptions REQUIRED)
 find_package(ecl_time_lite REQUIRED)
 
 ##############################################################################
-# Project configuration
+# Project Configuration
 ##############################################################################
 
-ecl_enable_cxx11_compiler()
+ecl_enable_cxx14_compiler()
 include_directories(include
   ${ecl_build_INCLUDE_DIRS}
   ${ecl_config_INCLUDE_DIRS}

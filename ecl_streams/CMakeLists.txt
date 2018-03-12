@@ -6,10 +6,11 @@ cmake_minimum_required(VERSION 3.5)
 project(ecl_streams)
 
 ##############################################################################
-# ament
+# Find Packages
 ##############################################################################
 
 find_package(ament_cmake REQUIRED)
+find_package(ecl_build REQUIRED)
 find_package(ecl_errors REQUIRED)
 find_package(ecl_concepts REQUIRED)
 find_package(ecl_devices REQUIRED)
@@ -17,7 +18,13 @@ find_package(ecl_time REQUIRED)
 find_package(ecl_converters REQUIRED)
 find_package(ecl_type_traits REQUIRED)
 
-include_directories(include 
+##############################################################################
+# Project Configuration
+##############################################################################
+
+ecl_enable_cxx14_compiler()
+
+include_directories(include
   ${ecl_errors_INCLUDE_DIRS}
   ${ecl_concepts_INCLUDE_DIRS}
   ${ecl_devices_INCLUDE_DIRS}
@@ -27,12 +34,15 @@ include_directories(include
   )
 
 ##############################################################################
-# Actual project configuration
+# Sources
 ##############################################################################
 
 add_subdirectory(include)
 add_subdirectory(src)
 
+##############################################################################
+# Exports
+##############################################################################
 
 ament_export_include_directories(include)
 ament_export_libraries(${PROJECT_NAME})

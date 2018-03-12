@@ -22,8 +22,9 @@ find_package(sophus REQUIRED)
 # Project Configuration
 ##############################################################################
 
-ecl_enable_cxx11_compiler()
-include_directories(include 
+ecl_enable_cxx14_compiler()
+
+include_directories(include
   ${ecl_build_INCLUDE_DIRS}
   ${ecl_eigen_INCLUDE_DIRS}
   ${ecl_exceptions_INCLUDE_DIRS}

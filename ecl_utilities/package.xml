@@ -15,12 +15,14 @@
   <buildtool_depend>ament_cmake</buildtool_depend>
 
   <build_depend>ecl_license</build_depend>
+  <build_depend>ecl_build</build_depend>
   <build_depend>ecl_mpl</build_depend>
   <build_depend>ecl_concepts</build_depend>
-  
+
   <exec_depend>ecl_license</exec_depend>
   <exec_depend>ecl_mpl</exec_depend>
   <exec_depend>ecl_concepts</exec_depend>
+
   <export>
     <build_type>ament_cmake</build_type>
   </export>

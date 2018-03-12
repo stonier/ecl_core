@@ -10,6 +10,7 @@ project(ecl_utilities)
 ##############################################################################
 
 find_package(ament_cmake REQUIRED)
+find_package(ecl_build REQUIRED)
 find_package(ecl_concepts REQUIRED)
 find_package(ecl_mpl REQUIRED)
 
@@ -17,6 +18,7 @@ find_package(ecl_mpl REQUIRED)
 # Project Configuration
 ##############################################################################
 
+ecl_enable_cxx14_compiler()
 include_directories(include
   ${ecl_concepts_INCLUDE_DIRS}
   ${ecl_mpl_INCLUDE_DIRS}

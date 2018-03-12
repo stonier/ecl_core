@@ -17,6 +17,7 @@
   <buildtool_depend>ament_cmake</buildtool_depend>
 
   <build_depend>ecl_license</build_depend>
+  <build_depend>ecl_build</build_depend>
   <build_depend>ecl_config</build_depend>
   <build_depend>ecl_type_traits</build_depend>
 

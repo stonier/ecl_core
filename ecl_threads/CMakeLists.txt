@@ -22,6 +22,8 @@ find_package(ecl_utilities REQUIRED)
 # Project Configuration
 ##############################################################################
 
+ecl_enable_cxx14_compiler()
+
 ecl_detect_threads()
 
 set (thread_INCLUDE_DIRS "" CACHE STRING "Platform thread include directories")

@@ -16,7 +16,14 @@
   <buildtool_depend>ament_cmake</buildtool_depend>
 
   <build_depend>ecl_license</build_depend>
+  <build_depend>ecl_build</build_depend>
+
   <exec_depend>ecl_license</exec_depend>
+
+  <test_depend>ament_cmake_gtest</test_depend>
+  <test_depend>ament_lint_auto</test_depend>
+  <test_depend>ament_lint_common</test_depend>
+
   <export>
     <build_type>ament_cmake</build_type>
   </export>

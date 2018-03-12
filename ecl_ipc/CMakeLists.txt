@@ -21,6 +21,8 @@ find_package(ecl_time REQUIRED)
 # Project Configuration
 ##############################################################################
 
+ecl_enable_cxx14_compiler()
+
 ecl_detect_threads()
 
 include_directories(include
