@@ -11,11 +11,11 @@ project(ecl_streams)
 
 find_package(ament_cmake REQUIRED)
 find_package(ecl_build REQUIRED)
-find_package(ecl_errors REQUIRED)
 find_package(ecl_concepts REQUIRED)
-find_package(ecl_devices REQUIRED)
-find_package(ecl_time REQUIRED)
 find_package(ecl_converters REQUIRED)
+find_package(ecl_devices REQUIRED)
+find_package(ecl_errors REQUIRED)
+find_package(ecl_time REQUIRED)
 find_package(ecl_type_traits REQUIRED)
 
 ##############################################################################
@@ -25,11 +25,11 @@ find_package(ecl_type_traits REQUIRED)
 ecl_enable_cxx14_compiler()
 
 include_directories(include
-  ${ecl_errors_INCLUDE_DIRS}
   ${ecl_concepts_INCLUDE_DIRS}
-  ${ecl_devices_INCLUDE_DIRS}
-  ${ecl_time_INCLUDE_DIRS}
   ${ecl_converters_INCLUDE_DIRS}
+  ${ecl_devices_INCLUDE_DIRS}
+  ${ecl_errors_INCLUDE_DIRS}
+  ${ecl_time_INCLUDE_DIRS}
   ${ecl_type_traits_INCLUDE_DIRS}
   )
 
@@ -46,4 +46,12 @@ add_subdirectory(src)
 
 ament_export_include_directories(include)
 ament_export_libraries(${PROJECT_NAME})
+ament_export_dependencies(
+    ecl_concepts
+    ecl_converters
+    ecl_devices
+    ecl_errors
+    ecl_time
+    ecl_type_traits
+)
 ament_package()
