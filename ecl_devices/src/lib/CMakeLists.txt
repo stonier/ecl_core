@@ -4,7 +4,7 @@
 
 #file(GLOB SOURCES RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} *.cpp)
 
-set(SOURCES 
+set(SOURCES
     detail/character_buffer.cpp
     detail/error_handler.cpp
     detail/exception_handler_pos.cpp
@@ -26,14 +26,14 @@ set(SOURCES
 ###############################################################################
 
 add_library(${PROJECT_NAME} ${SOURCES})
-target_link_libraries(${PROJECT_NAME} 
+target_link_libraries(${PROJECT_NAME}
   ${ecl_config_LIBRARIES}
   ${ecl_errors_LIBRARIES}
   ${ecl_mpl_LIBRARIES}
   ${ecl_type_traits_LIBRARIES}
   ${ecl_utilities_LIBRARIES}
   ${ecl_containers_LIBRARIES}
-  ${ecl_threads_LIBRARIES}
+  ecl_threads::ecl_threads
 )
 install(TARGETS ${PROJECT_NAME}
    RUNTIME DESTINATION bin

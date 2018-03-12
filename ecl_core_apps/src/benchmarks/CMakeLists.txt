@@ -4,7 +4,7 @@
 
 macro(ecl_add_benchmark name)
   add_executable(bench_${name} ${name}.cpp)
-  target_link_libraries(bench_${name} 
+  target_link_libraries(bench_${name}
   ${ecl_build_LIBRARIES}
   ${ecl_config_LIBRARIES}
   ${ecl_linear_algebra_LIBRARIES}
@@ -19,9 +19,9 @@ macro(ecl_add_benchmark name)
   ${ecl_ipc_LIBRARIES}
   ${ecl_sigslots_LIBRARIES}
   ${ecl_streams_LIBRARIES}
-  ${ecl_threads_LIBRARIES}
-  ${ecl_type_traits_LIBRARIES}
+  ecl_threads::ecl_threads
   ${ecl_time_lite_LIBRARIES}
+  ${ecl_type_traits_LIBRARIES}
   )
   install(TARGETS bench_${name} RUNTIME DESTINATION bin)
 endmacro()

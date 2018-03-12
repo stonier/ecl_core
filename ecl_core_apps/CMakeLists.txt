@@ -32,6 +32,8 @@ find_package(ecl_time_lite REQUIRED)
 # Project Configuration
 ##############################################################################
 
+ecl_enable_cxx14_compiler()
+
 include_directories(include
   ${ecl_build_INCLUDE_DIRS}
   ${ecl_config_INCLUDE_DIRS}
@@ -47,11 +49,9 @@ include_directories(include
   ${ecl_ipc_INCLUDE_DIRS}
   ${ecl_sigslots_INCLUDE_DIRS}
   ${ecl_streams_INCLUDE_DIRS}
-  ${ecl_threads_INCLUDE_DIRS}
   ${ecl_type_traits_INCLUDE_DIRS}
   ${ecl_time_lite_INCLUDE_DIRS}
   )
-ecl_enable_cxx14_compiler()
 
 ##############################################################################
 # Sources
@@ -59,7 +59,9 @@ ecl_enable_cxx14_compiler()
 
 add_subdirectory(src)
 
+##############################################################################
+# Exports
+##############################################################################
 
 ament_export_include_directories(include)
-ament_export_libraries(${PROJECT_NAME})
 ament_package()

@@ -27,20 +27,33 @@ ecl_enable_cxx14_compiler()
 ecl_detect_threads()
 
 if(ECL_PLATFORM_HAS_POSIX_THREADS)
-  set (thread_LIBRARIES "pthread" CACHE STRING "Platform thread libraries")
+  # TODO: move this over into ecl_detect_threads
+  set(THREADS_PREFER_PTHREAD_FLAG ON)
+  find_package(Threads REQUIRED)
+  set (thread_INTERFACE "Threads::Threads" CACHE STRING "Platform thread interface")
 else()
-  set (thread_LIBRARIES "" CACHE STRING "Platform thread libraries")
+  set (thread_INTERFACE "" CACHE STRING "Platform thread interface")
 endif()
 
-include_directories(include
-  ${ecl_build_INCLUDE_DIRS}
+set(ament_INCLUDE_DIRS
+  $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include>
+  $<INSTALL_INTERFACE:include>
   ${ecl_config_INCLUDE_DIRS}
   ${ecl_errors_INCLUDE_DIRS}
   ${ecl_concepts_INCLUDE_DIRS}
   ${ecl_exceptions_INCLUDE_DIRS}
   ${ecl_time_INCLUDE_DIRS}
   ${ecl_utilities_INCLUDE_DIRS}
-  )
+)
+
+#include_directories(include
+#  ${ecl_config_INCLUDE_DIRS}
+#  ${ecl_errors_INCLUDE_DIRS}
+#  ${ecl_concepts_INCLUDE_DIRS}
+#  ${ecl_exceptions_INCLUDE_DIRS}
+#  ${ecl_time_INCLUDE_DIRS}
+#  ${ecl_utilities_INCLUDE_DIRS}
+#  )
 
 ##############################################################################
 # Sources
@@ -53,11 +66,8 @@ add_subdirectory(src)
 # Exports
 ##############################################################################
 
-ament_export_include_directories(include)
-ament_export_libraries(${PROJECT_NAME})
-if(ECL_PLATFORM_HAS_POSIX_THREADS)
-  ament_export_link_flags(pthread)
-endif()
+#ament_export_include_directories(include)
+ament_export_interfaces(${PROJECT_NAME})
 ament_export_dependencies(
     ecl_config
     ecl_errors
@@ -66,4 +76,4 @@ ament_export_dependencies(
     ecl_time
     ecl_utilities
 )
-ament_package()
+ament_package(CONFIG_EXTRAS "${PROJECT_NAME}-extras.cmake")

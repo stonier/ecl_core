@@ -20,10 +20,7 @@ find_package(ecl_threads REQUIRED)
 
 ecl_enable_cxx14_compiler()
 
-include_directories(include
-  ${ecl_config_INCLUDE_DIRS}
-  ${ecl_threads_INCLUDE_DIRS}
-  )
+include_directories(include ${ecl_config_INCLUDE_DIRS})
 
 ##############################################################################
 # Sources

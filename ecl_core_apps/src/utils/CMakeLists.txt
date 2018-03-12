@@ -4,7 +4,7 @@
 
 macro(ecl_add_utility name)
   add_executable(ecl_${name} ${name}.cpp)
-  target_link_libraries(ecl_${name} 
+  target_link_libraries(ecl_${name}
   ${ecl_build_LIBRARIES}
   ${ecl_config_LIBRARIES}
   ${ecl_linear_algebra_LIBRARIES}
@@ -19,16 +19,16 @@ macro(ecl_add_utility name)
   ${ecl_ipc_LIBRARIES}
   ${ecl_sigslots_LIBRARIES}
   ${ecl_streams_LIBRARIES}
-  ${ecl_threads_LIBRARIES}
-  ${ecl_type_traits_LIBRARIES}
+  ecl_threads::ecl_threads
   ${ecl_time_lite_LIBRARIES}
+  ${ecl_type_traits_LIBRARIES}
   )
   install(TARGETS ecl_${name} RUNTIME DESTINATION bin)
 endmacro()
 
 macro(ecl_add_global_utility name)
   add_executable(ecl_${name} ${name}.cpp)
-  target_link_libraries(ecl_${name} 
+  target_link_libraries(ecl_${name}
   ${ecl_build_LIBRARIES}
   ${ecl_config_LIBRARIES}
   ${ecl_linear_algebra_LIBRARIES}
@@ -43,9 +43,9 @@ macro(ecl_add_global_utility name)
   ${ecl_ipc_LIBRARIES}
   ${ecl_sigslots_LIBRARIES}
   ${ecl_streams_LIBRARIES}
-  ${ecl_threads_LIBRARIES}
-  ${ecl_type_traits_LIBRARIES}
+  ecl_threads::ecl_threads
   ${ecl_time_lite_LIBRARIES}
+  ${ecl_type_traits_LIBRARIES}
   )
   set_target_properties(ecl_${name} PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/bin)
   install(TARGETS ecl_${name} RUNTIME DESTINATION bin)

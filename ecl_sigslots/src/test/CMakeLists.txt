@@ -7,7 +7,7 @@ macro(ecl_sigslots_add_gtest test_name)
   if(TARGET ecl_test_${test_name})
     target_link_libraries(ecl_test_${test_name}
       ${ecl_config_LIBRARIES}
-      ${ecl_threads_LIBRARIES}
+      ecl_threads::ecl_threads
     )
   endif()
 endmacro()

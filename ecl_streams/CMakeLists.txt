@@ -15,6 +15,7 @@ find_package(ecl_concepts REQUIRED)
 find_package(ecl_converters REQUIRED)
 find_package(ecl_devices REQUIRED)
 find_package(ecl_errors REQUIRED)
+find_package(ecl_threads REQUIRED)  # only required for demos
 find_package(ecl_time REQUIRED)
 find_package(ecl_type_traits REQUIRED)
 
