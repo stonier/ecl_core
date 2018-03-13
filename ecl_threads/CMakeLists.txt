@@ -46,15 +46,6 @@ set(ament_INCLUDE_DIRS
   ${ecl_utilities_INCLUDE_DIRS}
 )
 
-#include_directories(include
-#  ${ecl_config_INCLUDE_DIRS}
-#  ${ecl_errors_INCLUDE_DIRS}
-#  ${ecl_concepts_INCLUDE_DIRS}
-#  ${ecl_exceptions_INCLUDE_DIRS}
-#  ${ecl_time_INCLUDE_DIRS}
-#  ${ecl_utilities_INCLUDE_DIRS}
-#  )
-
 ##############################################################################
 # Sources
 ##############################################################################

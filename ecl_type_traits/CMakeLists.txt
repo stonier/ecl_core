@@ -36,8 +36,7 @@ add_subdirectory(src)
 # Exports
 ###############################################################################
 
-ament_export_include_directories(include)
-ament_export_libraries(${PROJECT_NAME})
+ament_export_interfaces(${PROJECT_NAME})
 ament_export_dependencies(
     ecl_config
     ecl_mpl
