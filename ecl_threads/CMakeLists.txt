@@ -35,17 +35,6 @@ else()
   set (thread_INTERFACE "" CACHE STRING "Platform thread interface")
 endif()
 
-set(ament_INCLUDE_DIRS
-  $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include>
-  $<INSTALL_INTERFACE:include>
-  ${ecl_config_INCLUDE_DIRS}
-  ${ecl_errors_INCLUDE_DIRS}
-  ${ecl_concepts_INCLUDE_DIRS}
-  ${ecl_exceptions_INCLUDE_DIRS}
-  ${ecl_time_INCLUDE_DIRS}
-  ${ecl_utilities_INCLUDE_DIRS}
-)
-
 ##############################################################################
 # Sources
 ##############################################################################
@@ -57,7 +46,6 @@ add_subdirectory(src)
 # Exports
 ##############################################################################
 
-#ament_export_include_directories(include)
 ament_export_interfaces(${PROJECT_NAME})
 ament_export_dependencies(
     ecl_config

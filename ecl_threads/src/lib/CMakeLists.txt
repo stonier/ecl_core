@@ -9,16 +9,19 @@ file(GLOB SOURCES RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} *.cpp)
 ###############################################################################
 
 add_library(${PROJECT_NAME} ${SOURCES})
-target_include_directories(${PROJECT_NAME} PUBLIC ${ament_INCLUDE_DIRS})
-target_link_libraries(${PROJECT_NAME}
-  ${ecl_config_LIBRARIES}
-  ${ecl_errors_LIBRARIES}
-  ${ecl_concepts_LIBRARIES}
-  ${ecl_exceptions_LIBRARIES}
-  ${ecl_time_LIBRARIES}
-  ${ecl_utilities_LIBRARIES}
-  ${thread_INTERFACE}
+
+target_link_libraries(
+  ${PROJECT_NAME}
+  PUBLIC
+    ecl_concepts::ecl_concepts
+    ecl_config::ecl_config
+    ecl_errors::ecl_errors
+    ecl_exceptions::ecl_exceptions
+    ecl_time::ecl_time
+    ecl_utilities::ecl_utilities
+    ${thread_INTERFACE}
 )
+
 install(TARGETS ${PROJECT_NAME} EXPORT ${PROJECT_NAME}
    RUNTIME DESTINATION bin
    ARCHIVE DESTINATION lib
