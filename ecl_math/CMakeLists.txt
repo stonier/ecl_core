@@ -10,15 +10,38 @@ project(ecl_math)
 ##############################################################################
 
 find_package(ament_cmake REQUIRED)
+find_package(ecl_build REQUIRED)
 find_package(ecl_type_traits REQUIRED)
+
+##############################################################################
+# Header Library Targets
+##############################################################################
+
+add_library(${PROJECT_NAME} INTERFACE)
+
+target_include_directories(
+  ${PROJECT_NAME}
+  INTERFACE
+    $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include>
+    $<INSTALL_INTERFACE:include>
+)
+
+install(TARGETS ${PROJECT_NAME} EXPORT ${PROJECT_NAME}
+   RUNTIME DESTINATION bin
+   ARCHIVE DESTINATION lib
+   LIBRARY DESTINATION lib
+   INCLUDES DESTINATION include
+)
 
 ##############################################################################
 # Project Configuration
 ##############################################################################
 
-include_directories(include
-  ${ecl_type_traits_INCLUDE_DIRS}
-  )
+ecl_enable_cxx14_compiler()
+
+##############################################################################
+# Sources
+##############################################################################
 
 add_subdirectory(include)
 add_subdirectory(src)
@@ -27,7 +50,7 @@ add_subdirectory(src)
 # Exports
 ##############################################################################
 
-ament_export_include_directories(include)
+ament_export_interfaces(${PROJECT_NAME})
 ament_export_dependencies(
     ecl_type_traits
 )

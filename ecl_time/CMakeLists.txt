@@ -21,13 +21,6 @@ find_package(ecl_time_lite REQUIRED)
 ##############################################################################
 
 ecl_enable_cxx14_compiler()
-include_directories(include
-  ${ecl_build_INCLUDE_DIRS}
-  ${ecl_config_INCLUDE_DIRS}
-  ${ecl_errors_INCLUDE_DIRS}
-  ${ecl_exceptions_INCLUDE_DIRS}
-  ${ecl_time_lite_INCLUDE_DIRS}
-  )
 
 ##############################################################################
 # Sources
@@ -40,8 +33,7 @@ add_subdirectory(src)
 # Exports
 ##############################################################################
 
-ament_export_include_directories(include)
-ament_export_libraries(${PROJECT_NAME})
+ament_export_interfaces(${PROJECT_NAME})
 ament_export_dependencies(
     ecl_config
     ecl_errors

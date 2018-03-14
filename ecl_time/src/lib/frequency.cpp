@@ -5,7 +5,7 @@
 ** Includes
 *****************************************************************************/
 
-#include <ecl/time/frequency.hpp>
+#include "../../include/ecl/time/frequency.hpp"
 
 /*****************************************************************************
 ** Namespaces
@@ -59,7 +59,7 @@ const FrequencyDiagnostics& FrequencyMonitor::analyse() {
   ecl::TimeStamp now = ecl::TimeStamp::realtime_now();
 #else
   ecl::TimeStamp now = ecl::TimeStamp();
-#endif 
+#endif
   ecl::TimeStamp interval = now - last_anyalsed;
 
   /// every two seconds, we update the status as follows

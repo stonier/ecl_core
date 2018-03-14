@@ -16,12 +16,11 @@
 ** Includes
 *****************************************************************************/
 
+#include <chrono>
 #include <ecl/config/windows.hpp>
 #include <ecl/exceptions/standard_exception.hpp>
 #include "../../include/ecl/time/timestamp_win.hpp"
-//#include "../../include/ecl/time/detail/time_functions_win.hpp"
-
-#include <chrono>
+// #include "../../include/ecl/time/detail/time_functions_win.hpp"
 
 /*****************************************************************************
 ** Namespaces
@@ -33,6 +32,9 @@ namespace ecl {
 ** Implementation [Constructors]
 *****************************************************************************/
 
+// TODO: check if chrono is compatible for both linux and win now, we can
+// probably collapse them, and even remove some of the functions from
+// time_functions_win.hpp
 TimeStamp::TimeStamp() ecl_debug_throw_decl(StandardException) {
 	std::chrono::high_resolution_clock clock;
 	auto now = clock.now();

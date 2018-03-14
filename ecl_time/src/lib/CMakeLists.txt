@@ -3,7 +3,7 @@
 ###############################################################################
 
 # Note, macro magic stops us compiling objects for the wrong implementations below
-SET(SOURCES 
+SET(SOURCES
     cpuwatch_rt.cpp
     frequency.cpp
     sleep_win.cpp
@@ -16,34 +16,23 @@ SET(SOURCES
     timestamp_win.cpp
     time_data.cpp
 )
-###############################################################################
-# External Library Dependencies
-###############################################################################
-
-#IF ( ECL_PLATFORM_HAS_POSIX_THREADS ) 
-#  SET (LIBRARIES "-pthread ${LIBRARIES}")
-#ENDIF ()
-
-#IF(ECL_PLATFORM_HAS_RT_TIMERS)
-#  SET (LIBRARIES "-lrt ${LIBRARIES}")
-#ENDIF()
-
-# Remove leading and trailing whitespace
-#string(STRIP "${LIBRARIES}" LIBRARIES) 
 
 ###############################################################################
-# Install
+# Targets
 ###############################################################################
 
 add_library(${PROJECT_NAME} ${SOURCES})
-target_link_libraries(${PROJECT_NAME} 
-  ${ecl_build_LIBRARIES}
-  ${ecl_config_LIBRARIES}
-  ${ecl_errors_LIBRARIES}
-  ${ecl_exceptions_LIBRARIES}
-  ${ecl_time_lite_LIBRARIES}
+
+target_link_libraries(
+  ${PROJECT_NAME}
+  PUBLIC
+    ecl_config::ecl_config
+    ecl_errors::ecl_errors
+    ecl_exceptions::ecl_exceptions
+    ecl_time_lite::ecl_time_lite
 )
-install(TARGETS ${PROJECT_NAME}
+
+install(TARGETS ${PROJECT_NAME} EXPORT ${PROJECT_NAME}
    RUNTIME DESTINATION bin
    ARCHIVE DESTINATION lib
    LIBRARY DESTINATION lib
