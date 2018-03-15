@@ -24,14 +24,35 @@ find_package(ecl_type_traits REQUIRED)
 
 ecl_enable_cxx14_compiler()
 
-include_directories(include
-  ${ecl_concepts_INCLUDE_DIRS}
-  ${ecl_config_INCLUDE_DIRS}
-  ${ecl_errors_INCLUDE_DIRS}
-  ${ecl_exceptions_INCLUDE_DIRS}
-  ${ecl_mpl_INCLUDE_DIRS}
-  ${ecl_type_traits_INCLUDE_DIRS}
-  )
+##############################################################################
+# Header Library Targets
+##############################################################################
+
+add_library(${PROJECT_NAME} INTERFACE)
+
+target_include_directories(
+  ${PROJECT_NAME}
+  INTERFACE
+    $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include>
+    $<INSTALL_INTERFACE:include>
+)
+
+target_link_libraries(
+  ${PROJECT_NAME}
+  INTERFACE
+    ecl_concepts::ecl_concepts
+    ecl_config::ecl_config
+    ecl_errors::ecl_errors
+    ecl_mpl::ecl_mpl
+    ecl_type_traits::ecl_type_traits
+)
+
+install(TARGETS ${PROJECT_NAME} EXPORT ${PROJECT_NAME}
+  RUNTIME DESTINATION bin
+  ARCHIVE DESTINATION lib
+  LIBRARY DESTINATION lib
+  INCLUDES DESTINATION include
+)
 
 ##############################################################################
 # Sources
@@ -44,7 +65,7 @@ add_subdirectory(src)
 # Exports
 ##############################################################################
 
-ament_export_include_directories(include)
+ament_export_interfaces(${PROJECT_NAME})
 ament_export_dependencies(
     ecl_concepts
     ecl_config
