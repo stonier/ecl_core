@@ -1,20 +1,24 @@
 ###############################################################################
-# SOURCES
+# Sources
 ###############################################################################
 
 file(GLOB SOURCES RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} *.cpp)
 
 ###############################################################################
-# INSTALL
+# Targets
 ###############################################################################
 
 add_library(${PROJECT_NAME} ${SOURCES})
-target_link_libraries(${PROJECT_NAME} 
-  ${ecl_config_LIBRARIES}
-  ${ecl_exceptions_LIBRARIES}
-  ${ecl_converters_LIBRARIES}
+
+target_link_libraries(
+  ${PROJECT_NAME}
+  PUBLIC
+    ecl_config::ecl_config
+    ecl_converters::ecl_converters
+    ecl_exceptions::ecl_exceptions
 )
-install(TARGETS ${PROJECT_NAME}
+
+install(TARGETS ${PROJECT_NAME} EXPORT ${PROJECT_NAME}
    RUNTIME DESTINATION bin
    ARCHIVE DESTINATION lib
    LIBRARY DESTINATION lib
