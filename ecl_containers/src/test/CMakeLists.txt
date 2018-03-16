@@ -6,15 +6,15 @@ macro(ecl_containers_add_gtest test_name)
   ament_add_gtest(ecl_test_${test_name} ${test_name}.cpp)
   if(TARGET ecl_test_${test_name})
     target_link_libraries(ecl_test_${test_name}
-      ${ecl_config_LIBRARIES}
-      ${ecl_errors_LIBRARIES}
-      ${ecl_exceptions_LIBRARIES}
-      ${ecl_formatters_LIBRARIES}
-      ${ecl_converters_LIBRARIES}
-      ${ecl_mpl_LIBRARIES}
-      ${ecl_type_traits_LIBRARIES}
-      ${ecl_utilities_LIBRARIES}
-    )
+      ecl_config::ecl_config
+      ecl_converters::ecl_converters
+      ecl_errors::ecl_errors
+      ecl_exceptions::ecl_exceptions
+      ecl_formatters::ecl_formatters
+      ecl_mpl::ecl_mpl
+      ecl_type_traits::ecl_type_traits
+      ecl_utilities::ecl_utilities
+  )
   endif()
 endmacro()
 

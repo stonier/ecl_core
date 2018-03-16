@@ -26,15 +26,37 @@ find_package(ecl_utilities REQUIRED)
 
 ecl_enable_cxx14_compiler()
 
-include_directories(include
-  ${ecl_config_INCLUDE_DIRS}
-  ${ecl_converters_INCLUDE_DIRS}
-  ${ecl_errors_INCLUDE_DIRS}
-  ${ecl_exceptions_INCLUDE_DIRS}
-  ${ecl_formatters_INCLUDE_DIRS}
-  ${ecl_mpl_INCLUDE_DIRS}
-  ${ecl_type_traits_INCLUDE_DIRS}
-  ${ecl_utilities_INCLUDE_DIRS}
+##############################################################################
+# Header Library Targets
+##############################################################################
+
+add_library(${PROJECT_NAME} INTERFACE)
+
+target_link_libraries(
+  ${PROJECT_NAME}
+  INTERFACE
+    ecl_config::ecl_config
+    ecl_converters::ecl_converters
+    ecl_errors::ecl_errors
+    ecl_exceptions::ecl_exceptions
+    ecl_formatters::ecl_formatters
+    ecl_mpl::ecl_mpl
+    ecl_type_traits::ecl_type_traits
+    ecl_utilities::ecl_utilities
+)
+
+target_include_directories(
+  ${PROJECT_NAME}
+  INTERFACE
+    $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include>
+    $<INSTALL_INTERFACE:include>
+)
+
+install(TARGETS ${PROJECT_NAME} EXPORT ${PROJECT_NAME}
+  RUNTIME DESTINATION bin
+  ARCHIVE DESTINATION lib
+  LIBRARY DESTINATION lib
+  INCLUDES DESTINATION include
 )
 
 ##############################################################################
@@ -48,7 +70,7 @@ add_subdirectory(src)
 # Exports
 ##############################################################################
 
-ament_export_include_directories(include)
+ament_export_interfaces(${PROJECT_NAME})
 ament_export_dependencies(
     ecl_config
     ecl_converters
