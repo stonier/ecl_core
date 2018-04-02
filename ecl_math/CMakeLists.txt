@@ -9,7 +9,7 @@ project(ecl_math)
 # Find Packages
 ##############################################################################
 
-find_package(ament_cmake REQUIRED)
+find_package(ament_cmake_ros REQUIRED)
 find_package(ecl_build REQUIRED)
 find_package(ecl_type_traits REQUIRED)
 
@@ -30,7 +30,6 @@ install(TARGETS ${PROJECT_NAME} EXPORT ${PROJECT_NAME}
    RUNTIME DESTINATION bin
    ARCHIVE DESTINATION lib
    LIBRARY DESTINATION lib
-   INCLUDES DESTINATION include
 )
 
 ##############################################################################

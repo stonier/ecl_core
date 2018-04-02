@@ -9,7 +9,7 @@ project(ecl_threads)
 # Thread Detection
 ##############################################################################
 
-find_package(ament_cmake REQUIRED)
+find_package(ament_cmake_ros REQUIRED)
 find_package(ecl_build REQUIRED)
 find_package(ecl_config REQUIRED)
 find_package(ecl_errors REQUIRED)
@@ -22,8 +22,8 @@ find_package(ecl_utilities REQUIRED)
 # Project Configuration
 ##############################################################################
 
+ament_package_xml()
 ecl_enable_cxx14_compiler()
-
 ecl_detect_threads()
 
 if(ECL_PLATFORM_HAS_POSIX_THREADS)

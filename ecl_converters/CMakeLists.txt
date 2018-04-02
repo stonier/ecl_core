@@ -9,7 +9,7 @@ project(ecl_converters)
 # Find Packages
 ##############################################################################
 
-find_package(ament_cmake REQUIRED)
+find_package(ament_cmake_ros REQUIRED)
 find_package(ecl_build REQUIRED)
 find_package(ecl_config REQUIRED)
 find_package(ecl_concepts REQUIRED)
@@ -22,6 +22,7 @@ find_package(ecl_type_traits REQUIRED)
 # Platform Configuration
 ##############################################################################
 
+ament_package_xml()
 ecl_enable_cxx14_compiler()
 
 ##############################################################################
@@ -51,7 +52,6 @@ install(TARGETS ${PROJECT_NAME} EXPORT ${PROJECT_NAME}
   RUNTIME DESTINATION bin
   ARCHIVE DESTINATION lib
   LIBRARY DESTINATION lib
-  INCLUDES DESTINATION include
 )
 
 ##############################################################################

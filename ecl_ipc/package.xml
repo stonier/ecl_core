@@ -16,14 +16,15 @@
   <url type="bugtracker">https://github.com/stonier/ecl_core/issues</url>
   <author email="d.stonier@gmail.com">Daniel Stonier</author> -->
 
-  <buildtool_depend>ament_cmake</buildtool_depend>
+  <buildtool_depend>ament_cmake_ros</buildtool_depend>
 
   <build_depend>ecl_license</build_depend>
   <build_depend>ecl_build</build_depend>
   <build_depend>ecl_config</build_depend>
   <build_depend>ecl_errors</build_depend>
-  <build_depend>ecl_time_lite</build_depend>
   <build_depend>ecl_exceptions</build_depend>
+  <build_depend>ecl_threads</build_depend>
+  <build_depend>ecl_time_lite</build_depend>
   <build_depend>ecl_time</build_depend>
 
   <exec_depend>ecl_license</exec_depend>
@@ -31,6 +32,7 @@
   <exec_depend>ecl_config</exec_depend>
   <exec_depend>ecl_errors</exec_depend>
   <exec_depend>ecl_exceptions</exec_depend>
+  <exec_depend>ecl_threads</exec_depend>
   <exec_depend>ecl_time_lite</exec_depend>
   <exec_depend>ecl_time</exec_depend>
 

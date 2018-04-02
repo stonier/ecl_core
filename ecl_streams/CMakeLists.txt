@@ -9,7 +9,7 @@ project(ecl_streams)
 # Find Packages
 ##############################################################################
 
-find_package(ament_cmake REQUIRED)
+find_package(ament_cmake_ros REQUIRED)
 find_package(ecl_build REQUIRED)
 find_package(ecl_concepts REQUIRED)
 find_package(ecl_converters REQUIRED)

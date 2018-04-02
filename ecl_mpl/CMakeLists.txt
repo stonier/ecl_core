@@ -9,7 +9,7 @@ project(ecl_mpl)
 # Find Packages
 ##############################################################################
 
-find_package(ament_cmake REQUIRED)
+find_package(ament_cmake_ros REQUIRED)
 
 ##############################################################################
 # Header Library Targets
@@ -24,12 +24,7 @@ target_include_directories(
     $<INSTALL_INTERFACE:include>
 )
 
-install(TARGETS ${PROJECT_NAME} EXPORT ${PROJECT_NAME}
-   RUNTIME DESTINATION bin
-   ARCHIVE DESTINATION lib
-   LIBRARY DESTINATION lib
-   INCLUDES DESTINATION include
-)
+install(TARGETS ${PROJECT_NAME} EXPORT ${PROJECT_NAME})
 
 ##############################################################################
 # Sources

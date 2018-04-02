@@ -9,7 +9,7 @@ project(ecl_filesystem)
 # Find Packages
 ##############################################################################
 
-find_package(ament_cmake REQUIRED)
+find_package(ament_cmake_ros REQUIRED)
 find_package(ecl_build REQUIRED)
 find_package(ecl_config REQUIRED)
 find_package(ecl_errors REQUIRED)
@@ -17,6 +17,8 @@ find_package(ecl_errors REQUIRED)
 ##############################################################################
 # Project Configuration
 ##############################################################################
+
+ament_package_xml()
 
 # This finds the platform specific filesystem libraries and sets them in the
 # variable ECL_PLATFORM_FILESYSTEM_LIBRARIES. Right now this is super simple
@@ -36,6 +38,9 @@ add_subdirectory(src)
 ##############################################################################
 # Exports
 ##############################################################################
+
+# Do we need to export ${ECL_PLATFORM_FILESYSTEM_LIBRARIES} or does that
+# automagically get covered by the exported target with target_link_libraries?
 
 ament_export_interfaces(${PROJECT_NAME})
 ament_export_dependencies(

@@ -9,7 +9,7 @@ project(ecl_eigen)
 # ament
 ##############################################################################
 
-find_package(ament_cmake REQUIRED)
+find_package(ament_cmake_ros REQUIRED)
 
 ##############################################################################
 # Internal vs External Eigen
@@ -29,6 +29,7 @@ if(EIGEN3_FOUND)
 else()
     message(STATUS "Eigen not found...using ecl's internal eigen.")
     set(ECL_EIGEN_IS_EXTERNAL 0 CACHE BOOL "Using the system's eigen3 implementation.")
+    message(FATAL_ERROR "An internal version of eigen is currently not supported.")
 endif()
 
 ##############################################################################
@@ -48,6 +49,21 @@ install(
 )
 
 ##############################################################################
+# Header Library Targets
+##############################################################################
+
+add_library(${PROJECT_NAME} INTERFACE)
+
+target_include_directories(
+  ${PROJECT_NAME}
+  INTERFACE
+    $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include>
+    $<INSTALL_INTERFACE:include>
+)
+
+install(TARGETS ${PROJECT_NAME} EXPORT ${PROJECT_NAME})
+
+##############################################################################
 # Sources
 ##############################################################################
 
@@ -58,8 +74,6 @@ add_subdirectory(license)
 # Export
 ##############################################################################
 
-ament_export_include_directories(include/ecl)
-ament_export_dependencies(
-    Eigen3
-)
+ament_export_interfaces(${PROJECT_NAME})
+ament_export_dependencies(Eigen3)
 ament_package()

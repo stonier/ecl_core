@@ -2,46 +2,44 @@
 # SOURCES
 ###############################################################################
 
-SET(SOURCES 
+SET(SOURCES
     semaphore_pos.cpp
     shared_memory_pos.cpp
-) 
-
-###############################################################################
-# External Library Dependencies
-###############################################################################
-
-# Don't think we need these any longer, ecl_threads and ecl_time handle the
-# specifics.
-#IF ( ECL_PLATFORM_HAS_POSIX_THREADS ) 
-#  SET (LIBRARIES "-pthread ${LIBRARIES}")
-#ENDIF ()
-#
-#IF(ECL_PLATFORM_HAS_RT_TIMERS)
-#  SET (LIBRARIES "-lrt ${LIBRARIES}")
-#ENDIF()
-
-# Remove leading and trailing whitespace
-#string(STRIP "${LIBRARIES}" LIBRARIES) 
+)
 
 ###############################################################################
 # Install
 ###############################################################################
 
 add_library(${PROJECT_NAME} ${SOURCES})
-target_link_libraries(${PROJECT_NAME} 
-  ${ecl_build_LIBRARIES}
-  ${ecl_config_LIBRARIES}
-  ${ecl_errors_LIBRARIES}
-  ${ecl_time_lite_LIBRARIES}
-  ${ecl_exceptions_LIBRARIES}
-  ${ecl_time_LIBRARIES}
-  )
 
-install(TARGETS ${PROJECT_NAME}
+target_include_directories(
+  ${PROJECT_NAME}
+  INTERFACE
+    $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include>
+    $<INSTALL_INTERFACE:include>
+)
+
+target_link_libraries(
+  ${PROJECT_NAME}
+  PUBLIC
+    ecl_config::ecl_config
+    ecl_errors::ecl_errors
+    ecl_exceptions::ecl_exceptions
+    ecl_threads::ecl_threads
+    ecl_time_lite::ecl_time_lite
+    ecl_time::ecl_time
+)
+
+set_target_properties(${PROJECT_NAME}
+  PROPERTIES
+    SOVERSION ${${PROJECT_NAME}_VERSION}
+    VERSION ${${PROJECT_NAME}_VERSION}
+)
+
+install(TARGETS ${PROJECT_NAME} EXPORT ${PROJECT_NAME}
    RUNTIME DESTINATION bin
    ARCHIVE DESTINATION lib
    LIBRARY DESTINATION lib
-   PERMISSIONS OWNER_READ OWNER_WRITE OWNER_EXECUTE GROUP_READ GROUP_EXECUTE WORLD_READ WORLD_EXECUTE
 )
 

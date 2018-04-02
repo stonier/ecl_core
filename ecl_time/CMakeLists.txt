@@ -9,7 +9,7 @@ project(ecl_time)
 # Find Packages
 ##############################################################################
 
-find_package(ament_cmake REQUIRED)
+find_package(ament_cmake_ros REQUIRED)
 find_package(ecl_build REQUIRED)
 find_package(ecl_config REQUIRED)
 find_package(ecl_errors REQUIRED)
@@ -20,6 +20,7 @@ find_package(ecl_time_lite REQUIRED)
 # Project Configuration
 ##############################################################################
 
+ament_package_xml()
 ecl_enable_cxx14_compiler()
 
 ##############################################################################
