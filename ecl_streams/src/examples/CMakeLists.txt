@@ -1,26 +1,22 @@
-##############################################################################
-# Files
-##############################################################################
+###############################################################################
+# Macro
+###############################################################################
 
-add_executable(demo_console_streams console_streams.cpp)
-target_link_libraries(demo_console_streams ${PROJECT_NAME}
-  ${ecl_errors_LIBRARIES}
-  ${ecl_concepts_LIBRARIES}
-  ${ecl_converters_LIBRARIES}
-  ${ecl_devices_LIBRARIES}
-  ${ecl_time_LIBRARIES}
-  ${ecl_type_traits_LIBRARIES}
-)
-install(TARGETS demo_console_streams RUNTIME DESTINATION bin)
+macro(ecl_streams_add_example name)
+  set(target_name ecl_time_example_${name})
+  add_executable(${target_name} ${name}.cpp)
+  target_link_libraries(${target_name}
+    ${PROJECT_NAME}
+    ecl_devices::ecl_devices
+    ecl_threads::ecl_threads
+  )
+  set_target_properties(${target_name} PROPERTIES OUTPUT_NAME demo_${name})
+  install(TARGETS ${target_name} RUNTIME DESTINATION lib/${PROJECT_NAME})
+endmacro()
 
-add_executable(demo_log_streams log_streams.cpp)
-target_link_libraries(demo_log_streams ${PROJECT_NAME}
-  ${ecl_errors_LIBRARIES}
-  ${ecl_concepts_LIBRARIES}
-  ${ecl_converters_LIBRARIES}
-  ${ecl_devices_LIBRARIES}
-  ${ecl_time_LIBRARIES}
-  ${ecl_type_traits_LIBRARIES}
-  ecl_threads::ecl_threads
-)
-install(TARGETS demo_log_streams RUNTIME DESTINATION bin)
+###############################################################################
+# Examples
+###############################################################################
+
+ecl_streams_add_example(console_streams)
+ecl_streams_add_example(log_streams)

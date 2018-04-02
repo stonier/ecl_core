@@ -23,6 +23,7 @@ find_package(ecl_utilities REQUIRED)
 # Project Configuration
 ##############################################################################
 
+ament_package_xml()
 ecl_enable_cxx14_compiler()
 
 ##############################################################################
