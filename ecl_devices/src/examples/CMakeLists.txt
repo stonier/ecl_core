@@ -1,15 +1,22 @@
 ###############################################################################
+# Macros
+###############################################################################
+
+macro(ecl_devices_add_demo name)
+  add_executable(ecl_demo_${name} ${name}.cpp)
+  target_link_libraries(
+    ecl_demo_${name}
+    PUBLIC
+      ${PROJECT_NAME}
+      ecl_time::ecl_time
+  )
+  set_target_properties(ecl_demo_${name} PROPERTIES OUTPUT_NAME demo_${name})
+  install(TARGETS ecl_demo_${name} RUNTIME DESTINATION lib/${PROJECT_NAME})
+endmacro()
+
+###############################################################################
 # Examples
 ###############################################################################
 
-add_executable(demo_serial_timeouts serial_timeouts.cpp)
-target_link_libraries(demo_serial_timeouts ${PROJECT_NAME} 
-  ${ecl_config_LIBRARIES}
-  ${ecl_errors_LIBRARIES}
-  ${ecl_mpl_LIBRARIES}
-  ${ecl_type_traits_LIBRARIES}
-  ${ecl_utilities_LIBRARIES}
-  ${ecl_containers_LIBRARIES}
-  ${ecl_threads_LIBRARIES}
-)
-install(TARGETS demo_serial_timeouts RUNTIME DESTINATION bin)
+ecl_devices_add_demo(serial_timeouts)
+

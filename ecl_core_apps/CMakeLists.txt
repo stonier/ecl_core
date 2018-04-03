@@ -9,7 +9,7 @@ project(ecl_core_apps)
 # ament
 ##############################################################################
 
-find_package(ament_cmake REQUIRED)
+find_package(ament_cmake_ros REQUIRED)
 find_package(ecl_build REQUIRED)
 find_package(ecl_config  REQUIRED)
 find_package(ecl_linear_algebra REQUIRED)

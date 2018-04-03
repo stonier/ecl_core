@@ -1,11 +1,23 @@
-###############################################################################
-# Files
-###############################################################################
+##############################################################################
+# Macros
+##############################################################################
 
-add_executable(demo_thread thread.cpp)
-target_link_libraries(demo_thread ${PROJECT_NAME})
-install(TARGETS demo_thread RUNTIME DESTINATION bin)
+macro(ecl_threads_add_demo name)
+  add_executable(ecl_demo_${name} ${name}.cpp)
+  target_link_libraries(
+    ecl_demo_${name}
+    PUBLIC
+      ${PROJECT_NAME}
+      ecl_config::ecl_config
+      ecl_time::ecl_time
+  )
+  set_target_properties(ecl_demo_${name} PROPERTIES OUTPUT_NAME demo_${name})
+  install(TARGETS ecl_demo_${name} RUNTIME DESTINATION lib/${PROJECT_NAME})
+endmacro()
 
-add_executable(demo_mutex mutex.cpp)
-target_link_libraries(demo_mutex ${PROJECT_NAME})
-install(TARGETS demo_mutex RUNTIME DESTINATION bin)
+##############################################################################
+# Executables
+##############################################################################
+
+ecl_threads_add_demo(thread)
+ecl_threads_add_demo(mutex)

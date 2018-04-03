@@ -3,7 +3,7 @@
   <name>ecl_core</name>
   <version>0.61.18</version>
   <description>
-    A set of tools and interfaces extending the capabilities of c++ to 
+    A set of tools and interfaces extending the capabilities of c++ to
     provide a lightweight, consistent interface with a focus for control
     programming.
   </description>
@@ -14,7 +14,7 @@
   <url type="bugtracker">https://github.com/stonier/ecl_core/issues</url>
   <author email="d.stonier@gmail.com">Daniel Stonier</author>
 
-  <buildtool_depend>ament_cmake</buildtool_depend>
+  <buildtool_depend>ament_cmake_ros</buildtool_depend>
 
   <exec_depend>ecl_command_line</exec_depend>
   <exec_depend>ecl_concepts</exec_depend>
@@ -36,7 +36,7 @@
   <exec_depend>ecl_threads</exec_depend>
   <exec_depend>ecl_time</exec_depend>
   <exec_depend>ecl_type_traits</exec_depend>
-  <exec_depend>ecl_utilities</exec_depend> 
+  <exec_depend>ecl_utilities</exec_depend>
 
   <export>
     <build_type>ament_cmake</build_type>

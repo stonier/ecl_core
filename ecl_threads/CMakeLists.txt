@@ -9,7 +9,7 @@ project(ecl_threads)
 # Thread Detection
 ##############################################################################
 
-find_package(ament_cmake REQUIRED)
+find_package(ament_cmake_ros REQUIRED)
 find_package(ecl_build REQUIRED)
 find_package(ecl_config REQUIRED)
 find_package(ecl_errors REQUIRED)
@@ -22,8 +22,8 @@ find_package(ecl_utilities REQUIRED)
 # Project Configuration
 ##############################################################################
 
+ament_package_xml()
 ecl_enable_cxx14_compiler()
-
 ecl_detect_threads()
 
 if(ECL_PLATFORM_HAS_POSIX_THREADS)
@@ -34,26 +34,6 @@ if(ECL_PLATFORM_HAS_POSIX_THREADS)
 else()
   set (thread_INTERFACE "" CACHE STRING "Platform thread interface")
 endif()
-
-set(ament_INCLUDE_DIRS
-  $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include>
-  $<INSTALL_INTERFACE:include>
-  ${ecl_config_INCLUDE_DIRS}
-  ${ecl_errors_INCLUDE_DIRS}
-  ${ecl_concepts_INCLUDE_DIRS}
-  ${ecl_exceptions_INCLUDE_DIRS}
-  ${ecl_time_INCLUDE_DIRS}
-  ${ecl_utilities_INCLUDE_DIRS}
-)
-
-#include_directories(include
-#  ${ecl_config_INCLUDE_DIRS}
-#  ${ecl_errors_INCLUDE_DIRS}
-#  ${ecl_concepts_INCLUDE_DIRS}
-#  ${ecl_exceptions_INCLUDE_DIRS}
-#  ${ecl_time_INCLUDE_DIRS}
-#  ${ecl_utilities_INCLUDE_DIRS}
-#  )
 
 ##############################################################################
 # Sources
@@ -66,7 +46,6 @@ add_subdirectory(src)
 # Exports
 ##############################################################################
 
-#ament_export_include_directories(include)
 ament_export_interfaces(${PROJECT_NAME})
 ament_export_dependencies(
     ecl_config

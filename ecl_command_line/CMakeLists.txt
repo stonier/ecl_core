@@ -9,16 +9,34 @@ project(ecl_command_line)
 # Ament
 ##############################################################################
 
-find_package(ament_cmake REQUIRED)
+find_package(ament_cmake_ros REQUIRED)
 find_package(ecl_build REQUIRED)
 
 ##############################################################################
 # Project Configuration
 ##############################################################################
 
+ament_package_xml()
 ecl_enable_cxx14_compiler()
 
-include_directories(include)
+##############################################################################
+# Header Library Targets
+##############################################################################
+
+add_library(${PROJECT_NAME} INTERFACE)
+
+target_include_directories(
+  ${PROJECT_NAME}
+  INTERFACE
+    $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include>
+    $<INSTALL_INTERFACE:include>
+)
+
+install(TARGETS ${PROJECT_NAME} EXPORT ${PROJECT_NAME}
+   RUNTIME DESTINATION bin
+   ARCHIVE DESTINATION lib
+   LIBRARY DESTINATION lib
+)
 
 ##############################################################################
 # Sources
@@ -31,5 +49,5 @@ add_subdirectory(src)
 # Exports
 ##############################################################################
 
-ament_export_include_directories(include)
+ament_export_interfaces(${PROJECT_NAME})
 ament_package()

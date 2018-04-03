@@ -1,5 +1,5 @@
 ###############################################################################
-# Tests
+# Macro
 ###############################################################################
 
 macro(ecl_streams_add_gtest test_name)
@@ -9,6 +9,10 @@ macro(ecl_streams_add_gtest test_name)
       target_link_libraries(ecl_test_${test_name} ${PROJECT_NAME})
   endif()
 endmacro()
+
+###############################################################################
+# Tests
+###############################################################################
 
 ecl_streams_add_gtest(file_streams)
 ecl_streams_add_gtest(string_streams)

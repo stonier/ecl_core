@@ -16,5 +16,3 @@ endmacro()
 
 ecl_type_traits_add_gtest(numeric_limits)
 ecl_type_traits_add_gtest(fundamental_types)
-
-
