@@ -59,6 +59,7 @@ target_include_directories(
   INTERFACE
     $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include>
     $<INSTALL_INTERFACE:include>
+    $<INSTALL_INTERFACE:${EIGEN3_INCLUDE_DIRS}>
 )
 
 install(TARGETS ${PROJECT_NAME} EXPORT ${PROJECT_NAME})

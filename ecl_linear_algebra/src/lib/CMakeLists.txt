@@ -15,6 +15,7 @@ target_include_directories(
   INTERFACE
     $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include>
     $<INSTALL_INTERFACE:include>
+    $<INSTALL_INTERFACE:${Sophus_INCLUDE_DIRS}>
 )
 
 target_link_libraries(
@@ -24,7 +25,6 @@ target_link_libraries(
     ecl_exceptions::ecl_exceptions
     ecl_formatters::ecl_formatters
     ecl_math::ecl_math
-    sophus::sophus
 )
 
 set_target_properties(${PROJECT_NAME}

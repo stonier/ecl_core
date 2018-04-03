@@ -12,6 +12,8 @@
 ** Includes
 *****************************************************************************/
 
+#include <Eigen/Core>
+#include <Eigen/Geometry>
 #include <ecl/exceptions.hpp>
 #include <ecl/formatters.hpp>
 #include <sophus/se3.hpp>

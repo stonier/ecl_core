@@ -7,7 +7,6 @@
 
 #include <cmath>
 #include <ecl/config/macros.hpp>
-#include <ecl/linear_algebra.hpp>
 #include "../../include/ecl/linear_algebra/sophus/helpers.hpp"
 
 /*****************************************************************************

@@ -6,7 +6,6 @@
 *****************************************************************************/
 
 #include <cmath>
-#include <ecl/linear_algebra.hpp>
 #include "../../include/ecl/linear_algebra/sophus/interpolators.hpp"
 
 /*****************************************************************************
