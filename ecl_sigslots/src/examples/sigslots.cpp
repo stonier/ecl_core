@@ -69,7 +69,7 @@ public:
 ** Main
 *****************************************************************************/
 
-int main(int argc, char **argv) {
+int main(int /* argc */, char** /* argv */ ) {
 
 	std::cout << "Hello dude" << std::endl;
 

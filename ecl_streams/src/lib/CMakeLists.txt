@@ -1,11 +1,11 @@
 ###############################################################################
-# SOURCES
+# Sources
 ###############################################################################
 
 file(GLOB SOURCES RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} *.cpp)
 
 ###############################################################################
-# INSTALL
+# Targets
 ###############################################################################
 
 add_library(ecl_streams ${SOURCES})
@@ -25,6 +25,7 @@ target_link_libraries(
     ecl_devices::ecl_devices
     ecl_errors::ecl_errors
     ecl_time::ecl_time
+    ecl_type_traits::ecl_type_traits
 )
 
 set_target_properties(${PROJECT_NAME}

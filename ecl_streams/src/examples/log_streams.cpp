@@ -12,7 +12,7 @@
 #include <iostream>
 #include <string>
 #include <ecl/threads/thread.hpp>
-#include <ecl/streams/log_stream.hpp>
+#include "../../include/ecl/streams/log_stream.hpp"
 
 /*****************************************************************************
 ** Using

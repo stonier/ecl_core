@@ -31,7 +31,7 @@ PlanarInterpolator::PlanarInterpolator(const Sophus::SE3f& T_a, const Sophus::SE
 
   float axis_angle = T_b_rel_a.inverse().so3().log()(2);
   Sophus::SE2f t_b_rel_a = Sophus::SE2f(axis_angle, translation.head<2>()).inverse();
-  tangent = Sophus::SE2f::log(t_b_rel_a);
+  tangent = t_b_rel_a.log();
 }
 Sophus::SE3f PlanarInterpolator::operator()(const double& t) {
   Sophus::SE2f t_t_rel_a = Sophus::SE2f::exp(t*tangent);

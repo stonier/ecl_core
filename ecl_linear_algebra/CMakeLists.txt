@@ -16,7 +16,7 @@ find_package(ecl_exceptions REQUIRED)
 find_package(ecl_formatters REQUIRED)
 find_package(ecl_math REQUIRED)
 
-find_package(sophus REQUIRED)
+find_package(Sophus REQUIRED)
 
 ##############################################################################
 # Project Configuration
@@ -42,6 +42,6 @@ ament_export_dependencies(
     ecl_exceptions
     ecl_formatters
     ecl_math
-    sophus
+    Sophus
 )
 ament_package()

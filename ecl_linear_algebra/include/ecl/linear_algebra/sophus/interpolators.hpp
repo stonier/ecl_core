@@ -55,7 +55,7 @@ public:
   : T_a(T_a)
   {
     Group T_b_rel_a = T_b*T_a.inverse();
-    tangent = Group::log(T_b_rel_a);
+    tangent = T_b_rel_a.log();
   }
   Group operator()(const double& t) {
     return Group::exp(t*tangent)*T_a;

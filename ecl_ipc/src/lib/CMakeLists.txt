@@ -8,7 +8,7 @@ SET(SOURCES
 )
 
 ###############################################################################
-# Install
+# Targets
 ###############################################################################
 
 add_library(${PROJECT_NAME} ${SOURCES})
@@ -42,4 +42,3 @@ install(TARGETS ${PROJECT_NAME} EXPORT ${PROJECT_NAME}
    ARCHIVE DESTINATION lib
    LIBRARY DESTINATION lib
 )
-
