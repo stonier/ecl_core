@@ -57,10 +57,10 @@ endmacro()
 # Setup
 ###############################################################################
 
-ecl_add_utility(process_statistics)
 ecl_add_utility(hex)
 ecl_add_utility(serial)
 ecl_add_utility(socket_client)
 ecl_add_utility(socket_server)
-ecl_add_global_utility(yaw2quaternion)
+ecl_add_global_utility(process_statistics)
 ecl_add_global_utility(quaternion2yaw)
+ecl_add_global_utility(yaw2quaternion)

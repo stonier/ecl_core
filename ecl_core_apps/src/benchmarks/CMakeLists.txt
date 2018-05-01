@@ -3,9 +3,9 @@
 ###############################################################################
 
 macro(ecl_add_benchmark name)
-  add_executable(bench_${name} ${name}.cpp)
+  add_executable(ecl_bench_${name} ${name}.cpp)
   target_link_libraries(
-    bench_${name}
+    ecl_bench_${name}
     PRIVATE
       ecl_config::ecl_config
       ecl_command_line::ecl_command_line
@@ -24,7 +24,7 @@ macro(ecl_add_benchmark name)
       ecl_time_lite::ecl_time_lite
       ecl_type_traits::ecl_type_traits
   )
-  install(TARGETS bench_${name} RUNTIME DESTINATION bin)
+  install(TARGETS ecl_bench_${name} RUNTIME DESTINATION bin)
 endmacro()
 
 ###############################################################################
