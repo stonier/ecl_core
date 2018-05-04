@@ -44,6 +44,7 @@ target_link_libraries(
     ecl_concepts::ecl_concepts
     ecl_config::ecl_config
     ecl_errors::ecl_errors
+    ecl_exceptions::ecl_exceptions
     ecl_mpl::ecl_mpl
     ecl_type_traits::ecl_type_traits
 )
