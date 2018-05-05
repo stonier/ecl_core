@@ -6,7 +6,7 @@ cmake_minimum_required(VERSION 3.5)
 project(ecl_geometry)
 
 ##############################################################################
-# ament
+# Find Packages
 ##############################################################################
 
 find_package(ament_cmake_ros REQUIRED)
