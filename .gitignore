@@ -3,6 +3,9 @@
 *.lo
 *.o
 
+# Eclipse
+.settings
+
 # Compiled Dynamic libraries
 *.so
 *.dylib
