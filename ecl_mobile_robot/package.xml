@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>ecl_mobile_robot</name>
+  <version>0.60.3</version>
+  <description>
+    Contains transforms (e.g. differential drive inverse kinematics)
+    for the various types of mobile robot platforms.
+  </description>
+  <maintainer email="d.stonier@gmail.com">Daniel Stonier</maintainer>
+  <license>BSD</license>
+  <url type="website">http://wiki.ros.org/ecl_mobile_robot</url>
+  <url type="repository">https://github.com/stonier/ecl_navigation</url>
+  <url type="bugtracker">https://github.com/stonier/ecl_navigation/issues</url>
+  <author email="d.stonier@gmail.com">Daniel Stonier</author> -->
+
+  <buildtool_depend>ament_cmake_ros</buildtool_depend>
+
+  <build_depend>ecl_build</build_depend>
+  <build_depend>ecl_license</build_depend>
+  <build_depend>ecl_errors</build_depend>
+  <build_depend>ecl_geometry</build_depend>
+  <build_depend>ecl_math</build_depend>
+  <build_depend>ecl_formatters</build_depend>
+  <build_depend>ecl_linear_algebra</build_depend>
+
+  <exec_depend>ecl_build</exec_depend>
+  <exec_depend>ecl_license</exec_depend>
+  <exec_depend>ecl_errors</exec_depend>
+  <exec_depend>ecl_geometry</exec_depend>
+  <exec_depend>ecl_math</exec_depend>
+  <exec_depend>ecl_formatters</exec_depend>
+  <exec_depend>ecl_linear_algebra</exec_depend>
+
+  <test_depend>ament_cmake_gtest</test_depend>
+  <test_depend>ament_lint_auto</test_depend>
+  <test_depend>ament_lint_common</test_depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+
+</package>
+
+
