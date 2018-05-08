@@ -47,4 +47,5 @@ ament_export_dependencies(
     ecl_config
     ecl_errors
 )
+ament_export_libraries(${PROJECT_NAME})
 ament_package()

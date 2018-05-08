@@ -44,4 +44,5 @@ ament_export_dependencies(
     ecl_math
     Sophus
 )
+ament_export_libraries(${PROJECT_NAME})
 ament_package()
