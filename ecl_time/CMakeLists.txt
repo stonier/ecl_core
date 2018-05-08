@@ -41,4 +41,5 @@ ament_export_dependencies(
     ecl_exceptions
     ecl_time_lite
 )
+ament_export_libraries(${PROJECT_NAME})
 ament_package()

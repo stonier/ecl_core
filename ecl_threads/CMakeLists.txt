@@ -55,4 +55,5 @@ ament_export_dependencies(
     ecl_time
     ecl_utilities
 )
+ament_export_libraries(${PROJECT_NAME})
 ament_package(CONFIG_EXTRAS "${PROJECT_NAME}-extras.cmake")
