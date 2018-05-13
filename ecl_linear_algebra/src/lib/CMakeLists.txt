@@ -9,7 +9,12 @@ file(GLOB SOURCES RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} *.cpp)
 ##############################################################################
 
 add_library(${PROJECT_NAME} ${SOURCES})
-target_link_libraries(${PROJECT_NAME} ${catkin_LIBRARIES} )
+target_link_libraries(
+  ${PROJECT_NAME}
+  PUBLIC
+    ${catkin_LIBRARIES}
+    Sophus::Sophus
+)
 
 ##############################################################################
 # Installs

@@ -2,7 +2,7 @@
 # Cmake
 ##############################################################################
 
-cmake_minimum_required(VERSION 2.8.3)
+cmake_minimum_required(VERSION 3.5)
 project(ecl_linear_algebra)
 
 ##############################################################################
@@ -19,23 +19,26 @@ find_package(catkin
         ecl_math
 )
 
-find_package(sophus REQUIRED)
+find_package(Sophus REQUIRED)
 
 ##############################################################################
 # Exports
 ##############################################################################
 
+# For the catkin 'DEPENDS' export
+get_target_property(Sophus_INCLUDE_DIRS Sophus::Sophus INTERFACE_INCLUDE_DIRECTORIES)
+
 catkin_package(
     INCLUDE_DIRS include
     LIBRARIES ${PROJECT_NAME}
-	CATKIN_DEPENDS
-	    ecl_build
+    CATKIN_DEPENDS
+        ecl_build
         ecl_eigen
         ecl_exceptions
         ecl_formatters
         ecl_math
     DEPENDS
-        sophus
+        Sophus  # not actually setting Sophus_INCLUDE_DIRS here
     )
 
 ##############################################################################

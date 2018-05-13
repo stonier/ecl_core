@@ -15,7 +15,6 @@
 #include <ecl/config/macros.hpp>
 #include <ecl/converters.hpp>
 #include <ecl/exceptions/standard_exception.hpp>
-#include <ecl/linear_algebra.hpp>
 #include <Eigen/Core>
 #include <Eigen/Geometry>
 #include <iomanip>
@@ -53,9 +52,9 @@ namespace Sophus {
 *****************************************************************************/
 
 template<typename T>
-std::ostream & operator << ( std::ostream & out, const SE3Group<T> & se3 )
+std::ostream & operator << ( std::ostream & out, const SE3<T> & se3 )
 {
-//  typename SE3Group<T>::Tangent tanget_vector = SE3Group<T>::log( se3 );
+//  typename SE3<T>::Tangent tanget_vector = SE3<T>::log( se3 );
 //  out << tanget_vector.transpose();
   const Eigen::Matrix<T,3,1> & t = se3.translation();
   const Eigen::Quaternion<T> & q = se3.unit_quaternion();
@@ -64,9 +63,9 @@ std::ostream & operator << ( std::ostream & out, const SE3Group<T> & se3 )
 }
 
 template<typename T>
-std::ostream & operator << ( std::ostream & out, const SE2Group<T> & se2 )
+std::ostream & operator << ( std::ostream & out, const SE2<T> & se2 )
 {
-  typename SE2Group<T>::Tangent tanget_vector = SE2Group<T>::log( se2 );
+  typename SE2<T>::Tangent tanget_vector = SE2<T>::log( se2 );
   out << tanget_vector.transpose();
   return out;
 }
