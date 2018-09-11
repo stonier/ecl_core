@@ -26,7 +26,7 @@ namespace ecl {
 ** Implementation
 *****************************************************************************/
 
-double TensionSpline::operator()(const double &x) const ecl_assert_throw_decl(StandardException) {
+double TensionSpline::operator()(const double &x) const {
     ecl_assert_throw( ( ( x >= discretised_domain.front() ) && ( x <= discretised_domain.back() ) ), StandardException(LOC,OutOfRangeError) );
     int index = 0;
     while ( x > discretised_domain[index+1] ) {
@@ -35,7 +35,7 @@ double TensionSpline::operator()(const double &x) const ecl_assert_throw_decl(St
     return functions[index](tension,x);
 }
 
-double TensionSpline::derivative(const double &x) const ecl_assert_throw_decl(StandardException) {
+double TensionSpline::derivative(const double &x) const {
     ecl_assert_throw( ( ( x >= discretised_domain.front() ) && ( x <= discretised_domain.back() ) ), StandardException(LOC,OutOfRangeError) );
     int index = 0;
     while ( x > discretised_domain[index+1] ) {
@@ -44,7 +44,7 @@ double TensionSpline::derivative(const double &x) const ecl_assert_throw_decl(St
     return functions[index].derivative(tension,x);
 }
 
-double TensionSpline::dderivative(const double &x) const ecl_assert_throw_decl(StandardException) {
+double TensionSpline::dderivative(const double &x) const {
     ecl_assert_throw( ( ( x >= discretised_domain.front() ) && ( x <= discretised_domain.back() ) ), StandardException(LOC,OutOfRangeError) );
     int index = 0;
     while ( x > discretised_domain[index+1] ) {

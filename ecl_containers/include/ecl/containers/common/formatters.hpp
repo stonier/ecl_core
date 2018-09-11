@@ -168,7 +168,7 @@ class ECL_LOCAL FloatContainerFormatter {
          * @exception StandardException : throws if the formatter is used multiply in one stream operation [debug mode only].
          */
         template <typename OutputStream, typename Container_>
-        friend OutputStream& operator << (OutputStream& ostream, FloatContainerFormatter< Container_ > &formatter) ecl_assert_throw_decl(StandardException);
+        friend OutputStream& operator << (OutputStream& ostream, FloatContainerFormatter< Container_ > &formatter);
 
     private:
         long digits(value_type min_coeff, value_type max_coeff);
@@ -213,7 +213,7 @@ long FloatContainerFormatter<Container>::digits(value_type min_coeff, value_type
 *******************************************/
 
 template <typename OutputStream, typename Container_>
-OutputStream& operator << (OutputStream& ostream, FloatContainerFormatter< Container_ > &formatter) ecl_assert_throw_decl(StandardException) {
+OutputStream& operator << (OutputStream& ostream, FloatContainerFormatter< Container_ > &formatter) {
     ecl_assert_throw(formatter.ready_to_format, StandardException(LOC,UsageError,"The formatter cannot print any data - "
             "either there is no data available, or you have tried to use the "
             "formatter more than once in a single streaming operation. "

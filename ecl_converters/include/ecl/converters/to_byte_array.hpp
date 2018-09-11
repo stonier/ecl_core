@@ -75,7 +75,7 @@ public:
    * @return ByteArray& : convenience handle to the byte array.
    * @exception : throws if the byte array storage size does not match the integral byte size [debug mode only].
    */
-  const ByteArray& operator()(ByteArray &byte_array, const Integral &input) ecl_debug_throw_decl(ecl::StandardException)
+  const ByteArray& operator()(ByteArray &byte_array, const Integral &input)
   {
     /*********************
      ** Checks
@@ -280,7 +280,7 @@ public:
    * @return vector<char> : the byte array.
    * @exception StandardException : throws if unexpected char is discovered (debug mode only).
    **/
-  std::vector<char> operator ()(const char* input) ecl_debug_throw_decl(StandardException)
+  std::vector<char> operator ()(const char* input)
   {
 
     std::vector<char> bytes;

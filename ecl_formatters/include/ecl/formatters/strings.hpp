@@ -123,7 +123,7 @@ class ecl_formatters_PUBLIC Format<std::string> {
          *
          * @exception StandardException : throws if the formatter is used multiply in one stream operation [debug mode only].
          **/
-        template <typename OutputStream> friend OutputStream& operator << (OutputStream& ostream, Format<std::string>& formatter) ecl_assert_throw_decl(StandardException);
+        template <typename OutputStream> friend OutputStream& operator << (OutputStream& ostream, Format<std::string>& formatter);
 
     private:
         /******************************************
@@ -220,7 +220,7 @@ void Format<std::string>::pad(int n, OutputStream &ostream) const
 *****************************************************************************/
 
 template <typename OutputStream>
-OutputStream& operator << (OutputStream &ostream, Format<std::string>& formatter ) ecl_assert_throw_decl(StandardException)
+OutputStream& operator << (OutputStream &ostream, Format<std::string>& formatter )
 {
     bool ready = formatter.ready_to_format;
 

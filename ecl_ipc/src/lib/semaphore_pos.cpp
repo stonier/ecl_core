@@ -37,12 +37,12 @@ using std::ostringstream;
 ** Implementation [Semaphore]
 *****************************************************************************/
 
-Semaphore::Semaphore() throw(StandardException) {
+Semaphore::Semaphore() {
 	// Never use this constructor
 	throw StandardException(LOC, RaiiError);
 }
 
-Semaphore::Semaphore(const std::string& string_id) ecl_assert_throw_decl(StandardException):
+Semaphore::Semaphore(const std::string& string_id):
 	name(string("/"+string_id)),
 	semaphore(NULL)
 {
@@ -137,7 +137,7 @@ bool Semaphore::trylock()
 	}
 }
 
-bool Semaphore::trylock( const Duration &timeout ) ecl_debug_throw_decl(StandardException) {
+bool Semaphore::trylock( const Duration &timeout ) {
 
     #if defined(_POSIX_TIMEOUTS) && (_POSIX_TIMEOUTS - 200112L) >= 0L
 		long tnsec;

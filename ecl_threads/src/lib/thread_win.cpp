@@ -29,7 +29,7 @@ namespace ecl {
 * Thread Class Methods
 *****************************************************************************/
 
-Thread::Thread(VoidFunction function, const Priority &priority, const long &stack_size) ecl_debug_throw_decl(StandardException) :
+Thread::Thread(VoidFunction function, const Priority &priority, const long &stack_size) :
 	thread_handle(NULL),
 	thread_task(NULL),
 	has_started(false),
@@ -38,7 +38,7 @@ Thread::Thread(VoidFunction function, const Priority &priority, const long &stac
 	start(function, priority, stack_size);
 }
 
-Error Thread::start(VoidFunction function, const Priority &priority, const long &stack_size) ecl_debug_throw_decl(StandardException)
+Error Thread::start(VoidFunction function, const Priority &priority, const long &stack_size)
 {
 	// stack_size is ignored
 
@@ -100,7 +100,7 @@ Thread::~Thread() {
 	cancel();
 }
 
-void Thread::cancel() ecl_debug_throw_decl(StandardException) {
+void Thread::cancel() {
 	if (thread_handle) {
 		unsigned long exitcode;
 		if (::GetExitCodeThread(thread_handle, &exitcode)) {
@@ -120,7 +120,7 @@ void Thread::cancel() ecl_debug_throw_decl(StandardException) {
 	join_requested = false;
 }
 
-void Thread::join() ecl_debug_throw_decl(StandardException) {
+void Thread::join() {
 	join_requested = true;
 
 	if (thread_handle) {
@@ -128,7 +128,7 @@ void Thread::join() ecl_debug_throw_decl(StandardException) {
 	}
 }
 
-void Thread::initialise(const long &stack_size) ecl_assert_throw_decl(StandardException) {
+void Thread::initialise(const long &stack_size) {
 	// stack_size is ignored
 }
 

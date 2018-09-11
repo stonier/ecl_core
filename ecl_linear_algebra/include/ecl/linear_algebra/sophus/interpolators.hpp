@@ -76,7 +76,7 @@ private:
  */
 class PlanarInterpolator {
 public:
-  PlanarInterpolator(const Sophus::SE3f& T_a, const Sophus::SE3f& T_b) throw(ecl::StandardException);
+  PlanarInterpolator(const Sophus::SE3f& T_a, const Sophus::SE3f& T_b);
   Sophus::SE3f operator()(const double& t);
 
 private:

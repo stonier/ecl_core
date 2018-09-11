@@ -33,7 +33,7 @@ namespace ecl {
 ** Implementation [SocketServer]
 *****************************************************************************/
 
-SocketServer::SocketServer(const unsigned int &port_number) ecl_throw_decl(StandardException) :
+SocketServer::SocketServer(const unsigned int &port_number) :
 		port(port_number),
 		is_open(false),
 		error_handler(NoError)
@@ -45,7 +45,7 @@ SocketServer::SocketServer(const unsigned int &port_number) ecl_throw_decl(Stand
     }
 }
 
-bool SocketServer::open( const unsigned int& port_number ) ecl_throw_decl(StandardException) {
+bool SocketServer::open( const unsigned int& port_number ) {
 
     if ( this->open() ) { this->close(); }
     port = port_number;
@@ -94,7 +94,7 @@ bool SocketServer::open( const unsigned int& port_number ) ecl_throw_decl(Standa
     return true;
 }
 
-int SocketServer::listen() ecl_throw_decl(StandardException) {
+int SocketServer::listen() {
 
 	/*********************
 	** Params
@@ -122,7 +122,7 @@ int SocketServer::listen() ecl_throw_decl(StandardException) {
 ** Implementation [SocketServer][Source]
 *****************************************************************************/
 
-long SocketServer::read(char *s, const unsigned long &n) ecl_debug_throw_decl(StandardException) {
+long SocketServer::read(char *s, const unsigned long &n) {
 
     if ( !open() ) { return ConnectionDisconnected; }
 
@@ -142,7 +142,7 @@ long SocketServer::read(char *s, const unsigned long &n) ecl_debug_throw_decl(St
     return bytes_read;
 }
 
-long SocketServer::peek(char *s, const unsigned long &n) ecl_debug_throw_decl(StandardException) {
+long SocketServer::peek(char *s, const unsigned long &n) {
 
 	int bytes_read = ::recv(client_socket_fd, s, n, MSG_PEEK);
     if ( bytes_read < 0 ) {
@@ -171,7 +171,7 @@ long SocketServer::remaining() {
 ** Implementation [SocketServer][Sink]
 *****************************************************************************/
 
-long SocketServer::write(const char *s, unsigned long n) ecl_debug_throw_decl(StandardException) {
+long SocketServer::write(const char *s, unsigned long n) {
     #ifdef MSG_NOSIGNAL
         int bytes_written = ::send(client_socket_fd,s,n,0|MSG_NOSIGNAL);
     #else

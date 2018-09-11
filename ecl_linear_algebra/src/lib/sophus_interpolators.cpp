@@ -18,7 +18,7 @@ namespace Sophus {
 ** Planar Interpolator
 *****************************************************************************/
 
-PlanarInterpolator::PlanarInterpolator(const Sophus::SE3f& T_a, const Sophus::SE3f& T_b) throw(ecl::StandardException)
+PlanarInterpolator::PlanarInterpolator(const Sophus::SE3f& T_a, const Sophus::SE3f& T_b)
 : T_a(T_a)
 {
   double epsilon = 0.00001;

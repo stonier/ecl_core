@@ -30,7 +30,7 @@ namespace ecl {
  * Mutex Class Methods
  *****************************************************************************/
 
-Mutex::Mutex(const bool locked) ecl_assert_throw_decl(StandardException) :
+Mutex::Mutex(const bool locked) :
     number_locks(0)
 {
 
@@ -67,7 +67,7 @@ Mutex::~Mutex()
   // ecl_assert_throw( result == 0, threads::throwMutexDestroyException(LOC,result));
 }
 
-void Mutex::lock() ecl_assert_throw_decl(StandardException)
+void Mutex::lock()
 {
   ++number_locks;
   int result = pthread_mutex_lock(&mutex);
@@ -75,7 +75,7 @@ void Mutex::lock() ecl_assert_throw_decl(StandardException)
 }
 ;
 
-bool Mutex::trylock(Duration &duration) ecl_assert_throw_decl(StandardException)
+bool Mutex::trylock(Duration &duration)
 {
   #if defined(_POSIX_TIMEOUTS) && (_POSIX_TIMEOUTS - 200112L) >= 0L
     timespec timeout;
@@ -94,7 +94,7 @@ bool Mutex::trylock(Duration &duration) ecl_assert_throw_decl(StandardException)
 }
 ;
 
-bool Mutex::trylock() ecl_assert_throw_decl(StandardException)
+bool Mutex::trylock()
 {
   int result = pthread_mutex_trylock(&mutex);
 
@@ -111,7 +111,7 @@ bool Mutex::trylock() ecl_assert_throw_decl(StandardException)
 }
 ;
 
-void Mutex::unlock() ecl_assert_throw_decl(StandardException)
+void Mutex::unlock()
 {
   --number_locks;
   int result = pthread_mutex_unlock(&mutex);

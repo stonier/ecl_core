@@ -54,7 +54,7 @@ public:
 	 * @return int : the integer representation, INT_MIN on error.
 	 * @exception StandardException : throws if conversion failed (debug mode only).
 	 **/
-	int operator()(const std::string &input) ecl_debug_throw_decl(StandardException) {
+	int operator()(const std::string &input) {
 		int i;
 		std::istringstream stream(input);
 		char c;
@@ -85,7 +85,7 @@ public:
 	 * @return int : the integer representation of the digit (-1 on failure).
 	 * @exception StandardException : throws if conversion failed (debug mode only).
 	 **/
-	int operator()(char c) ecl_debug_throw_decl(StandardException) {
+	int operator()(char c) {
 		if ( ( c < '0' ) || (c > '9') ) {
 			ecl_debug_throw(StandardException(LOC,ConversionError));
 			error_handler = ConversionError;
@@ -154,7 +154,7 @@ public:
 //         *
 //         * @exception : throws in debug mode if a non-digit char is found (debug mode only).
 //         **/
-//        int operator()(const char* c_str) ecl_debug_throw_decl(StandardException) {
+//        int operator()(const char* c_str) {
 //        	int value = 0;
 //        	bool negative_flag = false;
 //        	unsigned int starting_index = 0;
@@ -187,7 +187,7 @@ public:
 //	 * @param byte_array : the input string to be converted.
 //	 * @return int : the integer representation of the digit.
 //	 **/
-//	int operator()(const char* byte_array) ecl_debug_throw_decl(StandardException) {
+//	int operator()(const char* byte_array) {
 //		if ( ::strlen(byte_array) != sizeof(int) ) {
 //			ecl_debug_throw(StandardException(LOC,InvalidInputError,"Input char string length is too large/small for conversion to int."));
 //		}

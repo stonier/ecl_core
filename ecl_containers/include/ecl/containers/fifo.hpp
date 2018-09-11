@@ -164,7 +164,7 @@ public:
 	 * @param length : new size.
 	 * @exception StandardException : throws if a zero sized storage is specified.
 	 */
-	void resize( unsigned int length ) ecl_assert_throw_decl(StandardException) {
+	void resize( unsigned int length ) {
 		size_fifo = length;
 		ecl_assert_throw( (size_fifo>0), StandardException(LOC, OutOfRangeError, "SimpleFIFO start with zero size buffer"));
 		data.resize( size_fifo );

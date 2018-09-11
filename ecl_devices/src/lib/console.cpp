@@ -25,7 +25,7 @@ namespace ecl {
 ** Implementation [OConsole]
 *****************************************************************************/
 
-long OConsole::write(const char &c) ecl_assert_throw_decl(StandardException)
+long OConsole::write(const char &c)
 {
 	long n = buffer.append(c);
 	if ( buffer.full() ) {
@@ -34,7 +34,7 @@ long OConsole::write(const char &c) ecl_assert_throw_decl(StandardException)
 	return n;
 }
 
-long OConsole::write(const char* s, unsigned long n) ecl_assert_throw_decl(StandardException)
+long OConsole::write(const char* s, unsigned long n)
 {
 	unsigned int no_written = 0;
 	while ( no_written < n ) {
@@ -46,7 +46,7 @@ long OConsole::write(const char* s, unsigned long n) ecl_assert_throw_decl(Stand
 	return n;
 }
 
-void OConsole::flush() ecl_assert_throw_decl(StandardException) {
+void OConsole::flush() {
     fputs(buffer.c_str(),stdout);
     buffer.clear();
 	int result = fflush(stdout);
@@ -57,7 +57,7 @@ void OConsole::flush() ecl_assert_throw_decl(StandardException) {
 ** Implementation [EConsole]
 *****************************************************************************/
 
-long EConsole::write(const char &c) ecl_assert_throw_decl(StandardException)
+long EConsole::write(const char &c)
 {
 	long n = buffer.append(c);
 	if ( buffer.full() ) {
@@ -66,7 +66,7 @@ long EConsole::write(const char &c) ecl_assert_throw_decl(StandardException)
 	return n;
 }
 
-long EConsole::write(const char* s, unsigned long n) ecl_assert_throw_decl(StandardException)
+long EConsole::write(const char* s, unsigned long n)
 {
 	unsigned int no_written = 0;
 	while ( no_written < n ) {
@@ -78,7 +78,7 @@ long EConsole::write(const char* s, unsigned long n) ecl_assert_throw_decl(Stand
 	return n;
 }
 
-void EConsole::flush() ecl_assert_throw_decl(StandardException) {
+void EConsole::flush() {
     fputs(buffer.c_str(),stderr);
     buffer.clear();
 	int result = fflush(stderr);
@@ -89,7 +89,7 @@ void EConsole::flush() ecl_assert_throw_decl(StandardException) {
 ** Implementation [IConsole]
 *****************************************************************************/
 
-long IConsole::read(char &c) ecl_assert_throw_decl(StandardException)
+long IConsole::read(char &c)
 {
 	// fgets is a problem, it doesn't read the newline with the character,
 	// which means the next read from stdin will catch that newline first.
@@ -103,7 +103,7 @@ long IConsole::read(char &c) ecl_assert_throw_decl(StandardException)
     }
 }
 
-long IConsole::read(char* s, const unsigned long &n) ecl_assert_throw_decl(StandardException)
+long IConsole::read(char* s, const unsigned long &n)
 {
     char *result = fgets(s,n,stdin);
     if ( result == NULL ) {

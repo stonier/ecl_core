@@ -119,7 +119,7 @@ public:
 	 *
 	 * @exception StandardException : throws if the connection failed to open.
 	 */
-	OFile(const std::string &file_name, const WriteMode &mode = New) ecl_throw_decl(StandardException);
+	OFile(const std::string &file_name, const WriteMode &mode = New);
 
 	/**
 	 * @brief Synchronises the file buffers with the hard disk and cleans up.
@@ -163,7 +163,7 @@ public:
 	 *
 	 * @exception StandardException : throws if the connection failed to open.
 	 */
-	virtual bool open(const std::string &file_name, const WriteMode &mode = New) ecl_throw_decl(StandardException);
+	virtual bool open(const std::string &file_name, const WriteMode &mode = New);
 
 	/**
 	 * @brief Closes the file.
@@ -182,7 +182,7 @@ public:
 	 *
 	 * @exception StandardException : throws if closing/cleaning up failed.
 	 */
-	virtual bool close() ecl_throw_decl(StandardException);
+	virtual bool close();
 
 	/*********************
 	** Utility Methods
@@ -218,7 +218,7 @@ public:
 	 * @return long: the number of bytes written (-1 on error).
 	 * @exception StandardException : throws if writing returned an error [debug mode only].
 	 **/
-	virtual long write(const char &c) ecl_debug_throw_decl(StandardException);
+	virtual long write(const char &c);
 	/**
 	 * @brief Write a character string to the buffer.
 	 *
@@ -241,7 +241,7 @@ public:
 	 * @return long: the number of bytes written (-1 on error).
 	 * @exception StandardException : throws if writing returned an error [debug mode only].
 	 **/
-	long write(const char* s, unsigned long n) ecl_debug_throw_decl(StandardException);
+	long write(const char* s, unsigned long n);
 
 	/**
 	 * @brief Write a byte array to the buffer.
@@ -271,7 +271,7 @@ public:
 	 *
 	 */
 	template <typename ByteArray>
-	long write(const ByteArray &byte_array) ecl_debug_throw_decl(StandardException);
+	long write(const ByteArray &byte_array);
 	/**
 	 * @brief Flush the internal buffer.
 	 *
@@ -283,7 +283,7 @@ public:
 	 *
 	 * @exception StandardException : throws if flushing returned an error [debug mode only].
 	 **/
-	virtual bool flush() ecl_debug_throw_decl(StandardException);
+	virtual bool flush();
 
 	/**
 	 * @brief Reports on the error state of the last operation.
@@ -305,7 +305,7 @@ private:
 *****************************************************************************/
 
 template <typename ByteArray>
-long OFile::write(const ByteArray&byte_array) ecl_debug_throw_decl(StandardException) {
+long OFile::write(const ByteArray&byte_array) {
 
     ecl_compile_time_concept_check(ecl::ByteContainerConcept<ByteArray>);
     if ( !open() ) {
