@@ -154,7 +154,7 @@ class Trajectory<JointAngles> {
          *
          * @exception : StandardException : throws if waypoint dimension doesn't match.
          */
-        void append(const WayPoint<JointAngles> &waypoint) ecl_assert_throw_decl(StandardException) {
+        void append(const WayPoint<JointAngles> &waypoint) {
         	ecl_assert_throw(dimension() == waypoint.dimension(), StandardException(LOC, InvalidInputError, "Mismatched trajectory and waypoint dimensions.") );
             waypoints.push_back(waypoint);
         }
@@ -192,7 +192,7 @@ class Trajectory<JointAngles> {
          *
          * @exception : StandardException : throws if index is outside the number of stored waypoints [debug mode only].
          */
-        const WayPoint<JointAngles>& waypoint(const unsigned int &index) ecl_assert_throw_decl(StandardException) {
+        const WayPoint<JointAngles>& waypoint(const unsigned int &index) {
         	ecl_assert_throw(index < waypoints.size(), StandardException(LOC, OutOfRangeError, "The index used exceeds the number of waypoints stored in the trajectory."));
         	return waypoints[index];
         }
@@ -218,7 +218,7 @@ class Trajectory<JointAngles> {
          *   - nominal rates (i.e. estimated velocities) OR durations
          *   - maximum accelerations have been set (via this classes maxAccelerations methods)
          */
-        void tensionSplineInterpolation(const double &tension) ecl_assert_throw_decl(StandardException);
+        void tensionSplineInterpolation(const double &tension);
         /**
          * @brief Generate a smoothed linear spline interpolation from the specified waypoints.
          *
@@ -240,7 +240,7 @@ class Trajectory<JointAngles> {
          *   - nominal rates (i.e. estimated velocities) OR durations
          *   - maximum accelerations have been set (via this classes maxAccelerations methods)
          */
-        void linearSplineInterpolation() throw(StandardException);
+        void linearSplineInterpolation();
 
         /**
          * @brief Access the value of the joint trajectory at the specified point.
@@ -249,7 +249,7 @@ class Trajectory<JointAngles> {
          * @return double : the value of the specified joint trajectory at x.
          * @exception : StandardException : throws if input time value is outside the domain [debug mode only].
          */
-        double operator ()(const unsigned int& joint, const double& time ) ecl_assert_throw_decl(StandardException);
+        double operator ()(const unsigned int& joint, const double& time );
         /**
          * @brief Access the derivative of the joint trajectory at the specified point.
          * @param joint : specifies the joint you are interested in.
@@ -257,7 +257,7 @@ class Trajectory<JointAngles> {
          * @return double : the derivative of the specified joint trajectory at x.
          * @exception : StandardException : throws if input time value is outside the domain [debug mode only].
          */
-        double  derivative(const unsigned int& joint, const double& time ) ecl_assert_throw_decl(StandardException);
+        double  derivative(const unsigned int& joint, const double& time );
         /**
          * @brief Access the 2nd derivative of the joint trajectory at the specified point.
          * @param joint : specifies the joint you are interested in.
@@ -265,7 +265,7 @@ class Trajectory<JointAngles> {
          * @return double : the 2nd derivative of the specified joint trajectory at x.
          * @exception : StandardException : throws if input time value is outside the domain [debug mode only].
          */
-        double dderivative(const unsigned int& joint, const double& time ) ecl_assert_throw_decl(StandardException);
+        double dderivative(const unsigned int& joint, const double& time );
 
         /*********************
         ** Accessors
@@ -351,7 +351,7 @@ public:
          * Unlike the other generators, this generates the spline over all the waypoints.
          * It is not used in combination with another spline function.
          */
-        Array<SmoothLinearSpline> generateLinearSplines() throw(DataException<int>);
+        Array<SmoothLinearSpline> generateLinearSplines();
         /**
          * This creates the tension splines across waypoints w_0 -> w_n for the
          * quinticTensionInterpolation. Note that the quintic tension will

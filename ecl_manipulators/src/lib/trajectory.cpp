@@ -33,7 +33,7 @@ namespace ecl
  ** Implementation [Trajectory][QuinticTensionSplineInterpolation]
  *****************************************************************************/
 
-void Trajectory<JointAngles>::tensionSplineInterpolation(const double &tension) ecl_assert_throw_decl(StandardException)
+void Trajectory<JointAngles>::tensionSplineInterpolation(const double &tension)
 {
   bool result;
   unsigned int n = waypoints.size() - 1; // n = number of segments
@@ -279,7 +279,7 @@ void Trajectory<JointAngles>::tensionSplineInterpolation(const double &tension) 
   }
 }
 
-void Trajectory<JointAngles>::linearSplineInterpolation() throw (StandardException)
+void Trajectory<JointAngles>::linearSplineInterpolation()
 {
   if (!validateWaypoints(2))
   {
@@ -376,7 +376,7 @@ void Trajectory<JointAngles>::linearSplineInterpolation() throw (StandardExcepti
  *****************************************************************************/
 
 double Trajectory<JointAngles>::operator ()(const unsigned int& joint, const double& time)
-    ecl_assert_throw_decl(StandardException)
+   
 {
 
   double t_f = spline_functions[joint][spline_functions[joint].size() - 1]->domain()[1];
@@ -394,7 +394,7 @@ double Trajectory<JointAngles>::operator ()(const unsigned int& joint, const dou
 }
 
 double Trajectory<JointAngles>::derivative(const unsigned int& joint, const double& time)
-    ecl_assert_throw_decl(StandardException)
+   
 {
 
   double t_f = spline_functions[joint][spline_functions[joint].size() - 1]->domain()[1];
@@ -413,7 +413,7 @@ double Trajectory<JointAngles>::derivative(const unsigned int& joint, const doub
 }
 
 double Trajectory<JointAngles>::dderivative(const unsigned int& joint, const double& time)
-    ecl_assert_throw_decl(StandardException)
+   
 {
 
   double t_f = spline_functions[joint][spline_functions[joint].size() - 1]->domain()[1];
@@ -523,7 +523,7 @@ void Trajectory<JointAngles>::updateDuration()
   trajectory_duration = total_time;
 }
 
-Array<SmoothLinearSpline> Trajectory<JointAngles>::generateLinearSplines() throw (DataException<int> )
+Array<SmoothLinearSpline> Trajectory<JointAngles>::generateLinearSplines()
 {
   // n = number of segments
   // n+1 = number of input waypoints
