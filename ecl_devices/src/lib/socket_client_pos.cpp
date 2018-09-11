@@ -43,7 +43,7 @@ using std::string;
 ** Implementation
 *****************************************************************************/
 
-SocketClient::SocketClient(const std::string &host_name, const unsigned int &port_number) ecl_throw_decl(StandardException) :
+SocketClient::SocketClient(const std::string &host_name, const unsigned int &port_number) :
 		hostname(host_name),
 		port(port_number),
 		is_open(false),
@@ -61,7 +61,7 @@ void SocketClient::close() {
 	 ::close(socket_fd); // should have error handling here
 }
 
-bool SocketClient::open( const std::string &host_name, const unsigned int& port_number ) ecl_throw_decl(StandardException) {
+bool SocketClient::open( const std::string &host_name, const unsigned int& port_number ) {
 
 	if ( this->open() ) { this->close(); }
 	hostname = host_name;
@@ -132,11 +132,11 @@ bool SocketClient::open( const std::string &host_name, const unsigned int& port_
 ** Implementation [SocketClient][Source]
 *****************************************************************************/
 
-long SocketClient::read(char &c) ecl_assert_throw_decl(StandardException) {
+long SocketClient::read(char &c) {
     return read(&c,1);
 }
 
-long SocketClient::read(char *s, const unsigned long &n) ecl_assert_throw_decl(StandardException) {
+long SocketClient::read(char *s, const unsigned long &n) {
 
     if ( !open() ) {
     	return ConnectionDisconnected;
@@ -173,7 +173,7 @@ long SocketClient::read(char *s, const unsigned long &n) ecl_assert_throw_decl(S
     return bytes_read;
 }
 
-long SocketClient::peek(char *s, const unsigned long &n) ecl_assert_throw_decl(StandardException) {
+long SocketClient::peek(char *s, const unsigned long &n) {
 
     if ( !open() ) { return ConnectionDisconnected; }
 
@@ -205,12 +205,12 @@ long SocketClient::remaining() {
 ** Implementation [SocketClient][Sink]
 *****************************************************************************/
 
-long SocketClient::write(const char &c) ecl_assert_throw_decl(StandardException) {
+long SocketClient::write(const char &c) {
 
 	return write(&c, 1);
 }
 
-long SocketClient::write(const char *s, unsigned long n) ecl_assert_throw_decl(StandardException) {
+long SocketClient::write(const char *s, unsigned long n) {
 
 	if ( !open() ) { return ConnectionDisconnected; }
 

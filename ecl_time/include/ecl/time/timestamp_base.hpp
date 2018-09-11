@@ -53,7 +53,7 @@ public:
      *
      * @exception StandardException : throws if the input arguments is not positive [debug mode only].
      */
-    explicit TimeStampBase (const double& decimal_time_value) ecl_assert_throw_decl(StandardException);
+    explicit TimeStampBase (const double& decimal_time_value);
     /**
      * @brief Initialises the timestamp with the specified sec/nsec pair.
      *
@@ -63,7 +63,7 @@ public:
      * @param nanoseconds : fraction of a second measured in nanoseconds.
      * @exception StandardException : throws if input arguments are not positive [debug mode only].
      **/
-    TimeStampBase (const time_t &seconds, const long &nanoseconds) ecl_assert_throw_decl(StandardException);
+    TimeStampBase (const time_t &seconds, const long &nanoseconds);
 
     virtual ~TimeStampBase() {}
 
@@ -80,7 +80,7 @@ public:
 	 *
 	 * @exception StandardException : throws if the input arguments is not positive [debug mode only].
 	 */
-	const TimeStampBase& stamp (const double& decimal_time_value) ecl_assert_throw_decl(StandardException);
+	const TimeStampBase& stamp (const double& decimal_time_value);
 	/**
 	 * @brief Manually sets the timestamp with the specified values.
 	 *
@@ -91,7 +91,7 @@ public:
 	 *
 	 * @exception StandardException : throws if input arguments are not positive [debug mode only].
 	 */
-	const TimeStampBase& stamp (const time_t &seconds, const long &nanoseconds) ecl_assert_throw_decl(StandardException);
+	const TimeStampBase& stamp (const time_t &seconds, const long &nanoseconds);
 
     /******************************************
     ** Accessors
@@ -196,7 +196,7 @@ public:
 	 * @return TimeStamp : the difference of the two timestamps.
 	 * @exception StandardException : throws if difference would create a negative timestamp [debug mode only].
 	 */
-	TimeStampBase operator-(const TimeStampBase& time_stamp ) ecl_assert_throw_decl(StandardException);
+	TimeStampBase operator-(const TimeStampBase& time_stamp );
 	/**
 	 * Difference operator that modifies this instance with the result.
 	 * Note that a difference that would result in a negative timestamp is not
@@ -205,7 +205,7 @@ public:
 	 * @param time_stamp : the rhv (timestamp to be subtracted from this instance).
 	 * @exception StandardException : throws if difference would create a negative timestamp [debug mode only].
 	 */
-	void operator-=(const TimeStampBase& time_stamp) ecl_assert_throw_decl(StandardException);
+	void operator-=(const TimeStampBase& time_stamp);
 
     /******************************************
     ** Insertion Operator

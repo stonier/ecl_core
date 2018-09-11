@@ -67,7 +67,7 @@ using ecl::StandardException;
  *****************************************************************************/
 
 Serial::Serial(const std::string& port_name, const BaudRate &baud_rate, const DataBits &data_bits,
-               const StopBits &stop_bits, const Parity &parity) ecl_throw_decl(StandardException) :
+               const StopBits &stop_bits, const Parity &parity) :
     port(port_name), read_timeout_ms(5000), error_handler(NoError)
 {
   ecl_try
@@ -88,7 +88,7 @@ Serial::~Serial()
  *****************************************************************************/
 
 bool Serial::open(const std::string& port_name, const BaudRate &baud_rate, const DataBits &data_bits,
-                  const StopBits &stop_bits, const Parity &parity) ecl_throw_decl(StandardException)
+                  const StopBits &stop_bits, const Parity &parity)
 {
 
   /*********************
@@ -152,7 +152,7 @@ bool Serial::open(const std::string& port_name, const BaudRate &baud_rate, const
   file_lock.l_pid = getpid();
   if (fcntl(file_descriptor, F_SETLK, &file_lock) != 0)
   {
-    ecl_throw_decl(
+    ecl_throw(
         StandardException(LOC,OpenError,std::string("Device is already locked. Try 'lsof | grep ") + port + std::string("' to find other processes that currently have the port open (if the device is a symbolic link you may need to replace the device name with the device that it is pointing to) [posix error in case it is something else: " + std::to_string(errno))));
     error_handler = IsLockedError;
     is_open = false;

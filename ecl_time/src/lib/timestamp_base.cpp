@@ -24,13 +24,13 @@ namespace ecl {
 ** Implementation
 *****************************************************************************/
 
-TimeStampBase::TimeStampBase (const double& decimal_time_value) ecl_assert_throw_decl(StandardException)
+TimeStampBase::TimeStampBase (const double& decimal_time_value)
 {
     time.tv_sec = static_cast<long>(decimal_time_value);
     time.tv_nsec = (decimal_time_value - static_cast<long>(decimal_time_value))*1000000000L;
 }
 
-TimeStampBase::TimeStampBase (const time_t& seconds, const long& nanoseconds) ecl_assert_throw_decl(StandardException) {
+TimeStampBase::TimeStampBase (const time_t& seconds, const long& nanoseconds) {
     ecl_assert_throw( ( (seconds > 0) && (nanoseconds >= 0) ) ||
                       ( (seconds < 0) && (nanoseconds <= 0) ) ||
                       ( (seconds == 0) ),
@@ -43,13 +43,13 @@ TimeStampBase::TimeStampBase (const time_t& seconds, const long& nanoseconds) ec
 ** Implementation [Stamps]
 *****************************************************************************/
 
-const TimeStampBase& TimeStampBase::stamp (const double& decimal_time_value) ecl_assert_throw_decl(StandardException) {
+const TimeStampBase& TimeStampBase::stamp (const double& decimal_time_value) {
     time.tv_sec = static_cast<time_t>(decimal_time_value);
     time.tv_nsec = (decimal_time_value - static_cast<long>(decimal_time_value))*1000000000L;
     return (*this);
 }
 
-const TimeStampBase& TimeStampBase::stamp (const time_t& seconds, const long& nanoseconds) ecl_assert_throw_decl(StandardException) {
+const TimeStampBase& TimeStampBase::stamp (const time_t& seconds, const long& nanoseconds) {
   ecl_assert_throw( ( (seconds > 0) && (nanoseconds >= 0) ) ||
                     ( (seconds < 0) && (nanoseconds <= 0) ) ||
                     ( (seconds == 0) ),
@@ -168,7 +168,7 @@ TimeStampBase TimeStampBase::operator+(const TimeStampBase& time_stamp ) {
     return TimeStampBase(sec,nsec);
 }
 
-void TimeStampBase::operator-=(const TimeStampBase& time_stamp ) ecl_assert_throw_decl(StandardException) {
+void TimeStampBase::operator-=(const TimeStampBase& time_stamp ) {
     time_t sec = time.tv_sec - time_stamp.time.tv_sec;
     long nsec = time.tv_nsec - time_stamp.time.tv_nsec;
 
@@ -183,7 +183,7 @@ void TimeStampBase::operator-=(const TimeStampBase& time_stamp ) ecl_assert_thro
     time.tv_nsec = nsec;
 }
 
-TimeStampBase TimeStampBase::operator-(const TimeStampBase& time_stamp ) ecl_assert_throw_decl(StandardException) {
+TimeStampBase TimeStampBase::operator-(const TimeStampBase& time_stamp ) {
     time_t sec = time.tv_sec - time_stamp.time.tv_sec;
     long nsec = time.tv_nsec - time_stamp.time.tv_nsec;
 

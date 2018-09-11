@@ -149,7 +149,7 @@ class FormatNumber {
          *
          * @exception StandardException : throws if the formatter is used multiply in one stream operation [debug mode only].
          **/
-        template <typename OutputStream, typename N> friend OutputStream& operator << (OutputStream& ostream, FormatNumber<N>& formatter) ecl_assert_throw_decl(StandardException);
+        template <typename OutputStream, typename N> friend OutputStream& operator << (OutputStream& ostream, FormatNumber<N>& formatter);
 
     protected:
         /******************************************
@@ -358,7 +358,7 @@ FormatNumber<Number>& FormatNumber<Number>::operator() (Number n, int w, ecl::Al
 * FormatNumber Implementation [streaming]
 *****************************************************************************/
 template <typename OutputStream, typename N>
-OutputStream& operator << (OutputStream &ostream, FormatNumber<N>& formatter ) ecl_assert_throw_decl(StandardException)
+OutputStream& operator << (OutputStream &ostream, FormatNumber<N>& formatter )
 {
     bool ready = formatter.ready_to_format;
 

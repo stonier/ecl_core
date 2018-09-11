@@ -223,7 +223,7 @@ public:
      * @param index : index of the array to index.
 	 * @return double : value of the element indexed.
 	 */
-	Float& operator [](const unsigned int& index) assert_throw_decl(ecl::StandardException) {
+	Float& operator [](const unsigned int& index) {
 		assert_throw( index<3, ecl::StandardException(LOC,ecl::OutOfRangeError));
 		return elements[index];
 	}

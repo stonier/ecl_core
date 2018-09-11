@@ -206,7 +206,7 @@ public:
 	 * @return OutputStream& : return the stream that was utilised.
 	 **/
 template <typename OutputStream, typename N>
-friend OutputStream& operator << (OutputStream& ostream, FormatFloat<N>& formatter) ecl_assert_throw_decl(StandardException);
+friend OutputStream& operator << (OutputStream& ostream, FormatFloat<N>& formatter);
 
 protected:
 	/******************************************
@@ -444,7 +444,7 @@ void FormatFloat<Number>::pad(int n, OutputStream &ostream) const
 * FormatFloat Implementation [streaming]
 *****************************************************************************/
 template <typename OutputStream, typename N>
-OutputStream& operator << (OutputStream &ostream, FormatFloat<N>& formatter ) ecl_assert_throw_decl(StandardException)
+OutputStream& operator << (OutputStream &ostream, FormatFloat<N>& formatter )
 {
     bool ready = formatter.ready_to_format;
 

@@ -86,7 +86,7 @@ public:
   {
   }
 
-  PushAndPop( const Type & d ) ecl_assert_throw_decl(StandardException)
+  PushAndPop( const Type & d )
   :
   size_fifo(Size+1),
   leader(0),

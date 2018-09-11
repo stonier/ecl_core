@@ -38,7 +38,7 @@ OFile::OFile() :
 	error_handler(NoError)
 {}
 
-OFile::OFile(const std::string &file_name, const WriteMode &write_mode) ecl_throw_decl(StandardException) :
+OFile::OFile(const std::string &file_name, const WriteMode &write_mode) :
 	file(NULL),
 	error_handler(NoError)
 {
@@ -63,7 +63,7 @@ OFile::~OFile() {
 ** Implementation [OFile][open/close]
 *****************************************************************************/
 
-bool OFile::open(const std::string &file_name, const WriteMode &write_mode) ecl_throw_decl(StandardException) {
+bool OFile::open(const std::string &file_name, const WriteMode &write_mode) {
 	name = file_name;
     switch(write_mode) {
         case(New) : {
@@ -95,7 +95,7 @@ bool OFile::open(const std::string &file_name, const WriteMode &write_mode) ecl_
     return true;
 }
 
-bool OFile::close() ecl_throw_decl(StandardException) {
+bool OFile::close() {
 	if ( open() ) {
 		// This flushes and closes the file descriptor.
 		if ( fclose(file) != 0 ) {
@@ -112,7 +112,7 @@ bool OFile::close() ecl_throw_decl(StandardException) {
 ** Implementation [OFile][write]
 *****************************************************************************/
 
-long OFile::write(const char &c) ecl_debug_throw_decl(StandardException)
+long OFile::write(const char &c)
 {
 	if ( !open() ) {
 		ecl_debug_throw(StandardException(LOC, OpenError, std::string("File ") + name + std::string(" is not open for writing.")));
@@ -130,7 +130,7 @@ long OFile::write(const char &c) ecl_debug_throw_decl(StandardException)
     return written;
 }
 
-long OFile::write(const char* s, unsigned long n) ecl_debug_throw_decl(StandardException)
+long OFile::write(const char* s, unsigned long n)
 {
 	if ( !open() ) {
 		ecl_debug_throw(StandardException(LOC, OpenError, std::string("File ") + name + std::string(" is not open for writing.")));
@@ -148,7 +148,7 @@ long OFile::write(const char* s, unsigned long n) ecl_debug_throw_decl(StandardE
     return n*written;
 }
 
-bool OFile::flush() ecl_debug_throw_decl(StandardException) {
+bool OFile::flush() {
 	// This flushes userland buffers to the kernel buffers...not sure why,
 	// but you can still read the file in real time, so its good enough and
 	// thus better than a more expensive fsync here.

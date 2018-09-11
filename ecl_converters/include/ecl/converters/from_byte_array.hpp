@@ -73,7 +73,7 @@ public:
    * @return int : the integer representation of the digit.
    * @exception StandardException: throws if byte array size doesn't match integral type size (in bytes) [debug mode only].
    **/
-  Integral operator()(const ByteArray &byte_array) ecl_debug_throw_decl(ecl::StandardException)
+  Integral operator()(const ByteArray &byte_array)
   {
     /*********************
      ** Checks

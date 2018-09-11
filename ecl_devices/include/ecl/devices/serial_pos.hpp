@@ -161,7 +161,7 @@ namespace ecl
      * @exception StandardException : throws if the connection failed to open.
      */
     Serial(const std::string& port_name, const BaudRate &baud_rate = BaudRate_115200, const DataBits &data_bits = DataBits_8,
-        const StopBits &stop_bits = StopBits_1, const Parity &parity = NoParity ) ecl_throw_decl(StandardException);
+        const StopBits &stop_bits = StopBits_1, const Parity &parity = NoParity );
 
     /**
      * @brief Cleans up the file descriptor.
@@ -208,7 +208,7 @@ namespace ecl
      * @exception StandardException : throws if the connection failed to open.
      */
     bool open(const std::string& port_name, const BaudRate &baud_rate = BaudRate_115200, const DataBits &data_bits = DataBits_8,
-        const StopBits &stop_bits = StopBits_1, const Parity &parity = NoParity ) ecl_throw_decl(StandardException);
+        const StopBits &stop_bits = StopBits_1, const Parity &parity = NoParity );
 
     /**
      * @brief Closes the port connection.
@@ -242,7 +242,7 @@ namespace ecl
      * @exception StandardException : throws reading returned an error [debug mode only].
      **/
     template <typename Byte>
-    long write(const Byte &byte) ecl_debug_throw_decl(StandardException);
+    long write(const Byte &byte);
 
     /**
      * @brief Write a character string to the serial port.
@@ -255,7 +255,7 @@ namespace ecl
      * @exception StandardException : throws reading returned an error [debug mode only].
      **/
     template <typename Byte>
-    long write(const Byte *bytes, const unsigned long &n) ecl_debug_throw_decl(StandardException);
+    long write(const Byte *bytes, const unsigned long &n);
 
     /**
      * @brief A dummy flush function, not used, but needed by streams.
@@ -321,7 +321,7 @@ namespace ecl
      * @exception StandardException : throws reading returned an error [debug mode only].
      **/
     template <typename Byte>
-    long read(Byte &byte) ecl_debug_throw_decl(StandardException);
+    long read(Byte &byte);
     /**
      * @brief Read a character string from the port.
      *
@@ -337,7 +337,7 @@ namespace ecl
      * @exception StandardException : throws reading returned an error [debug mode only].
      **/
     template <typename Byte>
-    long read(Byte *bytes, const unsigned long &n) ecl_debug_throw_decl(StandardException);
+    long read(Byte *bytes, const unsigned long &n);
 
     /*********************
      ** Serial Specific
@@ -398,7 +398,7 @@ namespace ecl
    *****************************************************************************/
 
   template <typename Byte>
-  long Serial::write(const Byte &byte) ecl_debug_throw_decl(StandardException)
+  long Serial::write(const Byte &byte)
   {
     ecl_compile_time_assert( is_byte<Byte>::value );
     if ( !is_open )  // internal check only, don't worry about doing the full device filename check here (we need speed)
@@ -419,7 +419,7 @@ namespace ecl
   }
 
   template <typename Byte>
-  long Serial::write(const Byte *bytes, const unsigned long &n) ecl_debug_throw_decl(StandardException)
+  long Serial::write(const Byte *bytes, const unsigned long &n)
   {
     ecl_compile_time_assert( is_byte<Byte>::value );
     if ( !is_open )  // internal check only, don't worry about doing the full device filename check here (we need speed)
@@ -440,7 +440,7 @@ namespace ecl
   }
 
   template <typename Byte>
-  long Serial::read(Byte &byte) ecl_debug_throw_decl(StandardException)
+  long Serial::read(Byte &byte)
   {
     ecl_compile_time_assert( is_byte<Byte>::value );
     if ( !is_open )  // internal check only, don't worry about doing the full device filename check here (we need speed)
@@ -479,7 +479,7 @@ namespace ecl
   }
 
   template <typename Byte>
-  long Serial::read(Byte *bytes, const unsigned long &n) ecl_debug_throw_decl(StandardException)
+  long Serial::read(Byte *bytes, const unsigned long &n)
   {
     ecl_compile_time_assert( is_byte<Byte>::value );
     if ( !is_open )  // internal check only, don't worry about doing the full device filename check here (we need speed)

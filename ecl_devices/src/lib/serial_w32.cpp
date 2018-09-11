@@ -258,11 +258,11 @@ void event_proc(void* arg) {
 ** Implementation [Serial][Writing]
 *****************************************************************************/
 
-long Serial::write(const char &c) ecl_assert_throw_decl(StandardException) {
+long Serial::write(const char &c) {
 	return write(&c, 1);
 }
 
-long Serial::write(const char *s, unsigned long n) ecl_assert_throw_decl(StandardException) {
+long Serial::write(const char *s, unsigned long n) {
 	DWORD   written, error, error_flags;
 	COMSTAT comstat;
 	int    result;
@@ -291,7 +291,7 @@ long Serial::write(const char *s, unsigned long n) ecl_assert_throw_decl(Standar
 ** Implementation [Serial][Reading Modes]
 *****************************************************************************/
 
-void Serial::block(const long &timeout) ecl_assert_throw_decl(StandardException) {
+void Serial::block(const long &timeout) {
 
 	ecl_assert_throw( timeout >= 0, StandardException(LOC, InvalidInputError, "Serial port timeouts must be greater than 0ms.") );
     COMMTIMEOUTS    timeouts;
@@ -330,11 +330,11 @@ long Serial::remaining() {
     }
 }
 
-long Serial::read(char &c) ecl_assert_throw_decl(StandardException) {
+long Serial::read(char &c) {
 	return read(&c,1);
 }
 
-long Serial::read(char *s, const unsigned long &n) ecl_assert_throw_decl(StandardException)
+long Serial::read(char *s, const unsigned long &n)
 {
     COMSTAT comstat;
     DWORD   read=0, error, error_flags;

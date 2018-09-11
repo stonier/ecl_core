@@ -74,7 +74,7 @@ class CharStringBuffer : public ConverterBase {
          * @param buffer_size : size of the buffer to create - if not supplied it initialises a buffer of size 250.
          * @exception StandardException : throws if the allocation for the internal buffer failed (debug mode only).
          **/
-        CharStringBuffer(int buffer_size = 250) ecl_debug_throw_decl(StandardException) : delete_buffer(true) {
+        CharStringBuffer(int buffer_size = 250) : delete_buffer(true) {
            	buffer_begin = new (std::nothrow) char[buffer_size];
         	buffer_end = buffer_begin + (buffer_size-1);
            	if ( buffer_begin == NULL ) {
@@ -193,7 +193,7 @@ class Converter<char*,char> : public virtual converters::CharStringBuffer {
          * @param buffer_size : size of the buffer to create - if not supplied it initialises a buffer of size 250.
          * @exception StandardException : throws if the allocation for the internal buffer failed (debug mode only).
          **/
-        Converter(int buffer_size = 250) ecl_debug_throw_decl(StandardException) :
+        Converter(int buffer_size = 250) :
         		converters::CharStringBuffer(buffer_size) {}
 
         virtual ~Converter() {}
@@ -244,7 +244,7 @@ class Converter<char*,unsigned char> : public virtual converters::CharStringBuff
          * @param buffer_size : size of the buffer to create - if not supplied it initialises a buffer of size 250.
          * @exception StandardException : throws if the allocation for the internal buffer failed (debug mode only).
          **/
-        Converter(int buffer_size = 250) ecl_debug_throw_decl(StandardException) : converters::CharStringBuffer(buffer_size) {}
+        Converter(int buffer_size = 250) : converters::CharStringBuffer(buffer_size) {}
 
         virtual ~Converter() {}
 
@@ -292,7 +292,7 @@ class Converter<char*,short> : public virtual converters::CharStringBuffer {
          * @param buffer_size : size of the buffer to create - if not supplied it initialises a buffer of size 250.
 		 * @exception StandardException : throws if it failed to allocate memory for the internal buffer [debug mode only].
          **/
-        Converter(int buffer_size = 250) ecl_debug_throw_decl(StandardException) : converters::CharStringBuffer(buffer_size) {}
+        Converter(int buffer_size = 250) : converters::CharStringBuffer(buffer_size) {}
 
         virtual ~Converter() {}
 
@@ -340,7 +340,7 @@ class Converter<char*,unsigned short> : public virtual converters::CharStringBuf
          * @param buffer_size : size of the buffer to create - if not supplied it initialises a buffer of size 250.
 		 * @exception StandardException : throws if it failed to allocate memory for the internal buffer [debug mode only].
          **/
-        Converter(int buffer_size = 250) ecl_debug_throw_decl(StandardException) : converters::CharStringBuffer(buffer_size) {}
+        Converter(int buffer_size = 250) : converters::CharStringBuffer(buffer_size) {}
 
         virtual ~Converter() {}
 
@@ -386,7 +386,7 @@ class Converter<char*,int> : public virtual converters::CharStringBuffer {
          * @param buffer_size : size of the buffer to create - if not supplied it initialises a buffer of size 250.
 		 * @exception StandardException : throws if it failed to allocate memory for the internal buffer [debug mode only].
          **/
-        Converter(int buffer_size = 250) ecl_debug_throw_decl(StandardException) : converters::CharStringBuffer(buffer_size) {}
+        Converter(int buffer_size = 250) : converters::CharStringBuffer(buffer_size) {}
 
         virtual ~Converter() {}
 
@@ -431,7 +431,7 @@ class Converter<char*,unsigned int> : public virtual converters::CharStringBuffe
          * @param buffer_size : size of the buffer to create - if not supplied it initialises a buffer of size 250.
 		 * @exception StandardException : throws if it failed to allocate memory for the internal buffer [debug mode only].
          **/
-        Converter(int buffer_size = 250) ecl_debug_throw_decl(StandardException) : converters::CharStringBuffer(buffer_size) {}
+        Converter(int buffer_size = 250) : converters::CharStringBuffer(buffer_size) {}
 
         virtual ~Converter() {}
 
@@ -480,7 +480,7 @@ class Converter<char*,long> : public virtual converters::CharStringBuffer {
          * @param buffer_size : size of the buffer to create - if not supplied it initialises a buffer of size 250.
 		 * @exception StandardException : throws if it failed to allocate memory for the internal buffer [debug mode only].
          **/
-        Converter(int buffer_size = 250) ecl_debug_throw_decl(StandardException) : converters::CharStringBuffer(buffer_size) {}
+        Converter(int buffer_size = 250) : converters::CharStringBuffer(buffer_size) {}
 
         virtual ~Converter() {}
 
@@ -525,7 +525,7 @@ class Converter<char*,unsigned long> : public virtual converters::CharStringBuff
          * @param buffer_size : size of the buffer to create - if not supplied it initialises a buffer of size 250.
 		 * @exception StandardException : throws if it failed to allocate memory for the internal buffer [debug mode only].
          **/
-        Converter(int buffer_size = 250) ecl_debug_throw_decl(StandardException) : converters::CharStringBuffer(buffer_size) {}
+        Converter(int buffer_size = 250) : converters::CharStringBuffer(buffer_size) {}
 
         virtual ~Converter() {}
 
@@ -567,7 +567,7 @@ class Converter<char*,long long> : public virtual converters::CharStringBuffer {
          * @param buffer_size : size of the buffer to create - if not supplied it initialises a buffer of size 250.
 		 * @exception StandardException : throws if it failed to allocate memory for the internal buffer [debug mode only].
          **/
-        Converter(int buffer_size = 250) ecl_debug_throw_decl(StandardException) : converters::CharStringBuffer(buffer_size) {}
+        Converter(int buffer_size = 250) : converters::CharStringBuffer(buffer_size) {}
 
         virtual ~Converter() {}
 
@@ -610,7 +610,7 @@ class Converter<char*,unsigned long long> : public virtual converters::CharStrin
          * @param buffer_size : size of the buffer to create - if not supplied it initialises a buffer of size 250.
 		 * @exception StandardException : throws if it failed to allocate memory for the internal buffer [debug mode only].
          **/
-        Converter(int buffer_size = 250) ecl_debug_throw_decl(StandardException) : converters::CharStringBuffer(buffer_size) {
+        Converter(int buffer_size = 250) : converters::CharStringBuffer(buffer_size) {
         }
 
         virtual ~Converter() {}
@@ -658,7 +658,7 @@ class Converter<char*,float> : public virtual converters::CharStringBuffer {
          * @param buffer_size : size of the buffer to create - if not supplied it initialises a buffer of size 250.
 		 * @exception StandardException : throws if it failed to allocate memory for the internal buffer [debug mode only].
          **/
-        Converter(int buffer_size = 250) ecl_debug_throw_decl(StandardException) : converters::CharStringBuffer(buffer_size) {
+        Converter(int buffer_size = 250) : converters::CharStringBuffer(buffer_size) {
     		format_specifier[0] = '%';
     		format_specifier[1] = '.';
     		format_specifier[2] = 'x';
@@ -747,7 +747,7 @@ class Converter<char*,double> : public virtual converters::CharStringBuffer {
          * @param buffer_size : size of the buffer to create - if not supplied it initialises a buffer of size 250.
 		 * @exception StandardException : throws if it failed to allocate memory for the internal buffer [debug mode only].
          **/
-        Converter(int buffer_size = 250) ecl_debug_throw_decl(StandardException) : converters::CharStringBuffer(buffer_size) {
+        Converter(int buffer_size = 250) : converters::CharStringBuffer(buffer_size) {
     		format_specifier[0] = '%';
     		format_specifier[1] = '.';
     		format_specifier[2] = 'x';
@@ -880,7 +880,7 @@ class Converter<char*,void>  :
          *
 		 * @exception StandardException : throws if it failed to allocate memory for the internal buffer [debug mode only].
          **/
-        Converter(int buffer_size = 250) ecl_debug_throw_decl(StandardException) : converters::CharStringBuffer(buffer_size) {
+        Converter(int buffer_size = 250) : converters::CharStringBuffer(buffer_size) {
         }
 
         virtual ~Converter() {}

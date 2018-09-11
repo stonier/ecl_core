@@ -110,7 +110,7 @@ public:
    *
    * @exception : StandardException : throws if the indices provided are out of range [debug mode only].
    */
-  Stencil(Array& underlying_array, iterator begin_iter, iterator end_iter) ecl_assert_throw_decl(StandardException) :
+  Stencil(Array& underlying_array, iterator begin_iter, iterator end_iter) :
   array(underlying_array),
   b_iter(begin_iter),
   e_iter(end_iter)
@@ -135,7 +135,7 @@ public:
    *
    * @exception : StandardException : throws if the indices provided are out of range [debug mode only].
    */
-  Stencil(Array& underlying_array, const unsigned int& start_index = 0, const unsigned int &n = 0) ecl_assert_throw_decl(StandardException) :
+  Stencil(Array& underlying_array, const unsigned int& start_index = 0, const unsigned int &n = 0) :
   array(underlying_array),
   b_iter(array.begin()+start_index),
   e_iter(array.begin()+start_index+n)
@@ -160,7 +160,7 @@ public:
    *
    * @exception : StandardException : throws if the indices provided are out of range [debug mode only].
    */
-  Stencil<Array> stencil(const unsigned int& start_index, const unsigned int& n) const ecl_assert_throw_decl(StandardException)
+  Stencil<Array> stencil(const unsigned int& start_index, const unsigned int& n) const
   {
     ecl_assert_throw( b_iter+start_index < array.end(), StandardException(LOC, OutOfRangeError, "Start index provided is larger than the underlying stencil size."));
     ecl_assert_throw( b_iter+start_index+n <= array.end(), StandardException(LOC, OutOfRangeError, "Finish index provided is larger than the underlying stencil size."));
@@ -178,7 +178,7 @@ public:
    *
    * @exception : StandardException : throws if the indices provided are out of range [debug mode only].
    */
-  void resettle(const unsigned int& start_index, const unsigned int& n) ecl_assert_throw_decl(StandardException)
+  void resettle(const unsigned int& start_index, const unsigned int& n)
   {
 
     b_iter = array.begin()+start_index;
@@ -237,7 +237,7 @@ public:
    *
    * @exception : StandardException : if copying from another stencil/array, throws if size exceeded [debug mode only].
    */
-  Stencil<Array>& operator=(const Stencil<Array> &s) ecl_assert_throw_decl(StandardException)
+  Stencil<Array>& operator=(const Stencil<Array> &s)
   {
     if ( &array == &(s.array) )
     { // resettle
@@ -263,7 +263,7 @@ public:
    * @return iterator : points to the beginning of the stencil.
    * @exception : StandardException : throws if the underlying array changed size and the stencil is now out of range [debug mode only].
    */
-  iterator begin() ecl_assert_throw_decl(StandardException)
+  iterator begin()
   {
     ecl_assert_throw( b_iter <= array.end(), StandardException(LOC,OutOfRangeError));
     return b_iter;
@@ -273,7 +273,7 @@ public:
    * @return const_iterator : constant pointer (iterator) pointing to the end of the array.
    * @exception : StandardException : throws if the underlying array changed size and the stencil is now out of range [debug mode only].
    */
-  const_iterator begin() const ecl_assert_throw_decl(StandardException)
+  const_iterator begin() const
   {
     ecl_assert_throw( b_iter <= array.end(), StandardException(LOC,OutOfRangeError));
     return b_iter;
@@ -283,7 +283,7 @@ public:
    * @return iterator : points to the end of the array.
    * @exception : StandardException : throws if the underlying array changed size and the stencil is now out of range [debug mode only].
    */
-  iterator end() ecl_assert_throw_decl(StandardException)
+  iterator end()
   {
     ecl_assert_throw( e_iter <= array.end(), StandardException(LOC,OutOfRangeError));
     return e_iter;
@@ -293,7 +293,7 @@ public:
    * @return const_iterator : constant pointer (iterator) pointing to the end of the array.
    * @exception : StandardException : throws if the underlying array changed size and the stencil is now out of range [debug mode only].
    */
-  const_iterator end() const ecl_assert_throw_decl(StandardException)
+  const_iterator end() const
   {
     ecl_assert_throw( e_iter <= array.end(), StandardException(LOC,OutOfRangeError));
     return e_iter;
@@ -303,7 +303,7 @@ public:
    * @return reverse_iterator : points to the end of the array.
    * @exception : StandardException : throws if the underlying array changed size and the stencil is now out of range [debug mode only].
    */
-  reverse_iterator rbegin() ecl_assert_throw_decl(StandardException)
+  reverse_iterator rbegin()
   {
     ecl_assert_throw( e_iter <= array.end(), StandardException(LOC,OutOfRangeError));
     return reverse_iterator(end());
@@ -313,7 +313,7 @@ public:
    * @return const_reverse_iterator : constant reverse iterator pointing to the end of the array.
    * @exception : StandardException : throws if the underlying array changed size and the stencil is now out of range [debug mode only].
    */
-  const_reverse_iterator rbegin() const ecl_assert_throw_decl(StandardException)
+  const_reverse_iterator rbegin() const
   {
     ecl_assert_throw( e_iter <= array.end(), StandardException(LOC,OutOfRangeError));
     return const_reverse_iterator(end());
@@ -323,7 +323,7 @@ public:
    * @return reverse_iterator : points to the beginning of the array.
    * @exception : StandardException : throws if the underlying array changed size and the stencil is now out of range [debug mode only].
    */
-  reverse_iterator rend() ecl_assert_throw_decl(StandardException)
+  reverse_iterator rend()
   {
     ecl_assert_throw( b_iter <= array.end(), StandardException(LOC,OutOfRangeError));
     return reverse_iterator(begin());
@@ -333,7 +333,7 @@ public:
    * @return const_reverse_iterator : constant reverse iterator pointing to the beginning of the array.
    * @exception : StandardException : throws if the underlying array changed size and the stencil is now out of range [debug mode only].
    */
-  const_reverse_iterator rend() const ecl_assert_throw_decl(StandardException)
+  const_reverse_iterator rend() const
   {
     ecl_assert_throw( b_iter <= array.end(), StandardException(LOC,OutOfRangeError));
     return const_reverse_iterator(begin());
@@ -347,7 +347,7 @@ public:
    * @return reference : reference to the first element in the array.
    * @exception : StandardException : throws if the underlying array changed size and the stencil is now out of range [debug mode only].
    */
-  reference front() ecl_assert_throw_decl(StandardException)
+  reference front()
   {
     ecl_assert_throw( b_iter <= array.end(), StandardException(LOC,OutOfRangeError));
     return *b_iter;
@@ -357,7 +357,7 @@ public:
    * @return const_reference : const_reference to the first element in the array.
    * @exception : StandardException : throws if the underlying array changed size and the stencil is now out of range [debug mode only].
    */
-  const_reference front() const ecl_assert_throw_decl(StandardException)
+  const_reference front() const
   {
     ecl_assert_throw( b_iter <= array.end(), StandardException(LOC,OutOfRangeError));
     return *b_iter;
@@ -367,7 +367,7 @@ public:
    * @return reference : reference to the last element in the array.
    * @exception : StandardException : throws if the underlying array changed size and the stencil is now out of range [debug mode only].
    */
-  reference back() ecl_assert_throw_decl(StandardException)
+  reference back()
   {
     ecl_assert_throw( e_iter <= array.end(), StandardException(LOC,OutOfRangeError));
     return *(e_iter-1);
@@ -377,7 +377,7 @@ public:
    * @return const_reference : const_reference to the last element in the array.
    * @exception : StandardException : throws if the underlying array changed size and the stencil is now out of range [debug mode only].
    */
-  const_reference back() const ecl_assert_throw_decl(StandardException)
+  const_reference back() const
   {
     ecl_assert_throw( e_iter <= array.end(), StandardException(LOC,OutOfRangeError));
     return *(e_iter-1);
@@ -395,7 +395,7 @@ public:
    *
    * @exception : StandardException : throws if range is requested element is out of range [debug mode only].
    **/
-  reference operator[](size_type i) ecl_assert_throw_decl(StandardException)
+  reference operator[](size_type i)
   {
     ecl_assert_throw( b_iter+i >= array.begin(), StandardException(LOC,OutOfRangeError));
     ecl_assert_throw( b_iter+i <= array.end(), StandardException(LOC,OutOfRangeError));
@@ -412,7 +412,7 @@ public:
    *
    * @exception : StandardException : throws if range is requested element is out of range [debug mode only].
    **/
-  const_reference operator[](size_type i) const ecl_assert_throw_decl(StandardException)
+  const_reference operator[](size_type i) const
   {
     ecl_assert_throw( b_iter+i >= array.begin(), StandardException(LOC,OutOfRangeError));
     ecl_assert_throw( b_iter+i <= array.end(), StandardException(LOC,OutOfRangeError));
@@ -428,7 +428,7 @@ public:
    *
    * @exception : StandardException : throws if range is requested element is out of range.
    */
-  reference at(size_type i) throw(StandardException)
+  reference at(size_type i)
   {
     if ( b_iter+i <= array.begin() )
     {
@@ -452,7 +452,7 @@ public:
    *
    * @exception : StandardException : throws if range is requested element is out of range.
    */
-  const_reference at(size_type i) const throw(StandardException)
+  const_reference at(size_type i) const
   {
     if ( b_iter+i <= array.begin() )
     {

@@ -60,7 +60,7 @@ public:
 	 *
 	 * @exception StandardException : throws if the connection failed to open.
 	 */
-	OFileStream(const std::string &file_name, const WriteMode &mode = New) ecl_throw_decl(StandardException) {
+	OFileStream(const std::string &file_name, const WriteMode &mode = New) {
 		ecl_try {
 			if( !this->device().open(file_name, mode) ) {
 				error = this->device().error();

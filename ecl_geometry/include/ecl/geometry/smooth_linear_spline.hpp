@@ -74,7 +74,7 @@ public:
      * a corner without breaking the acceleration constraint. Note that if you have a data set of size 5 (i.e.
      * elements 0-4), then it will only throw between 1 and 3, as this is where smoothed corners are built.
      */
-    SmoothLinearSpline(const Array<double>& x_data, const Array<double>& y_data, double a_max) throw (DataException<int>);
+    SmoothLinearSpline(const Array<double>& x_data, const Array<double>& y_data, double a_max);
 
     virtual	~SmoothLinearSpline() {}
 
@@ -87,7 +87,7 @@ public:
 	 * @return double : the spline function's value.
 	 * @exception : StandardException : throws if x is outside the spline range [debug mode only].
 	 */
-	double operator()(const double &x) const ecl_assert_throw_decl(StandardException);
+	double operator()(const double &x) const;
 	/**
 	 * @brief Spline derivative.
 	 *
@@ -98,7 +98,7 @@ public:
 	 * @return double : the derivative of the spline.
 	 * @exception : StandardException : throws if x is outside the spline range [debug mode only].
 	 */
-	double derivative(const double &x) const ecl_assert_throw_decl(StandardException);
+	double derivative(const double &x) const;
 	/**
 	 * @brief Spline second derivative.
 	 *
@@ -107,7 +107,7 @@ public:
 	 * @return double : the second derivative of the spline.
 	 * @exception : StandardException : throws if x is outside the spline range [debug mode only].
 	 */
-	double dderivative(const double &x) const ecl_assert_throw_decl(StandardException);
+	double dderivative(const double &x) const;
 
 	/**
 	 * @brief The discretised domain for this spline.
@@ -133,7 +133,7 @@ public:
      *
      * @exception : DataException : throws if the spline could not be constructed, data is the segment # that failed.
 	 */
-	static SmoothLinearSpline Interpolation(const Array<double>& x_data, const Array<double>& y_data, double a_max) throw (DataException<int>)
+	static SmoothLinearSpline Interpolation(const Array<double>& x_data, const Array<double>& y_data, double a_max)
 	{
 		try {
 			return SmoothLinearSpline(x_data, y_data, a_max);

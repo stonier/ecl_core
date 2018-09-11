@@ -142,7 +142,7 @@ public:
    * @exception StandardException : throws if the formatter is used multiply in one stream operation [debug mode only].
    */
   template <typename OutputStream, typename CharType, size_t M>
-  friend OutputStream& operator << (OutputStream& ostream, const BytePushAndPopFormatter<CharType,M> &formatter) ecl_assert_throw_decl(StandardException);
+  friend OutputStream& operator << (OutputStream& ostream, const BytePushAndPopFormatter<CharType,M> &formatter);
 
 private:
   const typename ecl::PushAndPop<Byte,N> *push_and_pop_container;
@@ -155,7 +155,6 @@ private:
 
 template <typename OutputStream, typename CharType, size_t M>
 OutputStream& operator <<(OutputStream& ostream, const BytePushAndPopFormatter<CharType, M> &formatter)
-ecl_assert_throw_decl(StandardException)
 {
   ecl_assert_throw(formatter.ready_to_format, StandardException(LOC,UsageError,"The formatter cannot print any data - "
           "either there is no data available, or you have tried to use the "

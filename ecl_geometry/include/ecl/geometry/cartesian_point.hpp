@@ -83,7 +83,7 @@ public:
 	 * @return T& : handle to the underlying element.
      * @exception StandardException : throws if the index is outside of the array range [debug mode only].
 	 */
-	T& operator [](const unsigned int& index) ecl_assert_throw_decl(StandardException) {
+	T& operator [](const unsigned int& index) {
         ecl_assert_throw( index<N, StandardException(LOC,OutOfRangeError));
         return elements[index];
     }
@@ -95,7 +95,7 @@ public:
 	 * @return const T& : handle to the underlying element.
      * @exception StandardException : throws if the index is outside of the array range [debug mode only].
 	 */
-	const T& operator [](const unsigned int& index) const ecl_assert_throw_decl(StandardException) {
+	const T& operator [](const unsigned int& index) const {
         ecl_assert_throw( index<N, StandardException(LOC,OutOfRangeError));
         return elements[index];
     }
@@ -341,12 +341,12 @@ public:
 		return elements.operator<<(value);
     }
 
-	T& operator [](const unsigned int& index) ecl_assert_throw_decl(StandardException) {
+	T& operator [](const unsigned int& index) {
         ecl_assert_throw( index<2, StandardException(LOC,OutOfRangeError));
         return elements[index];
     }
 
-	const T  operator [](const unsigned int& index) const ecl_assert_throw_decl(StandardException) {
+	const T  operator [](const unsigned int& index) const {
         ecl_assert_throw( index<2, StandardException(LOC,OutOfRangeError));
         return elements[index];
     }

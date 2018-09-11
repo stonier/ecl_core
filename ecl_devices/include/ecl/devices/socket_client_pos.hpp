@@ -78,7 +78,7 @@ public:
 	 * @param port_number : port on which to listen for connections.
 	 * @exception StandardException : throws if the connection failed to open.
 	 **/
-	SocketClient(const std::string &host_name, const unsigned int &port_number = 5555) ecl_throw_decl(StandardException);
+	SocketClient(const std::string &host_name, const unsigned int &port_number = 5555);
 	virtual ~SocketClient() { close(); } /**< @brief If connected, closes the connection to the server. **/
 
 	/*********************
@@ -95,7 +95,7 @@ public:
 	 * @param port_number : port on which to listen for connections.
 	 * @exception StandardException : throws if the connection failed to open.
 	 **/
-	bool open( const std::string &hostname, const unsigned int& port_number ) ecl_throw_decl(StandardException);
+	bool open( const std::string &hostname, const unsigned int& port_number );
 	void close(); /**< @brief If open, close the link to the server. **/
 
 	bool open() const { return is_open; }
@@ -111,7 +111,7 @@ public:
 	 * @param c : the character to write.
 	 * @exception StandardException : throws if writing returned an error [debug mode only].
 	 **/
-	long write(const char &c) ecl_debug_throw_decl(StandardException);
+	long write(const char &c);
 
 	/**
 	 * @brief Write a character string to the serial port.
@@ -121,7 +121,7 @@ public:
 	 * @param n : the number of characters to write.
 	 * @exception StandardException : throws if writing returned an error [debug mode only].
 	 **/
-	long write(const char *s, unsigned long n) ecl_debug_throw_decl(StandardException);
+	long write(const char *s, unsigned long n);
 
 	/**
 	 * @brief Maybe all that is needed is a dummy flush (not sure).
@@ -150,7 +150,7 @@ public:
 	 * @param c : character to read into from the buffer.
 	 * @exception StandardException : throws if reading returned an error [debug mode only].
 	 **/
-    long read(char &c) ecl_debug_throw_decl(StandardException);
+    long read(char &c);
 	/**
 	 * @brief Read a character string from the port.
 	 *
@@ -170,7 +170,7 @@ public:
 	 * @param n : the number of bytes to read.
 	 * @exception StandardException : throws if reading returned an error [debug mode only].
 	 **/
-    long read(char *s, const unsigned long &n) ecl_debug_throw_decl(StandardException);
+    long read(char *s, const unsigned long &n);
     /**
      * @brief Reads at the incoming socket buffer, but doesn't remove from the buffer.
      *
@@ -183,7 +183,7 @@ public:
      * @return long : number of characters read (-1 implies an error).
 	 * @exception StandardException : throws if reading returned an error [debug mode only].
      **/
-    long peek(char*s, const unsigned long &n) ecl_debug_throw_decl(StandardException);
+    long peek(char*s, const unsigned long &n);
 
 	/**
 	 * @brief Reports on the error state of the last operation.

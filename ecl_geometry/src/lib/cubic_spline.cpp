@@ -26,7 +26,7 @@ namespace ecl {
 ** Implementation
 *****************************************************************************/
 
-double CubicSpline::operator()(const double &x) const ecl_assert_throw_decl(StandardException) {
+double CubicSpline::operator()(const double &x) const {
     ecl_assert_throw( ( ( x >= discretised_domain.front() ) && ( x <= discretised_domain.back() ) ), StandardException(LOC,OutOfRangeError) );
     int index = 0;
     while ( x > discretised_domain[index+1] ) {
@@ -35,7 +35,7 @@ double CubicSpline::operator()(const double &x) const ecl_assert_throw_decl(Stan
     return cubic_polynomials[index](x);
 }
 
-double CubicSpline::derivative(double x) const ecl_assert_throw_decl(StandardException) {
+double CubicSpline::derivative(double x) const {
     ecl_assert_throw( ( ( x >= discretised_domain.front() ) && ( x <= discretised_domain.back() ) ), StandardException(LOC,OutOfRangeError) );
     int index = 0;
     while ( x > discretised_domain[index+1] ) {
@@ -44,7 +44,7 @@ double CubicSpline::derivative(double x) const ecl_assert_throw_decl(StandardExc
     return cubic_polynomials[index].derivative()(x);
 }
 
-double CubicSpline::dderivative(double x) const ecl_assert_throw_decl(StandardException) {
+double CubicSpline::dderivative(double x) const {
     ecl_assert_throw( ( ( x >= discretised_domain.front() ) && ( x <= discretised_domain.back() ) ), StandardException(LOC,OutOfRangeError) );
     int index = 0;
     while ( x > discretised_domain[index+1] ) {

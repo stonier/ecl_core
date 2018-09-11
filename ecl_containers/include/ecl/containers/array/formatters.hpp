@@ -157,7 +157,7 @@ public:
    */
   ByteArrayFormatter<Byte,N>& operator()(typename Array<Byte,N>::const_iterator begin_iter,
       typename Array<Byte,N>::const_iterator end_iter
-  ) ecl_assert_throw_decl(StandardException)
+  )
   {
 
     begin_iterator = begin_iter;
@@ -179,7 +179,7 @@ public:
    * @exception StandardException : throws if the formatter is used multiply in one stream operation [debug mode only].
    */
   template <typename OutputStream, typename CharType, size_t M>
-  friend OutputStream& operator << (OutputStream& ostream, const ByteArrayFormatter<CharType,M> &formatter) ecl_assert_throw_decl(StandardException);
+  friend OutputStream& operator << (OutputStream& ostream, const ByteArrayFormatter<CharType,M> &formatter);
 
 private:
   typename Array<Byte,N>::const_iterator begin_iterator;
@@ -193,7 +193,6 @@ private:
 
 template <typename OutputStream, typename CharType, size_t M>
 OutputStream& operator <<(OutputStream& ostream, const ByteArrayFormatter<CharType, M> &formatter)
-ecl_assert_throw_decl(StandardException)
 {
   ecl_assert_throw(formatter.ready_to_format, StandardException(LOC,UsageError,"The formatter cannot print any data - "
           "either there is no data available, or you have tried to use the "

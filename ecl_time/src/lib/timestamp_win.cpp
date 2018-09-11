@@ -31,16 +31,16 @@ namespace ecl {
 ** Implementation [Constructors]
 *****************************************************************************/
 
-TimeStamp::TimeStamp() ecl_debug_throw_decl(StandardException) {
+TimeStamp::TimeStamp() {
 	stamp();
 }
 
-TimeStamp::TimeStamp (const double& decimal_time_value) ecl_assert_throw_decl(StandardException) :
+TimeStamp::TimeStamp (const double& decimal_time_value) :
 	TimeStampBase(decimal_time_value)
 {
 }
 
-TimeStamp::TimeStamp (const time_t& seconds, const long& nanoseconds) ecl_assert_throw_decl(StandardException) :
+TimeStamp::TimeStamp (const time_t& seconds, const long& nanoseconds) :
 	TimeStampBase(seconds, nanoseconds)
 {
 }
@@ -51,7 +51,7 @@ TimeStamp::TimeStamp(const TimeStampBase& base) : TimeStampBase(base) {}
 ** Implementation [Stamps]
 *****************************************************************************/
 
-const TimeStamp& TimeStamp::stamp() ecl_debug_throw_decl(StandardException) {
+const TimeStamp& TimeStamp::stamp() {
     return (*this);
 }
 

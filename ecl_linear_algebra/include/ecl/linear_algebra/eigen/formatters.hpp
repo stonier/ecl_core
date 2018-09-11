@@ -182,7 +182,7 @@ public:
 	 * @exception StandardException : throws if the formatter has un-specified _matrix [debug mode only]
 	 */
 	template <typename OutputStream, typename Derived_ >
-	friend OutputStream& operator << ( OutputStream& ostream, FloatMatrixFormatter<Derived_> & formatter ) ecl_assert_throw_decl(ecl::StandardException);
+	friend OutputStream& operator << ( OutputStream& ostream, FloatMatrixFormatter<Derived_> & formatter );
 
     private:
 		ecl::Format<typename Derived::Scalar> format;
@@ -194,7 +194,7 @@ public:
 };
 
 template <typename OutputStream, typename Derived_ >
-OutputStream& operator << (OutputStream& ostream, FloatMatrixFormatter< Derived_ > & formatter ) ecl_assert_throw_decl(ecl::StandardException)
+OutputStream& operator << (OutputStream& ostream, FloatMatrixFormatter< Derived_ > & formatter )
 {
     ecl_assert_throw( formatter._matrix, ecl::StandardException(LOC,ecl::UsageError,"The formatter cannot print any data - "
             "_matrix was not initialised "

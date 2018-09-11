@@ -101,7 +101,7 @@ public:
 	 *
 	 * @exception StandardException : throws if clock lookup fails [debug mode only].
 	 **/
-	TimeStamp() ecl_debug_throw_decl(StandardException);
+	TimeStamp();
 	/**
 	 * @brief Initialise the timestamp with a default value.
 	 *
@@ -112,7 +112,7 @@ public:
 	 *
 	 * @exception StandardException : thrown from TimeStampBase if the input arguments is not positive [debug mode only].
 	 */
-	TimeStamp (const double& decimal_time_value) ecl_assert_throw_decl(StandardException);
+	TimeStamp (const double& decimal_time_value);
 	/**
 	 * @brief Initialises the timestamp with the specified sec/nsec pair.
 	 *
@@ -123,7 +123,7 @@ public:
 	 *
 	 * @exception StandardException : thrown from TimeStampBase if input arguments are not positive [debug mode only].
 	 **/
-	TimeStamp (const time_t &seconds, const long &nanoseconds) ecl_assert_throw_decl(StandardException);
+	TimeStamp (const time_t &seconds, const long &nanoseconds);
 	/**
 	 * @brief Allow direct conversions from the base class.
 	 *
@@ -147,7 +147,7 @@ public:
 	 * Records the internal time variables with the current system time.
 	 * @exception StandardException : throws if clock lookup fails [debug mode only].
 	 */
-	const TimeStamp& stamp() ecl_debug_throw_decl(StandardException);
+	const TimeStamp& stamp();
 #if defined(ECL_HAS_RT_TIMERS)
 	/**
 	 * @brief Force use of the realtime clock (even if monotonic is available).
@@ -156,7 +156,7 @@ public:
 	 * option. Quite often 3rd party libraries (e.g. ros) do use this clock though,
 	 * so to be compatible we provide the option here.
 	 */
-        static TimeStamp realtime_now() ecl_debug_throw_decl(StandardException);
+        static TimeStamp realtime_now();
 #endif
 };
 

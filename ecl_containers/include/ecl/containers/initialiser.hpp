@@ -69,7 +69,7 @@ class ECL_LOCAL BoundedListInitialiser {
          *
          * @exception StandardException : throws if the range has been exceeded [debug mode only].
          */
-        BoundedListInitialiser<Type, Iterator, N>& operator,(const Type &value) ecl_assert_throw_decl(StandardException);
+        BoundedListInitialiser<Type, Iterator, N>& operator,(const Type &value);
 
     protected:
         Iterator iterator;
@@ -89,7 +89,7 @@ BoundedListInitialiser<Type,Iterator,N>::BoundedListInitialiser(const Type &valu
     ++iterator;
 }
 template <typename Type,typename Iterator,std::size_t N>
-BoundedListInitialiser<Type,Iterator,N>& BoundedListInitialiser<Type,Iterator,N>::operator,(const Type &value) ecl_assert_throw_decl(StandardException)
+BoundedListInitialiser<Type,Iterator,N>& BoundedListInitialiser<Type,Iterator,N>::operator,(const Type &value)
 {
     ecl_assert_throw( current_size < N, StandardException(LOC,OutOfRangeError) );
     *iterator = value;
@@ -126,7 +126,7 @@ class ECL_LOCAL BoundedListInitialiser<Type,Iterator,DynamicStorage> {
          *
          * @exception StandardException : throws if this container has no storage capacity [debug mode only].
          */
-        BoundedListInitialiser(const Type &value, Iterator iter, std::size_t bound) ecl_assert_throw_decl(StandardException);
+        BoundedListInitialiser(const Type &value, Iterator iter, std::size_t bound);
 
         virtual ~BoundedListInitialiser() {}
         /**
@@ -139,7 +139,7 @@ class ECL_LOCAL BoundedListInitialiser<Type,Iterator,DynamicStorage> {
          *
          * @exception StandardException : throws if the range has been exceeded [debug mode only].
          */
-        BoundedListInitialiser<Type, Iterator, DynamicStorage>& operator,(const Type &value) ecl_assert_throw_decl(StandardException);
+        BoundedListInitialiser<Type, Iterator, DynamicStorage>& operator,(const Type &value);
 
     protected:
         Iterator iterator;
@@ -152,7 +152,7 @@ class ECL_LOCAL BoundedListInitialiser<Type,Iterator,DynamicStorage> {
 *****************************************************************************/
 
 template <typename Type, typename Iterator>
-BoundedListInitialiser<Type,Iterator,DynamicStorage>::BoundedListInitialiser(const Type &value, Iterator iter, std::size_t bound) ecl_assert_throw_decl(StandardException) :
+BoundedListInitialiser<Type,Iterator,DynamicStorage>::BoundedListInitialiser(const Type &value, Iterator iter, std::size_t bound) :
     iterator(iter),
     current_size(1),
     upper_bound(bound)
@@ -162,7 +162,7 @@ BoundedListInitialiser<Type,Iterator,DynamicStorage>::BoundedListInitialiser(con
     ++iterator;
 }
 template <typename Type,typename Iterator>
-BoundedListInitialiser<Type,Iterator,DynamicStorage>& BoundedListInitialiser<Type,Iterator,DynamicStorage>::operator,(const Type &value) ecl_assert_throw_decl(StandardException)
+BoundedListInitialiser<Type,Iterator,DynamicStorage>& BoundedListInitialiser<Type,Iterator,DynamicStorage>::operator,(const Type &value)
 {
     ecl_assert_throw( current_size < upper_bound, StandardException(LOC,OutOfRangeError) );
     *iterator = value;
