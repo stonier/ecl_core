@@ -36,7 +36,7 @@ using std::ostringstream;
 ** Implementation [Process]
 *****************************************************************************/
 
-bool set_priority(Priority priority_level) ecl_debug_throw_decl(StandardException)
+bool set_priority(Priority priority_level)
 {
     if (priority_level >= RealTimePriority1) {
     	return threads::set_real_time_priority(0, priority_level);
@@ -78,7 +78,7 @@ bool set_priority(Priority priority_level) ecl_debug_throw_decl(StandardExceptio
     return true;
 }
 
-Priority get_priority() ecl_debug_throw_decl(StandardException)
+Priority get_priority()
 {
     HANDLE hThread = GetCurrentThread();
 
@@ -113,7 +113,7 @@ Priority get_priority() ecl_debug_throw_decl(StandardException)
 ** Implementation [Debugging]
 *****************************************************************************/
 
-std::string print_priority_diagnostics() ecl_debug_throw_decl(StandardException) {
+std::string print_priority_diagnostics() {
 
     ostringstream ostream;
 
@@ -178,7 +178,7 @@ std::string print_priority_diagnostics() ecl_debug_throw_decl(StandardException)
 
 namespace threads {
 
-bool set_real_time_priority(int policy,int priority_level) ecl_debug_throw_decl(StandardException) {
+bool set_real_time_priority(int policy,int priority_level) {
 	// policy is ignored
 
     HANDLE hThread = GetCurrentThread();

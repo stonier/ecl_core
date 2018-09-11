@@ -103,21 +103,21 @@ namespace ecl {
  * @return bool : true if success, false if failed and exceptions aren't enabled.
  * @exception StandardException : throws if configuration fails.
  */
-bool ECL_PUBLIC set_priority(Priority priority_level) ecl_debug_throw_decl(StandardException);
+bool ECL_PUBLIC set_priority(Priority priority_level);
 /**
  * @brief Returns the process' current priority level.
  *
  * @return Priority : the process priority enumeration (UnknownPriority if it fails and exceptions aren't enabled).
  * @exception StandardException : if exceptions enabled, throws if the call fails.
  */
-Priority ECL_PUBLIC get_priority() ecl_debug_throw_decl(StandardException);
+Priority ECL_PUBLIC get_priority();
 
 /**
  * @brief Print priority diagnostics to a string.
  * @return string : insert into a stream to display/log.
  * @exception StandardException : if exceptions enabled, throws if any call fails.
  */
-std::string ECL_PUBLIC print_priority_diagnostics() ecl_debug_throw_decl(StandardException);
+std::string ECL_PUBLIC print_priority_diagnostics();
 
 /*****************************************************************************
 ** Namespace
@@ -140,7 +140,7 @@ namespace threads {
  *
  * @exception StandardException : if exceptions are enabled, throws if the operation fails or is not supported.
  */
-bool ECL_LOCAL set_real_time_priority(int policy,int priority_level) ecl_debug_throw_decl(StandardException);
+bool ECL_LOCAL set_real_time_priority(int policy,int priority_level);
 
 } // namespace threads
 } // namespace ecl

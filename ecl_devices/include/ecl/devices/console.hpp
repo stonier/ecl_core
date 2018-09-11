@@ -71,7 +71,7 @@ public:
 	 * @return long : the number of bytes written.
 	 * @exception StandardException : throws if writing returned an error [debug mode only].
 	 **/
-	long write(const char &c) ecl_assert_throw_decl(StandardException);
+	long write(const char &c);
 	/**
 	 * @brief Write a character string to the buffer.
 	 *
@@ -83,14 +83,14 @@ public:
 	 * @return long: the number of bytes written.
 	 * @exception StandardException : throws if flushing returned an error [debug mode only].
 	 **/
-	long write(const char* s, unsigned long n) ecl_assert_throw_decl(StandardException);
+	long write(const char* s, unsigned long n);
 	/**
 	 * @brief Flush the internal buffer.
 	 *
 	 * Flushes the userspace buffers to standard output.
 	 * @exception StandardException : throws if flushing returned an error [debug mode only].
 	 **/
-	void flush() ecl_assert_throw_decl(StandardException);
+	void flush();
 
 	/**
 	 * @brief Returns the most recent error status.
@@ -148,7 +148,7 @@ public:
 	 * @return long : the number of bytes written.
 	 * @exception StandardException : throws if writing returned an error [debug mode only].
 	 **/
-	long write(const char &c) ecl_assert_throw_decl(StandardException);
+	long write(const char &c);
 	/**
 	 * @brief Write a character string to the buffer.
 	 *
@@ -160,14 +160,14 @@ public:
 	 * @return long: the number of bytes written.
 	 * @exception StandardException : throws if flushing returned an error [debug mode only].
 	 **/
-	long write(const char* s, unsigned long n) ecl_assert_throw_decl(StandardException);
+	long write(const char* s, unsigned long n);
 	/**
 	 * @brief Flush the internal buffer.
 	 *
 	 * Flushes the userspace buffers to standard output.
 	 * @exception StandardException : throws if flushing returned an error [debug mode only].
 	 **/
-	void flush() ecl_assert_throw_decl(StandardException);
+	void flush();
 
 	/**
 	 * @brief Returns the most recent error status.
@@ -227,7 +227,7 @@ public:
 	 * @param c : character to read into from standard input.
 	 * @exception StandardException : throws if reading returned an error [debug mode only].
 	 **/
-    long read(char &c) ecl_assert_throw_decl(StandardException);
+    long read(char &c);
 	/**
 	 * @brief Reads a character string from standard input.
 	 *
@@ -237,7 +237,7 @@ public:
 	 * @param n : the number of bytes to read.
 	 * @exception StandardException : throws if reading returned an error [debug mode only].
 	 **/
-    long read(char *s, const unsigned long &n) ecl_assert_throw_decl(StandardException);
+    long read(char *s, const unsigned long &n);
 
 //    long remaining() {
 //        long pos = ftell(stdin); // get current position marker.

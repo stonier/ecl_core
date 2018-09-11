@@ -120,7 +120,7 @@ public:
 	 *
 	 * @exception StandardException : automatically throws if used.
 	 */
-	Semaphore() throw(StandardException);
+	Semaphore();
 	/**
 	 * @brief Initialises a connection to a semaphore.
 	 *
@@ -133,7 +133,7 @@ public:
 	 *
 	 * @exception StandardException : throws if the semaphore didn't initialise properly [debug mode only].
 	 */
-	Semaphore(const std::string& string_id) ecl_assert_throw_decl(StandardException);
+	Semaphore(const std::string& string_id);
 	/**
 	 * @brief Clean up the semaphore handles.
 	 *
@@ -178,7 +178,7 @@ public:
 	 *
 	 * @exception StandardException : throws if locking attempt aborted (other than timeouts) [debug mode only].
 	 **/
-	bool trylock( const Duration &timeout ) ecl_debug_throw_decl(StandardException);
+	bool trylock( const Duration &timeout );
 
 private:
 	std::string name;

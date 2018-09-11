@@ -142,7 +142,7 @@ public:
 	 * @exception StandardException : throws if the connection failed to open.
 	 */
 	Serial(const std::string& port_name, const BaudRate &baud_rate = BaudRate_115200, const DataBits &data_bits = DataBits_8,
-			const StopBits &stop_bits = StopBits_1, const Parity &parity = NoParity ) ecl_throw_decl(StandardException);
+			const StopBits &stop_bits = StopBits_1, const Parity &parity = NoParity );
 
 	/**
 	 * @brief Cleans up the file descriptor.
@@ -171,7 +171,7 @@ public:
 	 * @exception StandardException : throws if the connection failed to open.
 	 */
 	void open(const std::string& port_name, const BaudRate &baud_rate = BaudRate_115200, const DataBits &data_bits = DataBits_8,
-			const StopBits &stop_bits = StopBits_1, const Parity &parity = NoParity ) ecl_throw_decl(StandardException);
+			const StopBits &stop_bits = StopBits_1, const Parity &parity = NoParity );
 
 	/**
 	 * @brief Closes the port connection.
@@ -199,7 +199,7 @@ public:
 	 * @param c : the character to write.
 	 * @exception StandardException : throws if writing returned an error [debug mode only].
 	 **/
-	long write(const char &c) ecl_assert_throw_decl(StandardException);
+	long write(const char &c);
 
 	/**
 	 * @brief Write a character string to the serial port.
@@ -209,7 +209,7 @@ public:
 	 * @param n : the number of characters to write.
 	 * @exception StandardException : throws if writing returned an error [debug mode only].
 	 **/
-	long write(const char *s, unsigned long n) ecl_assert_throw_decl(StandardException);
+	long write(const char *s, unsigned long n);
 
 	/**
 	 * @brief A dummy flush function, not used, but needed by streams.
@@ -231,7 +231,7 @@ public:
 	 *
 	 * @exception StandardException : throws if a timeout < 0 is specified [debug mode only].
 	 */
-	void block(const long &timeout = 500) ecl_assert_throw_decl(StandardException);
+	void block(const long &timeout = 500);
 	/**
 	 * @brief Switch to unbocked mode for reading.
 	 *
@@ -261,7 +261,7 @@ public:
 	 * @param c : character to read into from the serial port's buffer.
 	 * @exception StandardException : throws if reading returned an error [debug mode only].
 	 **/
-    long read(char &c) ecl_assert_throw_decl(StandardException);
+    long read(char &c);
 	/**
 	 * @brief Read a character string from the port.
 	 *
@@ -273,7 +273,7 @@ public:
 	 * @param n : the number of bytes to read.
 	 * @exception StandardException : throws if reading returned an error [debug mode only].
 	 **/
-    long read(char *s, const unsigned long &n) ecl_assert_throw_decl(StandardException);
+    long read(char *s, const unsigned long &n);
 
 
     /*********************

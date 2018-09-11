@@ -142,7 +142,7 @@ public:
    * @exception StandardException : throws if the formatter has un-specified _matrix [debug mode only]
    */
   template <typename OutputStream>
-  friend OutputStream& operator << ( OutputStream& ostream, SE3fFormatter & formatter ) ecl_assert_throw_decl(ecl::StandardException);
+  friend OutputStream& operator << ( OutputStream& ostream, SE3fFormatter & formatter );
 
 private:
   ecl::Format<float> format;
@@ -154,7 +154,7 @@ private:
 };
 
 template <typename OutputStream>
-OutputStream& operator << (OutputStream& ostream, SE3fFormatter & formatter ) ecl_assert_throw_decl(ecl::StandardException) {
+OutputStream& operator << (OutputStream& ostream, SE3fFormatter & formatter ) {
 
   ecl_assert_throw( formatter.s_, ecl::StandardException(LOC,ecl::UsageError,"The formatter cannot print any data - "
           "sophus object was not initialised "

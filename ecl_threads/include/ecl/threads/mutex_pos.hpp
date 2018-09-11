@@ -89,7 +89,7 @@ public:
 	 *
 	 * @exception StandardException : throws if mutex initialisation fails [debug mode only].
 	 */
-	Mutex(const bool locked = false) ecl_assert_throw_decl(StandardException);
+	Mutex(const bool locked = false);
 	/**
 	 * @brief Destroys the mutex.
 	 *
@@ -102,13 +102,13 @@ public:
 	 *
 	 * @exception StandardException : throws if mutex unlocking fails [debug mode only].
 	 */
-	void unlock() ecl_assert_throw_decl(StandardException);
+	void unlock();
 	/**
 	 * @brief Locks the mutex.
 	 *
 	 * @exception StandardException : throws if mutex locking fails [debug mode only].
 	 */
-	void lock() ecl_assert_throw_decl(StandardException);
+	void lock();
 	/**
 	 * @brief Attempts to lock the mutex, but will timeout if it fails for a certain duration.
 	 *
@@ -122,7 +122,7 @@ public:
 	 *
 	 * @exception StandardException : throws if mutex timed locking fails [debug mode only].
 	 */
-	bool trylock(Duration &duration) ecl_assert_throw_decl(StandardException);
+	bool trylock(Duration &duration);
 	/**
 	 * @brief Tries to lock, but returns immediately if it can't.
 	 *
@@ -133,7 +133,7 @@ public:
 	 *
 	 * @exception StandardException : throws if mutex trylock recorded an error other than an already busy mutex [debug mode only].
 	 */
-	bool trylock() ecl_assert_throw_decl(StandardException);
+	bool trylock();
 	/**
 	 * @brief Number of threads that have this mutex currently locked.
 	 *

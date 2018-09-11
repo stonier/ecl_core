@@ -89,14 +89,14 @@ public:
    */
   PushAndPop() : size_fifo(0), leader(0), follower(0) {}
 
-  PushAndPop( const unsigned int length ) ecl_assert_throw_decl(StandardException)
+  PushAndPop( const unsigned int length )
   : size_fifo(length+1), leader(0), follower(0)
   {
     ecl_assert_throw( (size_fifo>0), StandardException(LOC, OutOfRangeError, "SimpleFIFO start with zero size buffer"));
     data.resize( size_fifo );
   }
 
-  PushAndPop( const unsigned int length, const Type & d ) ecl_assert_throw_decl(StandardException) :
+  PushAndPop( const unsigned int length, const Type & d ) :
   size_fifo(length+1),
   leader(0),
   follower(0)
@@ -122,7 +122,7 @@ public:
    *
    * @exception StandardException : throws if no storage has been allocated [debug mode only].
    */
-  iterator begin() ecl_assert_throw_decl(StandardException) {
+  iterator begin() {
     return data.begin(); // underlying array will throw if no storage has been allocated
   }
   /**
@@ -131,7 +131,7 @@ public:
    *
    * @exception StandardException : throws if no storage has been allocated [debug mode only].
    */
-  const_iterator begin() const ecl_assert_throw_decl(StandardException) {
+  const_iterator begin() const {
     return data.begin(); // underlying array will throw if no storage has been allocated
   }
   /**
@@ -140,7 +140,7 @@ public:
    *
    * @exception StandardException : throws if no storage has been allocated [debug mode only].
    */
-  iterator end() ecl_assert_throw_decl(StandardException) {
+  iterator end() {
     return data.end(); // underlying array will throw if no storage has been allocated
   }
   /**
@@ -149,7 +149,7 @@ public:
    *
    * @exception StandardException : throws if no storage has been allocated [debug mode only].
    */
-  const_iterator end() const ecl_assert_throw_decl(StandardException) {
+  const_iterator end() const {
     return data.end(); // underlying array will throw if no storage has been allocated
   }
   /**
@@ -158,7 +158,7 @@ public:
    *
    * @exception StandardException : throws if no storage has been allocated [debug mode only].
    */
-  reverse_iterator rbegin() ecl_assert_throw_decl(StandardException) {
+  reverse_iterator rbegin() {
     return reverse_iterator(end());
   }
   /**
@@ -167,7 +167,7 @@ public:
    *
    * @exception StandardException : throws if no storage has been allocated [debug mode only].
    */
-  const_reverse_iterator rbegin() const ecl_assert_throw_decl(StandardException) {
+  const_reverse_iterator rbegin() const {
     return const_reverse_iterator(end());
   }
   /**
@@ -176,7 +176,7 @@ public:
    *
    * @exception StandardException : throws if no storage has been allocated [debug mode only].
    */
-  reverse_iterator rend() ecl_assert_throw_decl(StandardException) {
+  reverse_iterator rend() {
     return reverse_iterator(begin());
   }
   /**
@@ -185,7 +185,7 @@ public:
    *
    * @exception StandardException : throws if no storage has been allocated [debug mode only].
    */
-  const_reverse_iterator rend() const ecl_assert_throw_decl(StandardException) {
+  const_reverse_iterator rend() const {
     return const_reverse_iterator(begin());
   }
 

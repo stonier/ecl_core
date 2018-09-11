@@ -45,7 +45,7 @@ using ecl::Mutex;
 ** Implementation [SharedFileCommon]
 *****************************************************************************/
 
-SharedFileCommon::SharedFileCommon(const std::string &name, ecl::WriteMode mode) ecl_throw_decl(StandardException) :
+SharedFileCommon::SharedFileCommon(const std::string &name, ecl::WriteMode mode) :
 	count(1),
 	error_handler(NoError)
 {
@@ -70,7 +70,7 @@ std::map<string,SharedFileCommon*> SharedFileManager::opened_files;
 ** Implementation [SharedFileManager]
 *****************************************************************************/
 
-SharedFileCommon* SharedFileManager::RegisterSharedFile(const std::string& name, ecl::WriteMode mode) ecl_throw_decl(StandardException) {
+SharedFileCommon* SharedFileManager::RegisterSharedFile(const std::string& name, ecl::WriteMode mode) {
 
 	mutex.lock();
 	std::map<std::string,SharedFileCommon*>::iterator iter = opened_files.find(name);
@@ -101,7 +101,7 @@ SharedFileCommon* SharedFileManager::RegisterSharedFile(const std::string& name,
  * @param name
  * @return
  */
-bool SharedFileManager::DeRegisterSharedFile(const std::string& name) ecl_throw_decl(StandardException) {
+bool SharedFileManager::DeRegisterSharedFile(const std::string& name) {
 
 	mutex.lock();
 	std::map<std::string,SharedFileCommon*>::iterator iter = opened_files.find(name);
@@ -132,7 +132,7 @@ using std::string;
 ** Implementation [SharedFile]
 *****************************************************************************/
 
-SharedFile::SharedFile(const std::string &name, WriteMode mode) ecl_throw_decl(StandardException) :
+SharedFile::SharedFile(const std::string &name, WriteMode mode) :
 	shared_instance(NULL)
 {
 	ecl_try {
@@ -152,7 +152,7 @@ SharedFile::~SharedFile() {
 	}
 }
 
-bool SharedFile::open(const std::string &name, WriteMode mode) ecl_throw_decl(StandardException) {
+bool SharedFile::open(const std::string &name, WriteMode mode) {
 	ecl_try {
 		shared_instance = devices::SharedFileManager::RegisterSharedFile(name,mode);
 		if ( shared_instance == NULL ) {
@@ -168,7 +168,7 @@ bool SharedFile::open(const std::string &name, WriteMode mode) ecl_throw_decl(St
 	}
 }
 
-long SharedFile::write(const char &c) ecl_debug_throw_decl(StandardException) {
+long SharedFile::write(const char &c) {
 	long n = buffer.append(c);
 	if ( buffer.full() ) {
 		if ( !flush() ) {
@@ -178,7 +178,7 @@ long SharedFile::write(const char &c) ecl_debug_throw_decl(StandardException) {
 	return n;
 }
 
-long SharedFile::write(const char* s, unsigned long n) ecl_debug_throw_decl(StandardException) {
+long SharedFile::write(const char* s, unsigned long n) {
 	unsigned int no_written = 0;
 	while ( no_written < n ) {
 		no_written += buffer.append(s+no_written,n-no_written);
@@ -191,7 +191,7 @@ long SharedFile::write(const char* s, unsigned long n) ecl_debug_throw_decl(Stan
 	return n;
 }
 
-bool SharedFile::flush() ecl_debug_throw_decl(StandardException) {
+bool SharedFile::flush() {
 	long written;
 	ecl_debug_try {
 		written = shared_instance->file.write(buffer.c_ptr(), buffer.size() );

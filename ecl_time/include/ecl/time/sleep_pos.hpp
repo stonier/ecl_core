@@ -89,7 +89,7 @@ public:
 	 *
 	 * @exception StandardException : throws if the sleep function fails [debug mode only].
 	 */
-	void operator()() ecl_assert_throw_decl(StandardException);
+	void operator()();
 	/**
 	 * @brief Returns the currently configured sleep time for this sleeper.
 	 *
@@ -108,7 +108,7 @@ public:
 	 *
 	 * @exception StandardException : throws if the sleep function fails [debug mode only].
 	 */
-	void operator()(const unsigned long &seconds) ecl_assert_throw_decl(StandardException);
+	void operator()(const unsigned long &seconds);
 	/**
 	 * @brief Sleeper functor method for sleeping at any resolution.
 	 *
@@ -118,7 +118,7 @@ public:
 	 *
 	 * @exception StandardException : throws if the sleep function fails [debug mode only].
 	 */
-	void operator()(const Duration &duration) ecl_assert_throw_decl(StandardException);
+	void operator()(const Duration &duration);
 
 private:
     timespec required, remaining;
@@ -161,7 +161,7 @@ public:
 	 *
 	 * @exception StandardException : throws if the sleep function fails [debug mode only].
 	 */
-	void operator()() ecl_assert_throw_decl(StandardException);
+	void operator()();
 	/**
 	 * @brief Returns the currently configured sleep time for this sleeper.
 	 *
@@ -180,7 +180,7 @@ public:
 	 *
 	 * @exception StandardException : throws if the sleep function fails [debug mode only].
 	 */
-	void operator()(const unsigned long &milliseconds) ecl_assert_throw_decl(StandardException);
+	void operator()(const unsigned long &milliseconds);
 private:
     timespec required, remaining;
 };
@@ -223,7 +223,7 @@ public:
 	 *
 	 * @exception StandardException : throws if the sleep function fails [debug mode only].
 	 */
-	void operator()() ecl_assert_throw_decl(StandardException);
+	void operator()();
 	/**
 	 * @brief Returns the currently configured sleep time for this sleeper.
 	 *
@@ -241,7 +241,7 @@ public:
 	 *
 	 * @exception StandardException : throws if the sleep function fails [debug mode only].
 	 */
-	void operator()(const unsigned long &micro_seconds) ecl_assert_throw_decl(StandardException);
+	void operator()(const unsigned long &micro_seconds);
 private:
     timespec required, remaining;
 };
@@ -284,7 +284,7 @@ public:
 	 *
 	 * @exception StandardException : throws if the sleep function fails [debug mode only].
 	 */
-	void operator()() ecl_assert_throw_decl(StandardException);
+	void operator()();
 	/**
 	 * @brief Returns the currently configured sleep time for this sleeper.
 	 *
@@ -302,7 +302,7 @@ public:
 	 *
 	 * @exception StandardException : throws if the sleep function fails [debug mode only].
 	 */
-	void operator()(const unsigned long &nanoseconds) ecl_assert_throw_decl(StandardException);
+	void operator()(const unsigned long &nanoseconds);
 private:
     timespec required, remaining;
 };

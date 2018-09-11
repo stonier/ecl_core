@@ -141,7 +141,7 @@ public:
 	/*********************
 	** C&D's
 	**********************/
-	SharedMemory(const std::string& string_id) ecl_throw_decl(StandardException);
+	SharedMemory(const std::string& string_id);
 	virtual ~SharedMemory();
 
 	Storage* data() { return storage; }         /**< Data storage accessor. **/
@@ -168,7 +168,7 @@ private:
  * @exception StandardException : throws if the shared memory could not be initialised.
  **/
 template <typename Storage>
-SharedMemory<Storage>::SharedMemory(const std::string& string_id ) ecl_throw_decl(StandardException)  :
+SharedMemory<Storage>::SharedMemory(const std::string& string_id ) :
 	ipc::SharedMemoryBase(std::string("/")+string_id),
 	shared_memory_size(sizeof(Storage)),
 	storage(NULL)

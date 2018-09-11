@@ -107,7 +107,7 @@ class ECL_PUBLIC SplineFunction : public GenericSplineFunction {
          * @return double : the value of the function at x.
          * @exception : StandardException : throws if input x value is outside the domain [debug mode only].
          */
-        double operator()(const double &x) const ecl_assert_throw_decl(StandardException) {
+        double operator()(const double &x) const {
             ecl_assert_throw( ( x >= time_domain[0] ) && x <= time_domain[1], StandardException(LOC,OutOfRangeError ) );
             return function(x);
         }
@@ -118,7 +118,7 @@ class ECL_PUBLIC SplineFunction : public GenericSplineFunction {
          * @return double : the value of the derivative at x.
          * @exception : StandardException : throws if input x value is outside the domain [debug mode only].
          */
-        double derivative(const double &x) const ecl_assert_throw_decl(StandardException) {
+        double derivative(const double &x) const {
             ecl_assert_throw( ( x >= time_domain[0] ) && x <= time_domain[1], StandardException(LOC,OutOfRangeError ) );
             return function.derivative(x);
         }
@@ -129,7 +129,7 @@ class ECL_PUBLIC SplineFunction : public GenericSplineFunction {
          * @return double : the value of the 2nd derivative at x.
          * @exception : StandardException : throws if input x value is outside the domain [debug mode only].
          */
-        double dderivative(const double &x) const ecl_assert_throw_decl(StandardException) {
+        double dderivative(const double &x) const {
             ecl_assert_throw( ( x >= time_domain[0] ) && x <= time_domain[1], StandardException(LOC,OutOfRangeError ) );
             return function.dderivative(x);
         }
