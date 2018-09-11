@@ -127,7 +127,7 @@ public:
 	 *
 	 * @exception StandardException : throws if the connection failed to open.
 	 */
-	LogStream(const std::string &file_name, const WriteMode &mode = New) ecl_throw_decl(StandardException) :
+	LogStream(const std::string &file_name, const WriteMode &mode = New) :
 		write_header(true),
 		write_stamp(true)
 	{

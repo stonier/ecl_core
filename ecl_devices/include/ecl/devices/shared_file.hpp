@@ -72,7 +72,7 @@ public:
 	 * @param name : file name.
 	 * @param mode : writing mode (either New or Append).
 	 */
-    SharedFileCommon(const std::string &name, ecl::WriteMode mode) ecl_throw_decl(StandardException);
+    SharedFileCommon(const std::string &name, ecl::WriteMode mode);
     virtual ~SharedFileCommon() {}
 
     friend class ecl::SharedFile;
@@ -87,8 +87,8 @@ private:
 
 class SharedFileManager {
 public:
-	static SharedFileCommon* RegisterSharedFile(const std::string &name, ecl::WriteMode mode = New) ecl_throw_decl(StandardException);
-	static bool DeRegisterSharedFile(const std::string &name) ecl_throw_decl(StandardException);
+	static SharedFileCommon* RegisterSharedFile(const std::string &name, ecl::WriteMode mode = New);
+	static bool DeRegisterSharedFile(const std::string &name);
 private:
 	static ecl::Mutex mutex;
 	static std::map<std::string,SharedFileCommon*> opened_files;
@@ -141,7 +141,7 @@ public:
 	 *
 	 * @exception StandardException : throws if the file could not be opened.
 	 */
-	SharedFile(const std::string &name, WriteMode mode = New) ecl_throw_decl(StandardException);
+	SharedFile(const std::string &name, WriteMode mode = New);
 	/**
 	 * @brief Automatic cleaner for shared files.
 	 *
@@ -163,7 +163,7 @@ public:
 	 * @exception StandardException : throws if the connection failed to open.
 	 * @sa OFile
 	 */
-	bool open(const std::string &name, WriteMode mode = New) ecl_throw_decl(StandardException);
+	bool open(const std::string &name, WriteMode mode = New);
 
 	/*********************
 	** Shared File Methods
@@ -200,7 +200,7 @@ public:
 	 * @exception StandardException : throws from the underlying file if writing returned an error [debug mode only].
 	 * @sa OFile
 	 **/
-	long write(const char &c) ecl_debug_throw_decl(StandardException);
+	long write(const char &c);
 	/**
 	 * @brief Write a character string to the buffer.
 	 *
@@ -216,7 +216,7 @@ public:
 	 * @exception StandardException : throws from the underlying file if flushing returned an error [debug mode only].
 	 * @sa OFile
 	 **/
-	long write(const char* s, unsigned long n) ecl_debug_throw_decl(StandardException);
+	long write(const char* s, unsigned long n);
 	/**
 	 * @brief Flush the internal buffer.
 	 *
@@ -225,7 +225,7 @@ public:
 	 * @exception StandardException : throws from the underlying file if flushing returned an error [debug mode only].
 	 * @sa OFile
 	 **/
-	bool flush() ecl_debug_throw_decl(StandardException);
+	bool flush();
 
 	const Error& error() const { return shared_instance->error_handler; }
 

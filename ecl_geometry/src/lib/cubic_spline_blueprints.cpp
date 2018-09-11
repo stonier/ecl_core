@@ -40,7 +40,7 @@ using ecl::StandardException;
  * [The art of scientific computing] by Press, Vetterling, Tuekolsky, Flannery.
  */
 C2CubicSpline::C2CubicSpline(const ecl::Array<double>& x_set, const ecl::Array<double>& y_set,
-                                const double ydot_0, const double ydot_f) ecl_assert_throw_decl(StandardException) :
+                                const double ydot_0, const double ydot_f) :
                                     x_data(x_set),
                                     y_data(y_set)
 {
@@ -80,7 +80,7 @@ C2CubicSpline::C2CubicSpline(const ecl::Array<double>& x_set, const ecl::Array<d
  * This is a special case of the above. You'll note that only initial and
  * boundary conditions change here.
  */
-C2CubicSpline::C2CubicSpline(const ecl::Array<double>& x_set, const ecl::Array<double>& y_set) ecl_assert_throw_decl(StandardException) :
+C2CubicSpline::C2CubicSpline(const ecl::Array<double>& x_set, const ecl::Array<double>& y_set) :
                                     x_data(x_set),
                                     y_data(y_set)
 {
@@ -139,7 +139,7 @@ void C2CubicSpline::apply(ecl::CubicSpline& spline) const {
 *****************************************************************************/
 
 DerivativeHeuristicCubicSpline::DerivativeHeuristicCubicSpline(const ecl::Array<double>& x_set, const ecl::Array<double>& y_set,
-        const double ydot_0, const double ydot_f) ecl_assert_throw_decl(StandardException) :
+        const double ydot_0, const double ydot_f) :
         x_data(x_set),
         y_data(y_set)
 {

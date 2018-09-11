@@ -27,7 +27,7 @@ namespace ecl {
 ** Implementation
 *****************************************************************************/
 
-SmoothLinearSpline::SmoothLinearSpline(const Array<double>& x_data, const Array<double>& y_data, double a_max) throw (DataException<int>) {
+SmoothLinearSpline::SmoothLinearSpline(const Array<double>& x_data, const Array<double>& y_data, double a_max) {
 
 	if ( x_data.size() != y_data.size() ) {
 		throw DataException<int>(LOC,OutOfRangeError,"Input domain and range sets were not the same size.", 0);
@@ -109,7 +109,7 @@ SmoothLinearSpline::SmoothLinearSpline(const Array<double>& x_data, const Array<
     }
 }
 
-double SmoothLinearSpline::operator()(const double &x) const ecl_assert_throw_decl(StandardException) {
+double SmoothLinearSpline::operator()(const double &x) const {
     ecl_assert_throw( ( ( x >= discretised_domain.front() ) && ( x <= discretised_domain.back() ) ), StandardException(LOC,OutOfRangeError) );
     int index = 0;
     while ( x > discretised_domain[index+1] ) {
@@ -122,7 +122,7 @@ double SmoothLinearSpline::operator()(const double &x) const ecl_assert_throw_de
     }
 }
 
-double SmoothLinearSpline::derivative(const double &x) const ecl_assert_throw_decl(StandardException) {
+double SmoothLinearSpline::derivative(const double &x) const {
     ecl_assert_throw( ( ( x >= discretised_domain.front() ) && ( x <= discretised_domain.back() ) ), StandardException(LOC,OutOfRangeError) );
     int index = 0;
     while ( x > discretised_domain[index+1] ) {
@@ -135,7 +135,7 @@ double SmoothLinearSpline::derivative(const double &x) const ecl_assert_throw_de
     }
 }
 
-double SmoothLinearSpline::dderivative(const double &x) const ecl_assert_throw_decl(StandardException) {
+double SmoothLinearSpline::dderivative(const double &x) const {
     ecl_assert_throw( ( ( x >= discretised_domain.front() ) && ( x <= discretised_domain.back() ) ), StandardException(LOC,OutOfRangeError) );
     int index = 0;
     while ( x > discretised_domain[index+1] ) {

@@ -72,7 +72,7 @@ public:
 	 * @sa @ref ecl::blueprints::C2TensionSpline "C2TensionSpline"
 	 */
 	static blueprints::C2TensionSpline Natural(const Array<double>& x_set, const Array<double>& y_set,
-			const double &tau) ecl_assert_throw_decl(StandardException);
+			const double &tau);
 
 	virtual ~BluePrintFactory() {};
 };
@@ -155,7 +155,7 @@ class ecl_geometry_PUBLIC TensionSpline : public BluePrintFactory< TensionSpline
          * @return double : the spline function's value.
          * @exception : StandardException : throws if x is outside the spline range [debug mode only].
          */
-        double operator()(const double &x) const ecl_assert_throw_decl(StandardException);
+        double operator()(const double &x) const;
         /**
          * @brief Spline derivative.
          *
@@ -166,7 +166,7 @@ class ecl_geometry_PUBLIC TensionSpline : public BluePrintFactory< TensionSpline
          * @return double : the derivative of the spline.
          * @exception : StandardException : throws if x is outside the spline range [debug mode only].
          */
-        double derivative(const double &x) const ecl_assert_throw_decl(StandardException);
+        double derivative(const double &x) const;
         /**
          * @brief Spline second derivative.
          *
@@ -175,7 +175,7 @@ class ecl_geometry_PUBLIC TensionSpline : public BluePrintFactory< TensionSpline
          * @return double : the second derivative of the spline.
          * @exception : StandardException : throws if x is outside the spline range [debug mode only].
          */
-        double dderivative(const double &x) const ecl_assert_throw_decl(StandardException);
+        double dderivative(const double &x) const;
 
         /**
          * @brief The discretised domain for this spline.
@@ -276,7 +276,7 @@ class ecl_geometry_PUBLIC C2TensionSpline : public ecl::BluePrint<C2TensionSplin
          * @param tau : the tension parameter.
          * @exception : StandardException : throws if configuration arguments are not valid [debug mode only].
          */
-        C2TensionSpline(const ecl::Array<double>& x_set, const ecl::Array<double>& y_set, const double &tau) ecl_assert_throw_decl(ecl::StandardException);
+        C2TensionSpline(const ecl::Array<double>& x_set, const ecl::Array<double>& y_set, const double &tau);
 
         /**
          * @brief Instantiate a copy of the object that is blueprinted.

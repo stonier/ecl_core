@@ -54,7 +54,7 @@ public:
 	 *
 	 * @exception : throws if input is not a char digit ['0'-'9'] (debug mode only).
 	 **/
-	char operator()(const unsigned int &input) ecl_debug_throw_decl(StandardException) {
+	char operator()(const unsigned int &input) {
 		if ( input > 9 ) {
 			ecl_debug_throw(StandardException(LOC,ConversionError));
 			error_handler = ConversionError;
@@ -84,7 +84,7 @@ public:
 	 *
 	 * @exception : throws if input is not a char digit ['0'-'9'] (debug mode only).
 	 **/
-	char operator()(const int &input) ecl_debug_throw_decl(StandardException) {
+	char operator()(const int &input) {
 		if ( ( input < 0 ) || (input > 9) ) {
 			ecl_debug_throw(StandardException(LOC,OutOfRangeError));
 			error_handler = OutOfRangeError;

@@ -30,7 +30,7 @@ namespace ecl {
 * Thread Class Methods
 *****************************************************************************/
 
-Thread::Thread(VoidFunction function, const Priority &priority, const long &stack_size) ecl_debug_throw_decl(StandardException) :
+Thread::Thread(VoidFunction function, const Priority &priority, const long &stack_size) :
 	thread_task(NULL),
 	has_started(false),
 	join_requested(false)
@@ -38,7 +38,7 @@ Thread::Thread(VoidFunction function, const Priority &priority, const long &stac
 	start(function, priority, stack_size);
 }
 
-Error Thread::start(VoidFunction function, const Priority &priority, const long &stack_size) ecl_debug_throw_decl(StandardException)
+Error Thread::start(VoidFunction function, const Priority &priority, const long &stack_size)
 {
 	if ( has_started ) {
 		ecl_debug_throw(StandardException(LOC,BusyError,"The thread has already been started."));
@@ -77,7 +77,7 @@ Thread::~Thread() {
 	    pthread_detach(thread_handle);
 	}
 }
-void Thread::cancel() ecl_debug_throw_decl(StandardException) {
+void Thread::cancel() {
 	int result = pthread_cancel(thread_handle);
 	// Note - if we reach here, then entrypoint hasn't gone through to conclusion and
 	// subsequently the thread_task object on the heap hasn't been deleted. So...
@@ -91,7 +91,7 @@ void Thread::cancel() ecl_debug_throw_decl(StandardException) {
     }
 }
 
-void Thread::join() ecl_debug_throw_decl(StandardException) {
+void Thread::join() {
 	join_requested = true;
 	if( thread_task != NULL ) {
 		int result = pthread_join( thread_handle, 0 ); // This also frees up memory like pthread_detach
@@ -99,7 +99,7 @@ void Thread::join() ecl_debug_throw_decl(StandardException) {
 	}
 }
 
-void Thread::initialise(const long &stack_size) ecl_assert_throw_decl(StandardException) {
+void Thread::initialise(const long &stack_size) {
 
 	pthread_attr_init( &attrs );
     /*************************************************************************

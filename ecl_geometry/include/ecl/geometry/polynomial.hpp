@@ -1098,7 +1098,7 @@ public:
 	 *
 	 * @exception : StandardException : throws if functions are collinear.
 	 **/
-	ECL_PUBLIC CartesianPoint2d operator()(const LinearFunction& f, const LinearFunction& g) ecl_throw_decl(StandardException);
+	ECL_PUBLIC CartesianPoint2d operator()(const LinearFunction& f, const LinearFunction& g);
 
 	/**
 	 * @brief Boolean flag identifying if the last operation failed or not.
@@ -1238,7 +1238,7 @@ public:
 	 *
 	 * @sa Intersection<LinearFunction>
 	 */
-	static CartesianPoint2d Intersection(const LinearFunction &f, const LinearFunction &g) ecl_throw_decl(StandardException) {
+	static CartesianPoint2d Intersection(const LinearFunction &f, const LinearFunction &g) {
 		CartesianPoint2d point;
 		ecl_try {
 			ecl::Intersection< LinearFunction > intersection;

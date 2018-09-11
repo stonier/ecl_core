@@ -39,7 +39,7 @@ using namespace ecl;
 ** Functions
 *****************************************************************************/
 
-void f(int i) ecl_debug_throw_decl(StandardException)
+void f(int i)
 {
     if ( i > 5 ) {
         ecl_debug_throw(StandardException(LOC,InvalidInputError,"Debug throw test failed, input integer exceeded."));

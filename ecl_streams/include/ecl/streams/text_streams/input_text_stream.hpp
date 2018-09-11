@@ -95,20 +95,20 @@ public:
 	/*********************
 	** Streaming Operators
 	**********************/
-    InputTextStream<Device>& operator >> ( char &c ) ecl_assert_throw_decl(ecl::StandardException);
-    InputTextStream<Device>& operator >> ( std::string &s ) ecl_assert_throw_decl(ecl::StandardException);
-    InputTextStream<Device>& operator >> ( short &i ) ecl_assert_throw_decl(ecl::StandardException);
-    InputTextStream<Device>& operator >> ( int &i ) ecl_assert_throw_decl(ecl::StandardException);
-    InputTextStream<Device>& operator >> ( long &i ) ecl_assert_throw_decl(ecl::StandardException);
-    InputTextStream<Device>& operator >> ( unsigned char &c ) ecl_assert_throw_decl(ecl::StandardException);
-    InputTextStream<Device>& operator >> ( unsigned short &i ) ecl_assert_throw_decl(ecl::StandardException);
-    InputTextStream<Device>& operator >> ( unsigned int &i ) ecl_assert_throw_decl(ecl::StandardException);
-    InputTextStream<Device>& operator >> ( unsigned long &i ) ecl_assert_throw_decl(ecl::StandardException);
-    InputTextStream<Device>& operator >> ( float &f ) ecl_assert_throw_decl(ecl::StandardException);
-    InputTextStream<Device>& operator >> ( double &d ) ecl_assert_throw_decl(ecl::StandardException);
-    InputTextStream<Device>& operator >> ( long long &i ) ecl_assert_throw_decl(ecl::StandardException);
-    InputTextStream<Device>& operator >> ( unsigned long long &i ) ecl_assert_throw_decl(ecl::StandardException);
-    InputTextStream<Device>& operator >> ( bool &b ) ecl_assert_throw_decl(ecl::StandardException);
+    InputTextStream<Device>& operator >> ( char &c );
+    InputTextStream<Device>& operator >> ( std::string &s );
+    InputTextStream<Device>& operator >> ( short &i );
+    InputTextStream<Device>& operator >> ( int &i );
+    InputTextStream<Device>& operator >> ( long &i );
+    InputTextStream<Device>& operator >> ( unsigned char &c );
+    InputTextStream<Device>& operator >> ( unsigned short &i );
+    InputTextStream<Device>& operator >> ( unsigned int &i );
+    InputTextStream<Device>& operator >> ( unsigned long &i );
+    InputTextStream<Device>& operator >> ( float &f );
+    InputTextStream<Device>& operator >> ( double &d );
+    InputTextStream<Device>& operator >> ( long long &i );
+    InputTextStream<Device>& operator >> ( unsigned long long &i );
+    InputTextStream<Device>& operator >> ( bool &b );
 
     /*********************
 	** Non-Streaming API
@@ -163,7 +163,7 @@ InputTextStream<Device,true>::InputTextStream() : raw_char_reads(false) {
  * @return InputTextStream : returns the stream for further manipulation.
  **/
 template <typename Device>
-InputTextStream<Device> & InputTextStream<Device,true>::operator >> ( char &c ) ecl_assert_throw_decl(ecl::StandardException) {
+InputTextStream<Device> & InputTextStream<Device,true>::operator >> ( char &c ) {
 
 	ecl_assert_throw(this->io_device.open(),ecl::StandardException(LOC,OpenError,"The underlying stream device is not open."));
 
@@ -195,7 +195,7 @@ InputTextStream<Device> & InputTextStream<Device,true>::operator >> ( char &c ) 
  * @return InputTextStream : returns the stream for further manipulation.
  **/
 template <typename Device>
-InputTextStream<Device>& InputTextStream<Device,true>::operator >> ( std::string &s ) ecl_assert_throw_decl(ecl::StandardException) {
+InputTextStream<Device>& InputTextStream<Device,true>::operator >> ( std::string &s ) {
 
 	ecl_assert_throw(this->io_device.open(),ecl::StandardException(LOC,OpenError,"The underlying stream device is not open."));
 
@@ -230,7 +230,7 @@ InputTextStream<Device>& InputTextStream<Device,true>::operator >> ( std::string
  * @return InputTextStream : returns the stream for further manipulation.
  **/
 template <typename Device>
-InputTextStream<Device>& InputTextStream<Device,true>::operator >> ( short &i ) ecl_assert_throw_decl(ecl::StandardException) {
+InputTextStream<Device>& InputTextStream<Device,true>::operator >> ( short &i ) {
 
 	ecl_assert_throw(this->io_device.open(),ecl::StandardException(LOC,OpenError,"The underlying stream device is not open."));
 
@@ -250,7 +250,7 @@ InputTextStream<Device>& InputTextStream<Device,true>::operator >> ( short &i ) 
  * @return InputTextStream : returns the stream for further manipulation.
  **/
 template <typename Device>
-InputTextStream<Device>& InputTextStream<Device,true>::operator >> ( int &i ) ecl_assert_throw_decl(ecl::StandardException) {
+InputTextStream<Device>& InputTextStream<Device,true>::operator >> ( int &i ) {
 
 	ecl_assert_throw(this->io_device.open(),ecl::StandardException(LOC,OpenError,"The underlying stream device is not open."));
     if ( getIntegerFromStream(i) ) {
@@ -268,7 +268,7 @@ InputTextStream<Device>& InputTextStream<Device,true>::operator >> ( int &i ) ec
  * @return InputTextStream : returns the stream for further manipulation.
  **/
 template <typename Device>
-InputTextStream<Device>& InputTextStream<Device,true>::operator >> ( long &i ) ecl_assert_throw_decl(ecl::StandardException) {
+InputTextStream<Device>& InputTextStream<Device,true>::operator >> ( long &i ) {
 
 	ecl_assert_throw(this->io_device.open(),ecl::StandardException(LOC,OpenError,"The underlying stream device is not open."));
     if ( getIntegerFromStream(i) ) {
@@ -285,7 +285,7 @@ InputTextStream<Device>& InputTextStream<Device,true>::operator >> ( long &i ) e
  * @return InputTextStream : returns the stream for further manipulation.
  **/
 template <typename Device>
-InputTextStream<Device>& InputTextStream<Device,true>::operator >> ( long long &i ) ecl_assert_throw_decl(ecl::StandardException) {
+InputTextStream<Device>& InputTextStream<Device,true>::operator >> ( long long &i ) {
 
 	ecl_assert_throw(this->io_device.open(),ecl::StandardException(LOC,OpenError,"The underlying stream device is not open."));
     if ( getIntegerFromStream(i) ) {
@@ -304,7 +304,7 @@ InputTextStream<Device>& InputTextStream<Device,true>::operator >> ( long long &
  * @return InputTextStream : returns the stream for further manipulation.
  **/
 template <typename Device>
-InputTextStream<Device>& InputTextStream<Device,true>::operator >> ( unsigned char &uc ) ecl_assert_throw_decl(ecl::StandardException) {
+InputTextStream<Device>& InputTextStream<Device,true>::operator >> ( unsigned char &uc ) {
 
 	ecl_assert_throw(this->io_device.open(),ecl::StandardException(LOC,OpenError,"The underlying stream device is not open."));
     if ( getIntegerFromStream(uc) ) {
@@ -322,7 +322,7 @@ InputTextStream<Device>& InputTextStream<Device,true>::operator >> ( unsigned ch
  * @return InputTextStream : returns the stream for further manipulation.
  **/
 template <typename Device>
-InputTextStream<Device>& InputTextStream<Device,true>::operator >> ( unsigned short &i ) ecl_assert_throw_decl(ecl::StandardException) {
+InputTextStream<Device>& InputTextStream<Device,true>::operator >> ( unsigned short &i ) {
 
 	ecl_assert_throw(this->io_device.open(),ecl::StandardException(LOC,OpenError,"The underlying stream device is not open."));
     if ( getIntegerFromStream(i) ) {
@@ -340,7 +340,7 @@ InputTextStream<Device>& InputTextStream<Device,true>::operator >> ( unsigned sh
  * @return InputTextStream : returns the stream for further manipulation.
  **/
 template <typename Device>
-InputTextStream<Device>& InputTextStream<Device,true>::operator >> ( unsigned int &i ) ecl_assert_throw_decl(ecl::StandardException) {
+InputTextStream<Device>& InputTextStream<Device,true>::operator >> ( unsigned int &i ) {
 
 	ecl_assert_throw(this->io_device.open(),ecl::StandardException(LOC,OpenError,"The underlying stream device is not open."));
     if ( getIntegerFromStream(i) ) {
@@ -358,7 +358,7 @@ InputTextStream<Device>& InputTextStream<Device,true>::operator >> ( unsigned in
  * @return InputTextStream : returns the stream for further manipulation.
  **/
 template <typename Device>
-InputTextStream<Device>& InputTextStream<Device,true>::operator >> ( unsigned long &i ) ecl_assert_throw_decl(ecl::StandardException) {
+InputTextStream<Device>& InputTextStream<Device,true>::operator >> ( unsigned long &i ) {
 
 	ecl_assert_throw(this->io_device.open(),ecl::StandardException(LOC,OpenError,"The underlying stream device is not open."));
     if ( getIntegerFromStream(i) ) {
@@ -376,7 +376,7 @@ InputTextStream<Device>& InputTextStream<Device,true>::operator >> ( unsigned lo
  * @return InputTextStream : returns the stream for further manipulation.
  **/
 template <typename Device>
-InputTextStream<Device>& InputTextStream<Device,true>::operator >> ( unsigned long long &i ) ecl_assert_throw_decl(ecl::StandardException) {
+InputTextStream<Device>& InputTextStream<Device,true>::operator >> ( unsigned long long &i ) {
 
 	ecl_assert_throw(this->io_device.open(),ecl::StandardException(LOC,OpenError,"The underlying stream device is not open."));
     if ( getIntegerFromStream(i) ) {
@@ -395,7 +395,7 @@ InputTextStream<Device>& InputTextStream<Device,true>::operator >> ( unsigned lo
  * @return InputTextStream : returns the stream for further manipulation.
  **/
 template <typename Device>
-InputTextStream<Device>& InputTextStream<Device,true>::operator >> ( float &f ) ecl_assert_throw_decl(ecl::StandardException) {
+InputTextStream<Device>& InputTextStream<Device,true>::operator >> ( float &f ) {
 
 	ecl_assert_throw(this->io_device.open(),ecl::StandardException(LOC,OpenError,"The underlying stream device is not open."));
     if ( getFloatFromStream(f) ) {
@@ -413,7 +413,7 @@ InputTextStream<Device>& InputTextStream<Device,true>::operator >> ( float &f ) 
  * @return InputTextStream : returns the stream for further manipulation.
  **/
 template <typename Device>
-InputTextStream<Device>& InputTextStream<Device,true>::operator >> ( double &d ) ecl_assert_throw_decl(ecl::StandardException) {
+InputTextStream<Device>& InputTextStream<Device,true>::operator >> ( double &d ) {
 
 	ecl_assert_throw(this->io_device.open(),ecl::StandardException(LOC,OpenError,"The underlying stream device is not open."));
     if ( getFloatFromStream(d) ) {
@@ -433,7 +433,7 @@ InputTextStream<Device>& InputTextStream<Device,true>::operator >> ( double &d )
  * @return InputTextStream : returns the stream for further manipulation.
  **/
 template <typename Device>
-InputTextStream<Device>& InputTextStream<Device,true>::operator >> ( bool &b ) ecl_assert_throw_decl(ecl::StandardException)
+InputTextStream<Device>& InputTextStream<Device,true>::operator >> ( bool &b )
 {
 	ecl_assert_throw(this->io_device.open(),ecl::StandardException(LOC,OpenError,"The underlying stream device is not open."));
     std::string s;

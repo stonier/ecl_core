@@ -63,7 +63,7 @@ public:
 	 * @exception StandardException : throws if the connection failed to open.
 	 */
 	SerialStream(const std::string& port_name, const BaudRate &baud_rate = BaudRate_115200, const DataBits &data_bits = DataBits_8,
-			const StopBits &stop_bits = StopBits_1, const Parity &parity = NoParity) ecl_throw_decl(StandardException)
+			const StopBits &stop_bits = StopBits_1, const Parity &parity = NoParity)
 	{
 		ecl_try {
 			this->device().open(port_name, baud_rate, data_bits, stop_bits, parity);

@@ -143,7 +143,7 @@ Use as close as possible to the posix function call:
 
 @code
 
-TimeStamp::TimeStamp() debug_throw_decl(ecl::StandardException) {
+TimeStamp::TimeStamp() {
     if ( clock_gettime(CLOCK_REALTIME,&time) )
     {
         debug_throw(ecl::PosixErrorHandler<TimeStamp>::GenerateStandardException(LOC));
@@ -190,11 +190,11 @@ they can gracefully fall back to a lower form of error handling.
 @subsection debugSection Debug Throws
 
 Exceptions can also be enabled exclusively for debug mode (so long as NDEBUG is not defined)
-with the @ref debug_throw and @ref debug_throw_decl macros. When NDEBUG is defined, the
+with the @ref debug_throw macro. When NDEBUG is defined, the
 throw will automatically disappear from the program code.
 
 @code
-void f(int i) debug_throw_decl(StandardException) {
+void f(int i) {
     if ( i > 5 ) {
         debug_throw( StandardException(LOC,InvalidInputError,"The maximum input is 5.") );
     }
@@ -215,10 +215,10 @@ code away as well, you can use the debug_try and debug_catch macros.
 
 @subsection assertSection Assert Throws
 
-In addition, you may use the @ref assert_throw  and @ref assert_throw_decl macros
+In addition, you may use the @ref assert_throw macro
 (a mechanism similar to the run_time_assert function in ecl_errors) as follows:
 @code
-void f(int i) assert_throw_decl(StandardException) {
+void f(int i) {
     assert_throw( i <= 5, StandardException(LOC,InvalidInputError,"The maximum input is 5.") );
 }
 @endcode

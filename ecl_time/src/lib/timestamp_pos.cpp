@@ -34,15 +34,15 @@ namespace ecl {
 ** Implementation [TimeStamp]
 *****************************************************************************/
 
-TimeStamp::TimeStamp() ecl_debug_throw_decl(StandardException) {
+TimeStamp::TimeStamp() {
 	stamp();
 }
 
-TimeStamp::TimeStamp (const double& decimal_time_value) ecl_assert_throw_decl(StandardException) :
+TimeStamp::TimeStamp (const double& decimal_time_value) :
 	TimeStampBase(decimal_time_value)
 {}
 
-TimeStamp::TimeStamp (const time_t& seconds, const long& nanoseconds) ecl_assert_throw_decl(StandardException) :
+TimeStamp::TimeStamp (const time_t& seconds, const long& nanoseconds) :
 	TimeStampBase(seconds, nanoseconds)
 {}
 
@@ -52,7 +52,7 @@ TimeStamp::TimeStamp(const TimeStampBase& base) : TimeStampBase(base) {}
 ** Implementation [Stamps]
 *****************************************************************************/
 
-const TimeStamp& TimeStamp::stamp() ecl_debug_throw_decl(StandardException) {
+const TimeStamp& TimeStamp::stamp() {
 	if ( epoch_time(time).flag() != NoError ) {
 		ecl_debug_throw(time::throwTimeStampException(LOC));
 	}
@@ -60,7 +60,7 @@ const TimeStamp& TimeStamp::stamp() ecl_debug_throw_decl(StandardException) {
 }
 
 #if defined(ECL_HAS_RT_TIMERS)
-TimeStamp TimeStamp::realtime_now() ecl_debug_throw_decl(StandardException) {
+TimeStamp TimeStamp::realtime_now() {
         TimeStructure time;
         if ( realtime_epoch_time(time).flag() != NoError ) {
                 ecl_debug_throw(time::throwTimeStampException(LOC));

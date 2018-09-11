@@ -39,7 +39,7 @@ using ecl::StandardException;
  * Cheney].
  */
 C2TensionSpline::C2TensionSpline(const ecl::Array<double>& x_set, const ecl::Array<double>& y_set,
-		const double &tau) ecl_assert_throw_decl(ecl::StandardException) :
+		const double &tau) :
     x_data(x_set),
     y_data(y_set)
 {
@@ -123,7 +123,7 @@ using blueprints::C2TensionSpline;
 
 
 C2TensionSpline BluePrintFactory< TensionSpline >::Natural(const Array<double>& x_set,
-		const Array<double>& y_set, const double &tau) ecl_assert_throw_decl(StandardException) {
+		const Array<double>& y_set, const double &tau) {
     return C2TensionSpline(x_set, y_set, tau);
 };
 

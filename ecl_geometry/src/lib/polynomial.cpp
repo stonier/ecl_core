@@ -151,7 +151,7 @@ Array<double> Roots< CubicPolynomial >::operator()(const CubicPolynomial& polyno
 	return intercepts;
 }
 
-CartesianPoint2d Intersection< LinearFunction >::operator()(const LinearFunction &f, const LinearFunction &g) ecl_throw_decl(StandardException) {
+CartesianPoint2d Intersection< LinearFunction >::operator()(const LinearFunction &f, const LinearFunction &g) {
 	CartesianPoint2d point;
 	double a_0 = f.coefficients()[0];
 	double b_0 = f.coefficients()[1];

@@ -161,7 +161,7 @@ class ECL_PUBLIC Array<Type,DynamicStorage> : public BluePrintFactory< Array<Typ
          *
          * @param reserve_size : the number of elements to be allocated to the container.
          */
-        explicit Array(const unsigned int reserve_size) ecl_assert_throw_decl(StandardException) :
+        explicit Array(const unsigned int reserve_size) :
         		buffer_size(reserve_size),
         		underrun(NULL),
         		buffer(NULL),
@@ -225,7 +225,7 @@ class ECL_PUBLIC Array<Type,DynamicStorage> : public BluePrintFactory< Array<Typ
          *
          * It cleans up the memory that was used on the heap.
          **/
-        ~Array() ecl_assert_throw_decl(StandardException) {
+        ~Array() {
 
             if ( underrun != NULL ) {
                 free(underrun);
@@ -272,7 +272,7 @@ class ECL_PUBLIC Array<Type,DynamicStorage> : public BluePrintFactory< Array<Typ
          *
          * @exception StandardException : throws if no storage has been allocated [debug mode only].
          */
-        iterator begin() ecl_assert_throw_decl(StandardException) {
+        iterator begin() {
             ecl_assert_throw( buffer != NULL, StandardException(LOC,OutOfRangeError) );
             return buffer;
             }
@@ -282,7 +282,7 @@ class ECL_PUBLIC Array<Type,DynamicStorage> : public BluePrintFactory< Array<Typ
          *
          * @exception StandardException : throws if no storage has been allocated [debug mode only].
          */
-        const_iterator begin() const ecl_assert_throw_decl(StandardException) {
+        const_iterator begin() const {
             ecl_assert_throw( buffer != NULL, StandardException(LOC,OutOfRangeError) );
             return buffer;
         }
@@ -292,7 +292,7 @@ class ECL_PUBLIC Array<Type,DynamicStorage> : public BluePrintFactory< Array<Typ
          *
          * @exception StandardException : throws if no storage has been allocated [debug mode only].
          */
-        iterator end() ecl_assert_throw_decl(StandardException) {
+        iterator end() {
             ecl_assert_throw( buffer != NULL, StandardException(LOC,OutOfRangeError) );
             return buffer+buffer_size;
         }
@@ -302,7 +302,7 @@ class ECL_PUBLIC Array<Type,DynamicStorage> : public BluePrintFactory< Array<Typ
          *
          * @exception StandardException : throws if no storage has been allocated [debug mode only].
          */
-        const_iterator end() const ecl_assert_throw_decl(StandardException) {
+        const_iterator end() const {
             ecl_assert_throw( buffer != NULL, StandardException(LOC,OutOfRangeError) );
             return buffer+buffer_size;
         }
@@ -312,7 +312,7 @@ class ECL_PUBLIC Array<Type,DynamicStorage> : public BluePrintFactory< Array<Typ
          *
          * @exception StandardException : throws if no storage has been allocated [debug mode only].
          */
-        reverse_iterator rbegin() ecl_assert_throw_decl(StandardException) {
+        reverse_iterator rbegin() {
             ecl_assert_throw( buffer != NULL, StandardException(LOC,OutOfRangeError) );
             return reverse_iterator(end());
         }
@@ -322,7 +322,7 @@ class ECL_PUBLIC Array<Type,DynamicStorage> : public BluePrintFactory< Array<Typ
          *
          * @exception StandardException : throws if no storage has been allocated [debug mode only].
          */
-        const_reverse_iterator rbegin() const ecl_assert_throw_decl(StandardException) {
+        const_reverse_iterator rbegin() const {
             ecl_assert_throw( buffer != NULL, StandardException(LOC,OutOfRangeError) );
             return const_reverse_iterator(end());
         }
@@ -332,7 +332,7 @@ class ECL_PUBLIC Array<Type,DynamicStorage> : public BluePrintFactory< Array<Typ
          *
          * @exception StandardException : throws if no storage has been allocated [debug mode only].
          */
-        reverse_iterator rend() ecl_assert_throw_decl(StandardException) {
+        reverse_iterator rend() {
             ecl_assert_throw( buffer != NULL, StandardException(LOC,OutOfRangeError) );
             return reverse_iterator(begin());
         }
@@ -342,7 +342,7 @@ class ECL_PUBLIC Array<Type,DynamicStorage> : public BluePrintFactory< Array<Typ
          *
          * @exception StandardException : throws if no storage has been allocated [debug mode only].
          */
-        const_reverse_iterator rend() const ecl_assert_throw_decl(StandardException) {
+        const_reverse_iterator rend() const {
             ecl_assert_throw( buffer != NULL, StandardException(LOC,OutOfRangeError) );
             return const_reverse_iterator(begin());
         }
@@ -356,7 +356,7 @@ class ECL_PUBLIC Array<Type,DynamicStorage> : public BluePrintFactory< Array<Typ
          *
          * @exception StandardException : throws if no storage has been allocated [debug mode only].
          */
-        reference front() ecl_assert_throw_decl(StandardException) {
+        reference front() {
             ecl_assert_throw( buffer != NULL, StandardException(LOC,OutOfRangeError) );
             return buffer[0];
         }
@@ -366,7 +366,7 @@ class ECL_PUBLIC Array<Type,DynamicStorage> : public BluePrintFactory< Array<Typ
          *
          * @exception StandardException : throws if no storage has been allocated [debug mode only].
          */
-        const_reference front() const ecl_assert_throw_decl(StandardException) {
+        const_reference front() const {
             ecl_assert_throw( buffer != NULL, StandardException(LOC,OutOfRangeError) );
             return buffer[0];
         }
@@ -376,7 +376,7 @@ class ECL_PUBLIC Array<Type,DynamicStorage> : public BluePrintFactory< Array<Typ
          *
          * @exception StandardException : throws if no storage has been allocated [debug mode only].
          */
-        reference back() ecl_assert_throw_decl(StandardException) {
+        reference back() {
             ecl_assert_throw( buffer != NULL, StandardException(LOC,OutOfRangeError) );
             return buffer[buffer_size-1];
         }
@@ -386,7 +386,7 @@ class ECL_PUBLIC Array<Type,DynamicStorage> : public BluePrintFactory< Array<Typ
          *
          * @exception StandardException : throws if no storage has been allocated [debug mode only].
          */
-        const_reference back() const ecl_assert_throw_decl(StandardException) {
+        const_reference back() const {
             ecl_assert_throw( buffer != NULL, StandardException(LOC,OutOfRangeError) );
             return buffer[buffer_size-1];
         }
@@ -405,7 +405,7 @@ class ECL_PUBLIC Array<Type,DynamicStorage> : public BluePrintFactory< Array<Typ
          *
          * @exception : StandardException : throws if the indices provided are out of range [debug mode only].
          */
-        Stencil< Array<Type,DynamicStorage> > stencil(const unsigned int& start_index, const unsigned int& n) ecl_assert_throw_decl(StandardException) {
+        Stencil< Array<Type,DynamicStorage> > stencil(const unsigned int& start_index, const unsigned int& n) {
         	ecl_assert_throw(start_index < size(), StandardException(LOC, OutOfRangeError, "Start index provided is larger than the underlying array size."));
         	ecl_assert_throw(start_index+n <= size(), StandardException(LOC, OutOfRangeError, "Finish index provided is larger than the underlying array size."));
         	return Stencil< Array<Type,DynamicStorage> >(*this, begin()+start_index, begin()+start_index+n);
@@ -419,7 +419,7 @@ class ECL_PUBLIC Array<Type,DynamicStorage> : public BluePrintFactory< Array<Typ
          *
          * @exception : StandardException : throws if range is requested element is out of range [debug mode only].
          **/
-        reference operator[](size_type i) ecl_assert_throw_decl(StandardException) {
+        reference operator[](size_type i) {
             ecl_assert_throw( i<buffer_size, StandardException(LOC,OutOfRangeError));
             return buffer[i];
         }
@@ -434,7 +434,7 @@ class ECL_PUBLIC Array<Type,DynamicStorage> : public BluePrintFactory< Array<Typ
          *
          * @exception : StandardException : throws if range is requested element is out of range [debug mode only].
          **/
-        const_reference operator[](size_type i) const ecl_assert_throw_decl(StandardException) {
+        const_reference operator[](size_type i) const {
             ecl_assert_throw( i<buffer_size, StandardException(LOC,OutOfRangeError));
             return buffer[i];
         }
@@ -493,7 +493,7 @@ class ECL_PUBLIC Array<Type,DynamicStorage> : public BluePrintFactory< Array<Typ
          *
          * @param n : the new size to be allocated for the array.
          */
-        void resize( size_t n )  ecl_assert_throw_decl(StandardException) {
+        void resize( size_t n )  {
         	if ( underrun != NULL ) {
         		free(underrun);
         	}

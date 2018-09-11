@@ -257,7 +257,7 @@ public:
 	 * @param stack_size : no. of bytes to allocate on the stack (default is to use the system value, usually 8k).
 	 * @exception StandardException : throws if thread creation fails [debug mode only].
 	 */
-	Thread(VoidFunction function, const Priority &priority = DefaultPriority, const long &stack_size = -1 ) ecl_debug_throw_decl(StandardException);
+	Thread(VoidFunction function, const Priority &priority = DefaultPriority, const long &stack_size = -1 );
 	/**
 	 * @brief Starts the thread if not already started.
 	 *
@@ -267,7 +267,7 @@ public:
 	 * @exception StandardException : throws if thread creation fails [debug mode only].
 	 * @return Error : error result, fallback for when exceptions aren't available.
 	 */
-	Error start(VoidFunction function, const Priority &priority = DefaultPriority, const long &stack_size = -1 ) ecl_debug_throw_decl(StandardException);
+	Error start(VoidFunction function, const Priority &priority = DefaultPriority, const long &stack_size = -1 );
 	/**
 	 * @brief Convenience method that starts a new thread utilising a void member function.
 	 *
@@ -292,7 +292,7 @@ public:
 	 * @exception StandardException : throws if thread creation fails [debug mode only].
 	 */
 	template <typename C>
-	Thread(void (C::*function)(), C &c, const Priority &priority = DefaultPriority,  const long &stack_size = -1 ) ecl_debug_throw_decl(StandardException);
+	Thread(void (C::*function)(), C &c, const Priority &priority = DefaultPriority,  const long &stack_size = -1 );
 	/**
 	 * @brief Starts the thread if not already started.
 	 *
@@ -304,7 +304,7 @@ public:
 	 * @return Error : error result, fallback for when exceptions aren't available.
 	 */
 	template <typename C>
-	Error start(void (C::*function)(), C &c, const Priority &priority = DefaultPriority,  const long &stack_size = -1 ) ecl_debug_throw_decl(StandardException);
+	Error start(void (C::*function)(), C &c, const Priority &priority = DefaultPriority,  const long &stack_size = -1 );
 
 	/**
 	 * @brief Starts a new thread utilising a nullary function object.
@@ -345,7 +345,7 @@ public:
 	 * @exception StandardException : throws if thread creation fails [debug mode only].
 	 */
 	template <typename F>
-	Thread(const F &function, const Priority &priority = DefaultPriority,  const long &stack_size = -1 ) ecl_debug_throw_decl(StandardException);
+	Thread(const F &function, const Priority &priority = DefaultPriority,  const long &stack_size = -1 );
 	/**
 	 * @brief Starts a new thread utilising a nullary function object.
 	 *
@@ -356,7 +356,7 @@ public:
 	 * @return Error : error result, fallback for when exceptions aren't available.
 	 */
 	template <typename F>
-	Error start(const F &function, const Priority &priority = DefaultPriority,  const long &stack_size = -1 ) ecl_debug_throw_decl(StandardException);
+	Error start(const F &function, const Priority &priority = DefaultPriority,  const long &stack_size = -1 );
 
 	/**
 	 * @brief Cleans up the resources allocated to the thread.
@@ -388,7 +388,7 @@ public:
 	 *
 	 * @exception StandardException : throws if this thread is no longer running [debug mode only].
 	 */
-	void cancel() ecl_debug_throw_decl(StandardException);
+	void cancel();
 
 	/**
 	 * @brief Join with this thread.
@@ -397,7 +397,7 @@ public:
 	 * finish.
 	 * @exception StandardException : throws if this thread is no longer running [debug mode only].
 	 */
-	void join() ecl_assert_throw_decl(StandardException);
+	void join();
 
 
 private:
@@ -406,7 +406,7 @@ private:
     bool has_started;
     bool join_requested;
 
-	void initialise(const long &stack_size) ecl_assert_throw_decl(StandardException);
+	void initialise(const long &stack_size);
 
 	enum ThreadProperties {
 		DefaultStackSize = -1
@@ -418,7 +418,7 @@ private:
 *****************************************************************************/
 
 template <typename C>
-Thread::Thread(void (C::*function)(), C &c, const Priority &priority, const long &stack_size) ecl_debug_throw_decl(StandardException) :
+Thread::Thread(void (C::*function)(), C &c, const Priority &priority, const long &stack_size) :
 	thread_handle(NULL),
 	thread_task(NULL),
 	has_started(false),
@@ -429,7 +429,7 @@ Thread::Thread(void (C::*function)(), C &c, const Priority &priority, const long
 }
 
 template <typename F>
-Thread::Thread(const F &function, const Priority &priority, const long &stack_size) ecl_debug_throw_decl(StandardException) :
+Thread::Thread(const F &function, const Priority &priority, const long &stack_size) :
 	thread_handle(NULL),
 	thread_task(NULL),
 	has_started(false),
@@ -439,7 +439,7 @@ Thread::Thread(const F &function, const Priority &priority, const long &stack_si
 }
 
 template <typename C>
-Error Thread::start(void (C::*function)(), C &c, const Priority &priority, const long &stack_size) ecl_debug_throw_decl(StandardException)
+Error Thread::start(void (C::*function)(), C &c, const Priority &priority, const long &stack_size)
 {
 	// stack_size is ignored
 
@@ -497,7 +497,7 @@ Error Thread::start(void (C::*function)(), C &c, const Priority &priority, const
 }
 
 template <typename F>
-Error Thread::start(const F &function, const Priority &priority, const long &stack_size) ecl_debug_throw_decl(StandardException)
+Error Thread::start(const F &function, const Priority &priority, const long &stack_size)
 {
 	// stack_size is ignored
 

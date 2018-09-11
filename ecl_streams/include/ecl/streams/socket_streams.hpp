@@ -65,7 +65,7 @@ public:
 	 *
 	 * @exception StandardException : throws if the connection failed to open.
 	 */
-	SocketClientStream(const std::string &host_name, const unsigned int &port_number) ecl_throw_decl(StandardException) {
+	SocketClientStream(const std::string &host_name, const unsigned int &port_number) {
 		ecl_try {
 			if ( !this->device().open(host_name, port_number) ) {
 				error = this->device().error();
