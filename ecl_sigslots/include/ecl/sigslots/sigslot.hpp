@@ -284,6 +284,7 @@ public:
 	 * signals with their emit() methods.
 	 */
 	void process(Void void_arg = Void()) {
+		(void)void_arg;
 		mutex.trylock(); // Only lock if its not already locked.
 		++processing_count;
 		(*function)();
