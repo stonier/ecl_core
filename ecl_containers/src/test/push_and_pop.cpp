@@ -57,7 +57,7 @@ TEST(PushAndPopTests, pop_and_push )
 
   pp_dynamic.pop_front();
   pp_dynamic.pop_front();
-  EXPECT_EQ(2, pp_dynamic.size());
+  EXPECT_EQ(2U, pp_dynamic.size());
 
   // [0] always returns first data from the buffer
   EXPECT_EQ(2.0, pp_dynamic[0]);
@@ -72,12 +72,12 @@ TEST(PushAndPopTests, push_back_only )
     pp.push_back(i);
   }
 
-  EXPECT_EQ( 3, pp.size());
+  EXPECT_EQ( 3U, pp.size());
 
   for (unsigned int i = 4; i < 8; i++)
   {
     pp.push_back(i);
-    EXPECT_EQ( 3, pp.size());
+    EXPECT_EQ( 3U, pp.size());
   }
 
   PushAndPop<unsigned int> pp_dynamic(3, 1);
@@ -86,12 +86,12 @@ TEST(PushAndPopTests, push_back_only )
     pp_dynamic.push_back(i);
   }
 
-  EXPECT_EQ( 3, pp_dynamic.size());
+  EXPECT_EQ( 3U, pp_dynamic.size());
 
   for (unsigned int i = 4; i < 8; i++)
   {
     pp_dynamic.push_back(i);
-    EXPECT_EQ( 3, pp_dynamic.size());
+    EXPECT_EQ( 3U, pp_dynamic.size());
   }
 }
 
@@ -104,7 +104,7 @@ TEST(PushAndPopTests, pop_front_only )
     pp.push_back(i);
   }
 
-  EXPECT_EQ( 2, pp.size());
+  EXPECT_EQ( 2U, pp.size());
 
   for (unsigned int i = 0; i < 2; i++)
   {
@@ -126,7 +126,7 @@ TEST(PushAndPopTests, pop_front_only )
     pp_dynamic.push_back(i);
   }
 
-  EXPECT_EQ( 2, pp_dynamic.size());
+  EXPECT_EQ( 2U, pp_dynamic.size());
 
   for (unsigned int i = 0; i < 2; i++)
   {
