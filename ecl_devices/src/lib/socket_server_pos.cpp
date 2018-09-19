@@ -69,9 +69,9 @@ bool SocketServer::open( const unsigned int& port_number ) {
      * Configure Socket Details
      ************************************************************************/
     // allow *immediate* socket reuse, http://www.ibm.com/developerworks/library/l-sockpit/
-    int ret, on;
+    int on;
     on = 1;
-    ret = setsockopt( socket_fd, SOL_SOCKET, SO_REUSEADDR, &on, sizeof(on) );
+    setsockopt( socket_fd, SOL_SOCKET, SO_REUSEADDR, &on, sizeof(on) );
     // other options
     struct sockaddr_in server;
     server.sin_family = AF_INET;    // host byte order
