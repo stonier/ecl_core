@@ -48,9 +48,13 @@ TEST(TimeStampTests,timestamps) {
     TimeStamp time;
     time.stamp();
     long t = time.sec();
+    (void)t;
     t = time.msec();
+    (void)t;
     t = time.usec();
+    (void)t;
     t = time.nsec();
+    (void)t;
     SUCCEED();
     time.stamp(3,1425);
     EXPECT_FLOAT_EQ(3.000001425,time);
