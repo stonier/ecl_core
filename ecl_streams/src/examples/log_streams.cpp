@@ -69,6 +69,8 @@ using namespace ecl::demos;
 *****************************************************************************/
 
 int main(int argc, char** argv) {
+    (void)argc;
+    (void)argv;
 
     std::cout << std::endl;
     std::cout << "***********************************************************" << std::endl;

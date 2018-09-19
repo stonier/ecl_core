@@ -34,6 +34,8 @@ using ecl::OConsoleStream;
 *****************************************************************************/
 
 int main(int argc, char** argv) {
+    (void)argc;
+    (void)argv;
 
 	bool test_istreams = false;
 
