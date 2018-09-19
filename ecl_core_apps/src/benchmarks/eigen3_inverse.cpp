@@ -33,6 +33,8 @@ using Eigen::MatrixXf;
 *****************************************************************************/
 
 int main(int argc, char **argv) {
+    (void)argc;
+    (void)argv;
 
 	const unsigned int repeats = 10;
 	try {

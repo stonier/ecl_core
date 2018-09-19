@@ -117,6 +117,8 @@ int main()
     for (int i = 0; i < 4; ++i ) { elements[i] = a1[i]; }
     timestamp[4] = stopwatch.split();
 
+    (void)elements;
+
     std::cout << "carray []   : " << timestamp[4] << std::endl;
     std::cout << "Array  []   : " << timestamp[0] << std::endl;
     std::cout << "Array  at   : " << timestamp[1] << std::endl;
