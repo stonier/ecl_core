@@ -89,7 +89,7 @@ TEST(StringStreams,readEmptyFail) {
 TEST(StringStreams,remaining) {
 	StringStream sstream;
     sstream << "Dude";
-    EXPECT_EQ(4,sstream.device().remaining());
+    EXPECT_EQ(4U,sstream.device().remaining());
 }
 
 /*****************************************************************************
