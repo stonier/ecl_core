@@ -328,7 +328,6 @@ public:
 	 * details to any signals also connected to the topic.
 	 */
 	void disconnect(const std::string &topic) {
-		std::set<std::string>::const_iterator listen_iter = subscriptions.find(topic);
 		publications.erase(topic); // Doesn't matter if it finds it or not.
 		SigSlotsManager<Void>::disconnect(topic,this);
 	}
