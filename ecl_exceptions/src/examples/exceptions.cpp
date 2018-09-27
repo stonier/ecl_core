@@ -52,9 +52,7 @@ void f(int i)
 ** Main
 *****************************************************************************/
 
-int main(int argc, char **argv) {
-    (void)argc;
-    (void)argv;
+int main(int /*argc*/, char** /*argv*/) {
 
     std::cout << std::endl;
     std::cout << "***********************************************************" << std::endl;

@@ -32,9 +32,7 @@ using Eigen::MatrixXf;
 ** Main
 *****************************************************************************/
 
-int main(int argc, char **argv) {
-    (void)argc;
-    (void)argv;
+int main(int /*argc*/, char** /*argv*/) {
 
 	const unsigned int repeats = 10;
 	try {

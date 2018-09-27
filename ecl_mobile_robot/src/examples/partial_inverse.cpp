@@ -38,9 +38,7 @@ using ecl::linear_algebra::Vector3d;
 ** Main program
 *****************************************************************************/
 
-int main(int argc, char **argv) {
-    (void)argc;
-    (void)argv;
+int main(int /*argc*/, char** /*argv*/) {
 
     Format<double> format; format.width(8); format.precision(2); format.align(RightAlign);
 

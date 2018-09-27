@@ -271,9 +271,7 @@ ECL_DONT_INLINE vector<Duration> trigTest() {
 ** Main
 *****************************************************************************/
 
-int main(int argc, char **argv) {
-    (void)argc;
-    (void)argv;
+int main(int /*argc*/, char** /*argv*/) {
 
 	try {
 		ecl::set_priority(ecl::RealTimePriority4);

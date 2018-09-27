@@ -45,9 +45,8 @@ public:
 ** Main
 *****************************************************************************/
 
-int main(int argc, char **argv) {
-	(void)argc;
-	(void)argv;
+int main(int /*argc*/, char** /*argv*/) {
+
 	A a;
 	std::cout << std::endl;
 	std::cout << "***************************************************************" << std::endl;
