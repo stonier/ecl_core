@@ -43,7 +43,6 @@ ament_export_dependencies(
     ecl_linear_algebra
     ecl_math
 )
-ament_export_libraries(${PROJECT_NAME})
 ament_package()
 
 

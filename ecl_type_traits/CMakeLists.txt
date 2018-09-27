@@ -37,5 +37,4 @@ ament_export_dependencies(
     ecl_config
     ecl_mpl
 )
-ament_export_libraries(${PROJECT_NAME})
 ament_package()

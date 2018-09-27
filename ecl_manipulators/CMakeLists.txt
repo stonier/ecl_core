@@ -50,6 +50,5 @@ ament_export_dependencies(
     ecl_formatters
     ecl_geometry
 )
-ament_export_libraries(${PROJECT_NAME})
 ament_package()
 

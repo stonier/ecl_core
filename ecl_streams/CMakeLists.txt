@@ -46,5 +46,4 @@ ament_export_dependencies(
     ecl_time
     ecl_type_traits
 )
-ament_export_libraries(${PROJECT_NAME})
 ament_package()
