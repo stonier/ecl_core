@@ -36,7 +36,7 @@ add_subdirectory(src)
 # Exports
 ##############################################################################
 
-ament_export_interfaces(${PROJECT_NAME})
+ament_export_interfaces(HAS_LIBRARY_TARGET ${PROJECT_NAME})
 ament_export_dependencies(
     ecl_eigen
     ecl_exceptions
