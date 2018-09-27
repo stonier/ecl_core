@@ -37,7 +37,7 @@ add_subdirectory(src)
 # Exports
 ##############################################################################
 
-ament_export_interfaces(${PROJECT_NAME})
+ament_export_interfaces(HAS_LIBRARY_TARGET ${PROJECT_NAME})
 ament_export_dependencies(
     ecl_concepts
     ecl_converters
@@ -46,5 +46,4 @@ ament_export_dependencies(
     ecl_time
     ecl_type_traits
 )
-ament_export_libraries(${PROJECT_NAME})
 ament_package()
