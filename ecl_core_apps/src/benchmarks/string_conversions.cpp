@@ -136,6 +136,7 @@ int main()
     char_string = toCharString(d);
     time_converters[4] = stopwatch.split();
 
+    (void)char_string;
 
     std::cout << std::endl;
     std::cout << "***********************************************************" << std::endl;

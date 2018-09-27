@@ -28,7 +28,6 @@ int main(int argc, char** argv) {
     /******************************************
      * Parse for the port name
      ******************************************/
-    bool hex(false);
     double yaw;
 
     try {

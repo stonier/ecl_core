@@ -262,6 +262,8 @@ ECL_DONT_INLINE vector<Duration> trigTest() {
 		d = angle1*angle2;
 		e = 3.315*angle1;
 	}
+        (void)d;
+        (void)e;
 	times.push_back(stopwatch.split());
 	return times;
 }
@@ -269,7 +271,7 @@ ECL_DONT_INLINE vector<Duration> trigTest() {
 ** Main
 *****************************************************************************/
 
-int main(int argc, char **argv) {
+int main(int /*argc*/, char** /*argv*/) {
 
 	try {
 		ecl::set_priority(ecl::RealTimePriority4);

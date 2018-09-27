@@ -127,7 +127,7 @@ Trajectory2D vectorToTrajectory(const std::vector<Pose2D>& vec)
   Trajectory2D trajectory;
   trajectory.resize(Eigen::NoChange, vec.size());
 
-  for (int i = 0; i < vec.size(); ++i)
+  for (unsigned int i = 0; i < vec.size(); ++i)
   {
     setAt(trajectory, i, vec[i]);
   }
@@ -140,7 +140,7 @@ Odom2DTrajectory vectorToTrajectory(const std::vector<Odom2D>& vec)
   Odom2DTrajectory trajectory;
   trajectory.resize(Eigen::NoChange, vec.size());
 
-  for (int i = 0; i < vec.size(); ++i)
+  for (unsigned int i = 0; i < vec.size(); ++i)
   {
     setAt(trajectory, i, vec[i]);
   }
@@ -397,7 +397,7 @@ float getY(const Position2D& position)
     Trajectory2DPtr trajectory = std::make_shared<Trajectory2D>();
     trajectory->resize(Eigen::NoChange, vec.size());
 
-    for (int i = 0; i < vec.size(); ++i)
+    for (unsigned int i = 0; i < vec.size(); ++i)
     {
       setAt(*trajectory, i, vec[i]);
     }
@@ -410,7 +410,7 @@ float getY(const Position2D& position)
     Odom2DTrajectoryPtr trajectory = std::make_shared<Odom2DTrajectory>();
     trajectory->resize(Eigen::NoChange, vec.size());
 
-    for (int i = 0; i < vec.size(); ++i)
+    for (unsigned int i = 0; i < vec.size(); ++i)
     {
       setAt(*trajectory, i, vec[i]);
     }

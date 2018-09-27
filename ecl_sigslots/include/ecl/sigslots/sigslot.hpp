@@ -284,6 +284,7 @@ public:
 	 * signals with their emit() methods.
 	 */
 	void process(Void void_arg = Void()) {
+		(void)void_arg;
 		mutex.trylock(); // Only lock if its not already locked.
 		++processing_count;
 		(*function)();
@@ -327,7 +328,6 @@ public:
 	 * details to any signals also connected to the topic.
 	 */
 	void disconnect(const std::string &topic) {
-		std::set<std::string>::const_iterator listen_iter = subscriptions.find(topic);
 		publications.erase(topic); // Doesn't matter if it finds it or not.
 		SigSlotsManager<Void>::disconnect(topic,this);
 	}

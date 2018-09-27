@@ -117,29 +117,29 @@ TEST(PolynomialTests,roots) {
 	ecl::Array<double> roots;
 	LinearFunction f = LinearFunction::PointSlopeForm(1.0,3.0,2.0);
 	roots = LinearFunction::Roots(f);
-	EXPECT_EQ(1,roots.size());
+	EXPECT_EQ(1U,roots.size());
 	if ( roots.size() > 0 ) {
 		EXPECT_DOUBLE_EQ(-0.5,roots[0]);
 	}
 	QuadraticPolynomial q;
 	q.coefficients() << 1.0, 2.0, 1.0; // x^2 + 2x + 1 (single root)
 	roots = QuadraticPolynomial::Roots(q);
-	EXPECT_EQ(1,roots.size());
+	EXPECT_EQ(1U,roots.size());
 	if ( roots.size() > 0 ) {
 		EXPECT_DOUBLE_EQ(-1.0,roots[0]);
 	}
 	q.coefficients() << 2.0, 2.0, 1.0; // x^2 + 2x + 2 (no roots)
 	roots = QuadraticPolynomial::Roots(q);
-	EXPECT_EQ(0,roots.size());
+	EXPECT_EQ(0U,roots.size());
 	q.coefficients() << -2.0, 1.0, 1.0; // x^2 + x -2 (two roots)
 	roots = QuadraticPolynomial::Roots(q);
-	EXPECT_EQ(2,roots.size());
+	EXPECT_EQ(2U,roots.size());
 	EXPECT_DOUBLE_EQ(1,roots[0]);
 	EXPECT_DOUBLE_EQ(-2,roots[1]);
 	CubicPolynomial c;
 	c.coefficients() << -6.0, 1.0, 4.0, 1.0; // x^3 + 4x^2 + x - 6 = (x-1)(x+2)(x+3) three roots
 	roots = CubicPolynomial::Roots(c);
-	EXPECT_EQ(3,roots.size());
+	EXPECT_EQ(3U,roots.size());
 	if ( roots.size() == 3 ) {
 		EXPECT_DOUBLE_EQ(1,roots[0]);
 		EXPECT_DOUBLE_EQ(-2,roots[1]);
@@ -147,13 +147,13 @@ TEST(PolynomialTests,roots) {
 	}
 	c.coefficients() << 0, 0, 0, 1.0; // x^3 one triple root
 	roots = CubicPolynomial::Roots(c);
-	EXPECT_EQ(1,roots.size());
+	EXPECT_EQ(1U,roots.size());
 	if ( roots.size() == 1 ) {
 		EXPECT_DOUBLE_EQ(0,roots[0]);
 	}
 	c.coefficients() << -1.0, 1.0, -1.0, 1.0; // (x-1)^3  shifted by one (one real, two complex)
 	roots = CubicPolynomial::Roots(c);
-	EXPECT_EQ(1,roots.size());
+	EXPECT_EQ(1U,roots.size());
 	if ( roots.size() == 1 ) {
 		EXPECT_DOUBLE_EQ(1,roots[0]);
 	}

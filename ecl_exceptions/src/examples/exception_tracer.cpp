@@ -61,12 +61,11 @@ void f() {
 ** Main
 *****************************************************************************/
 
-int main(int argc, char **argv) {
+int main(int /*argc*/, char** /*argv*/) {
+  std::cout << "Dude" << std::endl;
+  f();
 
-	std::cout << "Dude" << std::endl;
-	f();
-
-	return 0;
+  return 0;
 }
 #else
 

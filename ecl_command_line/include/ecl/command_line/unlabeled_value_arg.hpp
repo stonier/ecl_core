@@ -291,6 +291,7 @@ bool UnlabeledValueArg<T>::processArg(int *i, std::vector<std::string>& args)
 template<class T>
 std::string UnlabeledValueArg<T>::shortID(const std::string& val) const
 {
+	(void)val;
 	std::string id = "<" + _typeDesc + ">";
 
 	return id;
@@ -302,6 +303,7 @@ std::string UnlabeledValueArg<T>::shortID(const std::string& val) const
 template<class T>
 std::string UnlabeledValueArg<T>::longID(const std::string& val) const
 {
+	(void)val;
 	// Ideally we would like to be able to use RTTI to return the name
 	// of the type required for this argument.  However, g++ at least,
 	// doesn't appear to return terribly useful "names" of the types.

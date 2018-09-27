@@ -116,9 +116,9 @@ protected:
   FrequencyDiagnostics current_diagnostics;
   unsigned int incoming_counter;
   ecl::TimeStamp last_anyalsed;
-  ecl::TimeStamp period;
   ecl::TimeStamp minimum_interval;
   ecl::TimeStamp maximum_interval;
+  ecl::TimeStamp period;
   bool use_realtime_clock;
   ecl::TimeStamp last_incoming;
 };

@@ -386,7 +386,7 @@ namespace ecl
     int file_descriptor;
     termios options;
     std::string port;
-    unsigned long read_timeout_ms;
+    long read_timeout_ms;
     ecl::Snooze fake_snooze;
     unsigned int fake_loop_count;
     bool is_open;

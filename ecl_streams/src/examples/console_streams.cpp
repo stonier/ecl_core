@@ -33,9 +33,9 @@ using ecl::OConsoleStream;
 ** Main
 *****************************************************************************/
 
-int main(int argc, char** argv) {
+int main(int /*argc*/, char** /*argv*/) {
 
-	bool test_istreams = false;
+  bool test_istreams = false;
 
     std::cout << std::endl;
     std::cout << "***********************************************************" << std::endl;

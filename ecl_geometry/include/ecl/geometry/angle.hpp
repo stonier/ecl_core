@@ -39,6 +39,7 @@ namespace ecl {
  */
 template <typename T>
 ecl_geometry_PUBLIC T radians_to_degrees(const T &radians, typename enable_if<ecl::is_float<T> >::type* dummy = 0) {
+	(void)dummy;
 	static const T rads_to_degs = 180.0/pi;
 	return radians*rads_to_degs;
 }
@@ -52,6 +53,7 @@ ecl_geometry_PUBLIC T radians_to_degrees(const T &radians, typename enable_if<ec
  */
 template <typename T>
 ecl_geometry_PUBLIC T degrees_to_radians(const T &degrees, typename enable_if<ecl::is_float<T> >::type* dummy = 0) {
+	(void)dummy;
 	static const T degs_to_rads = pi/180.0;
 	return degrees*degs_to_rads;
 }
