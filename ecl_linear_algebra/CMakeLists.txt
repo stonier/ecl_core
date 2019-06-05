@@ -37,6 +37,8 @@ add_subdirectory(src)
 # Exports
 ##############################################################################
 
+get_target_property(IMPORTED_INCLUDE_DIRS Sophus::Sophus INTERFACE_INCLUDE_DIRECTORIES)
+ament_export_include_directories(include ${IMPORTED_INCLUDE_DIRS})
 ament_export_interfaces(HAS_LIBRARY_TARGET ${PROJECT_NAME})
 ament_export_dependencies(
     ecl_eigen

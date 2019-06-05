@@ -43,6 +43,7 @@ add_subdirectory(src)
 # Do we need to export ${ECL_PLATFORM_FILESYSTEM_LIBRARIES} or does that
 # automagically get covered by the exported target with target_link_libraries?
 
+ament_export_include_directories(include)
 ament_export_interfaces(HAS_LIBRARY_TARGET ${PROJECT_NAME})
 ament_export_dependencies(
     ecl_config
