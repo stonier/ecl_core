@@ -9,13 +9,16 @@
 ** Platform Check
 *****************************************************************************/
 
-#include <iostream>
 #include <ecl/config/ecl.hpp>
-#if defined(ECL_IS_POSIX)
+#if defined(ECL_IS_POSIX) || defined(ECL_IS_WIN32)
 
 /*****************************************************************************
 ** Includes
 *****************************************************************************/
+
+#include <chrono>
+#include <iostream>
+#include <thread>
 
 #include <gtest/gtest.h>
 #include <ecl/config/ecl.hpp>
@@ -83,7 +86,7 @@ public:
 			if ( output ) {
 				std::cout << "  Nullary Function Object: " << i << std::endl;
 			}
-			sleep(1);
+			std::this_thread::sleep_for(std::chrono::seconds(1));
 			++i;
 		}
 		if ( output ) {
@@ -99,7 +102,7 @@ public:
 
 void d() {
 	for (int i = 0; i < 5; ++i ) {
-		sleep(1);
+		std::this_thread::sleep_for(std::chrono::seconds(1));
 		if ( output ) {
 			std::cout << "  d(): " << i << std::endl;
 		}
@@ -134,7 +137,7 @@ void deconstructThread() {
 	Thread thread_deconstruct(d);
 }
 
-} // namespace Tests
+} // namespace tests
 } // namespace threads
 } // namespace ecl
 
@@ -175,7 +178,7 @@ TEST(ThreadTests,threadFunctionTypes) {
 
 TEST(ThreadTests,cancelThread) {
 	Thread thread(generateFunctionObject(d));
-	sleep(3);
+    std::this_thread::sleep_for(std::chrono::seconds(3));
 	EXPECT_TRUE(thread.isRunning());
 //	std::cout << "Cancelling d() thread (you should see no further output)." << std::endl;
 	thread.cancel();
@@ -186,16 +189,16 @@ TEST(ThreadTests,cancelThread) {
 
 TEST(ThreadTests,deconstruct) {
     deconstructThread();
-    sleep(6);
+    std::this_thread::sleep_for(std::chrono::seconds(6));
     SUCCEED();
 }
 
 TEST(ThreadTests,nullaryFunctionObjects) {
     NullaryFunction function_object;
     Thread thread_f8(function_object); //    Thread thread_f8 = NullaryFunction();
-    sleep(4);
+    std::this_thread::sleep_for(std::chrono::seconds(4));
     Thread thread_f9(ref(function_object));
-	sleep(4);
+    std::this_thread::sleep_for(std::chrono::seconds(4));
     thread_f8.join();
     thread_f9.join();
 	SUCCEED();

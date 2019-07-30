@@ -23,7 +23,6 @@
 ** Includes
 *****************************************************************************/
 
-#include <windows.h>
 #include <string>
 #include <sstream>
 #include <errno.h>

@@ -16,6 +16,8 @@
 ** Includes
 *****************************************************************************/
 
+#include <windows.h>
+
 #include <iostream>
 #include <ecl/errors/handlers.hpp>
 #include "../../include/ecl/threads/priority_win.hpp"

@@ -4,6 +4,11 @@
 
 file(GLOB SOURCES RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} *.cpp) 
 
+if (MSVC)
+  # enable std::make_shared for extended alignment types
+  add_compile_options(/D_ENABLE_EXTENDED_ALIGNED_STORAGE)
+endif()
+
 ##############################################################################
 # Library
 ##############################################################################

@@ -20,6 +20,8 @@
 #include <ecl/exceptions/standard_exception.hpp>
 #include "../../include/ecl/devices/serial_w32.hpp"
 
+#include <windows.h>
+
 /*****************************************************************************
 ** Namespaces
 *****************************************************************************/
@@ -30,19 +32,42 @@ namespace ecl {
 ** Implementation [Serial][C&D]
 *****************************************************************************/
 
-Serial::Serial(const std::string& port_name, const BaudRate &baud_rate, const DataBits &data_bits,
-		const StopBits &stop_bits, const Parity &parity ) throw(StandardException) :
-				port(port_name), is_run(false), file_descriptor(INVALID_HANDLE_VALUE)
+Serial::Serial()
+    : is_open(false), is_run(false), file_descriptor(INVALID_HANDLE_VALUE), error_handler(NoError)
 {
-	try {
-		open(port_name, baud_rate, data_bits, stop_bits, parity);
-	} catch ( StandardException &e ) {
-		throw StandardException(LOC,e);
-	}
+    m_osRead = new OVERLAPPED();
+    m_osWrite = new OVERLAPPED();
+};
+
+Serial::Serial(
+    const std::string& port_name,
+    const BaudRate& baud_rate,
+    const DataBits& data_bits,
+    const StopBits& stop_bits,
+    const Parity& parity
+) throw(StandardException)
+    : port(port_name), is_run(false), file_descriptor(INVALID_HANDLE_VALUE)
+{
+    m_osRead = new OVERLAPPED();
+    m_osWrite = new OVERLAPPED();
+
+    try {
+        open(port_name, baud_rate, data_bits, stop_bits, parity);
+    } catch ( StandardException &e ) {
+        throw StandardException(LOC,e);
+    }
 }
 
 Serial::~Serial() {
-	close();
+    close();
+    if (m_osRead) {
+        delete m_osRead;
+        m_osRead = nullptr;
+    }
+    if (m_osWrite) {
+        delete m_osWrite;
+        m_osWrite = nullptr;
+    }
 }
 
 /*****************************************************************************
@@ -64,14 +89,14 @@ void Serial::open(const std::string& port_name, const BaudRate &baud_rate, const
     /******************************************
      * Reset Timeouts
      ******************************************/
-    m_osRead.Offset = 0;
-    m_osRead.OffsetHigh = 0;
-    if (! (m_osRead.hEvent = CreateEvent(NULL, TRUE, FALSE, NULL))) {
+    m_osRead->Offset = 0;
+    m_osRead->OffsetHigh = 0;
+    if (! (m_osRead->hEvent = CreateEvent(nullptr, TRUE, FALSE, nullptr))) {
     	throw StandardException(LOC, OpenError, "Serial port failed to open - could not configure offsets.");
     }
-    m_osWrite.Offset = 0;
-    m_osWrite.OffsetHigh = 0;
-    if (! (m_osWrite.hEvent = CreateEvent(NULL, TRUE, FALSE, NULL))) {
+    m_osWrite->Offset = 0;
+    m_osWrite->OffsetHigh = 0;
+    if (! (m_osWrite->hEvent = CreateEvent(nullptr, TRUE, FALSE, nullptr))) {
     	throw StandardException(LOC, OpenError, "Serial port failed to open - could not configure offsets.");
     }
 
@@ -267,11 +292,11 @@ long Serial::write(const char *s, unsigned long n) {
 	COMSTAT comstat;
 	int    result;
 
-	result = WriteFile( file_descriptor, s, n, &written, &m_osWrite);
+	result = WriteFile( file_descriptor, s, n, &written, m_osWrite);
 
 	if (!result) {
 		if (GetLastError() == ERROR_IO_PENDING) {
-			while (!GetOverlappedResult(file_descriptor, &m_osWrite, &written, TRUE)) {
+			while (!GetOverlappedResult(file_descriptor, m_osWrite, &written, TRUE)) {
 				error = GetLastError();
 				if (error != ERROR_IO_INCOMPLETE) {
 					ClearCommError( file_descriptor, &error_flags, &comstat);
@@ -351,20 +376,20 @@ long Serial::read(char *s, const unsigned long &n)
     	return 0;
     }
 
-    if (!ReadFile( file_descriptor, s, n, &read, &m_osRead) ) {
+    if (!ReadFile( file_descriptor, s, n, &read, m_osRead) ) {
         error = GetLastError();
 
         if( error != ERROR_IO_PENDING ) {
-        	if (error != ERROR_ACCESS_DENIED)
-        		ClearCommError(file_descriptor, &error_flags, &comstat);
+            if (error != ERROR_ACCESS_DENIED)
+                ClearCommError(file_descriptor, &error_flags, &comstat);
 
             return 0;
         } else {
-            dwRes = WaitForSingleObject( m_osRead.hEvent, INFINITE );
+            dwRes = WaitForSingleObject( m_osRead->hEvent, INFINITE );
 
             switch( dwRes ) {
             case WAIT_OBJECT_0:
-                if( !GetOverlappedResult( file_descriptor, &m_osRead, &read, FALSE) ) {
+                if( !GetOverlappedResult( file_descriptor, m_osRead, &read, FALSE) ) {
                     ClearCommError(file_descriptor, &error_flags, &comstat);
                     return 0;
                 } else {
@@ -383,6 +408,20 @@ long Serial::read(char *s, const unsigned long &n)
     }
     return read;
 }
+
+void Serial::clear() {
+    ::PurgeComm(file_descriptor, PURGE_RXCLEAR);
+    ::PurgeComm(file_descriptor, PURGE_TXCLEAR);
+}
+
+void Serial::clearInputBuffer() {
+    ::PurgeComm(file_descriptor, PURGE_RXCLEAR);
+}
+
+void Serial::clearOutputBuffer() {
+    ::PurgeComm(file_descriptor, PURGE_TXCLEAR);
+}
+
 } // namespace ecl
 
 #endif /* ECL_IS_WIN32 */
