@@ -22,7 +22,7 @@
 #include <ecl/config.hpp>
 
 #if defined(ECL_IS_WIN32)
-  getpid = _getpid
+#include <process.h>
 #endif
 
 /*****************************************************************************

@@ -20,11 +20,13 @@
 *****************************************************************************/
 
 #include <ecl/config/ecl.hpp>
-#if defined(ECL_IS_POSIX)
+#if defined(ECL_IS_POSIX) || defined(ECL_IS_WIN32)
 
 /*****************************************************************************
 ** Includes
 *****************************************************************************/
+
+#include <memory>
 
 #include <ecl/utilities/parameter.hpp>
 #include <ecl/config/macros.hpp>
@@ -78,8 +80,7 @@ public:
 	 */
 	bool start(const Priority &priority = DefaultPriority) {
 		if ( isRunning() ) { return false; }
-		isRunning(true); // This is not ideal, as it's not perfectly atomic (i.e. someone can query isRunning before this gets set).
-		Thread thread(&Threadable::executeThreadFunction,*this, priority);
+		thread.reset(new Thread(&Threadable::executeThreadFunction, *this, priority));
 		return true;
 	}
 	/**
@@ -87,21 +88,22 @@ public:
 	 *
 	 * Use this to check if a worker thread is already running.
 	 */
-	Parameter<bool> isRunning;
+	bool isRunning() {
+		return thread ? thread->isRunning() : false;
+	}
 
 protected:
-	Threadable() : isRunning(false) {}
-
 	virtual void runnable() = 0;
 
 private:
 	void executeThreadFunction() {
 		runnable();
-		isRunning(false);
 	}
+
+	std::unique_ptr<Thread> thread;
 };
 
 } // namespace ecl
 
-#endif /* ECL_IS_POSIX */
+#endif /* ECL_IS_POSIX || ECL_IS_WIN32 */
 #endif /* ECL_THREADS_THREADABLE_POS_HPP_ */

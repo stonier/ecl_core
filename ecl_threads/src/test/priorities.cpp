@@ -11,7 +11,7 @@
 
 #include <iostream>
 #include <ecl/config/ecl.hpp>
-#if defined(ECL_IS_POSIX)
+#if defined(ECL_IS_POSIX) || defined(ECL_IS_WIN32)
 
 /*****************************************************************************
 ** Includes

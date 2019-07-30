@@ -18,6 +18,7 @@
 
 #include <ecl/config/windows.hpp>
 #include <ecl/exceptions/standard_exception.hpp>
+#include <ecl/time_lite/functions.hpp>
 #include "../../include/ecl/time/timestamp_win.hpp"
 //#include "../../include/ecl/time/detail/time_functions_win.hpp"
 
@@ -52,6 +53,9 @@ TimeStamp::TimeStamp(const TimeStampBase& base) : TimeStampBase(base) {}
 *****************************************************************************/
 
 const TimeStamp& TimeStamp::stamp() {
+    if (epoch_time(time).flag() != NoError) {
+        ecl_debug_throw(time::throwTimeStampException(LOC));
+    }
     return (*this);
 }
 

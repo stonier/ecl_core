@@ -25,10 +25,9 @@
 ** Includes
 *****************************************************************************/
 
-#include <windows.h>
+#include <mutex>
 #include <ecl/time/duration.hpp>
 #include "macros.hpp"
-
 
 /*****************************************************************************
 ** Namespaces
@@ -40,7 +39,8 @@ namespace ecl {
 ** Typedefs
 *****************************************************************************/
 
-typedef CRITICAL_SECTION RawMutex; /**< @brief Abstraction representing the fundamental mutex type. **/
+/**< @brief Abstraction representing the fundamental mutex type. **/
+typedef std::mutex RawMutex;
 
 /*****************************************************************************
 ** Class Mutex
@@ -70,7 +70,7 @@ public:
 	 *
 	 * De-allocates the resources allocated to the mutex.
 	 */
-	virtual ~Mutex();
+	virtual ~Mutex() = default;
 
 	/**
 	 * @brief Unlocks the mutex.
@@ -123,6 +123,9 @@ public:
 	 * @return RawMutex& : a reference to the underlying mutex type.
 	 */
 	RawMutex& rawType() { return mutex; }
+
+	Mutex(const Mutex&) = delete;
+	Mutex& operator=(const Mutex&) = delete;
 
 private:
 	RawMutex mutex;

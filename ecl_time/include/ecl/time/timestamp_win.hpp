@@ -24,7 +24,6 @@
 ** Includes
 *****************************************************************************/
 
-#include <ecl/config/windows.hpp>
 #include <ecl/config/macros.hpp>
 #include <ecl/config/portable_types.hpp>
 #include <ecl/exceptions/standard_exception.hpp>
