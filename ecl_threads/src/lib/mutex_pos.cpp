@@ -86,6 +86,7 @@ bool Mutex::trylock(Duration &duration)
     ecl_assert_throw(result == 0, threads::throwMutexTimedLockException(LOC,result));
     ++number_locks;
   #else
+    (void) duration
     return trylock(); // fallback option
   #endif
   return true;

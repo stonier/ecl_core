@@ -165,7 +165,7 @@ public:
 	 * @brief Disconnect the sigslot from the specified topic.
 	 */
 	void disconnect(const std::string &topic) {
-		std::set<std::string>::const_iterator listen_iter = subscriptions.find(topic);
+		// std::set<std::string>::const_iterator listen_iter = subscriptions.find(topic);
 		publications.erase(topic); // Doesn't matter if it finds it or not.
 		SigSlotsManager<Void>::disconnect(topic,this);
 	}
