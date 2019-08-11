@@ -297,7 +297,7 @@ std::string print_priority_diagnostics() {
 
 namespace threads {
 
-bool set_real_time_priority(int policy,int priority_level) {
+bool set_real_time_priority(int /* policy */,int /* priority_level */) {
 
 	#if _POSIX_PRIORITY_SCHEDULING > 0
 		ostringstream ostream;

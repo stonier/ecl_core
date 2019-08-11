@@ -73,7 +73,7 @@ void Mutex::lock()
   ecl_assert_throw(result == 0, threads::throwMutexLockException(LOC,result));
 }
 
-bool Mutex::trylock(Duration &duration)
+bool Mutex::trylock(Duration & /* duration */)
 {
   #if defined(_POSIX_TIMEOUTS) && (_POSIX_TIMEOUTS - 200112L) >= 0L
     timespec timeout;

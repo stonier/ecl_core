@@ -21,7 +21,7 @@
 
 class A {
     public:
-        A(int i) : var(i) { std::cout << "Constructor" << std::endl; }
+        A(int i) : var(i) { (void) var; std::cout << "Constructor" << std::endl; }
         A(const A& /* a */) { std::cout << "Copy constructor" << std::endl; }
         ~A() { std::cout << "Destructor" << std::endl; }
         void f() {};
