@@ -16,6 +16,7 @@
   <buildtool_depend>ament_cmake_ros</buildtool_depend>
 
   <build_depend>ecl_license</build_depend>
+  <build_depend>ecl_build</build_depend>
 
   <exec_depend>ecl_license</exec_depend>
 
