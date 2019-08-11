@@ -297,7 +297,7 @@ std::string print_priority_diagnostics() {
 
 namespace threads {
 
-bool set_real_time_priority(int policy,int priority_level) {
+bool set_real_time_priority(int policy, int priority_level) {
 
 	#if _POSIX_PRIORITY_SCHEDULING > 0
 		ostringstream ostream;
@@ -328,6 +328,8 @@ bool set_real_time_priority(int policy,int priority_level) {
 		}
 		return true;
 	#else
+		(void) policy;
+		(void) priority_level;
         ecl_throw(StandardException(LOC,ecl::NotSupportedError,"Your version of posix does not support real time priority scheduling for process management."));
         return false;
 	#endif

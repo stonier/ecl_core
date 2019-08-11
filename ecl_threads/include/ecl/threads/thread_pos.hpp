@@ -243,7 +243,9 @@ public:
 		thread_task(NULL),
 		has_started(false),
 		join_requested(false)
-	{}
+	{
+		(void) schedule_parameters;
+	}
 	/**
 	 * @brief Convenience constructor that starts a new thread with a void global/static function.
 	 *

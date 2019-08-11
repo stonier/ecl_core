@@ -149,7 +149,7 @@ int main(int argc, char **argv) {
 ** Alternative Main
 *****************************************************************************/
 
-int main(int argc, char **argv) {
+int main(int /* argc */, char ** /* argv */) {
     std::cout << std::endl;
     std::cout << "Shared memory is not supported on this platform (or ecl is just lacking)." << std::endl;
     std::cout << std::endl;
