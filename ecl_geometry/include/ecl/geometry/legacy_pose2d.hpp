@@ -65,13 +65,13 @@ namespace ecl {
  * @brief Parent template for ecl traits of the pose classes.
  */
 template <typename Float, enum Pose2DStorageType Storage, typename Enable>
-class ecl_traits< LegacyPose2D<Float, Storage, Enable> > {};
+struct ecl_traits< LegacyPose2D<Float, Storage, Enable> > {};
 
 /**
  * @brief Traits for the pose2D class with rotation matrix storage.
  */
 template <typename Float, typename Enable>
-class ecl_traits< LegacyPose2D<Float, RotationMatrixStorage, Enable> > {
+struct ecl_traits< LegacyPose2D<Float, RotationMatrixStorage, Enable> > {
 public:
         typedef Float Scalar; /**< @brief Element type. **/
         typedef ecl::linear_algebra::Matrix<Float,2,2> RotationType;  /**< @brief Rotation storage type (matrix). **/
@@ -81,7 +81,7 @@ public:
  * @brief Traits for the pose2D class with scalar angle storage.
  */
 template <typename Float, typename Enable>
-class ecl_traits< LegacyPose2D<Float, RotationAngleStorage, Enable> > {
+struct ecl_traits< LegacyPose2D<Float, RotationAngleStorage, Enable> > {
 public:
         typedef Float Scalar; /**< @brief Element type. **/
         typedef Angle<Float> RotationType;  /**< @brief Rotation storage type (angle). **/
