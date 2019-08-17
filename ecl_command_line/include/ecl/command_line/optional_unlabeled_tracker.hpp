@@ -47,7 +47,7 @@ inline void OptionalUnlabeledTracker::check( bool req, const std::string& argNam
         OptionalUnlabeledTracker::gotOptional();
 }
 
-}; // namespace ecl
+} // namespace ecl
 
 
 #endif

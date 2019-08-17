@@ -193,7 +193,7 @@ inline bool SwitchArg::processArg(int *i, std::vector<std::string>& args)
 //End SwitchArg.cpp
 //////////////////////////////////////////////////////////////////////
 
-}; // namespace ecl
+} // namespace ecl
 
 
 #endif

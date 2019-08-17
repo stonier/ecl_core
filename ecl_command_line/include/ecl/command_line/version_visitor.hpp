@@ -59,7 +59,7 @@ class VersionVisitor: public Visitor
 
 };
 
-}; // namespace ecl
+} // namespace ecl
 
 
 #endif

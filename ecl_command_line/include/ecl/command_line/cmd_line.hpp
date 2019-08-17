@@ -482,6 +482,6 @@ inline bool CmdLine::hasHelpAndVersion()
 //End CmdLine.cpp
 ///////////////////////////////////////////////////////////////////////////////
 
-}; // namespace ecl
+} // namespace ecl
 
 #endif

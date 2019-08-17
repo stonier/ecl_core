@@ -60,6 +60,6 @@ class Constraint
 		virtual ~Constraint() { ; }
 };
 
-}; // namespace ecl
+} // namespace ecl
 
 #endif

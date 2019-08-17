@@ -283,6 +283,6 @@ inline void StdOutput::spacePrint( std::ostream& os,
 		os << s << std::endl;
 	}
 }
-}; // namespace ecl
+} // namespace ecl
 
 #endif

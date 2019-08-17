@@ -124,7 +124,7 @@ class CmdLineInterface
 		virtual bool hasHelpAndVersion()=0;
 };
 
-}; // namespace ecl
+} // namespace ecl
 
 
 #endif

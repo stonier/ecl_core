@@ -265,6 +265,6 @@ inline void DocBookOutput::printLongArg(Arg* a)
 	std::cout << "</simplelist>" << std::endl;
 }
 
-}; // namespace ecl
+} // namespace ecl
 
 #endif

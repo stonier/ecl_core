@@ -42,7 +42,7 @@ class IgnoreRestVisitor: public Visitor
 		void visit() { Arg::beginIgnoring();  }
 };
 
-}; // namespace ecl
+} // namespace ecl
 
 
 #endif

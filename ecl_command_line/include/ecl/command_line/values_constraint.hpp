@@ -129,7 +129,7 @@ std::string ValuesConstraint<T>::description() const
     return _typeDesc;
 }
 
-}; // namespace ecl
+} // namespace ecl
 
 #endif
 

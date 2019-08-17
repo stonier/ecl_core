@@ -507,6 +507,6 @@ void ValueArg<T>::_extractValue( const std::string& val )
 										  toString() ) );
 }
 
-}; // namespace ecl
+} // namespace ecl
 
 #endif

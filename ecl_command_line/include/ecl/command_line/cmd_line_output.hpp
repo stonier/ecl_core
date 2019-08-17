@@ -64,6 +64,6 @@ class CmdLineOutput
 
 };
 
-}; // namespace ecl
+} // namespace ecl
 
 #endif

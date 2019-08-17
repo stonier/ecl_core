@@ -514,7 +514,7 @@ bool MultiArg<T>::allowMore()
 	return am;
 }
 
-}; // namespace ecl
+} // namespace ecl
 
 
 #endif

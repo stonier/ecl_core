@@ -139,7 +139,7 @@ inline std::vector< std::vector<Arg*> >& XorHandler::getXorList()
 	return _orList;
 }
 
-}; // namespace ecl
+} // namespace ecl
 
 
 #endif

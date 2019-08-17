@@ -187,6 +187,6 @@ inline std::string MultiSwitchArg::longID(const std::string& val) const
 //END MultiSwitchArg.cpp
 //////////////////////////////////////////////////////////////////////
 
-}; // namespace ecl
+} // namespace ecl
 
 #endif

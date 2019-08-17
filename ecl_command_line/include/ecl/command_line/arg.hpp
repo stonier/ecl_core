@@ -574,7 +574,7 @@ inline bool Arg::acceptsMultipleValues()
 //END Arg.cpp
 //////////////////////////////////////////////////////////////////////
 
-}; // namespace ecl
+} // namespace ecl
 
 #endif
 

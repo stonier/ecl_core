@@ -59,7 +59,7 @@ class HelpVisitor: public Visitor
 
 };
 
-}; // namespace ecl
+} // namespace ecl
 
 
 #endif

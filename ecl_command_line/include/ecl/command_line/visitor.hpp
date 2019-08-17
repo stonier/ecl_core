@@ -41,7 +41,7 @@ class Visitor
 		 */
 		virtual void visit() { }
 };
-}; // namespace ecl
+} // namespace ecl
 
 
 #endif

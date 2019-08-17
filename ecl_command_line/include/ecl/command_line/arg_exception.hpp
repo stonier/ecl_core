@@ -184,7 +184,7 @@ class SpecificationException : public ArgException
 
 };
 
-}; // namespace ecl
+} // namespace ecl
 
 
 #endif
