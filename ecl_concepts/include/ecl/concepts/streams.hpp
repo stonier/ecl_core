@@ -58,6 +58,6 @@ class StreamConcept {
         Implementation stream;
 };
 
-}; // namespace ecl
+} // namespace ecl
 
 #endif /* ECL_CONCEPTS_STREAMS_HPP_ */

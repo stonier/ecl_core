@@ -65,6 +65,6 @@ template<typename T> class Singleton
     virtual ~Singleton () {}
 };
 
-}; // namespace ecl
+} // namespace ecl
 
 #endif /*ECL_UTILITIES_SINGLETON_HPP_*/

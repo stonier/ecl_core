@@ -68,6 +68,6 @@ const TimeStamp& TimeStamp::stamp() {
     return (*this);
 }
 
-}; // namespace ecl
+} // namespace ecl
 
 #endif /* ECL_IS_WIN32 */

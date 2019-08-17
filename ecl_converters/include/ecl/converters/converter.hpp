@@ -109,7 +109,7 @@ Output Converter<Output,void>::operator ()(const Input &input)
     return typename Output::Converter()(input);
 };
 
-}; // Namespace ecl
+} // namespace ecl
 
 
 #endif /* ECL_CONVERTERS_CONVERTER_HPP_ */

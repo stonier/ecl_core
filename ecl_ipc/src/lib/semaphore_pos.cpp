@@ -242,6 +242,6 @@ ecl::StandardException tryLockSemaphoreException(const char* loc) {
 
 #endif /* ECL_HAS_EXCEPTIONS */
 
-}; // namespace ecl
+} // namespace ecl
 
 #endif /* ECL_HAS_POSIX_SEMAPHORES */

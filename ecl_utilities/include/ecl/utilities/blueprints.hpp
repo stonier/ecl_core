@@ -111,7 +111,7 @@ class BluePrintFactory {
         virtual ~BluePrintFactory() {};
 };
 
-}; // namespace ecl
+} // namespace ecl
 
 
 #endif /* ECL_UTILITIES_BLUEPRINT_FACTORY_HPP_ */

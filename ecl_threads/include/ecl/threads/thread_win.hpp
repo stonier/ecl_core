@@ -554,7 +554,7 @@ Error Thread::start(const F &function, const Priority &priority, const long &sta
     return Error(NoError);
 }
 
-}; // namespace ecl
+} // namespace ecl
 
 #endif /* ECL_IS_WIN32 */
 #endif /* ECL_THREADS_THREAD_WIN_HPP_ */

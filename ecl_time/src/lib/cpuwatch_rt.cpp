@@ -65,7 +65,7 @@ TimeStamp CpuWatch::split()
     return (split_time - last_time);
 }
 
-}; // namespace ecl
+} // namespace ecl
 
 #endif /* MANY POSIX TIME REQ'MENTS */
 #endif /* ECL_IS_POSIX */

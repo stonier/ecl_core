@@ -127,6 +127,6 @@ void Thread::initialise(const long &stack_size) {
     }
 }
 
-}; // namespace ecl
+} // namespace ecl
 
 #endif /* ECL_IS_POSIX */

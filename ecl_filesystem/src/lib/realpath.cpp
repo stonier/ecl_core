@@ -63,7 +63,7 @@ ecl_filesystem_PUBLIC ecl::Error realpath(const std::string& path, std::string& 
   return Error(NoError);
 }
 
-}; // namespace ecl
+} // namespace ecl
 
 #endif /* ECL_PRIVATE_HAS_POSIX_REALPATH */
 

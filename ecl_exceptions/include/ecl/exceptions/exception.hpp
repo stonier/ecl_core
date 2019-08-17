@@ -70,7 +70,7 @@ class ecl_exceptions_PUBLIC Exception : public std::exception
         std::string location;
 };
 
-}; // namespace ecl
+} // namespace ecl
 
 #endif /* ECL_DISABLE_EXCEPTIONS */
 #endif /*ECL_EXCEPTIONS_EXCEPTION_HPP_*/

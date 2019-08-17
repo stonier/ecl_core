@@ -68,7 +68,7 @@ TimeStamp TimeStamp::realtime_now() {
         return TimeStamp(time.tv_sec, time.tv_nsec);
 }
 #endif
-}; // namespace ecl
+} // namespace ecl
 
 /*****************************************************************************
 ** Implementation [Exceptions]
@@ -93,7 +93,7 @@ StandardException throwTimeStampException(const char* loc) {
 }
 
 }; // namespace time
-}; // namespace ecl
+} // namespace ecl
 
 #endif /* ECL_HAS_EXCEPTIONS */
 #endif /* ECL_IS_POSIX */

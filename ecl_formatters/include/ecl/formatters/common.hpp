@@ -98,6 +98,6 @@ struct PrecisionWidth<double> {
 template <typename T>
 class Format : public T::Formatter {};
 
-}; // namespace ecl
+} // namespace ecl
 
 #endif /*ECL_FORMATTERS_COMMON_HPP_*/

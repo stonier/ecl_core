@@ -107,7 +107,7 @@ class ecl_time_PUBLIC CpuWatch
         timespec tmp; // use for temporary cacluations.
 };
 
-}; // namespace ecl
+} // namespace ecl
 
 #endif /* MANY POSIX TIME REQ'MENTS */
 #endif /* ECL_IS_POSIX */

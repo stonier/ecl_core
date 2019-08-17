@@ -51,7 +51,7 @@ TimeStamp StopWatch::split()
     return (split_time - last_time);
 }
 
-}; // namespace ecl
+} // namespace ecl
 
 #endif /* ECL_HAS_TIMESTAMP */
 

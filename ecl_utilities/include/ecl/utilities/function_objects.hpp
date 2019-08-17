@@ -1369,6 +1369,6 @@ BoundUnaryMemberFunction<C,A,R> generateFunctionObject( R (C::*function)(A), C& 
 	return BoundUnaryMemberFunction<C,A,R>( function, c, a );
 }
 
-}; // namespace ecl
+} // namespace ecl
 
 #endif /* ECL_UTILITIES_FUNCTION_OBJECTS_HPP_ */

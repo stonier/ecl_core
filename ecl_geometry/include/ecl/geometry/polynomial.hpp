@@ -1347,6 +1347,6 @@ public:
 	}
 };
 
-}; // namespace ecl
+} // namespace ecl
 
 #endif /*ECL_GEOMETRY_POLYNOMIALS_HPP_*/

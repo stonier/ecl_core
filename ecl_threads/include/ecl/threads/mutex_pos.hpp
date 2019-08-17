@@ -159,7 +159,7 @@ private:
 
 };
 
-}; // namespace ecl
+} // namespace ecl
 
 /*****************************************************************************
 ** Interface [Exceptions]

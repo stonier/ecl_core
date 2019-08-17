@@ -33,6 +33,6 @@ enum StorageType {
     FixedStorage = 1   /**< Fixed **/
 };
 
-}; // namespace ecl
+} // namespace ecl
 
 #endif /* ECL_CONTAINERS_DEFINITIONS_HPP_ */

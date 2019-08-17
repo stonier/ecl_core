@@ -138,7 +138,7 @@ class ECL_PUBLIC SplineFunction : public GenericSplineFunction {
         Function function;
 };
 
-}; // namespace ecl
+} // namespace ecl
 
 
 #endif /* SPLINE_FUNCTION_HPP_ */

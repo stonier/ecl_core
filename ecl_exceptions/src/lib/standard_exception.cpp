@@ -58,6 +58,6 @@ const char* StandardException::what() const throw() {
     return what_msg.c_str();
 }
 
-}; // namespace ecl
+} // namespace ecl
 
 #endif /* ECL_DISABLE_EXCEPTIONS */

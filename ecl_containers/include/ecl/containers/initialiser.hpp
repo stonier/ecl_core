@@ -172,6 +172,6 @@ BoundedListInitialiser<Type,Iterator,DynamicStorage>& BoundedListInitialiser<Typ
 }
 
 }; // namespace containers
-}; // namespace ecl
+} // namespace ecl
 
 #endif /* ECL_CONTAINERS_INITIALISER_HPP_ */

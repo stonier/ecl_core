@@ -210,4 +210,4 @@ bool SharedFile::flush() {
 }
 
 
-}; // namespace ecl
+} // namespace ecl

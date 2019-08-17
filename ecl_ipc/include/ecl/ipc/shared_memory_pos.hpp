@@ -245,7 +245,7 @@ SharedMemory<Storage>::~SharedMemory()
     }
 }
 
-}; // namespace ecl
+} // namespace ecl
 
 
 #endif /* _POSIX_SHARED_MEMORY_OBJECTS > 0 */

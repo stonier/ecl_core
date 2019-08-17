@@ -900,6 +900,6 @@ class Converter<char*,void>  :
         using Converter<char*,bool>::operator();
 };
 
-}; // Namespace ecl
+} // namespace ecl
 
 #endif /*ECL_CONVERTERS_CONVERT_CHAR_STRINGS_HPP_*/

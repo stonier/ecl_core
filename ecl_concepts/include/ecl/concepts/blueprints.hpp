@@ -53,6 +53,6 @@ private:
 	Implementation blue_print;
 };
 
-}; // namespace ecl
+} // namespace ecl
 
 #endif /* ECL_CONCEPTS_BLUEPRINTS_HPP_ */

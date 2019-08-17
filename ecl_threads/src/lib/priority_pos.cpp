@@ -333,6 +333,6 @@ bool set_real_time_priority(int policy,int priority_level) {
 	#endif
 }
 } // namespace threads
-}; // namespace ecl
+} // namespace ecl
 
 #endif /* ECL_IS_POSIX */

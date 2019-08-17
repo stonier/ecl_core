@@ -197,6 +197,6 @@ bool set_real_time_priority(int policy,int priority_level) {
     return bResult != FALSE;
 }
 } // namespace threads
-}; // namespace ecl
+} // namespace ecl
 
 #endif /* ECL_IS_WIN32 */

@@ -132,6 +132,6 @@ void Thread::initialise(const long &stack_size) {
 	// stack_size is ignored
 }
 
-}; // namespace ecl
+} // namespace ecl
 
 #endif /* ECL_IS_WIN32 */
