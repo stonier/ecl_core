@@ -126,7 +126,7 @@ char* convertUnsignedIntegral(Number number, char* buffer_begin, char* buffer_en
         *str_ptr = '0'+lsd;
     } while (number != 0);
     return str_ptr;
-};
+}
 
 /**
  * Very fast internal utility function that converts a signed integral and puts it on the buffer.
@@ -153,7 +153,7 @@ char* convertSignedIntegral(const Number &number, char* buffer_begin, char* buff
 }
 
 
-}; // namespace converters
+} // namespace converters
 
 /**
  * @endcond

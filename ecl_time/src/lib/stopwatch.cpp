@@ -26,7 +26,7 @@ namespace ecl {
 StopWatch::StopWatch() {
     // The variable start_time will automatically initialise with the current
     // system time.
-};
+}
 
 /*****************************************************************************
 ** Implementation

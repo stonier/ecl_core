@@ -152,7 +152,7 @@ long SocketServer::peek(char *s, const unsigned long &n) {
     }
     error_handler = NoError;
     return bytes_read;
-};
+}
 
 long SocketServer::remaining() {
     unsigned long bytes;
@@ -164,7 +164,7 @@ long SocketServer::remaining() {
     }
     error_handler = NoError;
     return bytes;
-};
+}
 
 
 /*****************************************************************************

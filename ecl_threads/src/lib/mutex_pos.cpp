@@ -58,7 +58,6 @@ Mutex::Mutex(const bool locked) :
     this->lock();
   }
 }
-;
 
 Mutex::~Mutex()
 {
@@ -73,7 +72,6 @@ void Mutex::lock()
   int result = pthread_mutex_lock(&mutex);
   ecl_assert_throw(result == 0, threads::throwMutexLockException(LOC,result));
 }
-;
 
 bool Mutex::trylock(Duration &duration)
 {
@@ -92,7 +90,6 @@ bool Mutex::trylock(Duration &duration)
   #endif
   return true;
 }
-;
 
 bool Mutex::trylock()
 {
@@ -109,7 +106,6 @@ bool Mutex::trylock()
   ++number_locks;
   return true;
 }
-;
 
 void Mutex::unlock()
 {
@@ -117,10 +113,7 @@ void Mutex::unlock()
   int result = pthread_mutex_unlock(&mutex);
   ecl_assert_throw(result == 0, threads::throwMutexUnLockException(LOC,result));
 }
-;
 
-}
-;
-// namespace ecl
+} // namespace ecl
 
 #endif /* ECL_IS_POSIX */

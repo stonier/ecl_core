@@ -284,7 +284,7 @@ inline StandardException ECL_LOCAL throwMutexUnLockException(const char* loc, in
 }
 
 
-}; // namespace threads
+} // namespace threads
 } // namespace ecl
 
 #endif /* ECL_HAS_EXCEPTIONS */

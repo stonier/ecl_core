@@ -345,7 +345,7 @@ inline ecl::StandardException throwSleepException(const char* loc ) {
 }
 
 
-}; // namespace time
+} // namespace time
 } // namespace ecl
 #endif
 

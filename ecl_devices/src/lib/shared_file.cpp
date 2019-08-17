@@ -120,7 +120,7 @@ bool SharedFileManager::DeRegisterSharedFile(const std::string& name) {
     return true;
 }
 
-}; // namespace Interfaces
+} // namespace Interfaces
 
 /*****************************************************************************
 ** Using

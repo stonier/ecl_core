@@ -186,7 +186,7 @@ void QuinticInterpolation::apply(ecl::QuinticPolynomial& polynomial) const {
 }
 
 
-}; // namespace blueprints
+} // namespace blueprints
 
 using blueprints::LinearInterpolation;
 using blueprints::LinearPointSlopeForm;

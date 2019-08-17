@@ -185,7 +185,7 @@ inline StandardException ECL_LOCAL throwPriorityException(const char* loc ) {
 }
 
 
-}; // namespace threads
+} // namespace threads
 } // namespace ecl
 #endif /* ECL_HAS_EXCEPTIONS */
 #endif /* ECL_IS_POSIX */

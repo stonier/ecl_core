@@ -37,7 +37,7 @@ CpuWatch::CpuWatch() {
 	cpu_time(tmp);
 	start_time.stamp(tmp.tv_sec, tmp.tv_nsec);
 	split_time = start_time;
-};
+}
 
 /*****************************************************************************
 ** Implementation

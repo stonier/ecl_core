@@ -99,7 +99,7 @@ TensionSpline C2TensionSpline::instantiate() {
     TensionSpline cubic;
     apply(cubic);
     return cubic;
-};
+}
 
 void C2TensionSpline::apply(TensionSpline& spline) const {
 
@@ -111,7 +111,7 @@ void C2TensionSpline::apply(TensionSpline& spline) const {
                         x_data[i],   y_data[i],   yddot_data[i],
                         x_data[i+1], y_data[i+1], yddot_data[i+1]  );
     }
-};
+}
 
 } // namespace blueprints
 
@@ -125,6 +125,6 @@ using blueprints::C2TensionSpline;
 C2TensionSpline BluePrintFactory< TensionSpline >::Natural(const Array<double>& x_set,
 		const Array<double>& y_set, const double &tau) {
     return C2TensionSpline(x_set, y_set, tau);
-};
+}
 
 } // namespace ecl

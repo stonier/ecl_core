@@ -29,7 +29,7 @@ ecl::Duration TimeData::average() const {
 		sum += durations[i];
 	}
 	return ecl::Duration(sum/static_cast<double>(durations.size()));
-};
+}
 
 ecl::Duration TimeData::stdDev() const {
 	ecl::Duration avg = average();
@@ -39,7 +39,7 @@ ecl::Duration TimeData::stdDev() const {
 				(static_cast<double>(durations[i]) - static_cast<double>(avg));
 	}
 	return ecl::Duration(sqrt(sum/static_cast<double>(durations.size())));
-};
+}
 
 ecl::Duration TimeData::variance() const {
 	ecl::Duration avg = average();
@@ -49,7 +49,7 @@ ecl::Duration TimeData::variance() const {
 				(static_cast<double>(durations[i]) - static_cast<double>(avg));
 	}
 	return ecl::Duration(sum/static_cast<double>(durations.size()));
-};
+}
 
 } // namespace ecl
 

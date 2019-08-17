@@ -52,7 +52,7 @@ inline Error ECL_LOCAL handlePthreadCreateError(int error_result) {
 		default         : return Error(UnknownError);
 	}
 }
-}; // namespace threads
+} // namespace threads
 } // namespace ecl
 
 /*****************************************************************************
@@ -122,7 +122,7 @@ inline StandardException ECL_LOCAL throwPthreadCancelException(const char* loc, 
 	}
 }
 
-}; // namespace threads
+} // namespace threads
 } // namespace ecl
 
 #endif /* ECL_HAS_EXCEPTIONS */

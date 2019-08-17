@@ -92,7 +92,7 @@ StandardException throwTimeStampException(const char* loc) {
     }
 }
 
-}; // namespace time
+} // namespace time
 } // namespace ecl
 
 #endif /* ECL_HAS_EXCEPTIONS */

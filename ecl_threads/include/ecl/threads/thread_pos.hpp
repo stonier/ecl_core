@@ -152,7 +152,7 @@ private:
 	typename F::type &function;
 };
 
-}; // namespace threads
+} // namespace threads
 
 /*****************************************************************************
 ** Interface [Thread]
