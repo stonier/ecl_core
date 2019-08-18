@@ -24,6 +24,7 @@ find_package(ecl_time REQUIRED)
 
 ament_package_xml()
 ecl_enable_cxx14_compiler()
+ecl_enable_cxx_warnings()
 ecl_detect_threads()
 
 ##############################################################################

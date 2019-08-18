@@ -37,6 +37,7 @@ install(TARGETS ${PROJECT_NAME} EXPORT ${PROJECT_NAME}
 ##############################################################################
 
 ecl_enable_cxx14_compiler()
+ecl_enable_cxx_warnings()
 
 ##############################################################################
 # Sources

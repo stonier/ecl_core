@@ -17,6 +17,7 @@ find_package(ecl_build REQUIRED)
 ##############################################################################
 
 ecl_enable_cxx14_compiler()
+ecl_enable_cxx_warnings()
 
 ##############################################################################
 # Header Library Targets

@@ -24,6 +24,7 @@ find_package(Sophus REQUIRED)
 
 ament_package_xml()
 ecl_enable_cxx14_compiler()
+ecl_enable_cxx_warnings()
 
 ##############################################################################
 # Sources
