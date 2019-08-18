@@ -398,6 +398,6 @@ OutputStream& operator << (OutputStream &ostream, Trajectory<JointAngles> &traje
     return ostream;
 }
 
-}; // namespace ecl
+} // namespace ecl
 
 #endif /* ECL_MANIPULATORS_TRAJECTORY_HPP_ */

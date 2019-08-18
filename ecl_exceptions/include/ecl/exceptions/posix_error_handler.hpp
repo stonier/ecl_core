@@ -72,7 +72,7 @@ public:
 	virtual ~PosixErrorHandler() {}
 };
 
-}; // namespace ecl
+} // namespace ecl
 
 #endif /* ECL_DISABLE_EXCEPTIONS */
 #endif /* ECL_EXCEPTIONS_POSIX_EXCEPTION_HPP_ */

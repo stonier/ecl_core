@@ -126,7 +126,7 @@ private:
 	virtual ~Roots() {};
 };
 
-}; // namespace ecl
+} // namespace ecl
 
 
 #endif /* ECL_GEOMETRY_FUNCTION_MATH_HPP_ */

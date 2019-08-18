@@ -55,6 +55,6 @@ namespace ecl {
 //const float  pi_4_f  = 0.78539816339744830962;  /**< @brief Mathematical constant (float format) for pi/4. */
 
 
-}; // namespace ecl
+} // namespace ecl
 
 #endif /*ECL_MATH_CONSTANTS_HPP_*/

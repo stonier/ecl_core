@@ -817,7 +817,7 @@ class ecl_geometry_PUBLIC QuinticInterpolation : public ecl::BluePrint<QuinticIn
         double x_final, y_final, ydot_final, yddot_final;
 };
 
-}; // namespace blueprints
+} // namespace blueprints
 
 /*****************************************************************************
 ** BluePrintFactory
@@ -1347,6 +1347,6 @@ public:
 	}
 };
 
-}; // namespace ecl
+} // namespace ecl
 
 #endif /*ECL_GEOMETRY_POLYNOMIALS_HPP_*/

@@ -238,6 +238,6 @@ OutputStream& operator << (OutputStream &ostream, Format<std::string>& formatter
     return ostream;
 }
 
-}; // namespace ecl
+} // namespace ecl
 
 #endif /*ECL_FORMATTERS_STRINGS_HPP_*/

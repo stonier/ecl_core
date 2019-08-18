@@ -63,8 +63,8 @@ namespace concepts {
   /**
    * @endcond
    */
-}; // namespace concepts
-}; // namespace ecl
+} // namespace concepts
+} // namespace ecl
 
 #define ecl_concept_check_name_expand(Name) ConceptCheck ## Name
 #define ecl_concept_check_name(Name) ecl_concept_check_name_expand(Name)

@@ -533,6 +533,6 @@ class Format<double> : public interfaces::FormatFloat<double>
         virtual ~Format() {}
 };
 
-}; // namespace ecl
+} // namespace ecl
 
 #endif /*ECL_FORMATTERS_FLOATS_HPP_*/

@@ -552,6 +552,6 @@ class Format<unsigned char> : public interfaces::FormatNumber<unsigned char>
 		virtual ~Format() {}
 };
 
-}; // namespace ecl
+} // namespace ecl
 
 #endif /*ECL_FORMATTERS_NUMBER_HPP_*/

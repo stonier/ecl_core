@@ -61,7 +61,7 @@ Format<std::string>& Format<std::string>::operator() (const std::string &input_s
     return *this;
 }
 
-}; // namespace ecl
+} // namespace ecl
 
 
 

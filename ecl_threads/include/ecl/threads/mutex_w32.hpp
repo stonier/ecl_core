@@ -130,7 +130,7 @@ private:
 
 };
 
-}; // namespace ecl
+} // namespace ecl
 
 
 #endif /* ECL_IS_WIN32 */

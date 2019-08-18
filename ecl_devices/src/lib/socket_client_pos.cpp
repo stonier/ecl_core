@@ -185,7 +185,7 @@ long SocketClient::peek(char *s, const unsigned long &n) {
     }
     error_handler = NoError;
     return bytes_read;
-};
+}
 
 long SocketClient::remaining() {
 
@@ -199,7 +199,7 @@ long SocketClient::remaining() {
     }
     error_handler = NoError;
     return bytes;
-};
+}
 
 /*****************************************************************************
 ** Implementation [SocketClient][Sink]

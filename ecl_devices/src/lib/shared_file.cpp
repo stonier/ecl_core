@@ -120,7 +120,7 @@ bool SharedFileManager::DeRegisterSharedFile(const std::string& name) {
     return true;
 }
 
-}; // namespace Interfaces
+} // namespace Interfaces
 
 /*****************************************************************************
 ** Using
@@ -210,4 +210,4 @@ bool SharedFile::flush() {
 }
 
 
-}; // namespace ecl
+} // namespace ecl

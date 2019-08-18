@@ -152,7 +152,7 @@ private:
 	typename F::type &function;
 };
 
-}; // namespace threads
+} // namespace threads
 
 /*****************************************************************************
 ** Interface [Thread]
@@ -493,7 +493,7 @@ Error Thread::start(const F &function, const Priority &priority, const long &sta
     return Error(NoError);
 }
 
-}; // namespace ecl
+} // namespace ecl
 
 #endif /* ECL_IS_POSIX */
 #endif /* ECL_THREADS_THREAD_POS_HPP_ */

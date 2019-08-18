@@ -336,6 +336,6 @@ private:
 	typename Implementation::iterator iter;
 };
 
-}; // namespace ecl
+} // namespace ecl
 
 #endif /* ECL_CONCEPTS_CONCEPTS_CONTAINERS_HPP_ */

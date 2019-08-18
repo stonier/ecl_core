@@ -306,6 +306,6 @@ private:
 	Implementation input_output_byte_device;
 };
 
-}; // namespace ecl
+} // namespace ecl
 
 #endif /* ECL_CONCEPTS_DEVICES_HPP_ */

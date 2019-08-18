@@ -75,7 +75,7 @@ public:
 template <typename OutputStream>
 OutputStream& operator << (OutputStream& ostream, const Void void_object) { return ostream; }
 
-}; // Namespace ecl
+} // namespace ecl
 
 
 

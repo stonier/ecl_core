@@ -58,6 +58,6 @@ class NullaryFunctionConcept {
         Implementation function;
 };
 
-}; // namespace ecl
+} // namespace ecl
 
 #endif /* ECL_CONCEPTS_NULLARY_FUNCTION_HPP_ */

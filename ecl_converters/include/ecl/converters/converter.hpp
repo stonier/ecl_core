@@ -92,7 +92,7 @@ template <typename Output, typename Input>
 Output Converter<Output,Input>::operator ()(const Input &input)
 {
     return typename Output::Converter()(input);
-};
+}
 
 /**
  * The generalised fallback for converting various input types to a
@@ -107,9 +107,9 @@ template <typename Input>
 Output Converter<Output,void>::operator ()(const Input &input)
 {
     return typename Output::Converter()(input);
-};
+}
 
-}; // Namespace ecl
+} // namespace ecl
 
 
 #endif /* ECL_CONVERTERS_CONVERTER_HPP_ */

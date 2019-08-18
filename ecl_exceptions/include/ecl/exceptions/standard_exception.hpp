@@ -98,7 +98,7 @@ class ecl_exceptions_PUBLIC StandardException : public Exception
         std::string detailed_message;
 };
 
-}; // namespace ecl
+} // namespace ecl
 
 #endif /* ECL_DISABLE_EXCEPTIONS */
 #endif /*ECL_EXCEPTIONS_STANDARD_EXCEPTION_HPP_*/

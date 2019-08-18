@@ -37,7 +37,7 @@ CpuWatch::CpuWatch() {
 	cpu_time(tmp);
 	start_time.stamp(tmp.tv_sec, tmp.tv_nsec);
 	split_time = start_time;
-};
+}
 
 /*****************************************************************************
 ** Implementation
@@ -65,7 +65,7 @@ TimeStamp CpuWatch::split()
     return (split_time - last_time);
 }
 
-}; // namespace ecl
+} // namespace ecl
 
 #endif /* MANY POSIX TIME REQ'MENTS */
 #endif /* ECL_IS_POSIX */

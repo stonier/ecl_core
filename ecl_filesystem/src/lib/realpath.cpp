@@ -43,7 +43,7 @@ ecl_filesystem_PUBLIC ecl::Error realpath(const std::string& path, std::string& 
     if (path_max <= 0) { path_max = 4096; } /* Not guaranteed to give you results */
   #endif
 
-  char buffer[path_max];
+  char *buffer = new char[path_max];
   char *result = ::realpath(path.c_str(), buffer);
   absolute_path = buffer;
   if ( result != NULL ) {
@@ -60,10 +60,11 @@ ecl_filesystem_PUBLIC ecl::Error realpath(const std::string& path, std::string& 
       default            : { return Error(UnknownError); }
     }
   }
+  delete[] buffer;
   return Error(NoError);
 }
 
-}; // namespace ecl
+} // namespace ecl
 
 #endif /* ECL_PRIVATE_HAS_POSIX_REALPATH */
 

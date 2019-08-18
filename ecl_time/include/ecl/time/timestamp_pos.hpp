@@ -162,7 +162,7 @@ public:
 
 
 
-}; // namespace ecl
+} // namespace ecl
 
 #ifdef ECL_HAS_EXCEPTIONS
 namespace ecl {
@@ -177,7 +177,7 @@ namespace time {
 ecl::StandardException throwTimeStampException(const char*loc);
 
 } // namespace time
-}; // namespace ecl
+} // namespace ecl
 
 #endif /* ECL_HAS_EXCEPTIONS */
 

@@ -120,7 +120,7 @@ ecl::CubicSpline C2CubicSpline::instantiate() {
     CubicSpline cubic;
     apply(cubic);
     return cubic;
-};
+}
 
 void C2CubicSpline::apply(ecl::CubicSpline& spline) const {
 
@@ -131,7 +131,7 @@ void C2CubicSpline::apply(ecl::CubicSpline& spline) const {
                         x_data[i],   y_data[i],   yddot_data[i],
                         x_data[i+1], y_data[i+1], yddot_data[i+1]  );
     }
-};
+}
 
 
 /*****************************************************************************
@@ -162,7 +162,7 @@ ecl::CubicSpline DerivativeHeuristicCubicSpline::instantiate() {
     CubicSpline cubic;
     apply(cubic);
     return cubic;
-};
+}
 
 void DerivativeHeuristicCubicSpline::apply(ecl::CubicSpline& spline) const {
 
@@ -173,7 +173,7 @@ void DerivativeHeuristicCubicSpline::apply(ecl::CubicSpline& spline) const {
                         x_data[i],   y_data[i],   ydot_data[i],
                         x_data[i+1], y_data[i+1], ydot_data[i+1]  );
     }
-};
+}
 
 } // namespace blueprints
 
@@ -186,12 +186,12 @@ using blueprints::DerivativeHeuristicCubicSpline;
 
 C2CubicSpline BluePrintFactory< CubicSpline >::Natural(const Array<double>& x_set, const Array<double>& y_set) {
     return C2CubicSpline(x_set, y_set);
-};
+}
 
             C2CubicSpline BluePrintFactory< CubicSpline >::ContinuousDerivatives(
             const Array<double>& x_set, const Array<double>& y_set, const double ydot_0, const double ydot_f) {
     return C2CubicSpline(x_set, y_set, ydot_0, ydot_f);
-};
+}
 
 DerivativeHeuristicCubicSpline BluePrintFactory< CubicSpline >::DerivativeHeuristic(
             const Array<double>& x_set, const Array<double>& y_set, const double ydot_0, const double ydot_f) {

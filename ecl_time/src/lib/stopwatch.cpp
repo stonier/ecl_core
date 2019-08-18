@@ -26,7 +26,7 @@ namespace ecl {
 StopWatch::StopWatch() {
     // The variable start_time will automatically initialise with the current
     // system time.
-};
+}
 
 /*****************************************************************************
 ** Implementation
@@ -51,7 +51,7 @@ TimeStamp StopWatch::split()
     return (split_time - last_time);
 }
 
-}; // namespace ecl
+} // namespace ecl
 
 #endif /* ECL_HAS_TIMESTAMP */
 

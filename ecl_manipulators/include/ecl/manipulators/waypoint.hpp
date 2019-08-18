@@ -413,6 +413,6 @@ OutputStream& operator << (OutputStream &ostream, WayPoint<JointAngles> &waypoin
 
 //typedef Waypoint<JointAngles> JointAngleWaypoint; /**< @brief Convenient typedef for joint angle waypoints. **/
 
-}; // namespace ecl
+} // namespace ecl
 
 #endif /* ECL_MANIPULATORS_WAYPOINT_HPP_ */

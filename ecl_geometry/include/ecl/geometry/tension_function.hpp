@@ -334,7 +334,7 @@ class ECL_PUBLIC TensionSecondDerivativeInterpolation : public ecl::BluePrint<Te
 };
 
 
-}; // namespace blueprints
-}; // namespace ecl
+} // namespace blueprints
+} // namespace ecl
 
 #endif /*ECL_GEOMETRY_TENSION_FUNCTION_HPP_*/

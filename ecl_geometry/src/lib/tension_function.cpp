@@ -76,7 +76,7 @@ void TensionSecondDerivativeInterpolation::apply(base_type &function) const {
     function.y_f = y_final;
 }
 
-}; // namespace blueprints
+} // namespace blueprints
 
 using blueprints::TensionSecondDerivativeInterpolation;
 

@@ -163,6 +163,6 @@ bool OFile::flush() {
 	return true;
 }
 
-}; // namespace ecl
+} // namespace ecl
 
 #endif /* ECL_IS_POSIX */

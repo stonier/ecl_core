@@ -34,6 +34,6 @@ enum ManipulatorAngleType {
     Cartesians          /**< @brief Cartesian representations are being used. **/
 };
 
-}; // namespace ecl
+} // namespace ecl
 
 #endif /* ECL_MANIPULATORS_TYPES_HPP_ */

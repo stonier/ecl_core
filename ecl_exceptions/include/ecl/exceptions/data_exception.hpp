@@ -140,7 +140,7 @@ const char* DataException<Data>::what() const throw() {
     return what_msg.c_str();
 }
 
-}; // namespace ecl
+} // namespace ecl
 
 #endif /* ECL_DISABLE_EXCEPTIONS */
 #endif /* ECL_EXCEPTIONS_DATA_EXCEPTION_HPP_*/

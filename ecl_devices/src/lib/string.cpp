@@ -99,7 +99,7 @@ long String::read(char* s, unsigned long n)
 unsigned long String::remaining()
 {
     return buffer_cur_write - buffer_cur_read;
-};
+}
 
 /**
  * Clear the contents of the string device (clears and
@@ -112,7 +112,7 @@ void String::clear()
     buffer_length = 0;
     buffer_cur_write = buffer;
     buffer_cur_read = buffer;
-};
+}
 
 /*****************************************************************************
 ** Implementation [String][Sink Interface]

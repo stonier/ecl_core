@@ -91,7 +91,7 @@ class ecl_time_PUBLIC StopWatch
 };
 
 
-}; // namespace ecl
+} // namespace ecl
 
 #endif /* ECL_HAS_TIMESTAMP */
 #endif /* ECL_STOPWATCH_HPP_ */
