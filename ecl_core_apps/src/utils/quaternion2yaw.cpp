@@ -44,6 +44,7 @@ int main(int argc, char** argv) {
         w = arg_w.getValue();
     } catch ( ArgException &e ) {
         std::cerr << "error: " << e.error() << " for arg " << e.argId() << std::endl;
+        return 1;
     }
     if ( ( x != 0.0 ) && ( y != 0.0 ) ) {
       std::cout << "This quaternion has non-yaw components, aborting." << std::endl;

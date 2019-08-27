@@ -71,6 +71,7 @@ void Mutex::lock()
   ++number_locks;
   int result = pthread_mutex_lock(&mutex);
   ecl_assert_throw(result == 0, threads::throwMutexLockException(LOC,result));
+  (void) result; // for unused variable warnings, in case the assert wasn't triggered
 }
 
 bool Mutex::trylock(Duration &duration)
@@ -113,6 +114,7 @@ void Mutex::unlock()
   --number_locks;
   int result = pthread_mutex_unlock(&mutex);
   ecl_assert_throw(result == 0, threads::throwMutexUnLockException(LOC,result));
+  (void) result; // for unused variable warnings, in case the assert wasn't triggered
 }
 
 } // namespace ecl

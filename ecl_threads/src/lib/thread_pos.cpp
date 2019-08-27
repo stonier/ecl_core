@@ -31,39 +31,39 @@ namespace ecl {
 *****************************************************************************/
 
 Thread::Thread(VoidFunction function, const Priority &priority, const long &stack_size) :
-	thread_task(NULL),
-	has_started(false),
-	join_requested(false)
+  thread_task(NULL),
+  has_started(false),
+  join_requested(false)
 {
-	start(function, priority, stack_size);
+  start(function, priority, stack_size);
 }
 
 Error Thread::start(VoidFunction function, const Priority &priority, const long &stack_size)
 {
-	if ( has_started ) {
-		ecl_debug_throw(StandardException(LOC,BusyError,"The thread has already been started."));
-		return Error(BusyError); // if in release mode, gracefully fall back to return values.
-	} else {
-		has_started = true;
-	}
-	initialise(stack_size);
-	NullaryFreeFunction<void> nullary_function_object = generateFunctionObject(function);
-	thread_task = new threads::ThreadTask< NullaryFreeFunction<void> >(nullary_function_object, priority);
+  if ( has_started ) {
+    ecl_debug_throw(StandardException(LOC,BusyError,"The thread has already been started."));
+    return Error(BusyError); // if in release mode, gracefully fall back to return values.
+  } else {
+    has_started = true;
+  }
+  initialise(stack_size);
+  NullaryFreeFunction<void> nullary_function_object = generateFunctionObject(function);
+  thread_task = new threads::ThreadTask< NullaryFreeFunction<void> >(nullary_function_object, priority);
     int result = pthread_create(&(this->thread_handle), &(this->attrs), threads::ThreadTask< NullaryFreeFunction<void> >::EntryPoint, thread_task);
-	pthread_attr_destroy(&attrs);
+  pthread_attr_destroy(&attrs);
     if ( result != 0 ) {
-    	delete thread_task;
-    	thread_task = NULL;
-    	ecl_debug_throw(threads::throwPthreadCreateException(LOC,result));
-		return threads::handlePthreadCreateError(result); // if in release mode, gracefully fall back to return values.
+      delete thread_task;
+      thread_task = NULL;
+      ecl_debug_throw(threads::throwPthreadCreateException(LOC,result));
+    return threads::handlePthreadCreateError(result); // if in release mode, gracefully fall back to return values.
     }
     return Error(NoError);
 }
 
 Thread::~Thread() {
-	// This should work, but it doesn't. pthread_tryjoin_np fails to differentiate
-	// between an already running thread and one that has already been joined (both
-	// return EBUSY instead of EBUSY and EINVAL
+  // This should work, but it doesn't. pthread_tryjoin_np fails to differentiate
+  // between an already running thread and one that has already been joined (both
+  // return EBUSY instead of EBUSY and EINVAL
 //	int res;
 //	if ( (res = pthread_tryjoin_np(thread_handle,0)) != 0 ) {
 //		if ( res == EBUSY ) {
@@ -73,18 +73,18 @@ Thread::~Thread() {
 //			// Has already been joined, so leave it be.
 //		}
 //	}
-	if ( has_started && !join_requested ) {
-	    pthread_detach(thread_handle);
-	}
+  if ( has_started && !join_requested ) {
+      pthread_detach(thread_handle);
+  }
 }
 void Thread::cancel() {
-	int result = pthread_cancel(thread_handle);
-	// Note - if we reach here, then entrypoint hasn't gone through to conclusion and
-	// subsequently the thread_task object on the heap hasn't been deleted. So...
-	// always delete it here!
+  int result = pthread_cancel(thread_handle);
+  // Note - if we reach here, then entrypoint hasn't gone through to conclusion and
+  // subsequently the thread_task object on the heap hasn't been deleted. So...
+  // always delete it here!
     if ( thread_task != NULL ) {
-    	delete thread_task;
-    	thread_task = NULL;
+      delete thread_task;
+      thread_task = NULL;
     }
     if ( result != 0 ) {
         ecl_debug_throw(threads::throwPthreadJoinException(LOC,result));
@@ -92,16 +92,17 @@ void Thread::cancel() {
 }
 
 void Thread::join() {
-	join_requested = true;
-	if( thread_task != NULL ) {
-		int result = pthread_join( thread_handle, 0 ); // This also frees up memory like pthread_detach
-	    ecl_assert_throw( result == 0, threads::throwPthreadJoinException(LOC,result));
-	}
+  join_requested = true;
+  if( thread_task != NULL ) {
+    int result = pthread_join( thread_handle, 0 ); // This also frees up memory like pthread_detach
+      ecl_assert_throw( result == 0, threads::throwPthreadJoinException(LOC,result));
+      (void) result; // for unused variable warnings, in case the assert wasn't triggered
+  }
 }
 
 void Thread::initialise(const long &stack_size) {
 
-	pthread_attr_init( &attrs );
+  pthread_attr_init( &attrs );
     /*************************************************************************
     ** Linux implementation does not allow PTHREAD_SCOPE_PROCESS
     *************************************************************************/
@@ -122,8 +123,9 @@ void Thread::initialise(const long &stack_size) {
     ** Stack Size
     **************************************************************************/
     if ( stack_size != DefaultStackSize ) {
-    	int result = pthread_attr_setstacksize(&attrs,stack_size);
-		ecl_assert_throw( result == 0, StandardException(LOC,ConfigurationError,"Specified stack size was less than PTHREAD_STACK_MIN or wasn't a multiple of the page size."));
+      int result = pthread_attr_setstacksize(&attrs,stack_size);
+      ecl_assert_throw( result == 0, StandardException(LOC,ConfigurationError,"Specified stack size was less than PTHREAD_STACK_MIN or wasn't a multiple of the page size."));
+      (void) result; // for unused variable warnings, in case the assert wasn't triggered
     }
 }
 

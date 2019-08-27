@@ -277,6 +277,7 @@ void Trajectory<JointAngles>::tensionSplineInterpolation(const double &tension)
     spline_functions[j][2] = new SplineFunction<QuinticPolynomial>(trailing_quintic_time_0, trailing_quintic_time_f,
                                                                    trailing_quintics[j]);
   }
+  (void) result; // for unused variable warnings, in case the asserts weren't triggered
 }
 
 void Trajectory<JointAngles>::linearSplineInterpolation()
@@ -376,7 +377,7 @@ void Trajectory<JointAngles>::linearSplineInterpolation()
  *****************************************************************************/
 
 double Trajectory<JointAngles>::operator ()(const unsigned int& joint, const double& time)
-   
+
 {
 
   double t_f = spline_functions[joint][spline_functions[joint].size() - 1]->domain()[1];
@@ -394,7 +395,7 @@ double Trajectory<JointAngles>::operator ()(const unsigned int& joint, const dou
 }
 
 double Trajectory<JointAngles>::derivative(const unsigned int& joint, const double& time)
-   
+
 {
 
   double t_f = spline_functions[joint][spline_functions[joint].size() - 1]->domain()[1];
@@ -413,7 +414,7 @@ double Trajectory<JointAngles>::derivative(const unsigned int& joint, const doub
 }
 
 double Trajectory<JointAngles>::dderivative(const unsigned int& joint, const double& time)
-   
+
 {
 
   double t_f = spline_functions[joint][spline_functions[joint].size() - 1]->domain()[1];
@@ -559,7 +560,7 @@ Array<SmoothLinearSpline> Trajectory<JointAngles>::generateLinearSplines()
    *    x_
    *   ^  \__
    *  /      \
-	 * o ------ o
+   * o ------ o
    *         /
    *        /
    *       x
