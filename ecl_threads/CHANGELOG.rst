@@ -2,6 +2,10 @@
 Changelog
 ^^^^^^^^^
 
+1.0.5 (2020-01-10)
+------------------
+* bugfix compilation problem on posix systems without timeout features
+
 0.61.4 (2015-10-10)
 -------------------
 * fix long standing bug in mutex tests on the build farm - skip deadlock tests in release mode
