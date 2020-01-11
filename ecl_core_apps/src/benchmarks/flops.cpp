@@ -180,7 +180,7 @@ int main(int argc, char** argv)
     ** Variables
     *****************************************************************************/
 
-    double nulltime, TimeArray[3];   /* Variables needed for 'dtime()'.     */
+    double nulltime, TimeArray[3]{};   /* Variables needed for 'dtime()'.     */
     double TLimit;                   /* Threshold to determine Number of    */
                      /* Loops to run. Fixed at 15.0 seconds.*/
 
@@ -251,7 +251,6 @@ int main(int argc, char** argv)
     three = 3.0;
     four  = 4.0;
     five  = 5.0;
-    scale = one;
 
     printf("   Module     Error        RunTime      MFLOPS    Math Calculation     Operations\n");
     printf("                            (usec)\n");
@@ -447,8 +446,7 @@ int main(int argc, char** argv)
     A5 = -A5;
     x = piref / ( three * (double)m );              /*********************/
     s = 0.0;                                        /*  Loop 5.          */
-    v = 0.0;                                        /*********************/
-
+                                                    /*********************/
     dtime(TimeArray);
     for( i = 1 ; i <= m-1 ; i++ )
     {
@@ -487,8 +485,7 @@ int main(int argc, char** argv)
 
     x = piref / ( three * (double)m );              /*********************/
     s = 0.0;                                        /*  Loop 6.          */
-    v = 0.0;                                        /*********************/
-
+                                                    /*********************/
     dtime(TimeArray);
     for( i = 1 ; i <= m-1 ; i++ )
     {
@@ -528,8 +525,7 @@ int main(int argc, char** argv)
 
     x = piref / ( four * (double)m );               /*********************/
     s = 0.0;                                        /*  Loop 7.          */
-    v = 0.0;                                        /*********************/
-
+                                                    /*********************/
     dtime(TimeArray);
     for( i = 1 ; i <= m-1 ; i++ )
     {
@@ -616,8 +612,7 @@ int main(int argc, char** argv)
 
     x = piref / ( three * (double)m );              /*********************/
     s = 0.0;                                        /*  Loop 9.          */
-    v = 0.0;                                        /*********************/
-
+                                                    /*********************/
     dtime(TimeArray);
     for( i = 1 ; i <= m-1 ; i++ )
     {

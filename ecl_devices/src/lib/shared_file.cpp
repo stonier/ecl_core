@@ -156,7 +156,6 @@ bool SharedFile::open(const std::string &name, WriteMode mode) {
 	ecl_try {
 		shared_instance = devices::SharedFileManager::RegisterSharedFile(name,mode);
 		if ( shared_instance == NULL ) {
-			shared_instance->error_handler = OpenError;
 			return false;
 		} else {
 			shared_instance->error_handler = NoError;
