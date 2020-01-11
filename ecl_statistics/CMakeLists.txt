@@ -9,6 +9,10 @@ project(ecl_statistics)
 # ament
 ##############################################################################
 
+# Turn -isystem off. Actually like to see warnings from underlying packages
+# and regardless, have run into trouble because of the ordering it induces.
+set(CMAKE_NO_SYSTEM_FROM_IMPORTED TRUE)
+
 find_package(ament_cmake_ros REQUIRED)
 find_package(ecl_build REQUIRED)
 find_package(ecl_config REQUIRED)
