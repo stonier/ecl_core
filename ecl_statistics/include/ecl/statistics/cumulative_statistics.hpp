@@ -40,14 +40,14 @@ class CumulativeStatistics : public ecl::FailedObject {};
 template <typename T>
 class CumulativeStatistics<T, typename ecl::enable_if< ecl::is_float<T> >::type> {
 public:
-  CumulativeStatistics(): number_of_data(0.0) {}
+  CumulativeStatistics(): number_of_data(0) {}
 
-  void clear() { number_of_data = 0.0; }
+  void clear() { number_of_data = 0; }
 
   /**
    * Catch the new data and update the cumulative calculations.
    *
-   * TODO it uses a float as a counter to increase the longevity of the cumulative calculation,
+   * TODO it uses a uint64_t as a counter to increase the longevity of the cumulative calculation,
    * however it really ought to handle the number_of_data rolling over problem.
    *
    * @param x : new data
@@ -55,14 +55,14 @@ public:
   void push_back(const T & x)
   {
     number_of_data++;
-    if(number_of_data == 1.0)
+    if(number_of_data == 1)
     {
       old_mean = new_mean = x;
       old_variance = 0.0;
     }
     else
     {
-      new_mean = old_mean + static_cast<T>(x - old_mean) / number_of_data;
+      new_mean = old_mean + static_cast<T>(x - old_mean) / static_cast<T>(number_of_data);
       new_variance = old_variance + static_cast<T>(x - old_mean) * static_cast<T>(x - new_mean);
 
       old_mean = new_mean;
@@ -74,7 +74,7 @@ public:
    * Number of data used for statistics
    * @return T
    */
-  T size() const { return number_of_data; }
+  T size() const { return static_cast<T>(number_of_data); }
 
   /**
    * @brief Current cumulative calculation of mean.
@@ -89,7 +89,7 @@ public:
   T variance() const { return ((number_of_data > 1) ? new_variance / (number_of_data - 1) : 0.0); }
 
 private:
-  T number_of_data;
+  uint64_t number_of_data;
   T old_mean, old_variance;
   T new_mean, new_variance;
 };

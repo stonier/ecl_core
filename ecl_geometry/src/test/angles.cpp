@@ -48,7 +48,7 @@ TEST(AngleTests,setters) {
     EXPECT_LT(0.785,f);
     angle_f = Angle<float>::Radians(0.3);
     f = angle_f;
-    EXPECT_EQ(0.3,d);
+    EXPECT_EQ(0.3f,f);
 }
 
 TEST(AngleTests,conversions) {

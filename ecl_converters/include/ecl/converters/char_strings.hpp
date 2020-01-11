@@ -146,6 +146,9 @@ char* convertSignedIntegral(const Number &number, char* buffer_begin, char* buff
         s = convertUnsignedIntegral(static_cast<UnsignedNumber>(number),buffer_begin,buffer_end);
     } else {
         s = convertUnsignedIntegral(static_cast<UnsignedNumber>(-1*number),buffer_begin+1,buffer_end);
+        if (s == NULL) {
+          return NULL;
+        }
         --s;
         *s = '-';
     }
