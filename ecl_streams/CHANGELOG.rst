@@ -2,8 +2,9 @@
 Changelog for package ecl_streams
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-0.60.8 (2014-02-10)
--------------------
+1.0.6 (2020-01-11)
+------------------
+* bugfix a warning-as-error on a throw in a method declaration`#99 <https://github.com/stonier/ecl_core/pull/99>`_
 
 0.60.7 (2014-02-03)
 -------------------

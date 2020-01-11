@@ -74,7 +74,6 @@ void deconstructThread() {
 }
 
 int main() {
-
     std::cout << std::endl;
     std::cout << "***********************************************************" << std::endl;
     std::cout << "                   Thread Function Type" << std::endl;
