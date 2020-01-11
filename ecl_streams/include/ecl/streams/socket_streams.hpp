@@ -109,7 +109,7 @@ public:
 	 *
 	 * @exception StandardException : throws if the connection failed to open.
 	 */
-	SocketServerStream(const unsigned int &port_number) throw(StandardException) {
+	SocketServerStream(const unsigned int &port_number) {
 		try {
 			this->device().open(port_number);
 		} catch(StandardException &e) {

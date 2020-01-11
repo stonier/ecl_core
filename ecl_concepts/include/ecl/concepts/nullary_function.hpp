@@ -16,6 +16,8 @@
 ** Includes
 *****************************************************************************/
 
+#include <ecl/config/macros.hpp>
+
 #include "macros.hpp"
 
 /*****************************************************************************
@@ -45,7 +47,7 @@ class NullaryFunctionConcept {
          */
 		ecl_compile_time_concept_test(NullaryFunctionConcept)
         {
-        	typedef typename Implementation::result_type return_type;
+                typedef typename Implementation::result_type ECL_UNUSED return_type;
         	function();
         	// Unfortunately we can't test for the result type to match a certain value here
         	// as this would then have 2 template arguments with a separating comma. That throws
