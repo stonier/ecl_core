@@ -70,9 +70,11 @@ class DataException : public Exception
         const Data& data() const { return error_data; } /**< @brief The bundled data object. **/
 
     private:
+        void create_combined_message();
         ErrorFlag error_type;
         Data error_data;
         std::string message;
+        std::string combined_message;
 };
 
 /*****************************************************************************
@@ -89,7 +91,9 @@ DataException<Data>::DataException(const char* loc, ErrorFlag error, Data &d ) :
     Exception(loc),
     error_type(error),
     error_data(d)
-{}
+{
+    create_combined_message();
+}
 /**
  * Constructor for data exceptions with a custom message.
  * @param loc : use with the LOC macro, identifies the line and file of the code.
@@ -103,7 +107,9 @@ DataException<Data>::DataException(const char* loc, ErrorFlag error, const std::
     error_type(error),
     error_data(d),
     message(msg)
-{}
+{
+    create_combined_message();
+}
 /**
  * Constructor for data exceptions that enables rethrowing of an existing exception up
  * the heirarchy with a new code location stamp.
@@ -118,16 +124,14 @@ DataException<Data>::DataException(const char* loc, const DataException<Data> &e
     message(e.message)
 {
     location = std::string(loc) + "\n         : " + e.location;
+    create_combined_message();
 }
+
 /**
- * Default exception handling output function.
- *
- * @return char const* : the output message.
+ * Create the combined error message and store it.
  */
 template <typename Data>
-const char* DataException<Data>::what() const throw() {
-
-    std::string what_msg;
+void DataException<Data>::create_combined_message() {
 
     std::ostringstream stream;
     stream << "\n" << "Location : " << this->location << "\n";
@@ -136,8 +140,17 @@ const char* DataException<Data>::what() const throw() {
         stream << "Detail   : " << message << "\n";
     }
     stream << "Data     : " << error_data << "\n";
-    what_msg = stream.str();
-    return what_msg.c_str();
+    this->combined_message = stream.str();
+}
+
+/**
+ * Default exception handling output function.
+ *
+ * @return char const* : the output message.
+ */
+template <typename Data>
+const char* DataException<Data>::what() const throw() {
+    return combined_message.c_str();
 }
 
 } // namespace ecl

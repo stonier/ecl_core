@@ -80,7 +80,7 @@ class ecl_exceptions_PUBLIC StandardException : public Exception
         /**
          * Default exception handling output function.
          *
-         * @return char const* : the output message.
+         * @return const char* : the combined (LOC, error flag, detailed message) error string.
          */
         const char* what() const throw();
 
@@ -94,8 +94,12 @@ class ecl_exceptions_PUBLIC StandardException : public Exception
         const ErrorFlag& flag() const { return error_flag; }  /**< @brief Flag enumerating the type of exception thrown. **/
 
     private:
+
+        void create_combined_message();
+
         const ErrorFlag error_flag;
         std::string detailed_message;
+        std::string combined_message;
 };
 
 } // namespace ecl
