@@ -613,6 +613,8 @@
     	
     <storageModule moduleId="org.eclipse.cdt.core.LanguageSettingsProviders"/>
     	
+    <storageModule moduleId="org.eclipse.cdt.internal.ui.text.commentOwnerProjectMappings"/>
+    	
     <storageModule moduleId="org.eclipse.cdt.make.core.buildtargets">
         		
         <buildTargets>
@@ -620,8 +622,6 @@
             <target name="all" path="" targetID="org.eclipse.cdt.build.MakeTargetBuilder">
                 				
                 <buildCommand>make</buildCommand>
-                				
-                <buildArguments/>
                 				
                 <buildTarget>all</buildTarget>
                 				
@@ -637,8 +637,6 @@
                 				
                 <buildCommand>make</buildCommand>
                 				
-                <buildArguments/>
-                				
                 <buildTarget>clean</buildTarget>
                 				
                 <stopOnError>true</stopOnError>
@@ -653,9 +651,23 @@
                 				
                 <buildCommand>make</buildCommand>
                 				
+                <buildTarget>test</buildTarget>
+                				
+                <stopOnError>true</stopOnError>
+                				
+                <useDefaultCommand>true</useDefaultCommand>
+                				
+                <runAllBuilders>true</runAllBuilders>
+                			
+            </target>
+            			
+            <target name="install" path="" targetID="org.eclipse.cdt.build.MakeTargetBuilder">
+                				
+                <buildCommand>make</buildCommand>
+                				
                 <buildArguments/>
                 				
-                <buildTarget>test</buildTarget>
+                <buildTarget>install</buildTarget>
                 				
                 <stopOnError>true</stopOnError>
                 				
@@ -668,7 +680,5 @@
         </buildTargets>
         	
     </storageModule>
-    	
-    <storageModule moduleId="org.eclipse.cdt.internal.ui.text.commentOwnerProjectMappings"/>
     
 </cproject>
