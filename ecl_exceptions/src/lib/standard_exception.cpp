@@ -10,6 +10,7 @@
 *****************************************************************************/
 
 #include <ecl/config/ecl.hpp>
+#include <iostream>
 #ifndef ECL_DISABLE_EXCEPTIONS
 
 /*****************************************************************************
@@ -31,13 +32,17 @@ namespace ecl {
 StandardException::StandardException(const char* loc, ErrorFlag error ) :
     Exception(loc),
     error_flag(error)
-{}
+{
+    create_combined_message();
+}
 
 StandardException::StandardException(const char* loc, ErrorFlag error, const std::string &msg ) :
     Exception(loc),
     error_flag(error),
     detailed_message(msg)
-{}
+{
+    create_combined_message();
+}
 
 StandardException::StandardException(const char* loc, const StandardException &e ) :
     Exception(),
@@ -45,17 +50,18 @@ StandardException::StandardException(const char* loc, const StandardException &e
     detailed_message(e.detailed_message)
 {
     location = std::string(loc) + "\n         : " + e.location;
+    create_combined_message();
 }
 
+void StandardException::create_combined_message() {
+    this->combined_message = "\nLocation : " + this->location + "\n" + "Flag     : " + Error(error_flag).what() + "\n";
+    if ( this->detailed_message.size() > 0 ) {
+        combined_message  = combined_message + "Detail   : " + detailed_message + "\n";
+    }
+}
 const char* StandardException::what() const throw() {
 
-    std::string what_msg;
-
-    what_msg = what_msg + "\nLocation : " + this->location + "\n" + "Flag     : " + Error(error_flag).what() + "\n";
-    if ( detailed_message.size() > 0 ) {
-        what_msg  = what_msg + "Detail   : " + detailed_message + "\n";
-    }
-    return what_msg.c_str();
+	return combined_message.c_str();
 }
 
 } // namespace ecl
