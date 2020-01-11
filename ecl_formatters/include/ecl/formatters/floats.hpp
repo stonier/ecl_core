@@ -214,7 +214,7 @@ protected:
 	*******************************************/
 	int prm_width,tmp_width;
 	int prm_precision,tmp_precision;
-	ecl::Alignment prm_alignment,tmp_alignment;
+	ecl::Alignment prm_alignment,tmp_alignment{};
 	ecl::FloatBase prm_base,tmp_base;
 	int *width_, *precision_;
 	ecl::Alignment *alignment_;
@@ -300,7 +300,7 @@ FormatFloat<Number>& FormatFloat<Number>::operator () (const unsigned int p, con
     precision(p);
     align(a);
     base(b);
-  return *this;
+    return *this;
 }
 
 /*****************************************************************************
@@ -311,7 +311,7 @@ FormatFloat<Number>& FormatFloat<Number>::operator()(const Number n)
 {
     value_ = n;
     ready_to_format = true;
-  return *this;
+    return *this;
 }
 /*****************************************************************************
 * FormatFloat Implementation [temporary formatting]
