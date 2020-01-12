@@ -62,7 +62,7 @@ public:
     }
     else
     {
-      new_mean = old_mean + static_cast<T>(x - old_mean) / number_of_data;
+      new_mean = old_mean + static_cast<T>(x - old_mean) / static_cast<T>(number_of_data);
       new_variance = old_variance + static_cast<T>(x - old_mean) * static_cast<T>(x - new_mean);
 
       old_mean = new_mean;
@@ -74,7 +74,7 @@ public:
    * Number of data used for statistics
    * @return T
    */
-  T size() const { return number_of_data; }
+  T size() const { return static_cast<T>(number_of_data); }
 
   /**
    * @brief Current cumulative calculation of mean.
