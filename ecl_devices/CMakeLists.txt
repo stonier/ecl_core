@@ -51,4 +51,7 @@ ament_export_dependencies(
     ecl_type_traits
     ecl_utilities
 )
+ament_export_include_directories(include)
+# TODO: deprecate this line post 'ardent' (been fixed upstream)
+ament_export_libraries(${PROJECT_NAME})
 ament_package()
