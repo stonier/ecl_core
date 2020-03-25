@@ -75,6 +75,10 @@ add_subdirectory(license)
 # Export
 ##############################################################################
 
+# Downstream CMake3 compatibility 
 ament_export_interfaces(${PROJECT_NAME})
+# Downstream CMake2 compatibility
+ament_export_include_directories(include)
+
 ament_export_dependencies(Eigen3)
 ament_package()
