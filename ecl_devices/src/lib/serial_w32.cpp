@@ -31,7 +31,7 @@ namespace ecl {
 *****************************************************************************/
 
 Serial::Serial(const std::string& port_name, const BaudRate &baud_rate, const DataBits &data_bits,
-		const StopBits &stop_bits, const Parity &parity ) throw(StandardException) :
+		const StopBits &stop_bits, const Parity &parity ):
 				port(port_name), is_run(false), file_descriptor(INVALID_HANDLE_VALUE)
 {
 	try {
@@ -50,7 +50,7 @@ Serial::~Serial() {
 *****************************************************************************/
 
 void Serial::open(const std::string& port_name, const BaudRate &baud_rate, const DataBits &data_bits,
-		const StopBits &stop_bits, const Parity &parity ) throw(StandardException) {
+		const StopBits &stop_bits, const Parity &parity ) {
 
 	if ( open() ) {
 		close();

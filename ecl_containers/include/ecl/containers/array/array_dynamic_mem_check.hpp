@@ -448,7 +448,7 @@ class ECL_PUBLIC Array<Type,DynamicStorage> : public BluePrintFactory< Array<Typ
          *
          * @exception : StandardException : throws if range is requested element is out of range.
          */
-        reference at(size_type i) throw(StandardException) {
+        reference at(size_type i) {
             if ( i>=buffer_size ) {
                 throw StandardException(LOC,OutOfRangeError);
             }
@@ -466,7 +466,7 @@ class ECL_PUBLIC Array<Type,DynamicStorage> : public BluePrintFactory< Array<Typ
          *
          * @exception : StandardException : throws if range is requested element is out of range.
          */
-        const_reference at(size_type i) const throw(StandardException) {
+        const_reference at(size_type i) const {
             if ( i>=buffer_size ) {
                 throw StandardException(LOC,OutOfRangeError);
             }

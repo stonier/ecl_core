@@ -34,41 +34,41 @@ void f1() {
 	if ( i == 1 ) {}
 }
 
-void f2() throw(StandardException) {
+void f2() {
 	int i = 0;
 	if ( i == 1 ) {}
 }
 
-void f3() throw(StandardException) {
+void f3() {
 	int i = 0;
 	if ( i == 1 ) {
 		throw StandardException(LOC,ConfigurationError);
 	}
 }
 
-void f4() throw(StandardException) {
+void f4() {
 	int i = 0;
 	if ( i == 1 ) {
 		throw StandardException(LOC,ConfigurationError, "Standard exception with an extra string message.");
 	}
 }
 
-void f5() throw(StandardException) {
+void f5() {
 	throw StandardException(LOC,ConfigurationError);
 }
 
-void f6() throw(StandardException) {
+void f6() {
 	throw StandardException(LOC,ConfigurationError, "Standard exception with an extra string message.");
 }
 
-void g1() throw(StandardException) {
+void g1() {
 	double dude[5];
 	for ( unsigned int j = 0; j < 5; ++j ) {
 		dude[j] = 3.15*543/230.235;
 	}
 }
 
-void g2() throw(StandardException) {
+void g2() {
 	int i = 0;
 	double dude[5];
 	for ( unsigned int j = 0; j < 5; ++j ) {

@@ -193,7 +193,7 @@ inline StandardException ECL_LOCAL throwPriorityException(const char* loc ) {
 
 
 //        void yield();
-//        void capabilities() throw(StandardException);
+//        void capabilities();
 
 
 ///*
@@ -209,7 +209,7 @@ inline StandardException ECL_LOCAL throwPriorityException(const char* loc ) {
 ///*
 // * Print out the posix capabilities of your program.
 // */
-//inline void Process::capabilities() throw(StandardException)
+//inline void Process::capabilities()
 //{
 //    cap_t cap = cap_get_proc();
 //
