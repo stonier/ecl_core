@@ -74,7 +74,7 @@ public:
 	 *
 	 * @param signal : the object to be copied.
 	 */
-	Signal(const Signal& signal) {
+	Signal(const Signal<Data>& signal) {
 		*this = signal;
 		sigslot->incrHandles();
 	}
@@ -91,6 +91,13 @@ public:
 		if ( sigslot->handles() == 0 ) {
 			delete sigslot;
 		}
+	}
+
+	/**
+	 * @brief Default assignment operator.
+	 */
+	void operator=( const Signal<Data>& signal) {
+		sigslot = signal.sigslot;
 	}
 
 	/**
@@ -175,10 +182,18 @@ public:
 	 *
 	 * @param signal : the object to be copied.
 	 */
-	Signal(const Signal& signal) {
+	Signal(const Signal<Void>& signal) {
 		*this = signal;
 		sigslot->incrHandles();
 	}
+
+	/**
+	 * @brief Default assignment operator.
+	 */
+	void operator=( const Signal<Void>& signal) {
+		sigslot = signal.sigslot;
+	}
+
 	/**
 	 * @brief Default destructor.
 	 *
