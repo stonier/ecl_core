@@ -371,7 +371,7 @@ class ECL_PUBLIC Array : public blueprints::ArrayFactory<Type,Size> {
             return buffer_underrun_length;
         }
         static const char& magicChar() {
-            static const char magic_char = 0xCC;
+            static const char magic_char = static_cast<char>(0xCC);
             return magic_char;
         }
         char underrun[4];
