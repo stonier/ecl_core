@@ -50,7 +50,7 @@ install(
 ##############################################################################
 
 # Downstream CMake3 compatibility 
-ament_export_interfaces(HAS_LIBRARY_TARGET ${PROJECT_NAME})
+ament_export_targets(HAS_LIBRARY_TARGET ${PROJECT_NAME})
 # Downstream CMake2 compatibility
 ament_export_include_directories(include)
 ament_export_libraries(${PROJECT_NAME})
