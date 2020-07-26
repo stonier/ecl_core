@@ -68,6 +68,13 @@ public:
 		x(x_), y(y_), rotation(theta)
 	{}
 	Pose2D(const Pose2D& pose) : x(pose.x), y(pose.y), rotation(pose.rotation) {}
+
+	void operator=( const Pose2D& pose) {
+		x = pose.x;
+		y = pose.y;
+		rotation = pose.rotation;
+	}
+
 	Pose2D inverse() const {
 		double s = sin(rotation);
 		double c = cos(rotation);
