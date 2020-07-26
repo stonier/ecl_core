@@ -76,7 +76,7 @@ add_subdirectory(src)
 ##############################################################################
 
 # Downstream CMake3 compatibility 
-ament_export_interfaces(${PROJECT_NAME})
+ament_export_targets(${PROJECT_NAME})
 # Downstream CMake2 compatibility
 ament_export_include_directories(include)
 
