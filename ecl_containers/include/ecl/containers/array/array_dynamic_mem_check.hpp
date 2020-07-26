@@ -555,7 +555,7 @@ class ECL_PUBLIC Array<Type,DynamicStorage> : public BluePrintFactory< Array<Typ
             return buffer_underrun_length;
         }
         static const char& magicChar() {
-            static const char magic_char = 0xCC;
+            static const char magic_char = static_cast<char>(0xCC);
             return magic_char;
         }
         unsigned int buffer_size;
