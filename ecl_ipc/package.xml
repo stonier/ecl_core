@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package format="2">
   <name>ecl_ipc</name>
-  <version>1.0.8</version>
+  <version>1.0.9</version>
   <description>
   Interprocess mechanisms vary greatly across platforms - sysv, posix, win32, there
   are more than a few. This package provides an infrastructure to allow for developing

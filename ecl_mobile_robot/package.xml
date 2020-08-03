@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package format="2">
   <name>ecl_mobile_robot</name>
-  <version>1.0.8</version>
+  <version>1.0.9</version>
   <description>
     Contains transforms (e.g. differential drive inverse kinematics)
     for the various types of mobile robot platforms.

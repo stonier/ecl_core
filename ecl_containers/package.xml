@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package format="2">
   <name>ecl_containers</name>
-  <version>1.0.8</version>
+  <version>1.0.9</version>
   <description>
     The containers included here are intended to extend the stl containers.
     In all cases, these implementations are designed to implement

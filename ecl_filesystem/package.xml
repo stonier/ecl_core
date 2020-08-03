@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package format="2">
   <name>ecl_filesystem</name>
-  <version>1.0.8</version>
+  <version>1.0.9</version>
   <description>
      Cross platform filesystem utilities (until c++11 makes its way in).
   </description>

@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package format="2">
   <name>ecl_utilities</name>
-  <version>1.0.8</version>
+  <version>1.0.9</version>
   <description>
      Includes various supporting tools and utilities for c++ programming.
   </description>

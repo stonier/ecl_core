@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package format="2">
   <name>ecl_core</name>
-  <version>1.0.8</version>
+  <version>1.0.9</version>
   <description>
     A set of tools and interfaces extending the capabilities of c++ to
     provide a lightweight, consistent interface with a focus for control
