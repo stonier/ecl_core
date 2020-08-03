@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package format="2">
   <name>ecl_concepts</name>
-  <version>1.0.9</version>
+  <version>1.1.0</version>
   <description>
      Introduces a compile time concept checking mechanism that can be used
      most commonly to check for required functionality when passing

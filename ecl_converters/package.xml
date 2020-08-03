@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package format="2">
   <name>ecl_converters</name>
-  <version>1.0.9</version>
+  <version>1.1.0</version>
   <description>
      Some fast/convenient type converters, mostly for char strings or strings.
      These are not really fully fleshed out, alot of them could use the addition for
