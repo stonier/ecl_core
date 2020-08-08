@@ -28,7 +28,7 @@ int main(int argc, char** argv) {
     /******************************************
      * Parse for the port name
      ******************************************/
-    double yaw;
+    double yaw = 0.0;
 
     try {
         CmdLine cmd("Calculator for yaw to quaternion.",' ',"0.1");
