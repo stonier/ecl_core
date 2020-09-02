@@ -18,7 +18,6 @@
 
 #include <ecl/config/macros.hpp>
 #include <ecl/linear_algebra.hpp>
-#include <ecl/geometry/legacy_pose2d.hpp>
 #include "../macros.hpp"
 
 /*****************************************************************************
@@ -79,21 +78,20 @@ public:
 	/**
 	 * @brief Generates a relative (to the robot's frame) pose differential.
 	 *
-	 * Uses the odometry updates to generate a relative pose update.
-	 * This differential can be used to update (add to) the robot's current
-	 * pose estimate.
+	 * Uses the odometry updates to generate a relative pose (x, y, heading) update.
+	 * This differential can be used to update the current pose estimate.
 	 *
 	 * @code
-	 * LegacyPose2D pose;
+	 * ecl::linear_algebra::Vector3d current_pose;
 	 * // ...
-	 * pose *= forwardDifferential(0.1,0.2);
+	 * current_pose *= forward(0.1,0.2);
 	 * @endcode
 	 *
 	 * @param dleft : incoming left wheel angle change.
 	 * @param dright : incoming right wheel angle change.
-	 * @return Pose : pose update (differential).
+	 * @return ecl::linear_algebra::Vector3d : pose update (differential - dx, dy, dheading).
 	 */
-	ecl::LegacyPose2D<double> forward(const double &dleft, const double &dright) const;
+	ecl::linear_algebra::Vector3d forward(const double &dleft, const double &dright) const;
 
 	/**
 	 * @brief Generates a relative (to the robot's frame) pose differential
@@ -101,17 +99,17 @@ public:
 	 * know radius informaiton
 	 *
 	 * @code
-	 * LegacyPose2D pose;
+	 * ecl::linear_algebra::Vector3d current_pose;
 	 * // ...
 	 * double linearVelocity = ....;
 	 * double angularVelocity = ..../
-	 * pose *= forwardDifferential(linearVelocity, angularVelocity);
+	 * current_pose *= forwardWithPlatformVelocity(linearVelocity, angularVelocity);
 	 *
 	 * @param linearVelocity : incoming linear velocity of platform
 	 * @param angularVelocity : incoming angular velocity of platform
-	 * @return Pose : pose update (differential)
+	 * @return ecl::linear_algebra::Vector3d : pose update (differential) - dx, dy, dheading
 	 */
-	ecl::LegacyPose2D<double> forwardWithPlatformVelocity(const double & linearVelocity, const double & angularVelocity ) const;
+	ecl::linear_algebra::Vector3d forwardWithPlatformVelocity(const double & linearVelocity, const double & angularVelocity ) const;
 
 	/**
 	 * @brief Generates wheel angle rates from scalar linear/angular velocity commands.
@@ -124,35 +122,6 @@ public:
 	 * @return Vector2d : left and right wheel angular rate commands respectively.
 	 */
 	ecl::linear_algebra::Vector2d inverse(const double &linear_velocity, const double &angular_velocity) const;
-
-	/**
-	 * @brief Rough conversion from [dx,dy,dtheta] -> [ds, dw].
-	 *
-	 * The aim here is to provide a differential between the two poses that is
-	 * crudely approximated for non-holonomic motion (ds - linear translation, dw -
-	 * angular rotation).
-	 *
-	 * Moving in this direction provides a non-unique solution (reducing from
-	 * 3 dof to 2 dof). If the update period is very small, this limit does,
-	 * however, approach a unique solution. Consequently, so long as this
-	 * is small, the following is a reasonably simple, lightweight method.
-	 *
-	 * The ds is simply the scalar distance between two poses, given a sign
-	 * for the direction it is pointing in (relative to the robot facing). Alternatively
-	 * you could assume an angle + linear translation + angle or some such, but
-	 * even then, its still an approximation.
-	 *
-	 * The angular difference, dw is more simple, it is always just the
-	 * angular difference between poses.
-	 *
-	 * Jae-Yeong was talking about moving this to firmware for better accuracy
-	 * (smaller update periods).
-	 *
-	 * @param a : initial pose
-	 * @param b : final pose
-	 * @return Vector2d : the differential [ds, dw].
-	 */
-	ECL_DEPRECATED static ecl::linear_algebra::Vector2d Inverse(const ecl::linear_algebra::Vector3d &a, const ecl::linear_algebra::Vector3d &b);
 
 	/**
 	 * @brief Rough conversion from a pose difference -> [ds, dw].
@@ -181,7 +150,10 @@ public:
 	 * @param b : final pose
 	 * @return Vector2d : the differential [ds, dw].
 	 */
-	static ecl::linear_algebra::Vector2d PartialInverse(const ecl::LegacyPose2D<double> &a, const ecl::LegacyPose2D<double> &b);
+	static ecl::linear_algebra::Vector2d PartialInverse(
+	    const ecl::linear_algebra::Vector3d &a,
+	    const ecl::linear_algebra::Vector3d &b
+	);
 private:
 	double bias, radius;
 };

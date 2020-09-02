@@ -48,12 +48,10 @@ int main(int /*argc*/, char** /*argv*/) {
     cout << "***********************************************************" << endl;
     cout << endl;
 
-//    Vector3d pose_a; pose_a << 1.0, 2.0, ecl::pi/2.0;
-//    Vector3d pose_b; pose_b << 2.0, 3.0, ecl::pi;
-    LegacyPose2D<double> a(1.0, 2.0, ecl::pi/2.0);
-    LegacyPose2D<double> b(2.0, 3.0, ecl::pi);
+    ecl::linear_algebra::Vector3d a; a << 1.0, 2.0, ecl::pi/2.0;
+    ecl::linear_algebra::Vector3d b; b << 2.0, 3.0, ecl::pi;
 
-    Vector2d partial_inverse;
+    ecl::linear_algebra::Vector2d partial_inverse;
 //    partial_inverse = ecl::DifferentialDrive::Kinematics::Inverse(pose_a, pose_b);
 //    std::cout << partial_inverse << std::endl;
     partial_inverse = ecl::DifferentialDrive::Kinematics::PartialInverse(a, b);
