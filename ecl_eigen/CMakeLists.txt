@@ -6,8 +6,12 @@ cmake_minimum_required(VERSION 3.5)
 project(ecl_eigen)
 
 ##############################################################################
-# ament
+# Find Packages
 ##############################################################################
+
+# Turn -isystem off. Actually like to see warnings from underlying packages
+# and regardless, have run into trouble because of the ordering it induces.
+set(CMAKE_NO_SYSTEM_FROM_IMPORTED TRUE)
 
 find_package(ament_cmake_ros REQUIRED)
 
@@ -20,17 +24,6 @@ find_package(ament_cmake_ros REQUIRED)
 # use of it again
 
 find_package(Eigen3)
-if(EIGEN3_FOUND)
-    set(ECL_EIGEN_IS_EXTERNAL 1 CACHE BOOL "Using the system's eigen3 implementation.")
-    # On trusty, it sets EIGEN3_INCLUDE_DIR but not EIGEN3_INCLUDE_DIRS (xenial is fine), so help it
-    if(NOT EIGEN3_INCLUDE_DIRS)
-      set(EIGEN3_INCLUDE_DIRS ${EIGEN3_INCLUDE_DIR})
-    endif()
-else()
-    message(STATUS "Eigen not found...using ecl's internal eigen.")
-    set(ECL_EIGEN_IS_EXTERNAL 0 CACHE BOOL "Using the system's eigen3 implementation.")
-    message(FATAL_ERROR "An internal version of eigen is currently not supported.")
-endif()
 
 ##############################################################################
 # Project Configuration
@@ -59,7 +52,12 @@ target_include_directories(
   INTERFACE
     $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include>
     $<INSTALL_INTERFACE:include>
-    $<INSTALL_INTERFACE:${EIGEN3_INCLUDE_DIRS}>
+)
+
+target_link_libraries(
+  ${PROJECT_NAME}
+  INTERFACE
+    Eigen3::Eigen
 )
 
 install(TARGETS ${PROJECT_NAME} EXPORT ${PROJECT_NAME})
