@@ -12,9 +12,9 @@ add_library(${PROJECT_NAME} ${SOURCES})
 
 target_include_directories(
   ${PROJECT_NAME}
-  INTERFACE
-    $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include>
-    $<INSTALL_INTERFACE:include>
+  PUBLIC
+    "$<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include>"
+    "$<INSTALL_INTERFACE:include>"
 )
 
 target_link_libraries(
