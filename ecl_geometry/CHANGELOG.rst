@@ -2,6 +2,10 @@
 Changelog for package ecl_geometry
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+1.1.1 (2020-09-10
+-----------------
+* new pose2d methods and convenience class
+
 0.61.15 (2016-11-09)
 --------------------
 * pose -> legacy pose

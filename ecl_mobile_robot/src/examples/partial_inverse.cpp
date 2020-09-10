@@ -18,7 +18,6 @@
 #include <iostream>
 #include <ecl/linear_algebra.hpp>
 #include <ecl/formatters/floats.hpp>
-#include <ecl/geometry/legacy_pose2d.hpp>
 #include <ecl/math.hpp>
 #include "../../include/ecl/mobile_robot/differential_drive.hpp"
 
@@ -30,7 +29,6 @@ using std::cout;
 using std::endl;
 using ecl::RightAlign;
 using ecl::Format;
-using ecl::LegacyPose2D;
 using ecl::linear_algebra::Vector2d;
 using ecl::linear_algebra::Vector3d;
 

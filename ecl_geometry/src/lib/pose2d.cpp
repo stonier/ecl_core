@@ -10,22 +10,16 @@
 ** Includes
 *****************************************************************************/
 
-#include "../../include/ecl/geometry/pose.hpp"
+#include <iostream>
+
+#include "../../include/ecl/geometry/pose2d.hpp"
 
 /*****************************************************************************
 ** Namespaces
 *****************************************************************************/
 
 namespace ecl {
-namespace pose {
+namespace pose2d {
 
-ecl::linear_algebra::Vector3d add(
-    const ecl::linear_algebra::Vector3d& pose_1,)
-    const ecl::linear_algebra::Vector3d& pose_2
-) {
-  return ecl::linear_algebra::Vector3d;
-}
-
-
-} // namespace pose
+} // namespace pose2d
 } // namespace ecl
