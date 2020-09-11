@@ -34,7 +34,7 @@ using ecl::linear_algebra::Rotation2D;
 ** Implementation [Kinematics]
 *****************************************************************************/
 
-ecl::linear_algebra::Vector3d DifferentialDriveKinematics::forward(const double &dleft, const double& dright) const {
+ecl::linear_algebra::Vector3d DifferentialDriveKinematics::poseUpdateFromWheelDifferential(const double &dleft, const double& dright) const {
 
   double ds = radius*(dleft+dright)/2.0;
   double domega = radius*(dright-dleft)/bias;
@@ -45,18 +45,18 @@ ecl::linear_algebra::Vector3d DifferentialDriveKinematics::forward(const double 
   return pose_update;
 }
 
-ecl::linear_algebra::Vector3d DifferentialDriveKinematics::forwardWithPlatformVelocity(
-    const double & linearVelocity,
-    const double & angularVelocity
+ecl::linear_algebra::Vector3d DifferentialDriveKinematics::poseUpdateFromBaseDifferential(
+    const double & translation,
+    const double & rotation
 ) const {
   // Local robot frame of reference has the x axis pointing forward
   // Since the pose update is using the robot frame of reference, the y update is zero
   ecl::linear_algebra::Vector3d pose_update;
-  pose_update << linearVelocity, 0, ecl::wrap_angle(angularVelocity);
+  pose_update << translation, 0, ecl::wrap_angle(rotation);
   return pose_update;
 }
 
-Vector2d DifferentialDriveKinematics::inverse(const double &linear_velocity, const double &angular_velocity) const {
+Vector2d DifferentialDriveKinematics::baseToWheelVelocities(const double &linear_velocity, const double &angular_velocity) const {
 //	radius*(theta_dot_l+theta_dot_r)/2.0 = linear_velocity
 //	radius*(theta_dot_r-theta_dot_l)/bias = angular_velocity
 	Vector2d rates;
@@ -66,7 +66,7 @@ Vector2d DifferentialDriveKinematics::inverse(const double &linear_velocity, con
 	return rates;
 }
 
-Vector2d DifferentialDriveKinematics::PartialInverse(
+Vector2d DifferentialDriveKinematics::PoseToBaseDifferential(
     const ecl::linear_algebra::Vector3d &a,
     const ecl::linear_algebra::Vector3d &b)
 {
@@ -82,7 +82,6 @@ Vector2d DifferentialDriveKinematics::PartialInverse(
   double dtheta = b[2] - a[2]; // difference in headings
   ecl::wrap_angle(dtheta);
 
-// diff << ds, dtheta;
   return (diff << ds, dtheta).finished();
 }
 
