@@ -69,7 +69,7 @@ public:
 	 * @param wheel_radius : radius of each differential drive wheel [m].
 	 */
 	DifferentialDriveKinematics(
-			const double &fixed_axis_length,
+			const double& fixed_axis_length,
 			const double& wheel_radius) :
 		bias(fixed_axis_length),
 		radius(wheel_radius)
@@ -84,32 +84,42 @@ public:
 	 * @code
 	 * ecl::linear_algebra::Vector3d current_pose;
 	 * // ...
-	 * current_pose *= forward(0.1,0.2);
+	 * ecl::extend_pose(current_pose, poseUpdateFromWheelDifferential(0.1,0.2);
 	 * @endcode
 	 *
 	 * @param dleft : incoming left wheel angle change.
 	 * @param dright : incoming right wheel angle change.
-	 * @return ecl::linear_algebra::Vector3d : pose update (differential - dx, dy, dheading).
+	 * @return ecl::linear_algebra::Vector3d: pose update (differential - dx, dy, dheading).
 	 */
-	ecl::linear_algebra::Vector3d forward(const double &dleft, const double &dright) const;
+	ecl::linear_algebra::Vector3d poseUpdateFromWheelDifferential(
+	  const double& dleft,
+	  const double &dright
+	) const;
 
 	/**
-	 * @brief Generates a relative (to the robot's frame) pose differential
-	 * when you know platform velocity directly. In this case you do not need to
-	 * know radius informaiton
+	 * @brief Generates a relative (to the robot's frame) pose differential.
+	 *
+	 * Use base translation and rotational differentials to generate a relative
+	 * pose (x, y, heading) update. This differential can be used to update the
+	 * current pose estimate.
 	 *
 	 * @code
 	 * ecl::linear_algebra::Vector3d current_pose;
 	 * // ...
-	 * double linearVelocity = ....;
-	 * double angularVelocity = ..../
-	 * current_pose *= forwardWithPlatformVelocity(linearVelocity, angularVelocity);
+	 * double translation = ....;
+	 * double rotation = ..../
+	 * ecl::extend_pose(
+	 *   current_pose,
+	 *   poseUpdateFromBaseDifferential(translation, rotation);
 	 *
 	 * @param linearVelocity : incoming linear velocity of platform
 	 * @param angularVelocity : incoming angular velocity of platform
 	 * @return ecl::linear_algebra::Vector3d : pose update (differential) - dx, dy, dheading
 	 */
-	ecl::linear_algebra::Vector3d forwardWithPlatformVelocity(const double & linearVelocity, const double & angularVelocity ) const;
+	ecl::linear_algebra::Vector3d poseUpdateFromBaseDifferential(
+	  const double& translation,
+	  const double& rotation
+	) const;
 
 	/**
 	 * @brief Generates wheel angle rates from scalar linear/angular velocity commands.
@@ -121,19 +131,22 @@ public:
 	 * @param angular_velocity : angular rotation control command (around robot centre).
 	 * @return Vector2d : left and right wheel angular rate commands respectively.
 	 */
-	ecl::linear_algebra::Vector2d inverse(const double &linear_velocity, const double &angular_velocity) const;
+	ecl::linear_algebra::Vector2d baseToWheelVelocities(
+	  const double& linear_velocity,
+	  const double& angular_velocity
+	) const;
 
 	/**
-	 * @brief Rough conversion from a pose difference -> [ds, dw].
+	 * @brief Approximate conversion from [dx, dy, dtheta] -> [ds, dw].
 	 *
-	 * The aim here is to provide a differential between the two poses that is
-	 * crudely approximated for non-holonomic motion (ds - linear translation, dw -
-	 * angular rotation).
+	 * The aim here is to provide a differential between two poses
+	 * crudely approximated for non-holonomic motion by ds (linear translation)
+	 * and dw (angular rotation).
 	 *
-	 * Moving in this direction provides a non-unique solution (reducing from
-	 * 3 dof to 2 dof). If the update period is very small, this limit does,
-	 * however, approach a unique solution. Consequently, so long as this
-	 * is small, the following is a reasonably simple, lightweight method.
+	 * For any finite difference, this is in approximate, but one that
+	 * approaches truth as the limit goes to zero. Consequently, so long
+	 * as the step is small, the following is a reasonably simple, lightweight
+	 * method.
 	 *
 	 * The ds is simply the scalar distance between two poses, given a sign
 	 * for the direction it is pointing in (relative to the robot facing). Alternatively
@@ -150,7 +163,7 @@ public:
 	 * @param b : final pose
 	 * @return Vector2d : the differential [ds, dw].
 	 */
-	static ecl::linear_algebra::Vector2d PartialInverse(
+	static ecl::linear_algebra::Vector2d PoseToBaseDifferential(
 	    const ecl::linear_algebra::Vector3d &a,
 	    const ecl::linear_algebra::Vector3d &b
 	);
