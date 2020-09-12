@@ -33,6 +33,7 @@
 #include "geometry/homogeneous_point.hpp"
 #include "geometry/pascals_triangle.hpp"
 #include "geometry/polynomial.hpp"
+#include "geometry/pose2d.hpp"
 #include "geometry/smooth_linear_spline.hpp"
 #include "geometry/spline_function.hpp"
 #include "geometry/tension_function.hpp"
