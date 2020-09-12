@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package format="2">
   <name>ecl_sigslots</name>
-  <version>1.1.0</version>
+  <version>1.2.0</version>
   <description>
      Provides a signal/slot mechanism (in the same vein as qt sigslots,
      boost::signals etc for intra-process communication. These include

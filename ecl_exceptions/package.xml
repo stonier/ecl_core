@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package format="2">
   <name>ecl_exceptions</name>
-  <version>1.1.0</version>
+  <version>1.2.0</version>
   <description>
      Template based exceptions - these are simple and practical
      and avoid the proliferation of exception types. Although not
