@@ -11,7 +11,10 @@ project(ecl_mobile_robot)
 
 # Turn -isystem off. Actually like to see warnings from underlying packages
 # and regardless, have run into trouble because of the ordering it induces.
-set(CMAKE_NO_SYSTEM_FROM_IMPORTED TRUE)
+
+# Getting some confounding variadic warnings from Sophus, so turn isystem
+# back on so this build hides those warnings.
+# set(CMAKE_NO_SYSTEM_FROM_IMPORTED TRUE)
 
 find_package(ament_cmake_ros REQUIRED)
 find_package(ecl_build REQUIRED)
