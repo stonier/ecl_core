@@ -44,7 +44,10 @@ namespace concepts {
   template <class Model>
   void CONCEPT_CHECK_FAILED()
   {
+      #pragma GCC diagnostic push
+      #pragma GCC diagnostic ignored "-Wnonnull"
       ((Model*)0)->~Model();
+      #pragma GCC diagnostic pop
   }
 
   /**

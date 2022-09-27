@@ -76,7 +76,8 @@ class CharStringBuffer : public ConverterBase {
          **/
         CharStringBuffer(int buffer_size = 250) : delete_buffer(true) {
            	buffer_begin = new (std::nothrow) char[buffer_size];
-        	buffer_end = buffer_begin + (buffer_size-1);
+            *(buffer_begin + buffer_size - 1) = '\0';
+            buffer_end = buffer_begin + buffer_size - 1;
            	if ( buffer_begin == NULL ) {
            		ecl_debug_throw(ecl::StandardException(LOC,ecl::MemoryError,"Failed to allocate memory for the char string buffer."));
            		error_handler = ecl::MemoryError;
@@ -114,7 +115,7 @@ class CharStringBuffer : public ConverterBase {
 template <typename Number>
 char* convertUnsignedIntegral(Number number, char* buffer_begin, char* buffer_end)
 {
-    *buffer_end = 0; // Set to the null terminator
+    *(buffer_end) = '\0'; // Set to the null terminator
     Number lsd;
     char* str_ptr = buffer_end;
 

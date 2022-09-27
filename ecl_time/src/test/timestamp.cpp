@@ -217,7 +217,7 @@ TEST(TimeStampTests,negatives) {
   double_representations.push_back(t);
   if ( verbose ) {
     std::cout << "Operator -=\n  ";
-    for (const double& d : double_representations) {
+    for (const float& d : double_representations) {
       std::cout << d << " ";
     }
     std::cout << std::endl;
