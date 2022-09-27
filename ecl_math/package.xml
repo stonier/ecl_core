@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package format="2">
   <name>ecl_math</name>
-  <version>1.2.0</version>
+  <version>1.2.1</version>
   <description>
     This package provides simple support to cmath, filling in holes
     or redefining in a c++ formulation where desirable.

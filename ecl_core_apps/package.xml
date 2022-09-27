@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package format="2">
   <name>ecl_core_apps</name>
-  <version>1.2.0</version>
+  <version>1.2.1</version>
   <description>
      This includes a suite of programs demo'ing various aspects of the
      ecl_core. It also includes various benchmarking and utility programs for

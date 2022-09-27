@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package format="2">
   <name>ecl_geometry</name>
-  <version>1.2.0</version>
+  <version>1.2.1</version>
   <description>
      Any tools relating to mathematical geometry.
      Primarily featuring polynomials and interpolations.
