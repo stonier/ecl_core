@@ -64,7 +64,7 @@ public:
 		hex(hex_format_reqd),
 		port(port_number),
 		new_line(true)
-	{}
+	{ (void) port; }
 
 	void loop() {
 
