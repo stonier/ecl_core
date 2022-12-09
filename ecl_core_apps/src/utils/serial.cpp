@@ -65,7 +65,7 @@ public:
 		display_timestamps(timestamps),
 		serial(serial_device),
 		thread(&Writer::run,*this)
-		{}
+		{ (void) current_time; }
 	void wait() { thread.join(); }
 
 private:
@@ -113,7 +113,7 @@ public:
 		format(6,RightAlign,Dec),
 		hex_format(-1,NoAlign,Hex),
 		thread(&Reader::run,*this)
-		{}
+		{ (void) current_time; }
 
 	void wait() { thread.join(); }
 

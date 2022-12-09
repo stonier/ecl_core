@@ -73,7 +73,7 @@ public:
  * @return OutputStream : return the output stream as is.
  **/
 template <typename OutputStream>
-OutputStream& operator << (OutputStream& ostream, const Void void_object) { return ostream; }
+OutputStream& operator << (OutputStream& ostream, const Void void_object) { (void) void_object; return ostream; }
 
 } // namespace ecl
 

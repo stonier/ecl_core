@@ -138,6 +138,8 @@ public:
 		no_written = input_output_char_device.write('\n');
 		no_written = input_output_char_device.write(write_buffer,5);
 		input_output_char_device.flush();
+		(void) no_written;
+		(void) no_read;
 	}
 private:
 	// Putting instantiations here actually saves instantiation (which can cause a
@@ -184,6 +186,8 @@ public:
 		no_read = input_byte_device.read(buffer,10);
 		no_read = input_byte_device.read(usc);
 		no_read = input_byte_device.read(usbuffer,10);
+		(void) result;
+		(void) no_read;
 	}
 
 private:
@@ -233,6 +237,8 @@ public:
 		no_written = output_byte_device.write(write_buffer,5);
 		no_written = output_byte_device.write(us_write_buffer,5);
 		output_byte_device.flush();
+		(void) no_written;
+		(void) result;
 	}
 
 private:
@@ -299,6 +305,9 @@ public:
 		no_written = input_output_byte_device.write(write_buffer,5);
 		no_written = input_output_byte_device.write(us_write_buffer,5);
 		input_output_byte_device.flush();
+		(void) no_read;
+		(void) no_written;
+		(void) result;
 	}
 private:
 	// Putting instantiations here actually saves instantiation (which can cause a

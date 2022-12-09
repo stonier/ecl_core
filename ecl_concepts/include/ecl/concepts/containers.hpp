@@ -290,6 +290,7 @@ public:
 		n = container.size();
 		// If not a char, this results in a private call -> compile time error!
 		concepts::SignedByteTestCheck<element_type> char_test;
+		(void) n;
 	}
 
 private:
