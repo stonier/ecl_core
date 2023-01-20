@@ -44,6 +44,16 @@ double TensionSpline::derivative(const double &x) const {
     return functions[index].derivative(tension,x);
 }
 
+  std::map<int, double> TensionSpline::derivative(const int &last_index, const double &x) const {
+    ecl_assert_throw( ( ( x >= discretised_domain.front() ) && ( x <= discretised_domain.back() ) ), StandardException(LOC,OutOfRangeError) );
+    int index = last_index;
+    while ( x > discretised_domain[index+1] ) {
+      ++index;
+    }
+    std::map<int, double> m = {{index, functions[index].derivative(tension,x)}};
+    return m;
+  }
+
 double TensionSpline::dderivative(const double &x) const {
     ecl_assert_throw( ( ( x >= discretised_domain.front() ) && ( x <= discretised_domain.back() ) ), StandardException(LOC,OutOfRangeError) );
     int index = 0;
@@ -51,6 +61,16 @@ double TensionSpline::dderivative(const double &x) const {
         ++index;
     }
     return functions[index].dderivative(tension,x);
+}
+
+std::map<int, double> TensionSpline::dderivative(const int &last_index, const double &x) const {
+  ecl_assert_throw( ( ( x >= discretised_domain.front() ) && ( x <= discretised_domain.back() ) ), StandardException(LOC,OutOfRangeError) );
+  int index = last_index;
+  while ( x > discretised_domain[index+1] ) {
+    ++index;
+  }
+  std::map<int, double> m = {{index, functions[index].dderivative(tension, x)}};
+  return m;
 }
 
 } // namespace ecl
