@@ -35,6 +35,16 @@ double TensionSpline::operator()(const double &x) const {
     return functions[index](tension,x);
 }
 
+std::map<int, double> TensionSpline::operator()(const int &last_index, const double &x) const {
+    ecl_assert_throw( ( ( x >= discretised_domain.front() ) && ( x <= discretised_domain.back() ) ), StandardException(LOC,OutOfRangeError) );
+    int index = last_index;
+    while ( x > discretised_domain[index+1] ) {
+        ++index;
+    }
+    std::map<int, double> m = {{index, functions[index](tension,x)}};
+    return m;
+}
+
 double TensionSpline::derivative(const double &x) const {
     ecl_assert_throw( ( ( x >= discretised_domain.front() ) && ( x <= discretised_domain.back() ) ), StandardException(LOC,OutOfRangeError) );
     int index = 0;
