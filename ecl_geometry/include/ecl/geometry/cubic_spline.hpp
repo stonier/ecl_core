@@ -177,6 +177,7 @@ class ECL_PUBLIC CubicSpline : public BluePrintFactory< CubicSpline > {
          * @exception : StandardException : throws if input x value is outside the spline range [debug mode only].
          */
         double operator()(const double &x) const;
+        std::map<int, double> operator()(int last_index, const double &x);
         /**
          * @brief Spline derivative.
          *
