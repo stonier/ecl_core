@@ -25,6 +25,7 @@
 #include <ecl/exceptions/standard_exception.hpp>
 #include <ecl/utilities/blueprints.hpp>
 #include "macros.hpp"
+#include <map>
 
 /*****************************************************************************
 ** Namespaces
@@ -156,6 +157,8 @@ class ecl_geometry_PUBLIC TensionSpline : public BluePrintFactory< TensionSpline
          * @exception : StandardException : throws if x is outside the spline range [debug mode only].
          */
         double operator()(const double &x) const;
+
+        std::map<int, double> operator()(const int &last_index, const double &x) const;
         /**
          * @brief Spline derivative.
          *
@@ -167,6 +170,8 @@ class ecl_geometry_PUBLIC TensionSpline : public BluePrintFactory< TensionSpline
          * @exception : StandardException : throws if x is outside the spline range [debug mode only].
          */
         double derivative(const double &x) const;
+
+        std::map<int, double> derivative(const int &last_index, const double &x) const;
         /**
          * @brief Spline second derivative.
          *
@@ -176,6 +181,8 @@ class ecl_geometry_PUBLIC TensionSpline : public BluePrintFactory< TensionSpline
          * @exception : StandardException : throws if x is outside the spline range [debug mode only].
          */
         double dderivative(const double &x) const;
+
+        std::map<int, double> dderivative(const int &last_index, const double &x) const;
 
         /**
          * @brief The discretised domain for this spline.

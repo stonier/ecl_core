@@ -122,6 +122,21 @@ double SmoothLinearSpline::operator()(const double &x) const {
     }
 }
 
+std::map<int, double> SmoothLinearSpline::operator()(const int &last_index, const double &x) const {
+    ecl_assert_throw( ( ( x >= discretised_domain.front() ) && ( x <= discretised_domain.back() ) ), StandardException(LOC,OutOfRangeError) );
+    int index = last_index;
+    while ( x > discretised_domain[index+1] ) {
+        ++index;
+    }
+    if ( index % 2 == 0 ) { // linear
+		std::map<int,double> m = {{index,segments[index/2](x)}};
+    	return m;
+    } else { // quintic
+		std::map<int,double> m = {{index, corners[(index-1)/2](x)}};
+    	return m;
+    }
+}
+
 double SmoothLinearSpline::derivative(const double &x) const {
     ecl_assert_throw( ( ( x >= discretised_domain.front() ) && ( x <= discretised_domain.back() ) ), StandardException(LOC,OutOfRangeError) );
     int index = 0;
@@ -135,6 +150,23 @@ double SmoothLinearSpline::derivative(const double &x) const {
     }
 }
 
+std::map<int, double> SmoothLinearSpline::derivative(const int &last_index, const double &x) const {
+  ecl_assert_throw( ( ( x >= discretised_domain.front() ) && ( x <= discretised_domain.back() ) ), StandardException(LOC,OutOfRangeError) );
+  int index = last_index;
+  while ( x > discretised_domain[index+1] ) {
+    ++index;
+  }
+  std::map<int, double> m;
+  if ( index % 2 == 0 )
+  { // linear
+    std::map<int,double> m = {{index,segments[index/2].derivative(x)}};
+	return m;
+  } else { // quintic
+	std::map<int,double> m = {{index,corners[(index-1)/2].derivative(x)}};
+	return m;
+  }
+}
+
 double SmoothLinearSpline::dderivative(const double &x) const {
     ecl_assert_throw( ( ( x >= discretised_domain.front() ) && ( x <= discretised_domain.back() ) ), StandardException(LOC,OutOfRangeError) );
     int index = 0;
@@ -146,6 +178,23 @@ double SmoothLinearSpline::dderivative(const double &x) const {
     } else { // quintic
     	return corners[(index-1)/2].dderivative(x);
     }
+}
+
+std::map<int, double> SmoothLinearSpline::dderivative(const int &last_index, const double &x) const {
+  ecl_assert_throw( ( ( x >= discretised_domain.front() ) && ( x <= discretised_domain.back() ) ), StandardException(LOC,OutOfRangeError) );
+  int index = last_index;
+  while ( x > discretised_domain[index+1] ) {
+    ++index;
+  }
+  std::map<int, double> m;
+  if ( index % 2 == 0 )
+  { // linear
+    std::map<int,double> m = {{index,segments[index/2].dderivative(x)}};
+	return m;
+  } else { // quintic
+	std::map<int,double> m = {{index,corners[(index-1)/2].dderivative(x)}};
+	return m;
+  }
 }
 
 } // namespace ecl

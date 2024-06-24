@@ -88,6 +88,8 @@ public:
 	 * @exception : StandardException : throws if x is outside the spline range [debug mode only].
 	 */
 	double operator()(const double &x) const;
+	std::map<int, double> operator()(const int &last_index,const double &x) const;
+
 	/**
 	 * @brief Spline derivative.
 	 *
@@ -99,6 +101,8 @@ public:
 	 * @exception : StandardException : throws if x is outside the spline range [debug mode only].
 	 */
 	double derivative(const double &x) const;
+	std::map<int, double> derivative(const int &last_index, const double &x) const;
+
 	/**
 	 * @brief Spline second derivative.
 	 *
@@ -108,6 +112,7 @@ public:
 	 * @exception : StandardException : throws if x is outside the spline range [debug mode only].
 	 */
 	double dderivative(const double &x) const;
+	std::map<int, double> dderivative(const int &last_index, const double &x) const;
 
 	/**
 	 * @brief The discretised domain for this spline.
@@ -150,7 +155,7 @@ public:
 	 * @brief Streaming output insertion operator for smoothed linear splines.
 	 *
 	 * Streaming output insertion operator for smoothed linear splines. This
-	 * simply lists the spline segments and corners (linear functions and
+	 * simply lists the spline segments and corners (linear functions andTensionSpline
 	 * quintic polynomials) in algebraic form.
 	 *
 	 * @tparam OutputStream : the type of stream being used.
