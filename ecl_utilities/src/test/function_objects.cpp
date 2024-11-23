@@ -144,7 +144,8 @@ TEST(FunctionObjects,boundMemberFunctions) {
     bmufo1();
     EXPECT_EQ(0,a.result);
 
-    BoundUnaryMemberFunction<MemberFunctions,const int&,void> bmbfo1(&MemberFunctions::f, a, 3);
+    int j = 3;
+    BoundUnaryMemberFunction<MemberFunctions,const int&,void> bmbfo1(&MemberFunctions::f, a, j);
     bmbfo1();
     EXPECT_EQ(1,a.result);
 }
