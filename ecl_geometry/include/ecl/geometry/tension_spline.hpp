@@ -67,7 +67,7 @@ public:
 	 * @param y_set : set of values on the range axis.
 	 * @param tau : the tension parameter.
 	 * @return C2TensionSpline : the resulting blueprint.
-	 * @exception : StandardException : throws if configuration arguments are not valid [debug mode only].
+	 * @exception StandardException : throws if configuration arguments are not valid [debug mode only].
 	 *
 	 * @sa @ref ecl::blueprints::C2TensionSpline "C2TensionSpline"
 	 */
@@ -153,7 +153,7 @@ class ecl_geometry_PUBLIC TensionSpline : public BluePrintFactory< TensionSpline
          *
          * @param x : the domain value.
          * @return double : the spline function's value.
-         * @exception : StandardException : throws if x is outside the spline range [debug mode only].
+         * @exception StandardException : throws if x is outside the spline range [debug mode only].
          */
         double operator()(const double &x) const;
         /**
@@ -164,7 +164,7 @@ class ecl_geometry_PUBLIC TensionSpline : public BluePrintFactory< TensionSpline
          * @param x : the domain value.
          *
          * @return double : the derivative of the spline.
-         * @exception : StandardException : throws if x is outside the spline range [debug mode only].
+         * @exception StandardException : throws if x is outside the spline range [debug mode only].
          */
         double derivative(const double &x) const;
         /**
@@ -173,7 +173,7 @@ class ecl_geometry_PUBLIC TensionSpline : public BluePrintFactory< TensionSpline
          * Extract the second derivative of the spline.
          * @param x : the domain value.
          * @return double : the second derivative of the spline.
-         * @exception : StandardException : throws if x is outside the spline range [debug mode only].
+         * @exception StandardException : throws if x is outside the spline range [debug mode only].
          */
         double dderivative(const double &x) const;
 
@@ -274,7 +274,7 @@ class ecl_geometry_PUBLIC C2TensionSpline : public ecl::BluePrint<C2TensionSplin
          * @param x_set : set of data on the domain axis.
          * @param y_set : set of values on the range axis.
          * @param tau : the tension parameter.
-         * @exception : StandardException : throws if configuration arguments are not valid [debug mode only].
+         * @exception StandardException : throws if configuration arguments are not valid [debug mode only].
          */
         C2TensionSpline(const ecl::Array<double>& x_set, const ecl::Array<double>& y_set, const double &tau);
 

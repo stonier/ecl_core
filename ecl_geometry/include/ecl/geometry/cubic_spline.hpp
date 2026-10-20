@@ -174,7 +174,7 @@ class ECL_PUBLIC CubicSpline : public BluePrintFactory< CubicSpline > {
          * Extract the spline function's value at the indicated location.
          * @param x : the domain value.
          * @return double : the spline function's value.
-         * @exception : StandardException : throws if input x value is outside the spline range [debug mode only].
+         * @exception StandardException : throws if input x value is outside the spline range [debug mode only].
          */
         double operator()(const double &x) const;
         /**
@@ -183,7 +183,7 @@ class ECL_PUBLIC CubicSpline : public BluePrintFactory< CubicSpline > {
          * Extract the derivative of the spline at the indicated value.
          * @param x : the domain value.
          * @return double : the derivative of the spline.
-         * @exception : StandardException : throws if input x value is outside the spline range [debug mode only].
+         * @exception StandardException : throws if input x value is outside the spline range [debug mode only].
          */
         double derivative(double x) const;
         /**
@@ -192,7 +192,7 @@ class ECL_PUBLIC CubicSpline : public BluePrintFactory< CubicSpline > {
          * Extract the second derivative of the spline.
          * @param x : the domain value.
          * @return double : the second derivative of the spline.
-         * @exception : StandardException : throws if input x value is outside the spline range [debug mode only].
+         * @exception StandardException : throws if input x value is outside the spline range [debug mode only].
          */
         double dderivative(double x) const;
 
@@ -296,7 +296,7 @@ class ECL_PUBLIC C2CubicSpline : public ecl::BluePrint<C2CubicSpline> {
          * @param y_set : set of values on the range axis.
          * @param ydot_0 : initial derivative value (boundary constraint).
          * @param ydot_f : final derivative value (boundary constraint).
-         * @exception : StandardException : throws if it failed to construct [debug mode only].
+         * @exception StandardException : throws if it failed to construct [debug mode only].
          */
         C2CubicSpline(const ecl::Array<double>& x_set, const ecl::Array<double>& y_set,
                                         const double ydot_0, const double ydot_f);
@@ -313,7 +313,7 @@ class ECL_PUBLIC C2CubicSpline : public ecl::BluePrint<C2CubicSpline> {
          *
          * @param x_set : set of data on the domain axis.
          * @param y_set : set of values on the range axis.
-         * @exception : StandardException : throws if it failed to construct [debug mode only].
+         * @exception StandardException : throws if it failed to construct [debug mode only].
          */
         C2CubicSpline(const ecl::Array<double>& x_set, const ecl::Array<double>& y_set);
 
@@ -383,7 +383,7 @@ class ECL_PUBLIC DerivativeHeuristicCubicSpline : public ecl::BluePrint<Derivati
          * @param ydot_0 : initial derivative value (boundary constraint).
          * @param ydot_f : final derivative value (boundary constraint).
          *
-         * @exception : StandardException : throws if it failed to construct [debug mode only].
+         * @exception StandardException : throws if it failed to construct [debug mode only].
          */
         DerivativeHeuristicCubicSpline(const ecl::Array<double>& x_set, const ecl::Array<double>& y_set,
                         const double ydot_0, const double ydot_f);

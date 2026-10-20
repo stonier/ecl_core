@@ -259,7 +259,7 @@ class ECL_PUBLIC Array : public blueprints::ArrayFactory<Type,Size> {
          * @param n : number of elements to include in the window.
          * @return Stencil<Array> : the generated stencil.
          *
-         * @exception : StandardException : throws if the indices provided are out of range [debug mode only].
+         * @exception StandardException : throws if the indices provided are out of range [debug mode only].
          */
         Stencil< Array<Type,Size> > stencil(const unsigned int& start_index, const unsigned int& n) {
         	ecl_assert_throw(start_index < Size, StandardException(LOC, OutOfRangeError, "Start index provided is larger than the underlying array size."));
@@ -273,7 +273,7 @@ class ECL_PUBLIC Array : public blueprints::ArrayFactory<Type,Size> {
          *
          * @return reference : a reference to the requested element.
          *
-         * @exception : StandardException : throws if range is requested element is out of range [debug mode only].
+         * @exception StandardException : throws if range is requested element is out of range [debug mode only].
          **/
         reference operator[](size_type i) {
             ecl_assert_throw( i<Size, StandardException(LOC,OutOfRangeError));
@@ -288,7 +288,7 @@ class ECL_PUBLIC Array : public blueprints::ArrayFactory<Type,Size> {
          *
          * @return const_reference : a constant reference to the requested element.
          *
-         * @exception : StandardException : throws if range is requested element is out of range [debug mode only].
+         * @exception StandardException : throws if range is requested element is out of range [debug mode only].
          **/
         const_reference operator[](size_type i) const {
             ecl_assert_throw( i<Size, StandardException(LOC,OutOfRangeError));
@@ -302,7 +302,7 @@ class ECL_PUBLIC Array : public blueprints::ArrayFactory<Type,Size> {
          * @param i : the index of the requested element.
          * @return reference : a reference to the requested element.
          *
-         * @exception : StandardException : throws if range is requested element is out of range.
+         * @exception StandardException : throws if range is requested element is out of range.
          */
         reference at(size_type i) {
             if ( i>=Size ) {
@@ -320,7 +320,7 @@ class ECL_PUBLIC Array : public blueprints::ArrayFactory<Type,Size> {
          * @param i : the index of the requested element.
          * @return const_reference : a const_reference to the requested element.
          *
-         * @exception : StandardException : throws if range is requested element is out of range.
+         * @exception StandardException : throws if range is requested element is out of range.
          */
         const_reference at(size_type i) const {
             if ( i>=Size ) {

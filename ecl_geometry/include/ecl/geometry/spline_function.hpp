@@ -105,7 +105,7 @@ class ECL_PUBLIC SplineFunction : public GenericSplineFunction {
          * @brief Access the value of the spline function at the specified value.
          * @param x : the point at which you wish to calculate the value for.
          * @return double : the value of the function at x.
-         * @exception : StandardException : throws if input x value is outside the domain [debug mode only].
+         * @exception StandardException : throws if input x value is outside the domain [debug mode only].
          */
         double operator()(const double &x) const {
             ecl_assert_throw( ( x >= time_domain[0] ) && x <= time_domain[1], StandardException(LOC,OutOfRangeError ) );
@@ -116,7 +116,7 @@ class ECL_PUBLIC SplineFunction : public GenericSplineFunction {
          * @brief Access the value of the spline function's derivative at the specified value.
          * @param x : the point at which you wish to calculate the value for.
          * @return double : the value of the derivative at x.
-         * @exception : StandardException : throws if input x value is outside the domain [debug mode only].
+         * @exception StandardException : throws if input x value is outside the domain [debug mode only].
          */
         double derivative(const double &x) const {
             ecl_assert_throw( ( x >= time_domain[0] ) && x <= time_domain[1], StandardException(LOC,OutOfRangeError ) );
@@ -127,7 +127,7 @@ class ECL_PUBLIC SplineFunction : public GenericSplineFunction {
          * @brief Access the value of the spline function's 2nd derivative at the specified value.
          * @param x : the point at which you wish to calculate the value for.
          * @return double : the value of the 2nd derivative at x.
-         * @exception : StandardException : throws if input x value is outside the domain [debug mode only].
+         * @exception StandardException : throws if input x value is outside the domain [debug mode only].
          */
         double dderivative(const double &x) const {
             ecl_assert_throw( ( x >= time_domain[0] ) && x <= time_domain[1], StandardException(LOC,OutOfRangeError ) );

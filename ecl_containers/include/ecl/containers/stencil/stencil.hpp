@@ -108,7 +108,7 @@ public:
    * @param begin_iter : start of the stencil window.
    * @param end_iter : end of the stencil window.
    *
-   * @exception : StandardException : throws if the indices provided are out of range [debug mode only].
+   * @exception StandardException : throws if the indices provided are out of range [debug mode only].
    */
   Stencil(Array& underlying_array, iterator begin_iter, iterator end_iter) :
   array(underlying_array),
@@ -133,7 +133,7 @@ public:
    * @param start_index : start of the stencil window.
    * @param n : number of elements to include in the window.
    *
-   * @exception : StandardException : throws if the indices provided are out of range [debug mode only].
+   * @exception StandardException : throws if the indices provided are out of range [debug mode only].
    */
   Stencil(Array& underlying_array, const unsigned int& start_index = 0, const unsigned int &n = 0) :
   array(underlying_array),
@@ -158,7 +158,7 @@ public:
    * @param n : number of elements to include in the window.
    * @return Stencil<Array> : the generated sub-stencil.
    *
-   * @exception : StandardException : throws if the indices provided are out of range [debug mode only].
+   * @exception StandardException : throws if the indices provided are out of range [debug mode only].
    */
   Stencil<Array> stencil(const unsigned int& start_index, const unsigned int& n) const
   {
@@ -176,7 +176,7 @@ public:
    * @param start_index : start of the stencil window.
    * @param n : number of elements to include in the window.
    *
-   * @exception : StandardException : throws if the indices provided are out of range [debug mode only].
+   * @exception StandardException : throws if the indices provided are out of range [debug mode only].
    */
   void resettle(const unsigned int& start_index, const unsigned int& n)
   {
@@ -235,7 +235,7 @@ public:
    * @param s
    * @return Stencil<Array> : a handle to this stencil
    *
-   * @exception : StandardException : if copying from another stencil/array, throws if size exceeded [debug mode only].
+   * @exception StandardException : if copying from another stencil/array, throws if size exceeded [debug mode only].
    */
   Stencil<Array>& operator=(const Stencil<Array> &s)
   {
@@ -261,7 +261,7 @@ public:
   /**
    * Generates a pointer (iterator) pointing to the start of the stencil.
    * @return iterator : points to the beginning of the stencil.
-   * @exception : StandardException : throws if the underlying array changed size and the stencil is now out of range [debug mode only].
+   * @exception StandardException : throws if the underlying array changed size and the stencil is now out of range [debug mode only].
    */
   iterator begin()
   {
@@ -271,7 +271,7 @@ public:
   /**
    * Generates a const pointer (iterator) pointing to the start of the array.
    * @return const_iterator : constant pointer (iterator) pointing to the end of the array.
-   * @exception : StandardException : throws if the underlying array changed size and the stencil is now out of range [debug mode only].
+   * @exception StandardException : throws if the underlying array changed size and the stencil is now out of range [debug mode only].
    */
   const_iterator begin() const
   {
@@ -281,7 +281,7 @@ public:
   /**
    * Generates an pointer (iterator) pointing to the end of the array.
    * @return iterator : points to the end of the array.
-   * @exception : StandardException : throws if the underlying array changed size and the stencil is now out of range [debug mode only].
+   * @exception StandardException : throws if the underlying array changed size and the stencil is now out of range [debug mode only].
    */
   iterator end()
   {
@@ -291,7 +291,7 @@ public:
   /**
    * Generates a const pointer (iterator) pointing to the end of the array.
    * @return const_iterator : constant pointer (iterator) pointing to the end of the array.
-   * @exception : StandardException : throws if the underlying array changed size and the stencil is now out of range [debug mode only].
+   * @exception StandardException : throws if the underlying array changed size and the stencil is now out of range [debug mode only].
    */
   const_iterator end() const
   {
@@ -301,7 +301,7 @@ public:
   /**
    * Generates a reverse iterator pointing to the end of the array.
    * @return reverse_iterator : points to the end of the array.
-   * @exception : StandardException : throws if the underlying array changed size and the stencil is now out of range [debug mode only].
+   * @exception StandardException : throws if the underlying array changed size and the stencil is now out of range [debug mode only].
    */
   reverse_iterator rbegin()
   {
@@ -311,7 +311,7 @@ public:
   /**
    * Generates a constant reverse iterator pointing to the end of the array.
    * @return const_reverse_iterator : constant reverse iterator pointing to the end of the array.
-   * @exception : StandardException : throws if the underlying array changed size and the stencil is now out of range [debug mode only].
+   * @exception StandardException : throws if the underlying array changed size and the stencil is now out of range [debug mode only].
    */
   const_reverse_iterator rbegin() const
   {
@@ -321,7 +321,7 @@ public:
   /**
    * Generates a reverse iterator pointing to the beginning of the array.
    * @return reverse_iterator : points to the beginning of the array.
-   * @exception : StandardException : throws if the underlying array changed size and the stencil is now out of range [debug mode only].
+   * @exception StandardException : throws if the underlying array changed size and the stencil is now out of range [debug mode only].
    */
   reverse_iterator rend()
   {
@@ -331,7 +331,7 @@ public:
   /**
    * Generates a constant reverse iterator pointing to the beginning of the array.
    * @return const_reverse_iterator : constant reverse iterator pointing to the beginning of the array.
-   * @exception : StandardException : throws if the underlying array changed size and the stencil is now out of range [debug mode only].
+   * @exception StandardException : throws if the underlying array changed size and the stencil is now out of range [debug mode only].
    */
   const_reverse_iterator rend() const
   {
@@ -345,7 +345,7 @@ public:
   /**
    * Generates an reference to the first element in the array.
    * @return reference : reference to the first element in the array.
-   * @exception : StandardException : throws if the underlying array changed size and the stencil is now out of range [debug mode only].
+   * @exception StandardException : throws if the underlying array changed size and the stencil is now out of range [debug mode only].
    */
   reference front()
   {
@@ -355,7 +355,7 @@ public:
   /**
    * Generates a constant reference to the first element in the array (cannot change the value).
    * @return const_reference : const_reference to the first element in the array.
-   * @exception : StandardException : throws if the underlying array changed size and the stencil is now out of range [debug mode only].
+   * @exception StandardException : throws if the underlying array changed size and the stencil is now out of range [debug mode only].
    */
   const_reference front() const
   {
@@ -365,7 +365,7 @@ public:
   /**
    * Generates an reference to the last element in the array.
    * @return reference : reference to the last element in the array.
-   * @exception : StandardException : throws if the underlying array changed size and the stencil is now out of range [debug mode only].
+   * @exception StandardException : throws if the underlying array changed size and the stencil is now out of range [debug mode only].
    */
   reference back()
   {
@@ -375,7 +375,7 @@ public:
   /**
    * Generates a constant reference to the last element in the array (cannot change the value).
    * @return const_reference : const_reference to the last element in the array.
-   * @exception : StandardException : throws if the underlying array changed size and the stencil is now out of range [debug mode only].
+   * @exception StandardException : throws if the underlying array changed size and the stencil is now out of range [debug mode only].
    */
   const_reference back() const
   {
@@ -393,7 +393,7 @@ public:
    *
    * @return reference : a reference to the requested element.
    *
-   * @exception : StandardException : throws if range is requested element is out of range [debug mode only].
+   * @exception StandardException : throws if range is requested element is out of range [debug mode only].
    **/
   reference operator[](size_type i)
   {
@@ -410,7 +410,7 @@ public:
    *
    * @return const_reference : a constant reference to the requested element.
    *
-   * @exception : StandardException : throws if range is requested element is out of range [debug mode only].
+   * @exception StandardException : throws if range is requested element is out of range [debug mode only].
    **/
   const_reference operator[](size_type i) const
   {
@@ -426,7 +426,7 @@ public:
    * @param i : the index of the requested element.
    * @return reference : a reference to the requested element.
    *
-   * @exception : StandardException : throws if range is requested element is out of range.
+   * @exception StandardException : throws if range is requested element is out of range.
    */
   reference at(size_type i)
   {
@@ -450,7 +450,7 @@ public:
    * @param i : the index of the requested element.
    * @return const_reference : a const_reference to the requested element.
    *
-   * @exception : StandardException : throws if range is requested element is out of range.
+   * @exception StandardException : throws if range is requested element is out of range.
    */
   const_reference at(size_type i) const
   {

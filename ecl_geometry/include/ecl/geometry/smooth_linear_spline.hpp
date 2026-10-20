@@ -68,7 +68,7 @@ public:
      * @param a_max : the maximum bound (absolute) on the acceleration.
      * @param x_data : set of data on the domain axis.
      * @param y_data : set of values on the range axis.
-     * @exception : DataException : throws if the spline could not be constructed because of broken a_max constraint.
+     * @exception DataException : throws if the spline could not be constructed because of broken a_max constraint.
      *
      * The int data for the exception represents the element in the set which could not make
      * a corner without breaking the acceleration constraint. Note that if you have a data set of size 5 (i.e.
@@ -85,7 +85,7 @@ public:
 	 *
 	 * @param x : the domain value.
 	 * @return double : the spline function's value.
-	 * @exception : StandardException : throws if x is outside the spline range [debug mode only].
+	 * @exception StandardException : throws if x is outside the spline range [debug mode only].
 	 */
 	double operator()(const double &x) const;
 	/**
@@ -96,7 +96,7 @@ public:
 	 * @param x : the domain value.
 	 *
 	 * @return double : the derivative of the spline.
-	 * @exception : StandardException : throws if x is outside the spline range [debug mode only].
+	 * @exception StandardException : throws if x is outside the spline range [debug mode only].
 	 */
 	double derivative(const double &x) const;
 	/**
@@ -105,7 +105,7 @@ public:
 	 * Extract the second derivative of the spline.
 	 * @param x : the domain value.
 	 * @return double : the second derivative of the spline.
-	 * @exception : StandardException : throws if x is outside the spline range [debug mode only].
+	 * @exception StandardException : throws if x is outside the spline range [debug mode only].
 	 */
 	double dderivative(const double &x) const;
 
@@ -131,7 +131,7 @@ public:
      * @param y_data : set of values on the range axis.
      * @param a_max : the maximum bound (absolute) on the acceleration.
      *
-     * @exception : DataException : throws if the spline could not be constructed, data is the segment # that failed.
+     * @exception DataException : throws if the spline could not be constructed, data is the segment # that failed.
 	 */
 	static SmoothLinearSpline Interpolation(const Array<double>& x_data, const Array<double>& y_data, double a_max)
 	{
