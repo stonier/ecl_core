@@ -1096,7 +1096,7 @@ public:
 	 * @param g : linear function.
 	 * @return CartesionPoint2d : the intersection point.
 	 *
-	 * @exception : StandardException : throws if functions are collinear.
+	 * @exception StandardException : throws if functions are collinear.
 	 **/
 	ECL_PUBLIC CartesianPoint2d operator()(const LinearFunction& f, const LinearFunction& g);
 

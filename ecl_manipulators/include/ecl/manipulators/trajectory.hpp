@@ -152,7 +152,7 @@ class Trajectory<JointAngles> {
          * and just complicate the interface, but keep it in mind when programming
          * for trajectories.
          *
-         * @exception : StandardException : throws if waypoint dimension doesn't match.
+         * @exception StandardException : throws if waypoint dimension doesn't match.
          */
         void append(const WayPoint<JointAngles> &waypoint) {
         	ecl_assert_throw(dimension() == waypoint.dimension(), StandardException(LOC, InvalidInputError, "Mismatched trajectory and waypoint dimensions.") );
@@ -190,7 +190,7 @@ class Trajectory<JointAngles> {
          * @param index : index of the waypoint to get a handle to.
          * @return WayPoint : the waypoint, if index was correct.
          *
-         * @exception : StandardException : throws if index is outside the number of stored waypoints [debug mode only].
+         * @exception StandardException : throws if index is outside the number of stored waypoints [debug mode only].
          */
         const WayPoint<JointAngles>& waypoint(const unsigned int &index) {
         	ecl_assert_throw(index < waypoints.size(), StandardException(LOC, OutOfRangeError, "The index used exceeds the number of waypoints stored in the trajectory."));
@@ -247,7 +247,7 @@ class Trajectory<JointAngles> {
          * @param joint : specifies the joint you are interested in.
          * @param time : the time at which you wish to calculate the value for.
          * @return double : the value of the specified joint trajectory at x.
-         * @exception : StandardException : throws if input time value is outside the domain [debug mode only].
+         * @exception StandardException : throws if input time value is outside the domain [debug mode only].
          */
         double operator ()(const unsigned int& joint, const double& time );
         /**
@@ -255,7 +255,7 @@ class Trajectory<JointAngles> {
          * @param joint : specifies the joint you are interested in.
          * @param time : the time at which you wish to calculate the value for.
          * @return double : the derivative of the specified joint trajectory at x.
-         * @exception : StandardException : throws if input time value is outside the domain [debug mode only].
+         * @exception StandardException : throws if input time value is outside the domain [debug mode only].
          */
         double  derivative(const unsigned int& joint, const double& time );
         /**
@@ -263,7 +263,7 @@ class Trajectory<JointAngles> {
          * @param joint : specifies the joint you are interested in.
          * @param time : the time at which you wish to calculate the value for.
          * @return double : the 2nd derivative of the specified joint trajectory at x.
-         * @exception : StandardException : throws if input time value is outside the domain [debug mode only].
+         * @exception StandardException : throws if input time value is outside the domain [debug mode only].
          */
         double dderivative(const unsigned int& joint, const double& time );
 

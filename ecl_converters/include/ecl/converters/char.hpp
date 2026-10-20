@@ -52,7 +52,7 @@ public:
 	 * @param input : the input digit to be converted.
 	 * @return char : the character representation of the digit.
 	 *
-	 * @exception : throws if input is not a char digit ['0'-'9'] (debug mode only).
+	 * @exception StandardException : throws if input is not a char digit ['0'-'9'] (debug mode only).
 	 **/
 	char operator()(const unsigned int &input) {
 		if ( input > 9 ) {
@@ -82,7 +82,7 @@ public:
 	 * @param input : the input digit to be converted.
 	 * @return char : the character representation of the digit.
 	 *
-	 * @exception : throws if input is not a char digit ['0'-'9'] (debug mode only).
+	 * @exception StandardException : throws if input is not a char digit ['0'-'9'] (debug mode only).
 	 **/
 	char operator()(const int &input) {
 		if ( ( input < 0 ) || (input > 9) ) {

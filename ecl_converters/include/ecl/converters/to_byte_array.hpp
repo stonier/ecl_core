@@ -73,7 +73,7 @@ public:
    * @param byte_array : the underlying array storage, it must match the integral type size.
    * @param input : the integral to be converted.
    * @return ByteArray& : convenience handle to the byte array.
-   * @exception : throws if the byte array storage size does not match the integral byte size [debug mode only].
+   * @exception StandardException : throws if the byte array storage size does not match the integral byte size [debug mode only].
    */
   const ByteArray& operator()(ByteArray &byte_array, const Integral &input)
   {
